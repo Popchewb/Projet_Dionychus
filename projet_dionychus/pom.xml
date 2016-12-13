@@ -1,0 +1,167 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>fr.afcepf.al29</groupId>
+  <artifactId>Projet_Dionychus</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  
+  	<properties>
+   		 <org.springframework.version>4.3.2.RELEASE</org.springframework.version>
+   		 <spring.version>3.1.0.RELEASE</spring.version>    		  		
+	</properties>
+  
+  
+  
+<dependencies>
+  
+  <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+<dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <version>7.0</version>
+    <scope>provided</scope>
+</dependency>
+  
+  
+	 	<dependency>
+	    	<groupId>org.dbunit</groupId>
+	    	<artifactId>dbunit</artifactId>
+	    	<version>2.5.0</version>
+		</dependency>
+	 
+  
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId> 
+			<!-- <artifactId>mockito-all</artifactId> -->
+			<version>1.10.19</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.3</version>
+			<scope>compile</scope>
+		</dependency>
+			
+		<dependency>
+       	 <groupId>org.slf4j</groupId>
+       	 <artifactId>slf4j-api</artifactId>
+      	  <scope>compile</scope>
+      	  <version>1.7.7</version>
+    	</dependency>
+    	
+    	<dependency>
+    		<groupId>ch.qos.logback</groupId>
+    		<artifactId>logback-classic</artifactId>
+    		<version>1.1.3</version>
+		</dependency>
+		
+    	<dependency>
+    		<groupId>net.sf.dozer</groupId>
+   			 <artifactId>dozer</artifactId>
+   			 <version>5.5.1</version>
+   			 <scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>   
+            <version>1.1.0.Final</version>
+             <scope>compile</scope>                     
+        </dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>  
+             <groupId>javax.inject</groupId>  
+             <artifactId>javax.inject</artifactId>  
+             <version>1</version>  
+        </dependency>
+		
+		<dependency>
+           <groupId>org.aspectj</groupId>
+           <artifactId>aspectjrt</artifactId><!--  pour annotations @Before , @Around , .... -->
+           <version>1.8.2</version>
+           <scope>compile</scope>
+       </dependency> 
+       
+        <dependency>
+           <groupId>org.aspectj</groupId>
+           <artifactId>aspectjweaver</artifactId> 
+           <version>1.8.2</version>
+           <scope>runtime</scope>
+       </dependency>
+       
+		<!-- <artifactId>spring-tx</artifactId> et 
+		     <artifactId>spring-jdbc</artifactId> sont indirectement lies a spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.39</version>
+		</dependency>
+		
+		<dependency> 
+		    <groupId>org.springframework</groupId> 
+		    <artifactId>spring-webmvc</artifactId> 
+		    <version>${org.springframework.version}</version> 
+		</dependency> 
+		
+</dependencies>
+	
+<build>
+	
+	<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- default maven-compiler-plugin version -->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-surefire-plugin</artifactId>    
+	          <configuration>
+	                <skip>false</skip> <!--  equivalent a mvn -Dmaven.test.skip=true -->
+	          </configuration>    
+	        </plugin>
+      </plugins>
+
+      <finalName>${project.artifactId}</finalName>
+</build>
+  
+  
+  
+</project>

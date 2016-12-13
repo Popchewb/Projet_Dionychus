@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+<meta charset="utf-8"/>
+<title>Universal - All In 1 Template</title>
+
+
+</h:head>
+
+<h:body>
+
+	<b:selectOneMenu value="#{testManagedBean.region}"  >
+        <f:selectItems value="#{testManagedBean.regions}" var="c" itemValue="#{c.idRegion}" itemLabel="#{c.libelle}"/>
+    </b:selectOneMenu>
+
+</h:body>
+</html>
