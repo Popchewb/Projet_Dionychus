@@ -49,7 +49,7 @@
 	<bean id="commandeStockJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.CommandeStockDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<!-- Definition for CommentaireDaoImpl bean -->
 	<bean id="commentaireJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.CommentaireDaoImpl">
 		<property name="dataSource" ref="dataSource" />
@@ -59,22 +59,22 @@
 	<bean id="fournisseurJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.FournisseurDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<!-- Definition for LigneCommandeDaoImpl bean -->
 	<bean id="ligneCommandeJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.LigneCommandeDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<!-- Definition for LivraisonDaoImpl bean -->
 	<bean id="livraisonJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.LivraisonDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<!-- Definition for PaysDaoImpl bean -->
 	<bean id="paysJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.PaysDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<!-- Definition for PromotionDaoImpl bean -->
 	<bean id="promotionJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.PromotionDaoImpl">
 		<property name="dataSource" ref="dataSource" />
@@ -121,10 +121,9 @@
 	<bean id="villeJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.VilleDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<!-- Definition for VinDaoImpl bean -->
 	<bean id="vinJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.VinDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
 </beans>
