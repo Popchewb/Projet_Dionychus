@@ -74,6 +74,11 @@
 	<bean id="paysJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.PaysDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<!-- Definition for PromotionDaoImpl bean -->
+	<bean id="promotionJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.PromotionDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 	<!-- Definition for RegionDaoImpl bean -->
 	<bean id="regionJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.RegionDaoImpl">
@@ -114,6 +119,11 @@
 
 	<!-- Definition for VilleDaoImpl bean -->
 	<bean id="villeJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.VilleDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- Definition for VinDaoImpl bean -->
+	<bean id="vinJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.VinDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
