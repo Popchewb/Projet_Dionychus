@@ -56,7 +56,7 @@ public class VinDaoImpl implements VinDaoItf {
 
 	public Integer getIdByReference(String paramReferenceVin) {
 		String SQL = "SELECT v.id_article FROM article v WHERE v.reference = ?";
-		return jdbcTemplate.queryForInt(SQL, new Object[] { paramReferenceVin });
+		return jdbcTemplate.queryForObject(SQL, new Object[] { paramReferenceVin }, Integer.class);
 	}
 
 	@Override
