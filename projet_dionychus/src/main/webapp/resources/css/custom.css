@@ -1,0 +1,32 @@
+#searchBox {
+	color: black;
+}
+
+#beaujolais {
+	color: red;
+}
+
+#beaujolais2 {
+	color: red;
+}
+
+#stars glyphicon .glyphicon-star-empty glyphicon-star-empty {
+	color: #CC9900 !important;
+}
+
+#image_tableau {
+	width: 50%;
+}
+
+.table-vcenter td {
+   vertical-align: middle!important;
+}
+
+#bandeau {
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 25px;
+}
+	
