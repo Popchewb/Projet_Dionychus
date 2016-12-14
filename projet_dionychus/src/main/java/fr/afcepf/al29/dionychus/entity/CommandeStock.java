@@ -15,6 +15,13 @@ public class CommandeStock extends Commande {
 		super(idCommande, dateValidation, numeroReference, statutCommande, lignesCommande);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public CommandeStock(Integer idCommande, Date dateValidation, String numeroReference, StatutCommande statutCommande,
+			List<LigneCommande> lignesCommande, Date dateReception, Fournisseur fournisseur) {
+		super(idCommande, dateValidation, numeroReference, statutCommande, lignesCommande);
+		this.dateReception = dateReception;
+		this.fournisseur = fournisseur;
+	}
 	public CommandeStock(Date dateReception, Fournisseur fournisseur) {
 		super();
 		this.dateReception = dateReception;
@@ -65,5 +72,6 @@ public class CommandeStock extends Commande {
 			return false;
 		return true;
 	}
+	
 	
 }

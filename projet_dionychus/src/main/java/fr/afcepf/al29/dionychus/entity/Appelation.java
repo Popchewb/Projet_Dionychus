@@ -1,22 +1,22 @@
 package fr.afcepf.al29.dionychus.entity;
 
 public class Appelation {
-	private Integer idArome;
+	private Integer idAppelation;
 	private String libelle;
-	public Appelation(Integer idArome, String libelle) {
-		super();
-		this.idArome = idArome;
-		this.libelle = libelle;
-	}
 	public Appelation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Integer getIdArome() {
-		return idArome;
+	public Appelation(Integer idAppelation, String libelle) {
+		super();
+		this.idAppelation = idAppelation;
+		this.libelle = libelle;
 	}
-	public void setIdArome(Integer idArome) {
-		this.idArome = idArome;
+	public Integer getIdAppelation() {
+		return idAppelation;
+	}
+	public void setIdAppelation(Integer idAppelation) {
+		this.idAppelation = idAppelation;
 	}
 	public String getLibelle() {
 		return libelle;
@@ -28,7 +28,7 @@ public class Appelation {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idArome == null) ? 0 : idArome.hashCode());
+		result = prime * result + ((idAppelation == null) ? 0 : idAppelation.hashCode());
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
 		return result;
 	}
@@ -41,10 +41,10 @@ public class Appelation {
 		if (getClass() != obj.getClass())
 			return false;
 		Appelation other = (Appelation) obj;
-		if (idArome == null) {
-			if (other.idArome != null)
+		if (idAppelation == null) {
+			if (other.idAppelation != null)
 				return false;
-		} else if (!idArome.equals(other.idArome))
+		} else if (!idAppelation.equals(other.idAppelation))
 			return false;
 		if (libelle == null) {
 			if (other.libelle != null)
@@ -55,8 +55,10 @@ public class Appelation {
 	}
 	@Override
 	public String toString() {
-		return "Appelation [idArome=" + idArome + ", libelle=" + libelle + "]";
+		return "Appelation [idAppelation=" + idAppelation + ", libelle=" + libelle + "]";
 	}
+	
+	
 	
 	
 }

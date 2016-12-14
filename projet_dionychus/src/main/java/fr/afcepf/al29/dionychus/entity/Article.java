@@ -11,11 +11,25 @@ public abstract class Article {
 	private Integer quantite;
 	private Integer seuilAlerte;
 	private String urlImage;
+	private String typeArticle;
 	private List<Commentaire> commentaires;
-	public List<Commentaire> getCommentaires() {
-		return commentaires;
+	public Article() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public void setCommentaires(List<Commentaire> commentaires) {
+	public Article(Integer idArticle, String reference, String libelle, String description, Double prix,
+			Integer quantite, Integer seuilAlerte, String urlImage, String typeArticle,
+			List<Commentaire> commentaires) {
+		super();
+		this.idArticle = idArticle;
+		this.reference = reference;
+		this.libelle = libelle;
+		this.description = description;
+		this.prix = prix;
+		this.quantite = quantite;
+		this.seuilAlerte = seuilAlerte;
+		this.urlImage = urlImage;
+		this.typeArticle = typeArticle;
 		this.commentaires = commentaires;
 	}
 	public Integer getIdArticle() {
@@ -66,32 +80,30 @@ public abstract class Article {
 	public void setUrlImage(String urlImage) {
 		this.urlImage = urlImage;
 	}
-	public Article() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getTypeArticle() {
+		return typeArticle;
 	}
-	public Article(Integer idArticle, String reference, String libelle, String description, Double prix,
-			Integer quantite, Integer seuilAlerte, String urlImage) {
-		super();
-		this.idArticle = idArticle;
-		this.reference = reference;
-		this.libelle = libelle;
-		this.description = description;
-		this.prix = prix;
-		this.quantite = quantite;
-		this.seuilAlerte = seuilAlerte;
-		this.urlImage = urlImage;
+	public void setTypeArticle(String typeArticle) {
+		this.typeArticle = typeArticle;
+	}
+	public List<Commentaire> getCommentaires() {
+		return commentaires;
+	}
+	public void setCommentaires(List<Commentaire> commentaires) {
+		this.commentaires = commentaires;
 	}
 	@Override
 	public String toString() {
 		return "Article [idArticle=" + idArticle + ", reference=" + reference + ", libelle=" + libelle
 				+ ", description=" + description + ", prix=" + prix + ", quantite=" + quantite + ", seuilAlerte="
-				+ seuilAlerte + ", urlImage=" + urlImage + "]";
+				+ seuilAlerte + ", urlImage=" + urlImage + ", typeArticle=" + typeArticle + ", commentaires="
+				+ commentaires + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((commentaires == null) ? 0 : commentaires.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((idArticle == null) ? 0 : idArticle.hashCode());
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
@@ -99,6 +111,7 @@ public abstract class Article {
 		result = prime * result + ((quantite == null) ? 0 : quantite.hashCode());
 		result = prime * result + ((reference == null) ? 0 : reference.hashCode());
 		result = prime * result + ((seuilAlerte == null) ? 0 : seuilAlerte.hashCode());
+		result = prime * result + ((typeArticle == null) ? 0 : typeArticle.hashCode());
 		result = prime * result + ((urlImage == null) ? 0 : urlImage.hashCode());
 		return result;
 	}
@@ -111,6 +124,11 @@ public abstract class Article {
 		if (getClass() != obj.getClass())
 			return false;
 		Article other = (Article) obj;
+		if (commentaires == null) {
+			if (other.commentaires != null)
+				return false;
+		} else if (!commentaires.equals(other.commentaires))
+			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -146,6 +164,11 @@ public abstract class Article {
 				return false;
 		} else if (!seuilAlerte.equals(other.seuilAlerte))
 			return false;
+		if (typeArticle == null) {
+			if (other.typeArticle != null)
+				return false;
+		} else if (!typeArticle.equals(other.typeArticle))
+			return false;
 		if (urlImage == null) {
 			if (other.urlImage != null)
 				return false;
@@ -153,6 +176,8 @@ public abstract class Article {
 			return false;
 		return true;
 	}
+	
+	
 	
 	
 }

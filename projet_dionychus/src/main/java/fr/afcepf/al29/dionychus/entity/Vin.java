@@ -14,13 +14,15 @@ public class Vin extends Article {
 		// TODO Auto-generated constructor stub
 	}
 	public Vin(Integer idArticle, String reference, String libelle, String description, Double prix, Integer quantite,
-			Integer seuilAlerte, String urlImage) {
-		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage);
+			Integer seuilAlerte, String urlImage, String typeArticle, List<Commentaire> commentaires) {
+		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage, typeArticle, commentaires);
 		// TODO Auto-generated constructor stub
 	}
-	public Vin(Integer annee, Appelation appelation, Region region, TypeVin typeVin, List<Arome> aromes,
-			List<Cepage> cepages) {
-		super();
+	public Vin(Integer idArticle, String reference, String libelle, String description, Double prix, Integer quantite,
+			Integer seuilAlerte, String urlImage, String typeArticle, List<Commentaire> commentaires, Integer annee,
+			Appelation appelation, Region region, TypeVin typeVin, List<Arome> aromes, List<Cepage> cepages) {
+		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage, typeArticle,
+				commentaires);
 		this.annee = annee;
 		this.appelation = appelation;
 		this.region = region;
@@ -122,6 +124,8 @@ public class Vin extends Article {
 			return false;
 		return true;
 	}
+	
+	
 	
 	
 	

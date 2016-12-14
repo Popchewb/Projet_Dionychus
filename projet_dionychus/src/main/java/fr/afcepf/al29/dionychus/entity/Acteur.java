@@ -8,14 +8,14 @@ public abstract class Acteur {
 	private String prenom;
 	private String numeroTelephone;
 	private String adresseMail;
-	private Civilite civilite;
+	private String civilite;
 	private List<Adresse> adresses;
 	public Acteur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Acteur(Integer idActeur, String nom, String prenom, String numeroTelephone, String adresseMail,
-			Civilite civilite, List<Adresse> adresses) {
+			String civilite, List<Adresse> adresses) {
 		super();
 		this.idActeur = idActeur;
 		this.nom = nom;
@@ -55,10 +55,10 @@ public abstract class Acteur {
 	public void setAdresseMail(String adresseMail) {
 		this.adresseMail = adresseMail;
 	}
-	public Civilite getCivilite() {
+	public String getCivilite() {
 		return civilite;
 	}
-	public void setCivilite(Civilite civilite) {
+	public void setCivilite(String civilite) {
 		this.civilite = civilite;
 	}
 	public List<Adresse> getAdresses() {

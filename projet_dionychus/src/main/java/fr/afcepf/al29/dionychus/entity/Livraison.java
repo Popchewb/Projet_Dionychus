@@ -2,31 +2,26 @@ package fr.afcepf.al29.dionychus.entity;
 
 public class Livraison {
 	private Integer idLivraison;
-	private String libelle;
 	private Double tarification;
 	private TypeLivraison typeLivraison;
-	public Livraison(Integer idLivraison, String libelle, Double tarification, TypeLivraison typeLivraison) {
-		super();
-		this.idLivraison = idLivraison;
-		this.libelle = libelle;
-		this.tarification = tarification;
-		this.typeLivraison = typeLivraison;
-	}
+	private CommandeClient commandeClient;
 	public Livraison() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public Livraison(Integer idLivraison, Double tarification, TypeLivraison typeLivraison,
+			CommandeClient commandeClient) {
+		super();
+		this.idLivraison = idLivraison;
+		this.tarification = tarification;
+		this.typeLivraison = typeLivraison;
+		this.commandeClient = commandeClient;
 	}
 	public Integer getIdLivraison() {
 		return idLivraison;
 	}
 	public void setIdLivraison(Integer idLivraison) {
 		this.idLivraison = idLivraison;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
 	}
 	public Double getTarification() {
 		return tarification;
@@ -40,17 +35,23 @@ public class Livraison {
 	public void setTypeLivraison(TypeLivraison typeLivraison) {
 		this.typeLivraison = typeLivraison;
 	}
+	public CommandeClient getCommandeClient() {
+		return commandeClient;
+	}
+	public void setCommandeClient(CommandeClient commandeClient) {
+		this.commandeClient = commandeClient;
+	}
 	@Override
 	public String toString() {
-		return "Livraison [idLivraison=" + idLivraison + ", libelle=" + libelle + ", tarification=" + tarification
-				+ ", typeLivraison=" + typeLivraison + "]";
+		return "Livraison [idLivraison=" + idLivraison + ", tarification=" + tarification + ", typeLivraison="
+				+ typeLivraison + ", commandeClient=" + commandeClient + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((commandeClient == null) ? 0 : commandeClient.hashCode());
 		result = prime * result + ((idLivraison == null) ? 0 : idLivraison.hashCode());
-		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
 		result = prime * result + ((tarification == null) ? 0 : tarification.hashCode());
 		result = prime * result + ((typeLivraison == null) ? 0 : typeLivraison.hashCode());
 		return result;
@@ -64,15 +65,15 @@ public class Livraison {
 		if (getClass() != obj.getClass())
 			return false;
 		Livraison other = (Livraison) obj;
+		if (commandeClient == null) {
+			if (other.commandeClient != null)
+				return false;
+		} else if (!commandeClient.equals(other.commandeClient))
+			return false;
 		if (idLivraison == null) {
 			if (other.idLivraison != null)
 				return false;
 		} else if (!idLivraison.equals(other.idLivraison))
-			return false;
-		if (libelle == null) {
-			if (other.libelle != null)
-				return false;
-		} else if (!libelle.equals(other.libelle))
 			return false;
 		if (tarification == null) {
 			if (other.tarification != null)
@@ -86,6 +87,8 @@ public class Livraison {
 			return false;
 		return true;
 	}
+	
+	
 	
 	
 }

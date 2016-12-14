@@ -1,6 +1,7 @@
 package fr.afcepf.al29.dionychus.entity;
 
 import java.sql.Date;
+import java.util.List;
 
 public class CommandeClient extends Commande {
 	private Date dateCreation;
@@ -11,6 +12,15 @@ public class CommandeClient extends Commande {
 	}
 	public CommandeClient(Date dateCreation, Utilisateur utilisateur, Promotion promotion) {
 		super();
+		this.dateCreation = dateCreation;
+		this.utilisateur = utilisateur;
+		this.promotion = promotion;
+	}
+	
+	public CommandeClient(Integer idCommande, Date dateValidation, String numeroReference,
+			StatutCommande statutCommande, List<LigneCommande> lignesCommande, Date dateCreation,
+			Utilisateur utilisateur, Promotion promotion) {
+		super(idCommande, dateValidation, numeroReference, statutCommande, lignesCommande);
 		this.dateCreation = dateCreation;
 		this.utilisateur = utilisateur;
 		this.promotion = promotion;

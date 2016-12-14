@@ -11,13 +11,14 @@ public class Fournisseur extends Acteur {
 	}
 
 	public Fournisseur(Integer idActeur, String nom, String prenom, String numeroTelephone, String adresseMail,
-			Civilite civilite, List<Adresse> adresses) {
+			String civilite, List<Adresse> adresses) {
 		super(idActeur, nom, prenom, numeroTelephone, adresseMail, civilite, adresses);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fournisseur(String nomDomaine) {
-		super();
+	public Fournisseur(Integer idActeur, String nom, String prenom, String numeroTelephone, String adresseMail,
+			String civilite, List<Adresse> adresses, String nomDomaine) {
+		super(idActeur, nom, prenom, numeroTelephone, adresseMail, civilite, adresses);
 		this.nomDomaine = nomDomaine;
 	}
 
@@ -31,7 +32,7 @@ public class Fournisseur extends Acteur {
 
 	@Override
 	public String toString() {
-		return "Fournisseur [nomDomaine=" + nomDomaine + "]";
+		return "Fournisseur [nomDomaine=" + nomDomaine + ", toString()=" + super.toString() + "]";
 	}
 
 	@Override
@@ -60,4 +61,7 @@ public class Fournisseur extends Acteur {
 	}
 	
 	
+
+	
+
 }

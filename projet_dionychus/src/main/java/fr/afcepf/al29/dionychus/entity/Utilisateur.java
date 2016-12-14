@@ -16,13 +16,14 @@ public class Utilisateur extends Acteur {
 		// TODO Auto-generated constructor stub
 	}
 	public Utilisateur(Integer idActeur, String nom, String prenom, String numeroTelephone, String adresseMail,
-			Civilite civilite, List<Adresse> adresses) {
+			String civilite, List<Adresse> adresses) {
 		super(idActeur, nom, prenom, numeroTelephone, adresseMail, civilite, adresses);
 		// TODO Auto-generated constructor stub
 	}
-	public Utilisateur(Date dateNaissance, String profession, Boolean optin, String origine, String login,
-			String password, TypeAcces typeAcces) {
-		super();
+	public Utilisateur(Integer idActeur, String nom, String prenom, String numeroTelephone, String adresseMail,
+			String civilite, List<Adresse> adresses, Date dateNaissance, String profession, Boolean optin,
+			String origine, String login, String password, TypeAcces typeAcces) {
+		super(idActeur, nom, prenom, numeroTelephone, adresseMail, civilite, adresses);
 		this.dateNaissance = dateNaissance;
 		this.profession = profession;
 		this.optin = optin;
@@ -138,6 +139,9 @@ public class Utilisateur extends Acteur {
 			return false;
 		return true;
 	}
+	
+	
+	
 	
 	
 }

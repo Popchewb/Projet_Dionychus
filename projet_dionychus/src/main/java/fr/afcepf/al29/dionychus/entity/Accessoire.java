@@ -1,5 +1,7 @@
 package fr.afcepf.al29.dionychus.entity;
 
+import java.util.List;
+
 public class Accessoire extends Article{
 	private TypeAccessoire typeAccessoire;
 
@@ -9,13 +11,17 @@ public class Accessoire extends Article{
 	}
 
 	public Accessoire(Integer idArticle, String reference, String libelle, String description, Double prix,
-			Integer quantite, Integer seuilAlerte, String urlImage) {
-		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage);
+			Integer quantite, Integer seuilAlerte, String urlImage, String typeArticle,
+			List<Commentaire> commentaires) {
+		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage, typeArticle, commentaires);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Accessoire(TypeAccessoire typeAccessoire) {
-		super();
+	public Accessoire(Integer idArticle, String reference, String libelle, String description, Double prix,
+			Integer quantite, Integer seuilAlerte, String urlImage, String typeArticle, List<Commentaire> commentaires,
+			TypeAccessoire typeAccessoire) {
+		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage, typeArticle,
+				commentaires);
 		this.typeAccessoire = typeAccessoire;
 	}
 
@@ -56,6 +62,8 @@ public class Accessoire extends Article{
 			return false;
 		return true;
 	}
+
+	
 	
 	
 }
