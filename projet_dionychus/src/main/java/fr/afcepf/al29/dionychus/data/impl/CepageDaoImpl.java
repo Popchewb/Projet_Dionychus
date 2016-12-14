@@ -42,7 +42,7 @@ public class CepageDaoImpl implements CepageDaoItf{
 
 	@Override
 	public List<Cepage> getCepageByIdVin(int paramIdVin) {
-		String SQL = "SELECT c.id_cepage, c.libelle FROM cepage c INNER JOIN vin_cepage vc WHERE vc.id_cepage = c.id_cepage AND vc.id_vin = ? ORDER BY libelle";
+		String SQL = "SELECT c.id_cepage, c.libelle FROM cepage c INNER JOIN vin_cepage vc WHERE vc.id_cepage = c.id_cepage AND vc.id_article = ? ORDER BY libelle";
 		List<Cepage> cepages = jdbcTemplate.query(SQL, new CepageMapper(), paramIdVin);
 		return cepages;
 	}
