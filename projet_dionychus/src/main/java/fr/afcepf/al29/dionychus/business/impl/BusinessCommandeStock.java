@@ -2,64 +2,66 @@ package fr.afcepf.al29.dionychus.business.impl;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeStock;
+import fr.afcepf.al29.dionychus.data.itf.CommandeStockDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.FournisseurDaoItf;
 import fr.afcepf.al29.dionychus.entity.CommandeStock;
 import fr.afcepf.al29.dionychus.entity.Fournisseur;
 
 public class BusinessCommandeStock implements IBusinessCommandeStock{
+	
+
+	ApplicationContext context = new ClassPathXmlApplicationContext("classpath:Beans.xml");
+	
+	CommandeStockDaoItf csDao = (CommandeStockDaoItf) context.getBean("commandeStockJDBCtemplate");
+	FournisseurDaoItf fDao =(FournisseurDaoItf) context.getBean("fournisseurJDBCtemplate");
 
 	@Override
 	public List<CommandeStock> getAllCommandesStock() {
-		// TODO Auto-generated method stub
-		return null;
+		return csDao.getAll();
 	}
 
 	@Override
 	public void addCommandeStock(CommandeStock paramCommandeStock) {
-		// TODO Auto-generated method stub
-		
+		csDao.addCommandeStock(paramCommandeStock);
 	}
 
 	@Override
 	public void updateCommandeStock(CommandeStock paramCommandeStock) {
-		// TODO Auto-generated method stub
-		
+		csDao.updateCommandeStock(paramCommandeStock);
 	}
 
 	@Override
 	public void deleteCommandeStock(Integer paramIdCommandeStock) {
-		// TODO Auto-generated method stub
-		
+		csDao.deleteCommandeStock(paramIdCommandeStock);
 	}
 
 	@Override
 	public List<Fournisseur> getAllFournisseur() {
-		// TODO Auto-generated method stub
-		return null;
+		return fDao.getAll();
 	}
 
 	@Override
 	public Fournisseur getById(Integer paramIdFournisseur) {
-		// TODO Auto-generated method stub
-		return null;
+		return fDao.getById(paramIdFournisseur);
 	}
 
 	@Override
 	public void addFournisseur(Fournisseur paramFournisseur) {
-		// TODO Auto-generated method stub
-		
+		fDao.addFournisseur(paramFournisseur);
 	}
 
 	@Override
 	public void updateFournisseur(Fournisseur paramFournisseur) {
-		// TODO Auto-generated method stub
-		
+		fDao.updateFournisseur(paramFournisseur);
 	}
 
 	@Override
 	public void deleteFournisseur(Integer paramIdFournisseur) {
-		// TODO Auto-generated method stub
-		
+		fDao.deleteFournisseur(paramIdFournisseur);
 	}
 
 }

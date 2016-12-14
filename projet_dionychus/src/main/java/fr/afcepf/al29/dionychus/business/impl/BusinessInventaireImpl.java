@@ -1,15 +1,22 @@
-<<<<<<< HEAD
 package fr.afcepf.al29.dionychus.business.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
 import fr.afcepf.al29.dionychus.data.itf.AccessoireDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.AppelationDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.AromeDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.CepageDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.CommentaireDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.PromotionDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.RegionDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.TypeAccessoireDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.TypeVinDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
@@ -24,231 +31,160 @@ import fr.afcepf.al29.dionychus.entity.Vin;
 @Service("proxyBusinessInventaire")
 public class BusinessInventaireImpl implements IBusinessInventaire {
 
-	ApplicationContext context =  new ClassPathXmlApplicationContext("classpath:Beans.xml");
-	
-	
-	private AccessoireDaoItf rDao = (AccessoireDaoItf) context.getBean("accessoireJDBCtemplate");
+	ApplicationContext context = new ClassPathXmlApplicationContext("classpath:Beans.xml");
 
+	private AccessoireDaoItf rDao = (AccessoireDaoItf) context.getBean("accessoireJDBCtemplate");
+	private AppelationDaoItf appDao = (AppelationDaoItf) context.getBean("appelationJDBCtemplate");
+	private AromeDaoItf arDao = (AromeDaoItf) context.getBean("aromeJDBCtemplate");
+	private CepageDaoItf cepDao = (CepageDaoItf) context.getBean("cepageJDBCtemplate");
+	private CommentaireDaoItf comDao = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
+	private PromotionDaoItf promDao = (PromotionDaoItf) context.getBean("promotionJDBCtemplate");
+	private RegionDaoItf regDao = (RegionDaoItf) context.getBean("regionJDBCtemplate");
+	private TypeAccessoireDaoItf taDao = (TypeAccessoireDaoItf) context.getBean("typeAccessoireJDBCtemplate");
+	private TypeVinDaoItf tvDao = (TypeVinDaoItf) context.getBean("typeVinJDBCtemplate");
+	private VinDaoItf vinDao = (VinDaoItf) context.getBean("vinJDBCtemplate");
 
 	@Override
 	public List<Accessoire> getAllAccessoire() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Accessoire getAccessoireById(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void addAccessoire(Accessoire paramAccessoire) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void updateAccessoire(Accessoire paramAccessoire) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void deleteAccessoire(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public List<Accessoire> getBestSellerAccessoire() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<Appelation> getAllAppelation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<Arome> getAllArome() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<Cepage> getAllCepage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<Commentaire> getAllByVin(Integer paramIdVin) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<Commentaire> getAllByAccessoire(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void addCommentaire(Commentaire paramCommentaire, Integer paramIdArticle, Integer paramIdUtilisateur) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void updateCommentaire(Commentaire paramCommentaire) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void deleteCommentaire(Integer paramIdCommentaire) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void addPromotion(Promotion paramPromotion) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void updatePromotion(Promotion paramPromotion) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void deletePromotion(Integer paramIdPromotion) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public List<Region> getAllRegion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<TypeAccessoire> getAllTypeAccessoire() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<TypeVin> getAllTypeVin() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<Vin> getAllVin() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Vin getVinById(Integer paramIdVin) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void addVin(Vin paramVin) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void updateVin(Vin paramVin) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void deleteVin(Integer paramIdVin) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public List<Vin> getBestSellerVin() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-
-
-}
-=======
-package fr.afcepf.al29.dionychus.business.impl;
-
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Service;
-
-import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
-import fr.afcepf.al29.dionychus.data.itf.AccessoireDaoItf;
-import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
-import fr.afcepf.al29.dionychus.entity.Accessoire;
-import fr.afcepf.al29.dionychus.entity.Vin;
-
-@Service("proxyBusinessInventaire")
-public class BusinessInventaireImpl implements IBusinessInventaire {
-
-	ApplicationContext context =  new ClassPathXmlApplicationContext("classpath:Beans.xml");
-	
-	
-	private AccessoireDaoItf rDao = (AccessoireDaoItf) context.getBean("accessoireJDBCtemplate");
-	
-	private VinDaoItf proxyDao = (VinDaoItf) context.getBean("vinJDBCtemplate");
-	
-	@Override
-	public List<Accessoire> getAllAccessoires() {
 		return rDao.getAll();
 	}
 
 	@Override
-	public List<Vin> getAllVins() {
-		return proxyDao.getAll();
+	public Accessoire getAccessoireById(Integer paramIdAccessoire) {
+		return rDao.getById(paramIdAccessoire);
+	}
+
+	@Override
+	public void addAccessoire(Accessoire paramAccessoire) {
+		rDao.addAccessoire(paramAccessoire);
+
+	}
+
+	@Override
+	public void updateAccessoire(Accessoire paramAccessoire) {
+		rDao.updateAccessoire(paramAccessoire);
+
+	}
+
+	@Override
+	public void deleteAccessoire(Integer paramIdAccessoire) {
+		rDao.deleteAccessoire(paramIdAccessoire);
+	}
+
+	@Override
+	public List<Accessoire> getBestSellerAccessoire() {
+		return rDao.getBestSellerAccessoire();
+	}
+
+	@Override
+	public List<Appelation> getAllAppelation() {
+		return appDao.getAll();
+	}
+
+	@Override
+	public List<Arome> getAllArome() {
+		return arDao.getAll();
+	}
+
+	@Override
+	public List<Cepage> getAllCepage() {
+		return cepDao.getAll();
+	}
+
+	@Override
+	public List<Commentaire> getAllByVin(Integer paramIdVin) {
+		return comDao.getAllByVin(paramIdVin);
+	}
+
+	@Override
+	public List<Commentaire> getAllByAccessoire(Integer paramIdAccessoire) {
+		return comDao.getAllByAccessoire(paramIdAccessoire);
+	}
+
+	@Override
+	public void addCommentaire(Commentaire paramCommentaire, Integer paramIdArticle, Integer paramIdUtilisateur) {
+		comDao.addCommentaire(paramCommentaire, paramIdArticle, paramIdUtilisateur);
+	}
+
+	@Override
+	public void updateCommentaire(Commentaire paramCommentaire) {
+		comDao.updateCommentaire(paramCommentaire);
+	}
+
+	@Override
+	public void deleteCommentaire(Integer paramIdCommentaire) {
+		comDao.deleteCommentaire(paramIdCommentaire);
+	}
+
+	@Override
+	public void addPromotion(Promotion paramPromotion) {
+		promDao.addPromotion(paramPromotion);
+	}
+
+	@Override
+	public void updatePromotion(Promotion paramPromotion) {
+		promDao.updatePromotion(paramPromotion);
+
+	}
+
+	@Override
+	public void deletePromotion(Integer paramIdPromotion) {
+		promDao.deletePromotion(paramIdPromotion);
+	}
+
+	@Override
+	public List<Region> getAllRegion() {
+		return regDao.getAll();
+	}
+
+	@Override
+	public List<TypeAccessoire> getAllTypeAccessoire() {
+		return taDao.getAll();
+	}
+
+	@Override
+	public List<TypeVin> getAllTypeVin() {
+		return tvDao.getAll();
+	}
+
+	@Override
+	public List<Vin> getAllVin() {
+		List<Vin> vins = vinDao.getAll();
+		
+		for (Vin vin : vins) {
+			vin.setAromes(arDao.getAromeByIdVin(vin.getIdArticle()));
+			vin.setCepages(cepDao.getCepageByIdVin(vin.getIdArticle()));
+		}
+		
+		return vins;
+	}
+
+	@Override
+	public Vin getVinById(Integer paramIdVin) {
+		Vin vin = vinDao.getById(paramIdVin);
+		vin.setAromes(arDao.getAromeByIdVin(paramIdVin));
+		vin.setCepages(cepDao.getCepageByIdVin(paramIdVin));
+		return vin;
+	}
+
+	@Override
+	public void addVin(Vin paramVin) {
+		vinDao.addVin(paramVin);
+	}
+
+	@Override
+	public void updateVin(Vin paramVin) {
+		vinDao.updateVin(paramVin);
+	}
+
+	@Override
+	public void deleteVin(Integer paramIdVin) {
+		vinDao.deleteVin(paramIdVin);
+	}
+
+	@Override
+	public List<Vin> getBestSellerVin() {
+		return vinDao.getBestSellerVin();
 	}
 
 }
->>>>>>> db48d7b7f97f9c02bd491338e2af140c001b6ba1
