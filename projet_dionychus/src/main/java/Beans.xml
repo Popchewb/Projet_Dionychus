@@ -126,20 +126,5 @@
 	<bean id="vinJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.VinDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-=======
-   <!-- Initialization for data source -->
-   <bean id="dataSource" 
-      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      <property name="url" value="jdbc:mysql://localhost:3306/bdd_dionychus"/>
-      <property name="username" value="root"/>
-      <property name="password" value="root"/>
-   </bean>
-
-   <!-- Definition for RegionDaoImpl bean -->
-   <bean id="regionJDBCtemplate" 
-      class="fr.afcepf.al29.dionychus.data.impl.RegionDaoImpl">
-      <property name="dataSource"  ref="dataSource" />    
-   </bean>
 
 </beans>
