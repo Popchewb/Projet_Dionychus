@@ -5,7 +5,6 @@ import java.util.List;
 import fr.afcepf.al29.dionychus.entity.CommandeStock;
 
 public interface CommandeStockDaoItf {
-
 	List<CommandeStock> getAll();
 	List<CommandeStock> getCommandesByIdUtilisateur(Integer paramIdUtilisateur);
 	List<CommandeStock> getCommandesByIdStatutCommande(Integer paramIdStatutCommande);
