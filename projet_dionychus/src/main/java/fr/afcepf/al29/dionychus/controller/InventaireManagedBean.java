@@ -20,8 +20,8 @@ public class InventaireManagedBean implements Serializable {
 	
 	private List<Accessoire> accessoires;
 
-	public List<Accessoire> getAccessoires() {
-		return proxyInventaire.getAllAccessoires();
+	public List<Accessoire> getAccessoire() {
+		return proxyInventaire.getAllAccessoire();
 	}
 
 	public void setAccessoires(List<Accessoire> accessoires) {

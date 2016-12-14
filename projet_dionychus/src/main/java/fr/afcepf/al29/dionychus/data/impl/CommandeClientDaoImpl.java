@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.afcepf.al29.dionychus.data.itf.CommandeClientDaoItf;
+import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.mapper.CommandeClientMapper;
 
@@ -73,6 +74,12 @@ public class CommandeClientDaoImpl implements CommandeClientDaoItf {
 		String SQL = "DELETE FROM `bdd_dionychus`.`commande_client` WHERE id_commande = ?";
 		jdbcTemplate.update(SQL, new Object[] {paramIdCommandeClient});
 
+	}
+
+	@Override
+	public Commande getCommandeById(Integer paramIdCommandeClient) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
