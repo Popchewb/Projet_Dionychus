@@ -42,8 +42,8 @@ public class AromeDaoImpl implements AromeDaoItf{
 
 	@Override
 	public List<Arome> getAromeByIdVin(int paramIdVin) {
-		// TODO Auto-generated method stub
-		return null;
+		String SQL = "SELECT a.id_arome, a.libelle FROM arome a INNER JOIN vin_arome va WHERE a.id_arome = va.id_arome AND va.id_article = ?";
+		return jdbcTemplate.query(SQL, new Object[] {paramIdVin}, new AromeMapper());
 	}
 
 }

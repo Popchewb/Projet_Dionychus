@@ -8,4 +8,7 @@ public interface AdresseDaoItf {
 	List<Adresse> getAll();
 	Adresse getById(Integer paramIdAdresse);
 	List<Adresse> getAdresseByIdActeur(Integer paramIdActeur);
+	void addAdresse (Adresse paramAdresse);
+	void updateAdresse (Adresse paramAdresse);
+	void deleteAdresse (Integer paramIdAdresse);
 }

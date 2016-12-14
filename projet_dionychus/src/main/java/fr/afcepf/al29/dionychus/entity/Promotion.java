@@ -8,17 +8,20 @@ public class Promotion {
 	private Date dateDebut;
 	private Date dateFin;
 	private Double remise;
+	private Double tarification;
 	public Promotion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Promotion(Integer idPromotion, String libelle, Date dateDebut, Date dateFin, Double remise) {
+	public Promotion(Integer idPromotion, String libelle, Date dateDebut, Date dateFin, Double remise,
+			Double tarification) {
 		super();
 		this.idPromotion = idPromotion;
 		this.libelle = libelle;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.remise = remise;
+		this.tarification = tarification;
 	}
 	public Integer getIdPromotion() {
 		return idPromotion;
@@ -50,10 +53,16 @@ public class Promotion {
 	public void setRemise(Double remise) {
 		this.remise = remise;
 	}
+	public Double getTarification() {
+		return tarification;
+	}
+	public void setTarification(Double tarification) {
+		this.tarification = tarification;
+	}
 	@Override
 	public String toString() {
 		return "Promotion [idPromotion=" + idPromotion + ", libelle=" + libelle + ", dateDebut=" + dateDebut
-				+ ", dateFin=" + dateFin + ", remise=" + remise + "]";
+				+ ", dateFin=" + dateFin + ", remise=" + remise + ", tarification=" + tarification + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -64,6 +73,7 @@ public class Promotion {
 		result = prime * result + ((idPromotion == null) ? 0 : idPromotion.hashCode());
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
 		result = prime * result + ((remise == null) ? 0 : remise.hashCode());
+		result = prime * result + ((tarification == null) ? 0 : tarification.hashCode());
 		return result;
 	}
 	@Override
@@ -100,8 +110,14 @@ public class Promotion {
 				return false;
 		} else if (!remise.equals(other.remise))
 			return false;
+		if (tarification == null) {
+			if (other.tarification != null)
+				return false;
+		} else if (!tarification.equals(other.tarification))
+			return false;
 		return true;
 	}
+	
 	
 	
 }

@@ -44,4 +44,22 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 		return jdbcTemplate.queryForObject(SQL, new Object[]{paramIdAccessoire}, new AccessoireMapper());
 	}
 
+	@Override
+	public void addAccessoire(Accessoire paramAccessoire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateAccessoire(Accessoire paramAccessoire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAccessoire(Integer paramIdAccessoire) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
