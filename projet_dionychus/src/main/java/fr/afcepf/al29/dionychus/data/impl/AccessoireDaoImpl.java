@@ -41,25 +41,34 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 	@Override
 	public Accessoire getById(Integer paramIdAccessoire) {
 		String SQL = "SELECT a.id_article, a.id_type_accessoire, a.reference, a.libelle, a.description, a.prix, a.quantite, a.seuil_alerte, a.url_image, tac.libelle FROM article a INNER JOIN type_accessoire tac WHERE a.id_type_accessoire = tac.id_type_accessoire AND a.id_article = ? AND a.type_article = 'Accessoire'";
-		return jdbcTemplate.queryForObject(SQL, new Object[]{paramIdAccessoire}, new AccessoireMapper());
+		return jdbcTemplate.queryForObject(SQL, new Object[] { paramIdAccessoire }, new AccessoireMapper());
 	}
 
 	@Override
 	public void addAccessoire(Accessoire paramAccessoire) {
-		// TODO Auto-generated method stub
-		
+		String SQL = "INSERT INTO `bdd_dionychus`.`article` (`reference`, `libelle`, `description`, `prix`, `quantite`, `seuil_alerte`, `url_image`, `id_type_accessoire`, `type_article`) VALUES (?,?,?,?,?,?,?,?,'Accessoire')";
+		jdbcTemplate.update(SQL,
+				new Object[] { paramAccessoire.getReference(), paramAccessoire.getLibelle(),
+						paramAccessoire.getDescription(), paramAccessoire.getPrix(), paramAccessoire.getQuantite(),
+						paramAccessoire.getSeuilAlerte(), paramAccessoire.getUrlImage(),
+						paramAccessoire.getTypeAccessoire().getId_type_accessoire() });
 	}
 
 	@Override
 	public void updateAccessoire(Accessoire paramAccessoire) {
-		// TODO Auto-generated method stub
-		
+		String SQL = "UPDATE `bdd_dionychus`.`article` SET `reference`=?, `libelle`=?, `description`=?, `prix`=?, `quantite`=?, `seuil_alerte`=?, `url_image`=?, `id_type_accessoire`=? WHERE `id_article`=?";
+		jdbcTemplate.update(SQL,
+				new Object[] { paramAccessoire.getReference(), paramAccessoire.getLibelle(),
+						paramAccessoire.getDescription(), paramAccessoire.getPrix(), paramAccessoire.getQuantite(),
+						paramAccessoire.getSeuilAlerte(), paramAccessoire.getUrlImage(),
+						paramAccessoire.getTypeAccessoire().getId_type_accessoire(), paramAccessoire.getIdArticle() });
 	}
 
 	@Override
 	public void deleteAccessoire(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		
+		String SQL = "DELETE FROM `bdd_dionychus`.`article` WHERE id_article = ?";
+		jdbcTemplate.update(SQL, new Object[]{paramIdAccessoire});
+
 	}
 
 }

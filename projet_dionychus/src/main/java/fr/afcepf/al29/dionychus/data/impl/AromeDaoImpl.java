@@ -46,4 +46,10 @@ public class AromeDaoImpl implements AromeDaoItf{
 		return jdbcTemplate.query(SQL, new Object[] {paramIdVin}, new AromeMapper());
 	}
 
+	@Override
+	public Arome getAromeById(int aromeId) {
+		String SQL = "SELECT id_arome, libelle FROM arome WHERE id_arome = ?";
+		return jdbcTemplate.queryForObject(SQL, new Object[] {aromeId}, new AromeMapper());
+	}
+
 }

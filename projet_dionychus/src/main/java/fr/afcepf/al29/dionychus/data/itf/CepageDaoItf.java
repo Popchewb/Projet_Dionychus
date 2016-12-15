@@ -7,5 +7,6 @@ import fr.afcepf.al29.dionychus.entity.Cepage;
 public interface CepageDaoItf {
 	List<Cepage> getAll();
 	List<Cepage> getCepageByIdVin(int paramIdVin);
+	Cepage getCepageById(int cepageId);
 	
 }

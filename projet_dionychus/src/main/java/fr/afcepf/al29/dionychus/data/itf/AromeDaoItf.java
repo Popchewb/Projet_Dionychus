@@ -7,4 +7,5 @@ import fr.afcepf.al29.dionychus.entity.Arome;
 public interface AromeDaoItf {
 	List<Arome> getAll();
 	List<Arome> getAromeByIdVin(int paramIdVin);
+	Arome getAromeById(int aromeId);
 }
