@@ -30,9 +30,7 @@
 <!-- 	</ui:define> -->
 	
 	<ui:define name="Contenu_Page">
-		<div>
-			
-		</div>
+	
 			<div id="content">
 				<div class="container">
 		
@@ -46,7 +44,7 @@
 									<h:outputLabel value="Type de Vin" />
 									<b:radiobutton value="#{vinManagedBean.typeVin}">
 										<f:selectItems value="#{vinManagedBean.typeVins}" var="type"
-											itemValue="type.idTypeVin" itemLabel="type.libelle" />
+											itemValue="#{type.idTypeVin}" itemLabel="#{type.libelle}" />
 									</b:radiobutton>
 								</b:row>
 		
@@ -71,8 +69,8 @@
 		
 								<b:row>
 									<h:outputLabel value="Région" />
-									<b:selectOneMenu value="#{testManagedBean.region}">
-										<f:selectItems value="#{testManagedBean.regions}" var="c"
+									<b:selectOneMenu value="#{vinManagedBean.region}">
+										<f:selectItems value="#{vinManagedBean.regions}" var="c"
 											itemValue="#{c.idRegion}" itemLabel="#{c.libelle}"/>
 									</b:selectOneMenu>
 								</b:row>
@@ -271,6 +269,7 @@
 				</div>
 			</div>
 	</ui:define>
+	
 </ui:composition>
 
 </html>

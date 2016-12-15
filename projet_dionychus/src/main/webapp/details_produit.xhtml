@@ -37,8 +37,7 @@
 					<div class="row">
 		
 						<div class="col-sm-3">
-		
-							<h:form>
+								<h:form>
 		
 								<b:row>
 									<h:outputLabel value="Type de Vin" />
@@ -99,82 +98,134 @@
 								</b:row>
 		
 							</h:form>
-		
 						</div>
 		
 					<div class="col-sm-9">
-						<div class="row products">
+							<div class="row" id="productMain">
+							<div class="col-sm-5">
+								<div id="mainImage" style="margin-top: 60px">
+									<h:graphicImage library="images" name="Article_Vin_1_Taille.jpg" class="img-responsive"/>
+								</div>
+								<br />
+								<div style="text-align: center;margin-top: 10px">
+									<h:outputText style="font-size: 28px; line-height: normal;" value="200.00 €" />
+								</div>
+								<br />
+								<p class="text-center" style="margin-top: 10px">
+									<button type="submit" class="btn btn-template-main">
+										<i class="fa fa-shopping-cart"></i> Ajouter au panier
+									</button>
+								</p>
 
-							<div class="col-md-3 col-sm-6">
-								<div class="product">
-									<div class="image">
-										<a href="details_produit.jsf"> 
-										<h:graphicImage library="images" name="Article_Vin_1_Taille.jpg" class="img-responsive"/>
-										</a>
-									</div>
-									<!-- /.image -->
-									<div class="text">
-										<h3>
-											<a href="details_produit.jsf"><h:outputText
-													value="Château Margaux 2009" /></a>
-										</h3>
-										<div>
-											<h:outputText value="Appelation" />
-										</div>
-										<div style="margin-top: 26px">
-											<h:outputText style="font-size: 18px; line-height: normal;" value="200 €" />
-										</div>
-
-									</div>
-									<!-- /.text -->
-									</div>
-								<!-- /.product -->
 							</div>
-							<div class="col-md-3 col-sm-6">
+							<div class="col-sm-7">
+								<div class="box">
+
+									<form>
+										<div id="appelation_detail" class="sizes">
+
+											<h3>Château de Broglie 2010 Côtes de Bourg</h3>
+
+										</div>
+
+
+										<div class="box" id="details">
+											<h4>Description</h4>
+											<p>Excellent vin de producteur. Le raisin a été récolté
+												par de jeunes vierges effarouchées puis broyées entre leur
+												miches tétonneuses</p>
+											<h4>Cépages</h4>
+											<ul>
+												<li>Cabernet Franc</li>
+												<li>Cabernet Sauvignon</li>
+												<li>Merlot</li>
+											</ul>
+											<h4>Région</h4>
+											<ul>
+												<li>Bordelais</li>
+											</ul>
+											<h4>Arômes</h4>
+											<ul>
+												<li>Fruit des bois</li>
+												<li>Animal</li>
+											</ul>
+
+										</div>
+
+									</form>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+
+							<div class="box text-uppercase">
+								<h3 style="font-weight: 700">Les autres clients ont également acheté</h3>
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-sm-3">
 								<div class="product">
 									<div class="image">
-										<a href="details_produit.jsf"> 
-										<h:graphicImage library="images" name="Article_Vin_1_Taille.jpg" class="img-responsive"/>
+										<a href="#"> 
+										<h:graphicImage library="images" name="tire_bouchon.jpg" class="img-responsive"/>
 										</a>
 									</div>
-									<!-- /.image -->
-									<div class="text">
-										<h3>
-											<a href="details_produit.jsf"><h:outputText
-													value="Château Margaux 2009" /></a>
-										</h3>
+									<div class="text" style="margin-top: 10px">
 										<div>
-											<h:outputText value="Appelation" />
+											<h:outputText style="font-size: 18px; line-height: normal;" value="Tire Bouchon" />
 										</div>
-										<div style="margin-top: 26px">
-											<h:outputText style="font-size: 18px; line-height: normal;"
-												value="200 €" />
+										<div style="margin-top: 30px">
+											<h:outputText style="font-size: 18px; line-height: normal;" value="20.00 €" />
 										</div>
-
 									</div>
-									<!-- /.text -->
-
-									<div class="ribbon sale">
-										<div class="theribbon">SALE</div>
-										<div class="ribbon-background"></div>
-									</div>
-									<!-- /.ribbon -->
-
-									<div class="ribbon new">
-										<div class="theribbon">Promo</div>
-										<div class="ribbon-background"></div>
-									</div>
-
-									<!-- /.ribbon -->
 								</div>
 								<!-- /.product -->
 							</div>
-							
 						</div>
+
+						<div class="row">
+
+
+							<div class="box text-uppercase">
+								<h3 style="font-weight: 700">Commentaires</h3>
+							</div>
+
+						</div>
+
+						<div>
+
+							<h4>Roger C., le 22/10/2015, 18.5/20</h4>
+							<blockquote>
+								<p>J'ai grave kiffé ce vin. Après j'ai vomi</p>
+							</blockquote>
+
+						</div>
+
+						<div class="box" id="details">
+
+							<h4>Ricky S., le 08/09/2016, 15.5/20</h4>
+							<blockquote>
+								<p>Je me suis enfilé la bouteille au sens propre. C'était particulier.... Je ne peux plus m'asseoir désormais T_T</p>
+							</blockquote>
+
+						</div>
+
 					</div>
+
+
 				</div>
+				<!-- /.row -->
+
 			</div>
+			<!-- /.container -->
 		</div>
+
 	</ui:define>
 </ui:composition>
 

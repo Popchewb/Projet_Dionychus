@@ -17,6 +17,7 @@
 <h:outputStylesheet name="css/style.default.css" id="theme-stylesheet"/>
 <h:outputStylesheet name="css/custom.css"/>
 
+
 </h:head>
 
 <h:body>
@@ -53,9 +54,8 @@
 					 	</div>
 					</div>
 				</div>
-
-				<div class="navbar navbar-default yamm" role="navigation"
-					id="navbar">
+<!-- 				<b:container id="navigation" styleClass="fixNavigation">  -->
+					<div class="navbar navbar-default yamm" id="navbar">
 
 					<div class="container">
 						<div class="navbar-header">
@@ -63,38 +63,33 @@
 							<a class="navbar-brand home" href="acceuil.jsf"> 
 								<h:graphicImage library="images" name="logoDeQualite.png" style="margin-top: -20px"/>
 								</a>
-						
-							<div class="navbar-buttons">
-								<button type="button" class="navbar-toggle btn-template-main"
-									data-toggle="collapse" data-target="#navigation">
-									<span class="sr-only">Toggle navigation</span> <i
-										class="fa fa-align-justify"></i>
-								</button>
-							</div>
+					
 						</div>
 						<!--/.navbar-header -->
-
-						<div class="navbar-collapse collapse" id="navigation">
+				
+						<div class="navbar-collapse collapse">
 
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown use-yamm yamm-fw">
-									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Accessoires du Vin</a>
+									<h:link href="catalogue.jsf" class="dropdown-toggle" data-toggle="dropdown" value="Vins"></h:link>
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
-									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Vins</a>
+									<a href="acceuil.jsf" class="dropdown-toggle" data-toggle="dropdown">Accessoires du Vin</a>
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
-									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Bons Plans</a>
+									<a href="acceuil.jsf" class="dropdown-toggle" data-toggle="dropdown">Bons Plans</a>
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
-									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+									<h:link href="details_produit.jsf" class="dropdown-toggle" data-toggle="dropdown" value="Contact"></h:link>
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
 									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Admin</a>
 								</li>	
 							</ul>
 
-						</div>
+						  
+							</div>
+						
 						<!--/.nav-collapse -->
 
 						<div class="collapse clearfix" id="search">
@@ -116,9 +111,10 @@
 
 
 				</div>
+<!-- 				</b:container> -->
 				<!-- /#navbar -->
 
-			</div>
+	
 <!-- 			    <b:row id="heading-breadcrumbs"> -->
 <!-- 			    	<b:image library="images" name="texture-bw.png" style="width: 100%;height: 8em"> -->
 <!-- 							<div class="container"> -->
@@ -249,6 +245,20 @@
                 </div>
             </div>
         </div>
+</div>
+
+<!-- 		<h:outputScript name="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" /> -->
+<!-- 		<script type="text/javascript"> -->
+// 			 $(function(){
+// 			   $(window).scroll(function () {
+// 			      if ($(this).scrollTop() > 150) { 
+// 			          $('#navigation').addClass("fixNavigation");
+// 			      } else {
+// 			      $('#navigation').removeClass("fixNavigation");
+// 			      }
+// 			   });
+// 			 });
+<!-- 		 </script> -->
 
 </h:body>
 </html>
