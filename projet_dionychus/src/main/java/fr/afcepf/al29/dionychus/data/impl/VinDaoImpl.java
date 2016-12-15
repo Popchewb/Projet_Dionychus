@@ -110,4 +110,10 @@ public class VinDaoImpl implements VinDaoItf {
 
 	}
 
+	@Override
+	public List<Vin> getBestSellerVin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -26,7 +26,7 @@ public class BusinessCommandeStock implements IBusinessCommandeStock{
 
 	@Override
 	public void addCommandeStock(CommandeStock paramCommandeStock) {
-		csDao.addCommandeStock(paramCommandeStock);
+		csDao.addCommandeStock(paramCommandeStock);		
 	}
 
 	@Override

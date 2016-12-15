@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package fr.afcepf.al29.dionychus.business.itf;
 
 import java.util.List;
@@ -79,19 +78,3 @@ public interface IBusinessInventaire {
 	List<Vin> getBestSellerVin();
 
 }
-=======
-package fr.afcepf.al29.dionychus.business.itf;
-
-import java.util.List;
-
-import fr.afcepf.al29.dionychus.entity.Accessoire;
-import fr.afcepf.al29.dionychus.entity.Vin;
-
-public interface IBusinessInventaire {
-
-	List<Accessoire> getAllAccessoires();
-
-	List<Vin> getAllVins();
-	
-}
->>>>>>> db48d7b7f97f9c02bd491338e2af140c001b6ba1

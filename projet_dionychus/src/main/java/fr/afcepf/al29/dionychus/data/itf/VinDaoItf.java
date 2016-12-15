@@ -14,4 +14,6 @@ public interface VinDaoItf {
 	void updateVin(Vin paramVin);
 
 	void deleteVin(Integer paramIdVin);
+	
+	List<Vin> getBestSellerVin();
 }

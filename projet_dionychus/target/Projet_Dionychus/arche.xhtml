@@ -8,16 +8,246 @@
 
 <h:head>
 <meta charset="utf-8"/>
-<title>Universal - All In 1 Template</title>
 
+<title>Dionychus</title>
+
+<h:outputStylesheet name="css/bootstrap.css"/>
+<h:outputStylesheet name="css/bootstrap-select2.min.css"/>
+<h:outputStylesheet name="css/font-awesome.css"/>
+<h:outputStylesheet name="css/style.default.css" id="theme-stylesheet"/>
+<h:outputStylesheet name="css/custom.css"/>
 
 </h:head>
 
 <h:body>
+ <div id="all">
+	<div id="top">
+			<div class="container">
+					<div class="row">
+						<div class="col-xs-5 contact">
+							<div class="search" id="searchBox">
+								<h:form>
+									<input value="Search " onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Search';}"/><input
+										type="submit" value="Go"/>
+								</h:form>
+							</div>
+						</div>
+						<div class="col-xs-7">
+ 							 <div class="social">
+                                <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                           	 </div>
+							<div class="login">
+								<a href="#" data-toggle="modal" data-target="#login-modal"><i
+									class="fa fa-sign-in"></i> <span
+									class="hidden-xs text-uppercase">Se Connecter</span></a> <a
+									href="customer-register.html"><i class="fa fa-user"></i> <span
+									class="hidden-xs text-uppercase">Panier</span>
+								</a>
+							</div>
+						  </div>
+					 	</div>
+					</div>
+				</div>
 
-	<b:selectOneMenu value="#{testManagedBean.region}"  >
-        <f:selectItems value="#{testManagedBean.regions}" var="c" itemValue="#{c.idRegion}" itemLabel="#{c.libelle}"/>
-    </b:selectOneMenu>
+				<div class="navbar navbar-default yamm" role="navigation"
+					id="navbar">
+
+					<div class="container">
+						<div class="navbar-header">
+
+							<a class="navbar-brand home" href="Recherche_Avancee.jsf"> 
+								<h:graphicImage library="images" name="logoDeQualite.png" style="margin-top: -20px"/>
+								</a>
+						
+							<div class="navbar-buttons">
+								<button type="button" class="navbar-toggle btn-template-main"
+									data-toggle="collapse" data-target="#navigation">
+									<span class="sr-only">Toggle navigation</span> <i
+										class="fa fa-align-justify"></i>
+								</button>
+							</div>
+						</div>
+						<!--/.navbar-header -->
+
+						<div class="navbar-collapse collapse" id="navigation">
+
+							<ul class="nav navbar-nav navbar-right">
+								<li class="dropdown use-yamm yamm-fw">
+									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Accessoires du Vin</a>
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Vins</a>
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Bons Plans</a>
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Admin</a>
+								</li>	
+							</ul>
+
+						</div>
+						<!--/.nav-collapse -->
+
+						<div class="collapse clearfix" id="search">
+							<h:form class="navbar-form" role="search">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search"/><span
+										class="input-group-btn">
+										<button type="submit" class="btn btn-template-main">
+											<i class="fa fa-search"></i>
+										</button>
+									</span>
+								</div>
+							</h:form>
+
+						</div>
+						<!--/.nav-collapse -->
+
+					</div>
+
+
+				</div>
+				<!-- /#navbar -->
+
+			</div>
+<!-- 			    <b:row id="heading-breadcrumbs"> -->
+<!-- 			    	<b:image library="images" name="texture-bw.png" style="width: 100%;height: 8em"> -->
+<!-- 							<div class="container"> -->
+<!-- 									<div class="col-md-7"> -->
+<!-- 										<ui:insert name="Titre_Page"></ui:insert> -->
+<!-- 									</div> -->
+<!-- 									<div class="col-md-5"> -->
+<!-- 										<ul class="breadcrumb"> -->
+<!-- 											<ui:insert name="Chemin_Acces_Site"></ui:insert> -->
+<!-- 										</ul> -->
+<!-- 									</div> -->
+<!-- 							</div> -->
+<!-- 						</b:image> -->
+<!-- 				</b:row> -->
+		
+    <div id="content">
+			<ui:insert name="Contenu_Page"></ui:insert>
+	</div>
+ 
+	<footer id="footer">
+			<div class="container">
+				<div class="col-md-4 col-sm-6 text-center">
+					
+					<h4>Informations légales</h4>
+					<ul>
+						<li><a href="http://i6.cdscdn.com/imagesok/cgv/ml.pdf">Mentions légales</a></li>
+						<li><a href="#">Conditions Générales de Vente</a></li>
+						<li><a href="#">Dionychus et l'environnement</a></li>
+						<li><a href="#">Protection de la vie privée et cookies</a></li>
+					</ul>
+					
+					<hr/>
+					
+					<h4>Rejoindre notre newsletter</h4>
+
+					<h:form>
+						<div class="input-group">
+
+							<input type="text" class="form-control"/> <span
+								class="input-group-btn">
+
+								<button class="btn btn-default" type="button">
+									<i class="fa fa-send"></i>
+								</button>
+
+							</span>
+
+						</div>
+						<!-- /input-group -->
+					</h:form>
+
+					<hr class="hidden-md hidden-lg hidden-sm"/>
+
+				</div>
+				<!-- /.col-md-3 -->
+				<div class="col-md-4 col-sm-6 text-center">
+
+					<h4>Contact</h4>
+
+					<p>
+						<strong>Adresse: </strong> <br/>23/25 Avenue <br/>du Docteur Lannelongue <br/>92120 <br/>Paris <br/> <strong>France</strong>
+					</p>
+
+					<a href="contact.html" class="btn btn-small btn-template-main">Contactez-nous</a>
+
+					<hr class="hidden-md hidden-lg hidden-sm"/>
+
+				</div>
+				<!-- /.col-md-3 -->
+				<div class="col-md-4 col-sm-6 text-center">
+
+					<h4>Partenaires</h4>
+
+					<div class="blog-entries">
+						<div class="item same-height-row clearfix">
+							<div class="image same-height-always">
+								<a href="http://www.blog-vin.fr/"> <h:graphicImage library="images" name="blogvin.jpg" class="img-responsive"/>
+								</a>
+							</div>
+							<div class="name same-height-always">
+								<h5>
+									<a href="http://www.blog-vin.fr/">Décalé, Esthète et épicurien</a>
+								</h5>
+							</div>
+						</div>
+						 
+						<div class="item same-height-row clearfix">
+							<div class="image same-height-always">
+								<a href="http://www.verywinetrip.fr/"> <h:graphicImage library="images" name="veryWineTrip.jpg" class="img-responsive"/>
+								</a>
+							</div>
+							<div class="name same-height-always">
+								<h5>
+									<a href="http://www.verywinetrip.fr/">Carnet de voyage d'une amoureuse du vin</a>
+								</h5>
+							</div>
+						</div>
+							 
+						<div class="item same-height-row clearfix">
+							<div class="image same-height-always">
+								<a href="http://www.sommelier-vins.com/"> <h:graphicImage library="images" name="emmanuelDelmas.jpg" class="img-responsive"/>
+								</a>
+							</div>
+							<div class="name same-height-always">
+								<h5>
+									<a href="http://www.sommelier-vins.com/">Emmanuel Delmas, sommelier</a>
+								</h5>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.col-md-3 -->
+
+				
+			</div>
+			<!-- /.container -->
+		</footer>
+		
+		<div id="copyright">
+            <div class="container">
+                <div class="col-md-12">
+                    <p class="pull-left">2016. Groupe Yaoi</p>
+                    <p class="pull-right">Template by <a href="">Pikachu catcheur</a> 
+                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                    </p>
+
+                </div>
+            </div>
+        </div>
 
 </h:body>
 </html>

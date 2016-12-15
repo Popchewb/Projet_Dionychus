@@ -71,4 +71,10 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 
 	}
 
+	@Override
+	public List<Accessoire> getBestSellerAccessoire() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

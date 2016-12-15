@@ -10,4 +10,5 @@ public interface AccessoireDaoItf {
 	void addAccessoire (Accessoire paramAccessoire);
 	void updateAccessoire (Accessoire paramAccessoire);
 	void deleteAccessoire (Integer paramIdAccessoire);
+	List<Accessoire> getBestSellerAccessoire();
 }
