@@ -2,7 +2,10 @@ fr\afcepf\al29\dionychus\entity\Pays.class
 fr\afcepf\al29\dionychus\config\MvcConfiguration.class
 fr\afcepf\al29\dionychus\data\itf\CommentaireDaoItf.class
 fr\afcepf\al29\dionychus\entity\Region.class
+<<<<<<< HEAD
 fr\afcepf\al29\dionychus\business\itf\IBusinessCompte.class
+=======
+>>>>>>> 6b530793d627aa190900c6afb3132f30d8a15fef
 fr\afcepf\al29\dionychus\mapper\UtilisateurMapper.class
 fr\afcepf\al29\dionychus\entity\Acteur.class
 fr\afcepf\al29\dionychus\data\itf\RegionDaoItf.class
@@ -16,7 +19,10 @@ fr\afcepf\al29\dionychus\entity\Fournisseur.class
 fr\afcepf\al29\dionychus\data\itf\AdresseDaoItf.class
 fr\afcepf\al29\dionychus\data\itf\AppelationDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\StatutCommandeDaoImpl.class
+<<<<<<< HEAD
 fr\afcepf\al29\dionychus\business\impl\BusinessCommandeStock.class
+=======
+>>>>>>> 6b530793d627aa190900c6afb3132f30d8a15fef
 fr\afcepf\al29\dionychus\data\itf\FournisseurDaoItf.class
 fr\afcepf\al29\dionychus\mapper\CommentaireMapper.class
 fr\afcepf\al29\dionychus\test\MainApp.class
@@ -34,8 +40,13 @@ fr\afcepf\al29\dionychus\data\itf\UtilisateurDaoItf.class
 fr\afcepf\al29\dionychus\mapper\CommandeStockMapper.class
 fr\afcepf\al29\dionychus\data\itf\TypeVinDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\VinDaoImpl.class
+<<<<<<< HEAD
 fr\afcepf\al29\dionychus\mapper\AccessoireMapper.class
 fr\afcepf\al29\dionychus\business\itf\IBusinessCommandeClient.class
+=======
+fr\afcepf\al29\dionychus\controller\InventaireManagedBean.class
+fr\afcepf\al29\dionychus\mapper\AccessoireMapper.class
+>>>>>>> 6b530793d627aa190900c6afb3132f30d8a15fef
 fr\afcepf\al29\dionychus\entity\Promotion.class
 fr\afcepf\al29\dionychus\data\impl\FournisseurDaoImpl.class
 fr\afcepf\al29\dionychus\entity\Cepage.class
@@ -69,11 +80,17 @@ fr\afcepf\al29\dionychus\mapper\FournisseurMapper.class
 fr\afcepf\al29\dionychus\mapper\TypeAccessoireMapper.class
 fr\afcepf\al29\dionychus\mapper\CepageMapper.class
 fr\afcepf\al29\dionychus\data\impl\TypeAccessoireDaoImpl.class
+<<<<<<< HEAD
 fr\afcepf\al29\dionychus\business\itf\IBusinessCommandeStock.class
 fr\afcepf\al29\dionychus\entity\Vin.class
 fr\afcepf\al29\dionychus\data\itf\PaysDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\CommandeStockDaoImpl.class
 fr\afcepf\al29\dionychus\business\impl\BusinessCompte.class
+=======
+fr\afcepf\al29\dionychus\entity\Vin.class
+fr\afcepf\al29\dionychus\data\itf\PaysDaoItf.class
+fr\afcepf\al29\dionychus\data\impl\CommandeStockDaoImpl.class
+>>>>>>> 6b530793d627aa190900c6afb3132f30d8a15fef
 fr\afcepf\al29\dionychus\mapper\TypeAccesMapper.class
 fr\afcepf\al29\dionychus\mapper\VinMapper.class
 fr\afcepf\al29\dionychus\data\itf\StatutCommandeDaoItf.class
@@ -83,6 +100,10 @@ fr\afcepf\al29\dionychus\mapper\TypeVinMapper.class
 fr\afcepf\al29\dionychus\business\itf\IBusinessInventaire.class
 fr\afcepf\al29\dionychus\data\impl\TypeLivraisonDaoImpl.class
 fr\afcepf\al29\dionychus\entity\TypeAccessoire.class
+<<<<<<< HEAD
+=======
+fr\afcepf\al29\dionychus\business\itf\IBusinessInventaireVin.class
+>>>>>>> 6b530793d627aa190900c6afb3132f30d8a15fef
 fr\afcepf\al29\dionychus\data\itf\TypeAccessoireDaoItf.class
 fr\afcepf\al29\dionychus\data\itf\CommandeStockDaoItf.class
 fr\afcepf\al29\dionychus\mapper\TypeLivraisonMapper.class
@@ -100,5 +121,8 @@ fr\afcepf\al29\dionychus\data\impl\AromeDaoImpl.class
 fr\afcepf\al29\dionychus\entity\LigneCommande.class
 fr\afcepf\al29\dionychus\entity\Appelation.class
 fr\afcepf\al29\dionychus\mapper\LigneCommandeMapper.class
+<<<<<<< HEAD
 fr\afcepf\al29\dionychus\business\impl\BusinessCommandeClient.class
+=======
+>>>>>>> 6b530793d627aa190900c6afb3132f30d8a15fef
 fr\afcepf\al29\dionychus\data\impl\VilleDaoImpl.class

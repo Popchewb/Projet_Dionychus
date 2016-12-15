@@ -7,7 +7,9 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.afcepf.al29.dionychus.data.itf.TypeVinDaoItf;
+import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
+import fr.afcepf.al29.dionychus.mapper.RegionMapper;
 import fr.afcepf.al29.dionychus.mapper.TypeVinMapper;
 
 public class TypeVinDaoImpl implements TypeVinDaoItf{
@@ -47,6 +49,15 @@ public class TypeVinDaoImpl implements TypeVinDaoItf{
 		String SQL = "SELECT id_type_vin, libelle FROM type_vin ORDER BY libelle";
 		List<TypeVin> typesVin = jdbcTemplate.query(SQL, new TypeVinMapper());
 		return typesVin;
+	}
+
+
+
+	@Override
+	public TypeVin getTypeVinById(Integer typeVinId) {
+		String SQL = "SELECT id_type_vin, libelle FROM type_vin WHERE id_type_vin = ?";
+		TypeVin typeVin = jdbcTemplate.queryForObject(SQL, new Object[] { typeVinId }, new TypeVinMapper());
+		return typeVin;
 	}
 
 }

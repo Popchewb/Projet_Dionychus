@@ -119,7 +119,7 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 				article.setQuantite(ligneCommande.getArticle().getQuantite() - ligneCommande.getQuantite());
 				vinDao.updateVin(article);
 			}
-		}
+		}	
 
 	}
 

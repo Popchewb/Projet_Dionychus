@@ -3,21 +3,23 @@ package fr.afcepf.al29.dionychus.controller;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
 import fr.afcepf.al29.dionychus.entity.Arome;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
 
-@RequestScoped
-@ManagedBean
-@Controller
+@Controller("vinManagedBean")
+@Scope("request")
 public class VinManagedBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Autowired
+	private IBusinessInventaire proxyInventaire;
 	
 	private List<TypeVin> typeVins = null;
 
@@ -25,11 +27,7 @@ public class VinManagedBean implements Serializable {
 	
 	private Double prix;
 	
-	private Arome arome;
-	
 	private List<Arome> aromes;
-	
-	private Cepage cepage;
 	
 	private List<Cepage> cepages;
 	
@@ -38,7 +36,7 @@ public class VinManagedBean implements Serializable {
 	}
 	
 	public List<TypeVin> getTypeVins() {
-		return typeVins;
+		return proxyInventaire.getAllTypeVins();
 	}
 
 	public void setTypeVins(List<TypeVin> typeVins) {
@@ -61,32 +59,16 @@ public class VinManagedBean implements Serializable {
 		this.prix = prix;
 	}
 
-	public Arome getArome() {
-		return arome;
-	}
-
-	public void setArome(Arome arome) {
-		this.arome = arome;
-	}
-
 	public List<Arome> getAromes() {
-		return aromes;
+		return proxyInventaire.getAllAromes();
 	}
 
 	public void setAromes(List<Arome> aromes) {
 		this.aromes = aromes;
 	}
 
-	public Cepage getCepage() {
-		return cepage;
-	}
-
-	public void setCepage(Cepage cepage) {
-		this.cepage = cepage;
-	}
-
 	public List<Cepage> getCepages() {
-		return cepages;
+		return proxyInventaire.getAllCepages();
 	}
 
 	public void setCepages(List<Cepage> cepages) {

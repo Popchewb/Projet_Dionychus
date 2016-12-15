@@ -8,7 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.afcepf.al29.dionychus.data.itf.AppelationDaoItf;
 import fr.afcepf.al29.dionychus.entity.Appelation;
+import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.mapper.AppelationMapper;
+import fr.afcepf.al29.dionychus.mapper.RegionMapper;
 
 public class AppelationDaoImpl implements AppelationDaoItf {
 	private JdbcTemplate jdbcTemplate;
@@ -37,6 +39,12 @@ public class AppelationDaoImpl implements AppelationDaoItf {
 		String SQL = "SELECT a.id_appelation, a.libelle FROM appelation a INNER JOIN vin v WHERE a.id_appelation = v.id_appelation AND v.id_vin = ?";
 		List<Appelation> appelations = jdbcTemplate.query(SQL, new Object[] {paramIdVin}, new AppelationMapper());
 		return appelations;
+	}
+	@Override
+	public Appelation getAppelationById(Integer appellationId) {
+		String SQL = "SELECT id_appelation, libelle FROM appelation WHERE id_appelation = ?";
+		Appelation appellation = jdbcTemplate.queryForObject(SQL, new Object[] { appellationId }, new AppelationMapper());
+		return appellation;
 	}
 	
 	
