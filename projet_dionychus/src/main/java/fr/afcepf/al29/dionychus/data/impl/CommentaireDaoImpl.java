@@ -36,34 +36,34 @@ public class CommentaireDaoImpl implements CommentaireDaoItf {
 
 	@Override
 	public List<Commentaire> getAllByVin(Integer paramIdVin) {
-		String SQL = "SELECT c.id_commentaire, c.note, c.description, v.id_article, u.id_acteur FROM commentaire c INNER JOIN vin v INNER JOIN acteur u WHERE u.id_acteur = c.id_acteur AND v.id_article = c.id_article AND c.id_article = ?";
+		String SQL = "SELECT c.id_commentaire, c.note, c.description, c.date, v.id_article, u.id_acteur, u.nom, u.prenom FROM commentaire c INNER JOIN article v INNER JOIN acteur u WHERE u.id_acteur = c.id_acteur AND v.id_article = c.id_article AND c.id_article = ?";
 		return jdbcTemplate.query(SQL, new Object[] { paramIdVin }, new CommentaireMapper());
 	}
 
 	@Override
 	public List<Commentaire> getAllByAccessoire(Integer paramIdAccessoire) {
-		String SQL = "SELECT c.id_commentaire, c.note, c.description, a.id_article, u.id_acteur FROM commentaire c INNER JOIN accessoire a INNER JOIN acteur u WHERE u.id_acteur = c.id_acteur AND a.id_article = c.id_article AND c.id_article = ?";
+		String SQL = "SELECT c.id_commentaire, c.note, c.description, c.date, a.id_article, u.id_acteur, u.nom, u.prenom FROM commentaire c INNER JOIN article a INNER JOIN acteur u WHERE u.id_acteur = c.id_acteur AND a.id_article = c.id_article AND c.id_article = ?";
 		return jdbcTemplate.query(SQL, new Object[] { paramIdAccessoire }, new CommentaireMapper());
 	}
 
 	@Override
 	public List<Commentaire> getAllCommentaireByUtilisateur(Integer paramIdUtilisateur) {
-		String SQL = "SELECT c.id_commentaire, c.note, c.description, u.id_acteur FROM commentaire c INNER JOIN acteur u WHERE u.id_acteur = c.id_acteur AND c.id_acteur = ?";
+		String SQL = "SELECT c.id_commentaire, c.note, c.description, c.date, u.id_acteur FROM commentaire c INNER JOIN acteur u WHERE u.id_acteur = c.id_acteur AND c.id_acteur = ?";
 		return jdbcTemplate.query(SQL, new Object[] { paramIdUtilisateur }, new CommentaireMapper());
 	}
 
 	@Override
 	public void addCommentaire(Commentaire paramCommentaire, Integer paramIdArticle, Integer paramIdUtilisateur) {
-		String SQL = "INSERT INTO `bdd_dionychus`.`commentaire` (`note`, `description`, `id_article`, `id_acteur`) VALUES (?,?,?,?)";
+		String SQL = "INSERT INTO `bdd_dionychus`.`commentaire` (`note`, `description`, `id_article`, `id_acteur`, `date`) VALUES (?,?,?,?,?)";
 		jdbcTemplate.update(SQL, new Object[] { paramCommentaire.getNote(), paramCommentaire.getDescription(),
-				paramIdArticle, paramIdUtilisateur });
+				paramIdArticle, paramIdUtilisateur, paramCommentaire.getDate() });
 	}
 
 	@Override
 	public void updateCommentaire(Commentaire paramCommentaire) {
-		String SQL = "UPDATE `bdd_dionychus`.`commentaire` SET `note`=?, `description`=? WHERE `id_commentaire`=?";
+		String SQL = "UPDATE `bdd_dionychus`.`commentaire` SET `note`=?, `description`=?, `date`=? WHERE `id_commentaire`=?";
 		jdbcTemplate.update(SQL, new Object[] { paramCommentaire.getNote(), paramCommentaire.getDescription(),
-				paramCommentaire.getIdCommentaire() });
+				paramCommentaire.getDate(), paramCommentaire.getIdCommentaire() });
 	}
 
 	@Override

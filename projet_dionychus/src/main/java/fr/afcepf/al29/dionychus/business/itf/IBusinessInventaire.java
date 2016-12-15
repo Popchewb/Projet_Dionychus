@@ -30,14 +30,17 @@ public interface IBusinessInventaire {
 
 	// Appelations
 	List<Appelation> getAllAppelation();
+
 	Appelation getAppellationById(Integer paramIdAppelation);
 
 	// Aromes
 	List<Arome> getAllArome();
+
 	Arome getAromeById(int paramIdArome);
 
 	// Cepage
 	List<Cepage> getAllCepage();
+
 	Cepage getCepageById(int paramIdCepage);
 
 	// Commentaires
@@ -60,6 +63,7 @@ public interface IBusinessInventaire {
 
 	// Region
 	List<Region> getAllRegion();
+
 	Region getRegionById(Integer region);
 
 	// Type Accessoire
@@ -67,6 +71,7 @@ public interface IBusinessInventaire {
 
 	// Type Vin
 	List<TypeVin> getAllTypeVin();
+
 	TypeVin getTypeVinById(Integer paramIdTypeVin);
 
 	// Vin
@@ -74,7 +79,7 @@ public interface IBusinessInventaire {
 
 	Vin getVinById(Integer paramIdVin);
 
-	void addVin(Vin paramVin);
+	void addVin(Vin paramVin, Integer paramIdFournisseur);
 
 	void updateVin(Vin paramVin);
 

@@ -45,13 +45,13 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 	}
 
 	@Override
-	public void addAccessoire(Accessoire paramAccessoire) {
-		String SQL = "INSERT INTO `bdd_dionychus`.`article` (`reference`, `libelle`, `description`, `prix`, `quantite`, `seuil_alerte`, `url_image`, `id_type_accessoire`, `type_article`) VALUES (?,?,?,?,?,?,?,?,'Accessoire')";
+	public void addAccessoire(Accessoire paramAccessoire, Integer paramIdFournisseur) {
+		String SQL = "INSERT INTO `bdd_dionychus`.`article` (`reference`, `libelle`, `description`, `prix`, `quantite`, `seuil_alerte`, `url_image`, `id_type_accessoire`, `type_article`,`id_acteur`) VALUES (?,?,?,?,?,?,?,?,'Accessoire',?)";
 		jdbcTemplate.update(SQL,
 				new Object[] { paramAccessoire.getReference(), paramAccessoire.getLibelle(),
 						paramAccessoire.getDescription(), paramAccessoire.getPrix(), paramAccessoire.getQuantite(),
 						paramAccessoire.getSeuilAlerte(), paramAccessoire.getUrlImage(),
-						paramAccessoire.getTypeAccessoire().getId_type_accessoire() });
+						paramAccessoire.getTypeAccessoire().getId_type_accessoire(),paramIdFournisseur });
 	}
 
 	@Override
