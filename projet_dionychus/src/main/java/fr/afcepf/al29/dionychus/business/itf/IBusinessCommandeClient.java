@@ -7,8 +7,8 @@ import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Promotion;
-import fr.afcepf.al29.dionychus.entity.StatutCommande;
 import fr.afcepf.al29.dionychus.entity.TypeLivraison;
+import fr.afcepf.al29.dionychus.entity.Utilisateur;
 
 public interface IBusinessCommandeClient {
 
@@ -21,6 +21,8 @@ public interface IBusinessCommandeClient {
 	Commande getCommandeById(Integer paramIdCommandeClient);
 
 	List<CommandeClient> getCommandesByIdUtilisateur(Integer paramIdUtilisateur);
+	
+	void validerCommandeClient(CommandeClient paramCommandeClient, Utilisateur paramUtilisateur);
 
 	void addCommandeClient(CommandeClient paramCommandeClient);
 
