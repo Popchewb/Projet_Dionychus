@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Catalogue</title>
+	<h:outputStylesheet name="css/bootstrap.css" />
+
+</h:head>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/arche.xhtml">
+
+<!-- 	<ui:define name="Titre_Page"> -->
+<!-- 		<h2>Inventaire</h2> -->
+<!-- 	</ui:define> -->
+	
+<!-- 	<ui:define name="Chemin_Acces_Site"> -->
+<!-- 		<li><a href="index.html">Accueil</a></li> -->
+<!-- 		<li>Admin</li> -->
+<!-- 	</ui:define> -->
+	
+	<ui:define name="Contenu_Page">
+	
+			<div id="content">
+				<div class="container">
+		
+					<div class="row">
+		
+						<div class="col-sm-3">
+		
+							<h:form>
+		
+								<b:row>
+									<h:outputLabel value="Type de Vin" />
+									<b:radiobutton value="#{vinManagedBean.typeVin}">
+										<f:selectItems value="#{vinManagedBean.typeVins}" var="type"
+											itemValue="type.idTypeVin" itemLabel="type.libelle" />
+									</b:radiobutton>
+								</b:row>
+		
+								<b:row>
+									<h:outputLabel value="Vigneron" />
+									<b:inputText value="" span="12" style="margin-left: -20px; width: 295px"/>
+		
+								</b:row>
+		
+								<b:row>
+									<h:outputLabel value="Millésime" />
+									<b:inputText value="" span="12" style="margin-left: -20px; width: 295px" />
+		
+								</b:row>
+		
+								<b:row>
+									<h:outputLabel value="Prix" />
+									<b:slider2 min="0" max="500" span="12"
+										value="#{vinManagedBean.prix}" />
+		
+								</b:row>
+		
+								<b:row>
+									<h:outputLabel value="Région" />
+									<b:selectOneMenu value="#{testManagedBean.region}">
+										<f:selectItems value="#{testManagedBean.regions}" var="c"
+											itemValue="#{c.idRegion}" itemLabel="#{c.libelle}"/>
+									</b:selectOneMenu>
+								</b:row>
+		
+								<b:row>
+		
+									<h:outputLabel value="Cépages" style="width: 295px" />
+									<b:selectMultiMenu value="#{vinManagedBean.cepage}" style="width: 295px">
+										<f:selectItems value="#{vinManagedBean.cepages}" var="cep"
+											itemValue="#{cep.idCepage}" itemLabel="#{cep.libelle}" />
+									</b:selectMultiMenu>
+								</b:row>
+		
+								<b:row style="width: 295px" >
+		
+									<h:outputLabel value="Arômes" />
+									<b:selectMultiMenu value="#{vinManagedBean.arome}" style="width: 295px">
+										<f:selectItems value="#{vinManagedBean.aromes}" var="aro"
+											itemValue="#{aro.idArome}" itemLabel="#{aro.libelle}" />
+									</b:selectMultiMenu>
+								</b:row>
+		
+								<b:row style="padding: 10px; text-align: center">
+									<b:commandButton value="Rechercher" type="submit"
+										action="#{vinManagedBean.rechercher}" look="info" />
+								</b:row>
+		
+							</h:form>
+		
+						</div>
+		
+					<div class="col-sm-9">
+						<div class="row products">
+
+							<div class="col-md-3 col-sm-6">
+								<div class="product">
+									<div class="image">
+										<a href="details_produit.jsf"> 
+										<h:graphicImage library="images" name="Article_Vin_1_Taille.jpg" class="img-responsive"/>
+										</a>
+									</div>
+									<!-- /.image -->
+									<div class="text">
+										<h3>
+											<a href="details_produit.jsf"><h:outputText
+													value="Château Margaux 2009" /></a>
+										</h3>
+										<div>
+											<h:outputText value="Appelation" />
+										</div>
+										<div style="margin-top: 26px">
+											<h:outputText style="font-size: 18px; line-height: normal;" value="200 €" />
+										</div>
+
+									</div>
+									<!-- /.text -->
+									</div>
+								<!-- /.product -->
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="product">
+									<div class="image">
+										<a href="details_produit.jsf"> 
+										<h:graphicImage library="images" name="Article_Vin_1_Taille.jpg" class="img-responsive"/>
+										</a>
+									</div>
+									<!-- /.image -->
+									<div class="text">
+										<h3>
+											<a href="details_produit.jsf"><h:outputText
+													value="Château Margaux 2009" /></a>
+										</h3>
+										<div>
+											<h:outputText value="Appelation" />
+										</div>
+										<div style="margin-top: 26px">
+											<h:outputText style="font-size: 18px; line-height: normal;"
+												value="200 €" />
+										</div>
+
+									</div>
+									<!-- /.text -->
+
+									<div class="ribbon sale">
+										<div class="theribbon">SALE</div>
+										<div class="ribbon-background"></div>
+									</div>
+									<!-- /.ribbon -->
+
+									<div class="ribbon new">
+										<div class="theribbon">Promo</div>
+										<div class="ribbon-background"></div>
+									</div>
+
+									<!-- /.ribbon -->
+								</div>
+								<!-- /.product -->
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

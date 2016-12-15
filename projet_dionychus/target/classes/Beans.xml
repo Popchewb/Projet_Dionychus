@@ -126,5 +126,4 @@
 	<bean id="vinJDBCtemplate" class="fr.afcepf.al29.dionychus.data.impl.VinDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
 </beans>
