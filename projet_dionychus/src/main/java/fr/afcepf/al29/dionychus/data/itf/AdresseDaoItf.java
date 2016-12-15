@@ -5,10 +5,17 @@ import java.util.List;
 import fr.afcepf.al29.dionychus.entity.Adresse;
 
 public interface AdresseDaoItf {
+
 	List<Adresse> getAll();
-	Adresse getById(Integer paramIdAdresse);
+
+	Adresse getAdresseById(Integer paramIdAdresse);
+
 	List<Adresse> getAdresseByIdActeur(Integer paramIdActeur);
-	void addAdresse (Adresse paramAdresse, Integer paramIdActeur);
-	void updateAdresse (Adresse paramAdresse);
-	void deleteAdresse (Integer paramIdAdresse);
+
+	void addAdresse(Adresse paramAdresse, Integer paramIdActeur);
+
+	void updateAdresse(Adresse paramAdresse);
+
+	void deleteAdresse(Integer paramIdAdresse);
+
 }
