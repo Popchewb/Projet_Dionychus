@@ -5,11 +5,13 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
 import fr.afcepf.al29.dionychus.data.itf.AdresseDaoItf;
 import fr.afcepf.al29.dionychus.entity.Adresse;
 import fr.afcepf.al29.dionychus.mapper.AdresseMapper;
 
+@Service
 public class AdresseDaoImpl implements AdresseDaoItf {
 
 	JdbcTemplate jdbcTemplate;
@@ -34,19 +36,19 @@ public class AdresseDaoImpl implements AdresseDaoItf {
 
 	@Override
 	public List<Adresse> getAll() {
-		String SQL = "SELECT a.id_adresse, a.libelle, a.complement,a.adresse_facturation,a.adresse_livraison, v.id_ville,v.libelle,v.code_postal,p.id_pays,p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays ORDER BY a.libelle";
+		String SQL = "SELECT a.id_adresse, a.libelle, a.complement, a.adresse_facturation, a.adresse_livraison, v.id_ville, v.libelle, v.code_postal, p.id_pays, p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays ORDER BY a.libelle";
 		return jdbcTemplate.query(SQL, new AdresseMapper());
 	}
 
 	@Override
-	public Adresse getById(Integer paramIdAdresse) {
-		String SQL = "SELECT a.id_adresse, a.libelle, a.complement,a.adresse_facturation,a.adresse_livraison, v.id_ville,v.libelle,v.code_postal,p.id_pays,p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays AND a.id_adresse = ? ORDER BY a.libelle";
+	public Adresse getAdresseById(Integer paramIdAdresse) {
+		String SQL = "SELECT a.id_adresse, a.libelle, a.complement, a.adresse_facturation, a.adresse_livraison, v.id_ville, v.libelle, v.code_postal, p.id_pays, p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays AND a.id_adresse = ? ORDER BY a.libelle";
 		return jdbcTemplate.queryForObject(SQL, new Object[] { paramIdAdresse }, new AdresseMapper());
 	}
 
 	@Override
 	public List<Adresse> getAdresseByIdActeur(Integer paramIdActeur) {
-		String SQL = "SELECT a.id_adresse, a.libelle, a.complement,a.adresse_facturation,a.adresse_livraison, v.id_ville,v.libelle,v.code_postal,p.id_pays,p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays WHERE a.id_acteur = ? ORDER BY a.libelle";
+		String SQL = "SELECT a.id_adresse, a.libelle, a.complement, a.adresse_facturation, a.adresse_livraison, v.id_ville, v.libelle, v.code_postal, p.id_pays, p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays WHERE a.id_acteur = ? ORDER BY a.libelle";
 		return jdbcTemplate.query(SQL, new Object[] { paramIdActeur }, new AdresseMapper());
 	}
 
@@ -70,8 +72,8 @@ public class AdresseDaoImpl implements AdresseDaoItf {
 
 	@Override
 	public void deleteAdresse(Integer paramIdAdresse) {
-		// TODO Auto-generated method stub
-
+		String SQL = "DELETE FROM adresse WHERE id_adresse = ?";
+		jdbcTemplate.update(SQL, new Object[] { paramIdAdresse });
 	}
 
 }

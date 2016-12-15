@@ -10,33 +10,46 @@ import fr.afcepf.al29.dionychus.entity.Utilisateur;
 import fr.afcepf.al29.dionychus.entity.Ville;
 
 public interface IBusinessCompte {
-	
-	//Adresses
+
+	// Adresses
 	List<Adresse> getAllAdresse();
+
 	Adresse getAdresseById(Integer paramIdAdresse);
+
 	List<Adresse> getAdresseByIdActeur(Integer paramIdActeur);
-	void addAdresse (Adresse paramAdresse, Integer paramIdActeur);
-	void updateAdresse (Adresse paramAdresse);
-	void deleteAdresse (Integer paramIdAdresse);
-	
-	//Commentaires
-	List<Commentaire> getAllByUtilisateur(Integer paramIdUtilisateur);
-	
-	//Pays
+
+	void addAdresse(Adresse paramAdresse, Integer paramIdActeur);
+
+	void updateAdresse(Adresse paramAdresse);
+
+	void deleteAdresse(Integer paramIdAdresse);
+
+	// Commentaires
+	List<Commentaire> getAllCommentaireByUtilisateur(Integer paramIdUtilisateur);
+
+	// START HERE ANTOINE
+
+	// Pays
 	List<Pays> getAllPays();
+
 	Pays getPaysByIdVille(Integer paramIdVille);
-	
-	//Villes
+
+	// Villes
 	List<Ville> getAllVille();
+
 	List<Ville> getAllVilleByIdPays(Integer paramIdPays);
-	
-	//Types Acces
+
+	// Types Acces
 	List<TypeAcces> getAllTypeAcces();
-	
-	//Utilisateurs
+
+	// Utilisateurs
 	List<Utilisateur> getAll();
+
 	Utilisateur getById(int paramIdUtilisateur);
+
 	void addUtilisateur(Utilisateur paramUtilisateur);
+
 	void updateUtilisateur(Utilisateur paramUtilisateur);
+
 	void deleteUtilisateur(Integer paramIdUtilisateur);
 }

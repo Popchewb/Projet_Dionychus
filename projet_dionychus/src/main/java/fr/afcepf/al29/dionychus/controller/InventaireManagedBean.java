@@ -12,7 +12,6 @@ import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
-import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
@@ -70,7 +69,7 @@ public class InventaireManagedBean implements Serializable {
 	private String urlImage;
 	
 	public List<Accessoire> getAccessoires() {
-		return proxyInventaire.getAllAccessoires();
+		return proxyInventaire.getAllAccessoire();
 	}
 
 	public void setAccessoires(List<Accessoire> accessoires) {
@@ -78,7 +77,7 @@ public class InventaireManagedBean implements Serializable {
 	}
 
 	public List<Vin> getVins() {
-		return proxyInventaire.getAllVins();
+		return proxyInventaire.getAllVin();
 	}
 
 	public void setVins(List<Vin> vins) {
@@ -94,7 +93,7 @@ public class InventaireManagedBean implements Serializable {
 	}
 
 	public List<TypeVin> getTypeVins() {
-		return proxyInventaire.getAllTypeVins();
+		return proxyInventaire.getAllTypeVin();
 	}
 
 	public void setTypeVins(List<TypeVin> typeVins) {
@@ -102,7 +101,7 @@ public class InventaireManagedBean implements Serializable {
 	}
 
 	public List<Appelation> getAppellations() {
-		return proxyInventaire.getAllAppellation();
+		return proxyInventaire.getAllAppelation();
 	}
 
 	public void setAppellations(List<Appelation> appellations) {
@@ -118,7 +117,7 @@ public class InventaireManagedBean implements Serializable {
 	}
 
 	public List<Region> getRegions() {
-		return proxyInventaire.getAllRegions();
+		return proxyInventaire.getAllRegion();
 	}
 
 	public void setRegions(List<Region> regions) {
@@ -134,7 +133,7 @@ public class InventaireManagedBean implements Serializable {
 	}
 
 	public List<Cepage> getCepages() {
-		return proxyInventaire.getAllCepages();
+		return proxyInventaire.getAllCepage();
 	}
 
 	public void setCepages(List<Cepage> cepages) {
@@ -158,7 +157,7 @@ public class InventaireManagedBean implements Serializable {
 	}
 
 	public List<Arome> getAromes() {
-		return proxyInventaire.getAllAromes();
+		return proxyInventaire.getAllArome();
 	}
 
 	public void setAromes(List<Arome> aromes) {
@@ -269,7 +268,7 @@ public class InventaireManagedBean implements Serializable {
 		vin.setCepages(cepageSelect);
 		vin.setTypeArticle("Vin");
 		
-		proxyInventaire.ajouterVin(vin);
+		proxyInventaire.addVin(vin);
 		
 		return null;
 	}

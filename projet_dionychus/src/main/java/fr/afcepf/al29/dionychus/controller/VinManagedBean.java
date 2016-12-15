@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
 import fr.afcepf.al29.dionychus.entity.Arome;
 import fr.afcepf.al29.dionychus.entity.Cepage;
+import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
 
 @Controller("vinManagedBean")
@@ -21,34 +22,34 @@ public class VinManagedBean implements Serializable {
 	@Autowired
 	private IBusinessInventaire proxyInventaire;
 	
-	private List<TypeVin> typeVins = null;
+	private List<TypeVin> typeVins;
 
-	private TypeVin typeVin;
+	private Integer typeVin;
 	
 	private Double prix;
 	
 	private List<Arome> aromes;
 	
+	private String arome;
+	
 	private List<Cepage> cepages;
+	
+	private String cepage;
+	
+	private List<Region> regions;
+	
+	private Integer region;
 	
 	public String rechercher() {
 		return null;
 	}
 	
 	public List<TypeVin> getTypeVins() {
-		return proxyInventaire.getAllTypeVins();
+		return proxyInventaire.getAllTypeVin();
 	}
 
 	public void setTypeVins(List<TypeVin> typeVins) {
 		this.typeVins = typeVins;
-	}
-
-	public TypeVin getTypeVin() {
-		return typeVin;
-	}
-
-	public void setTypeVin(TypeVin typeVin) {
-		this.typeVin = typeVin;
 	}
 
 	public Double getPrix() {
@@ -60,7 +61,7 @@ public class VinManagedBean implements Serializable {
 	}
 
 	public List<Arome> getAromes() {
-		return proxyInventaire.getAllAromes();
+		return proxyInventaire.getAllArome();
 	}
 
 	public void setAromes(List<Arome> aromes) {
@@ -68,13 +69,53 @@ public class VinManagedBean implements Serializable {
 	}
 
 	public List<Cepage> getCepages() {
-		return proxyInventaire.getAllCepages();
+		return proxyInventaire.getAllCepage();
 	}
 
 	public void setCepages(List<Cepage> cepages) {
 		this.cepages = cepages;
 	}
-	
+
+	public Integer getTypeVin() {
+		return typeVin;
+	}
+
+	public void setTypeVin(Integer typeVin) {
+		this.typeVin = typeVin;
+	}
+
+	public List<Region> getRegions() {
+		return proxyInventaire.getAllRegion();
+	}
+
+	public void setRegions(List<Region> regions) {
+		this.regions = regions;
+	}
+
+	public String getArome() {
+		return arome;
+	}
+
+	public void setArome(String arome) {
+		this.arome = arome;
+	}
+
+	public String getCepage() {
+		return cepage;
+	}
+
+	public void setCepage(String cepage) {
+		this.cepage = cepage;
+	}
+
+	public Integer getRegion() {
+		return region;
+	}
+
+	public void setRegion(Integer region) {
+		this.region = region;
+	}
+
 	
 
 }

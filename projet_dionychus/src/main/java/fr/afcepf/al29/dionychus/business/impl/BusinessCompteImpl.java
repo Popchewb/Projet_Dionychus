@@ -2,7 +2,13 @@ package fr.afcepf.al29.dionychus.business.impl;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
+
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCompte;
+import fr.afcepf.al29.dionychus.data.itf.AdresseDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.CommentaireDaoItf;
 import fr.afcepf.al29.dionychus.entity.Adresse;
 import fr.afcepf.al29.dionychus.entity.Commentaire;
 import fr.afcepf.al29.dionychus.entity.Pays;
@@ -10,48 +16,47 @@ import fr.afcepf.al29.dionychus.entity.TypeAcces;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
 import fr.afcepf.al29.dionychus.entity.Ville;
 
-public class BusinessCompte implements IBusinessCompte{
+@Service
+public class BusinessCompteImpl implements IBusinessCompte {
+
+	private ApplicationContext context = new ClassPathXmlApplicationContext("classpath:Beans.xml");
+
+	private AdresseDaoItf proxyAdresseDao = (AdresseDaoItf) context.getBean("adresseJDBCtemplate");
+	private CommentaireDaoItf proxyCommentaireDao = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
 
 	@Override
 	public List<Adresse> getAllAdresse() {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyAdresseDao.getAll();
 	}
 
 	@Override
 	public Adresse getAdresseById(Integer paramIdAdresse) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyAdresseDao.getAdresseById(paramIdAdresse);
 	}
 
 	@Override
 	public List<Adresse> getAdresseByIdActeur(Integer paramIdActeur) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyAdresseDao.getAdresseByIdActeur(paramIdActeur);
 	}
 
 	@Override
 	public void addAdresse(Adresse paramAdresse, Integer paramIdActeur) {
-		// TODO Auto-generated method stub
-		
+		proxyAdresseDao.addAdresse(paramAdresse, paramIdActeur);
 	}
 
 	@Override
 	public void updateAdresse(Adresse paramAdresse) {
-		// TODO Auto-generated method stub
-		
+		proxyAdresseDao.updateAdresse(paramAdresse);
 	}
 
 	@Override
 	public void deleteAdresse(Integer paramIdAdresse) {
-		// TODO Auto-generated method stub
-		
+		proxyAdresseDao.deleteAdresse(paramIdAdresse);
 	}
 
 	@Override
-	public List<Commentaire> getAllByUtilisateur(Integer paramIdUtilisateur) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Commentaire> getAllCommentaireByUtilisateur(Integer paramIdUtilisateur) {
+		return proxyCommentaireDao.getAllCommentaireByUtilisateur(paramIdUtilisateur);
 	}
 
 	@Override
@@ -99,19 +104,19 @@ public class BusinessCompte implements IBusinessCompte{
 	@Override
 	public void addUtilisateur(Utilisateur paramUtilisateur) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateUtilisateur(Utilisateur paramUtilisateur) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void deleteUtilisateur(Integer paramIdUtilisateur) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

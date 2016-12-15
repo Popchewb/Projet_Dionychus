@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package fr.afcepf.al29.dionychus.business.itf;
 
 import java.util.List;
@@ -31,12 +30,15 @@ public interface IBusinessInventaire {
 
 	// Appelations
 	List<Appelation> getAllAppelation();
+	Appelation getAppellationById(Integer paramIdAppelation);
 
 	// Aromes
 	List<Arome> getAllArome();
+	Arome getAromeById(int paramIdArome);
 
 	// Cepage
 	List<Cepage> getAllCepage();
+	Cepage getCepageById(int paramIdCepage);
 
 	// Commentaires
 	List<Commentaire> getAllByVin(Integer paramIdVin);
@@ -58,12 +60,14 @@ public interface IBusinessInventaire {
 
 	// Region
 	List<Region> getAllRegion();
+	Region getRegionById(Integer region);
 
 	// Type Accessoire
 	List<TypeAccessoire> getAllTypeAccessoire();
 
 	// Type Vin
 	List<TypeVin> getAllTypeVin();
+	TypeVin getTypeVinById(Integer paramIdTypeVin);
 
 	// Vin
 	List<Vin> getAllVin();
@@ -79,46 +83,3 @@ public interface IBusinessInventaire {
 	List<Vin> getBestSellerVin();
 
 }
-=======
-package fr.afcepf.al29.dionychus.business.itf;
-
-import java.util.List;
-
-import fr.afcepf.al29.dionychus.entity.Accessoire;
-import fr.afcepf.al29.dionychus.entity.Appelation;
-import fr.afcepf.al29.dionychus.entity.Arome;
-import fr.afcepf.al29.dionychus.entity.Cepage;
-import fr.afcepf.al29.dionychus.entity.Region;
-import fr.afcepf.al29.dionychus.entity.TypeVin;
-import fr.afcepf.al29.dionychus.entity.Vin;
-
-public interface IBusinessInventaire {
-
-	List<Accessoire> getAllAccessoires();
-
-	List<Vin> getAllVins();
-
-	List<Arome> getAllAromes();
-
-	List<Cepage> getAllCepages();
-
-	List<Region> getAllRegions();
-
-	List<Appelation> getAllAppellation();
-
-	List<TypeVin> getAllTypeVins();
-
-	Region getRegionById(Integer region);
-
-	Appelation getAppellationById(Integer appellation);
-
-	TypeVin getTypeVinById(Integer typeVin);
-
-	Arome getAromeById(int parseInt);
-
-	Cepage getCepageById(int parseInt);
-
-	void ajouterVin(Vin vin);
-	
-}
->>>>>>> 6b530793d627aa190900c6afb3132f30d8a15fef

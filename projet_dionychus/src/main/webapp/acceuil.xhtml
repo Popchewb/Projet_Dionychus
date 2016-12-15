@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+	<meta charset="utf-8" />
+	<title>Accueil</title>
+	<h:outputStylesheet name="css/bootstrap.css" />
+
+</h:head>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
+
+	<!-- 	<ui:define name="Titre_Page"> -->
+	<!-- 		<h2>Inventaire</h2> -->
+	<!-- 	</ui:define> -->
+
+	<!-- 	<ui:define name="Chemin_Acces_Site"> -->
+	<!-- 		<li><a href="index.html">Accueil</a></li> -->
+	<!-- 		<li>Admin</li> -->
+	<!-- 	</ui:define> -->
+
+	<ui:define name="Contenu_Page">
+
+		<div id="content">
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-sm-3">
+
+						<h:form>
+
+							<b:row>
+								<h:outputLabel value="Type de Vin" />
+								<b:radiobutton value="#{vinManagedBean.typeVin}">
+									<f:selectItems value="#{vinManagedBean.typeVins}" var="type"
+										itemValue="#{type.idTypeVin}" itemLabel="#{type.libelle}" />
+								</b:radiobutton>
+							</b:row>
+
+							<b:row>
+								<h:outputLabel value="Vigneron" />
+								<b:inputText value="" span="12"
+									style="margin-left: -20px; width: 295px" />
+
+							</b:row>
+
+							<b:row>
+								<h:outputLabel value="Millésime" />
+								<b:inputText value="" span="12"
+									style="margin-left: -20px; width: 295px" />
+
+							</b:row>
+
+							<b:row>
+								<h:outputLabel value="Prix" />
+								<b:slider2 min="0" max="500" span="12"
+									value="#{vinManagedBean.prix}" />
+
+							</b:row>
+
+							<b:row>
+								<h:outputLabel value="Région" />
+								<b:selectOneMenu value="#{vinManagedBean.region}">
+									<f:selectItems value="#{vinManagedBean.regions}" var="c"
+										itemValue="#{c.idRegion}" itemLabel="#{c.libelle}" />
+								</b:selectOneMenu>
+							</b:row>
+
+							<b:row>
+
+								<h:outputLabel value="Cépages" style="width: 295px" />
+								<b:selectMultiMenu value="#{vinManagedBean.cepage}"
+									style="width: 295px">
+									<f:selectItems value="#{vinManagedBean.cepages}" var="cep"
+										itemValue="#{cep.idCepage}" itemLabel="#{cep.libelle}" />
+								</b:selectMultiMenu>
+							</b:row>
+
+							<b:row style="width: 295px">
+
+								<h:outputLabel value="Arômes" />
+								<b:selectMultiMenu value="#{vinManagedBean.arome}"
+									style="width: 295px">
+									<f:selectItems value="#{vinManagedBean.aromes}" var="aro"
+										itemValue="#{aro.idArome}" itemLabel="#{aro.libelle}" />
+								</b:selectMultiMenu>
+							</b:row>
+
+							<b:row style="padding: 10px; text-align: center">
+								<b:commandButton value="Rechercher" type="submit"
+									action="#{vinManagedBean.rechercher}" look="info" />
+							</b:row>
+
+						</h:form>
+
+					</div>
+
+					<div class="col-sm-9">
+						<b:carousel class="home-carousel" style="width:900px"
+							interval="2500">
+							<b:carouselItem>
+								<img src="resources/images/emmanuelDelmas.jpg" alt="Valladolid"
+									style="width: 900px; height: 600px" />
+								<b:carouselCaption>
+									<h3>You'll love Valladolid!</h3>
+									<p>
+										The band reads <a style="color: #fff" href="#">"Non plus
+											ultra"</a>, being Spains' motto in 1492, when Columbus made his
+										discoveries.
+									</p>
+								</b:carouselCaption>
+							</b:carouselItem>
+							<b:carouselItem caption="Valladolid has a nice central park.">
+								<img src="resources/images/emmanuelDelmas.jpg" alt="Valladolid"
+									style="width: 900px; height: 600px" />
+							</b:carouselItem>
+							<b:carouselItem caption="Ain't he a beauty?">
+								<img src="resources/images/emmanuelDelmas.jpg" alt="Valladolid"
+									style="width: 900px; height: 600px" />
+							</b:carouselItem>
+						</b:carousel>
+
+						<div class="row">
+
+
+							<div class="box text-uppercase">
+								<h3>Top ventes des vins</h3>
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+
+						</div>
+
+						<div class="row">
+
+
+							<div class="box text-uppercase">
+								<h3>Top ventes d'accessoires</h3>
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+
+							<div class="col-sm-3">
+								<div class="product">
+									<div class="image">
+										<a href="#"> <h:graphicImage library="images"
+												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
+										</a>
+									</div>
+									<div class="text">
+										<h3>Fur coat</h3>
+										<p class="price">$143</p>
+									</div>
+								</div>
+								<!-- /.product -->
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

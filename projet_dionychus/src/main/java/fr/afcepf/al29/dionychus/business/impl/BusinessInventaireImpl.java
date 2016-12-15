@@ -18,7 +18,10 @@ import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
 import fr.afcepf.al29.dionychus.entity.Cepage;
+import fr.afcepf.al29.dionychus.entity.Commentaire;
+import fr.afcepf.al29.dionychus.entity.Promotion;
 import fr.afcepf.al29.dionychus.entity.Region;
+import fr.afcepf.al29.dionychus.entity.TypeAccessoire;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
 import fr.afcepf.al29.dionychus.entity.Vin;
 
@@ -42,37 +45,37 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	private TypeVinDaoItf proxyDaoTypeVin = (TypeVinDaoItf) context.getBean("typeVinJDBCtemplate");
 	
 	@Override
-	public List<Accessoire> getAllAccessoires() {
+	public List<Accessoire> getAllAccessoire() {
 		return proxyDaoAccessoire.getAll();
 	}
 
 	@Override
-	public List<Vin> getAllVins() {
+	public List<Vin> getAllVin() {
 		return proxyDaoVin.getAll();
 	}
 
 	@Override
-	public List<Arome> getAllAromes() {
+	public List<Arome> getAllArome() {
 		return proxyDaoArome.getAll();
 	}
 
 	@Override
-	public List<Cepage> getAllCepages() {
+	public List<Cepage> getAllCepage() {
 		return proxyDaoCepage.getAll();
 	}
 
 	@Override
-	public List<Region> getAllRegions() {
+	public List<Region> getAllRegion() {
 		return proxyDaoRegion.getAll();
 	}
 
 	@Override
-	public List<Appelation> getAllAppellation() {
+	public List<Appelation> getAllAppelation() {
 		return proxyDaoAppellation.getAll();
 	}
 
 	@Override
-	public List<TypeVin> getAllTypeVins() {
+	public List<TypeVin> getAllTypeVin() {
 		return proxyDaoTypeVin.getAll();
 	}
 
@@ -82,28 +85,136 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	}
 
 	@Override
-	public Appelation getAppellationById(Integer appellation) {
-		return proxyDaoAppellation.getAppelationById(appellation);
+	public Appelation getAppellationById(Integer paramIdAppelation) {
+		return proxyDaoAppellation.getAppelationById(paramIdAppelation);
 	}
 
 	@Override
-	public TypeVin getTypeVinById(Integer typeVin) {
-		return proxyDaoTypeVin.getTypeVinById(typeVin);
+	public TypeVin getTypeVinById(Integer paramIdTypeVin) {
+		return proxyDaoTypeVin.getTypeVinById(paramIdTypeVin);
 	}
 
 	@Override
-	public Arome getAromeById(int aromeId) {
-		return proxyDaoArome.getAromeById(aromeId);
+	public Arome getAromeById(int paramIdArome) {
+		return proxyDaoArome.getAromeById(paramIdArome);
 	}
 
 	@Override
-	public Cepage getCepageById(int cepageId) {
-		return proxyDaoCepage.getCepageById(cepageId);
+	public Cepage getCepageById(int paramIdCepage) {
+		return proxyDaoCepage.getCepageById(paramIdCepage);
 	}
 
 	@Override
-	public void ajouterVin(Vin vin) {
-		proxyDaoVin.addVin(vin);
+	public void addVin(Vin paramVin) {
+		proxyDaoVin.addVin(paramVin);
+	}
+
+	@Override
+	public Accessoire getAccessoireById(Integer paramIdAccessoire) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addAccessoire(Accessoire paramAccessoire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateAccessoire(Accessoire paramAccessoire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAccessoire(Integer paramIdAccessoire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Accessoire> getBestSellerAccessoire() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Commentaire> getAllByVin(Integer paramIdVin) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Commentaire> getAllByAccessoire(Integer paramIdAccessoire) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addCommentaire(Commentaire paramCommentaire, Integer paramIdArticle, Integer paramIdUtilisateur) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCommentaire(Commentaire paramCommentaire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCommentaire(Integer paramIdCommentaire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPromotion(Promotion paramPromotion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updatePromotion(Promotion paramPromotion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletePromotion(Integer paramIdPromotion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<TypeAccessoire> getAllTypeAccessoire() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vin getVinById(Integer paramIdVin) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateVin(Vin paramVin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteVin(Integer paramIdVin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Vin> getBestSellerVin() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
