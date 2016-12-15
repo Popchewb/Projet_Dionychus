@@ -268,7 +268,7 @@ public class InventaireManagedBean implements Serializable {
 		vin.setCepages(cepageSelect);
 		vin.setTypeArticle("Vin");
 		
-		proxyInventaire.addVin(vin);
+		proxyInventaire.addVin(vin, 11);
 		
 		return null;
 	}

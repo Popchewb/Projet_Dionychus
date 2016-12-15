@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
 import fr.afcepf.al29.dionychus.data.itf.AccessoireDaoItf;
@@ -23,6 +24,7 @@ import fr.afcepf.al29.dionychus.entity.TypeLivraison;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
 import fr.afcepf.al29.dionychus.entity.Vin;
 
+@Component
 public class BusinessCommandeClient implements IBusinessCommandeClient {
 
 	ApplicationContext context = new ClassPathXmlApplicationContext("classpath:Beans.xml");

@@ -4,12 +4,14 @@ fr\afcepf\al29\dionychus\data\itf\CommentaireDaoItf.class
 fr\afcepf\al29\dionychus\entity\Region.class
 fr\afcepf\al29\dionychus\business\itf\IBusinessCompte.class
 fr\afcepf\al29\dionychus\mapper\UtilisateurMapper.class
+fr\afcepf\al29\dionychus\controller\DetailProduitManagedBean.class
 fr\afcepf\al29\dionychus\entity\Acteur.class
 fr\afcepf\al29\dionychus\data\itf\RegionDaoItf.class
 fr\afcepf\al29\dionychus\mapper\CommandeClientMapper.class
 fr\afcepf\al29\dionychus\data\impl\AccessoireDaoImpl.class
 fr\afcepf\al29\dionychus\data\itf\VilleDaoItf.class
 fr\afcepf\al29\dionychus\mapper\PaysMapper.class
+fr\afcepf\al29\dionychus\test\TestAppEric.class
 fr\afcepf\al29\dionychus\entity\Adresse.class
 fr\afcepf\al29\dionychus\entity\Article.class
 fr\afcepf\al29\dionychus\entity\Fournisseur.class

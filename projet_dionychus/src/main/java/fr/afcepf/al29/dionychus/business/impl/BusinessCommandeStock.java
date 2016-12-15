@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeStock;
 import fr.afcepf.al29.dionychus.data.itf.CommandeStockDaoItf;
@@ -11,6 +12,7 @@ import fr.afcepf.al29.dionychus.data.itf.FournisseurDaoItf;
 import fr.afcepf.al29.dionychus.entity.CommandeStock;
 import fr.afcepf.al29.dionychus.entity.Fournisseur;
 
+@Component
 public class BusinessCommandeStock implements IBusinessCommandeStock{
 	
 

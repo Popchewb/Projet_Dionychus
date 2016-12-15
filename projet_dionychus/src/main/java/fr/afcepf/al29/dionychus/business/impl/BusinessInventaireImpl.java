@@ -11,6 +11,7 @@ import fr.afcepf.al29.dionychus.data.itf.AccessoireDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.AppelationDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.AromeDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.CepageDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.CommentaireDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.RegionDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.TypeVinDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
@@ -43,6 +44,8 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	private AppelationDaoItf proxyDaoAppellation = (AppelationDaoItf) context.getBean("appelationJDBCtemplate");
 	
 	private TypeVinDaoItf proxyDaoTypeVin = (TypeVinDaoItf) context.getBean("typeVinJDBCtemplate");
+	
+	private CommentaireDaoItf proxyDaoCommentaire = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
 	
 	@Override
 	public List<Accessoire> getAllAccessoire() {
@@ -105,8 +108,8 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	}
 
 	@Override
-	public void addVin(Vin paramVin) {
-		proxyDaoVin.addVin(paramVin);
+	public void addVin(Vin paramVin, Integer paramIdFournisseur) {
+		proxyDaoVin.addVin(paramVin, paramIdFournisseur);
 	}
 
 	@Override
@@ -141,14 +144,12 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 
 	@Override
 	public List<Commentaire> getAllByVin(Integer paramIdVin) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyDaoCommentaire.getAllByVin(paramIdVin);
 	}
 
 	@Override
 	public List<Commentaire> getAllByAccessoire(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyDaoCommentaire.getAllByAccessoire(paramIdAccessoire);
 	}
 
 	@Override
@@ -195,8 +196,10 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 
 	@Override
 	public Vin getVinById(Integer paramIdVin) {
-		// TODO Auto-generated method stub
-		return null;
+		Vin vin = proxyDaoVin.getById(paramIdVin);
+		vin.setAromes(proxyDaoArome.getAromeByIdVin(paramIdVin));
+		vin.setCepages(proxyDaoCepage.getCepageByIdVin(paramIdVin));
+		return vin;
 	}
 
 	@Override

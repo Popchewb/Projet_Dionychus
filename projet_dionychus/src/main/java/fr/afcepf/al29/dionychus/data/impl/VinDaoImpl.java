@@ -49,8 +49,8 @@ public class VinDaoImpl implements VinDaoItf {
 		String SQL = "SELECT a.id_article, a.reference, a.libelle, a.description, a.prix, a.annee, a.quantite, a.seuil_alerte, a.url_image, "
 				+ "a.id_region, r.libelle, a.id_type_vin, tv.libelle, a.id_appelation, ap.libelle, a.type_article "
 				+ "FROM article a " + "INNER JOIN region r ON a.id_region = r.id_region "
-				+ "INNER JOIN type_vin tv ON a.id_type_vin = tv.id_type_vin"
-				+ "INNER JOIN appelation ap ON a.id_appelation = ap.id_appelation" + "WHERE a.id_article = ?";
+				+ "INNER JOIN type_vin tv ON a.id_type_vin = tv.id_type_vin "
+				+ "INNER JOIN appelation ap ON a.id_appelation = ap.id_appelation " + "WHERE a.id_article = ?";
 		return jdbcTemplate.queryForObject(SQL, new Object[] { paramIdVin }, new VinMapper());
 	}
 
@@ -60,14 +60,13 @@ public class VinDaoImpl implements VinDaoItf {
 	}
 
 	@Override
-	public void addVin(Vin paramVin) {
-		String SQLaddVin = "INSERT INTO `bdd_dionychus`.`article` (`reference`, `libelle`, `description`, `prix`, `annee`, `quantite`, `seuil_alerte`, `url_image`, `id_type_vin`, `id_appelation`, `id_region`, `type_article`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+	public void addVin(Vin paramVin, Integer paramIdFournisseur) {
+		String SQLaddVin = "INSERT INTO `bdd_dionychus`.`article` (`reference`, `libelle`, `description`, `prix`, `annee`, `quantite`, `seuil_alerte`, `url_image`, `id_type_vin`, `id_appelation`, `id_region`, `type_article`, `id_acteur`) VALUES (?,?,?,?,?,?,?,?,?,?,?,'Vin',?)";
 		jdbcTemplate.update(SQLaddVin,
 				new Object[] { paramVin.getReference(), paramVin.getLibelle(), paramVin.getDescription(),
 						paramVin.getPrix(), paramVin.getAnnee(), paramVin.getQuantite(), paramVin.getSeuilAlerte(),
 						paramVin.getUrlImage(), paramVin.getTypeVin().getIdTypeVin(),
-						paramVin.getAppelation().getIdAppelation(), paramVin.getRegion().getIdRegion(),
-						paramVin.getTypeArticle() });
+						paramVin.getAppelation().getIdAppelation(), paramVin.getRegion().getIdRegion(), paramIdFournisseur });
 		String SQLaddAromes = "INSERT INTO `bdd_dionychus`.`vin_arome` (`id_article`, `id_arome`) VALUES (?,?)";
 		String SQLaddCepages = "INSERT INTO `bdd_dionychus`.`vin_cepage` (`id_article`, `id_cepage`) VALUES (?,?)";
 		Integer idVin = getIdByReference(paramVin.getReference());
