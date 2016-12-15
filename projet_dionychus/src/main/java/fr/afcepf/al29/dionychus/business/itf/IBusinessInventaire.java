@@ -5,6 +5,7 @@ import java.util.List;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
+import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.Commentaire;
 import fr.afcepf.al29.dionychus.entity.Promotion;
@@ -77,7 +78,7 @@ public interface IBusinessInventaire {
 	// Vin
 	List<Vin> getAllVin();
 
-	Vin getVinById(Integer paramIdVin);
+	Article getVinById(Integer paramIdVin);
 
 	void addVin(Vin paramVin, Integer paramIdFournisseur);
 

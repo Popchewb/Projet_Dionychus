@@ -13,10 +13,9 @@ import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
 import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
 import fr.afcepf.al29.dionychus.entity.Article;
 
-
-@Controller("detailProduitManagedBean")
+@Controller("detailVinManagedBean")
 @Scope("request")
-public class DetailProduitManagedBean implements Serializable {
+public class DetailVinManagedBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -24,17 +23,16 @@ public class DetailProduitManagedBean implements Serializable {
 	private IBusinessInventaire proxyBusinessInventaire;
 	@Autowired
 	private IBusinessCommandeClient proxyCommandeClient;
-	
+
 	HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-	        .getRequest();
+			.getRequest();
 
 	Integer idArticle = Integer.parseInt(request.getParameter("id"));
-	String typeArticle = request.getParameter("typeArticle");
 	Article article;
 	Integer quantite;
 
-	public void ajouterPanier(){
-		System.out.println(quantite);
+	public String ajouterPanier() {
+		return null;
 	}
 
 	public IBusinessInventaire getProxyInventaire() {
@@ -54,7 +52,7 @@ public class DetailProduitManagedBean implements Serializable {
 	}
 
 	public Integer getIdArticle() {
-		
+
 		return idArticle;
 	}
 
@@ -62,24 +60,10 @@ public class DetailProduitManagedBean implements Serializable {
 		this.idArticle = idArticle;
 	}
 
-	public String getTypeArticle() {
-		return typeArticle;
-	}
-
-	public void setTypeArticle(String typeArticle) {
-		this.typeArticle = typeArticle;
-	}
-
 	public Article getArticle() {
-		if (typeArticle.equals("Accessoire")) {
-			article = proxyBusinessInventaire.getAccessoireById(idArticle);
-			article.setCommentaires(proxyBusinessInventaire.getAllByAccessoire(idArticle));
-		} else if (typeArticle.equals("Vin")) {
-			System.out.println("vin");
-			article = proxyBusinessInventaire.getVinById(idArticle);
-			System.out.println(article);
-			article.setCommentaires(proxyBusinessInventaire.getAllByVin(idArticle));
-		}
+		article = proxyBusinessInventaire.getVinById(idArticle);
+		article.setCommentaires(proxyBusinessInventaire.getAllByVin(idArticle));
+
 		return article;
 	}
 
@@ -94,6 +78,5 @@ public class DetailProduitManagedBean implements Serializable {
 	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
-	
 
 }

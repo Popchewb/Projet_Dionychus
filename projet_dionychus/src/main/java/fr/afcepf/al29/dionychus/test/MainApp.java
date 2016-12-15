@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.afcepf.al29.dionychus.business.impl.BusinessInventaireImpl;
 import fr.afcepf.al29.dionychus.data.itf.RegionDaoItf;
+import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.entity.Vin;
 
@@ -33,7 +34,7 @@ public class MainApp {
 		}
 		
 		List<Vin> vins = buInventaire.getAllVin();
-		for (Vin vin : vins) {
+		for (Article vin : vins) {
 			System.out.println(vin);
 		}
 

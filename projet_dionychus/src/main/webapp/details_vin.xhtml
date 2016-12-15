@@ -9,7 +9,7 @@
 
 <h:head>
 	<meta charset="utf-8" />
-	<title>Catalogue</title>
+	<title>Details Vin</title>
 	<h:outputStylesheet name="css/bootstrap.css" />
 
 </h:head>
@@ -42,7 +42,7 @@
 								<h:outputLabel value="Type de Vin" />
 								<b:radiobutton value="#{vinManagedBean.typeVin}">
 									<f:selectItems value="#{vinManagedBean.typeVins}" var="type"
-										itemValue="type.idTypeVin" itemLabel="type.libelle" />
+										itemValue="#{type.idTypeVin}" itemLabel="#{type.libelle}" />
 								</b:radiobutton>
 							</b:row>
 
@@ -108,19 +108,22 @@
 							<div class="col-sm-5">
 								<div id="mainImage" style="margin-top: 60px">
 									<h:graphicImage library="images"
-										name="#{detailProduitManagedBean.article.urlImage}"
-										class="img-responsive" style="height:400px;width:300px" />
+										name="#{detailVinManagedBean.article.urlImage}"
+										class="img-responsive" style="height:320px;width:180px" />
 								</div>
 								<br />
 								<div style="text-align: center; margin-top: 10px">
 									<h:outputText style="font-size: 28px; line-height: normal;"
-										value="#{detailProduitManagedBean.article.prix} €" />
+										value="#{detailVinManagedBean.article.prix} €" />
 								</div>
 								<br />
 								<p class="text-center" style="margin-top: 10px">
-									<button type="submit" class="btn btn-template-main">
-										<i class="fa fa-shopping-cart"></i> Ajouter au panier
-									</button><h:inputText value="#{detailProduitManagedBean.quantite}" style="width:30px"></h:inputText>
+									<h:form>
+										<b:commandButton value="Ajouter au panier" look="info"
+											action="#{detailVinManagedBean.ajouterPanier}"></b:commandButton>
+										<h:inputText value="#{detailVinManagedBean.quantite}"
+											style="width:30px"></h:inputText>
+									</h:form>
 								</p>
 
 							</div>
@@ -132,10 +135,9 @@
 
 											<h3>
 												<h:outputText
-													value="#{detailProduitManagedBean.article.libelle}" />
-													<br/>
-												<h:outputText
-													value="#{detailProduitManagedBean.article.annee}" />
+													value="#{detailVinManagedBean.article.libelle}" />
+												<br />
+												<h:outputText value="#{detailVinManagedBean.article.annee}" />
 											</h3>
 
 										</div>
@@ -145,19 +147,19 @@
 											<h4>Description</h4>
 											<p>
 												<h:outputText
-													value="#{detailProduitManagedBean.article.description}" />
+													value="#{detailVinManagedBean.article.description}" />
 											</p>
 											<h4>Région</h4>
 											<h:outputText
-												value="#{detailProduitManagedBean.article.region.libelle}" />
+												value="#{detailVinManagedBean.article.region.libelle}" />
 											<h4>Cépages</h4>
 											<ui:repeat var="cepage"
-												value="#{detailProduitManagedBean.article.cepages}">
+												value="#{detailVinManagedBean.article.cepages}">
 												<li><h:outputText value="#{cepage.libelle}" /></li>
 											</ui:repeat>
 											<h4>Arômes</h4>
 											<ui:repeat var="arome"
-												value="#{detailProduitManagedBean.article.aromes}">
+												value="#{detailVinManagedBean.article.aromes}">
 												<li><h:outputText value="#{arome.libelle}" /></li>
 											</ui:repeat>
 
@@ -212,15 +214,19 @@
 
 						</div>
 						<ui:repeat var="commentaire"
-							value="#{detailProduitManagedBean.article.commentaires}">
+							value="#{detailVinManagedBean.article.commentaires}">
 							<div>
 								<h4>
-									<h:outputText value="#{commentaire.auteur.prenom}"></h:outputText> 
-									<h:outputText value="#{commentaire.auteur.nom}" />,
-									<h:outputText value="#{commentaire.date}" />
-									,
-									<h:outputText value="#{commentaire.note}" />
-									/5
+									<h:outputText value="#{commentaire.auteur.prenom} " />
+									<h:outputText value="#{commentaire.auteur.nom}" />
+									|
+									<h:outputText value="#{commentaire.date}">
+										<f:convertDateTime pattern="dd-MM-yyyy" timeZone="Europe/Paris" />
+									</h:outputText>
+									|
+									<h:outputText value="#{commentaire.note}">
+										<f:convertNumber pattern="#0" />
+									</h:outputText>/5
 								</h4>
 								<blockquote>
 									<p>
@@ -243,5 +249,4 @@
 
 	</ui:define>
 </ui:composition>
-
 </html>
