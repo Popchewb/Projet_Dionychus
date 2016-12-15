@@ -17,12 +17,13 @@
 	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
 
 		<ui:define name="Titre_Page">
-			<h2>Inventaire</h2>
+			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Accueil</h2>
 		</ui:define>
 
 		<ui:define name="Chemin_Acces_Site">
-			<li><a href="acceuil.jsp">Accueil</a></li>
+			<b:navLink outcome="acceuil.jsp" value="Accueil"/>
 			<li>Admin</li>
+			
 		</ui:define>
 
 	<ui:define name="Contenu_Page">
