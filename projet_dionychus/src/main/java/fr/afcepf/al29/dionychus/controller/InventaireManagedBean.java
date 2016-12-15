@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package fr.afcepf.al29.dionychus.controller;
 
 import java.io.Serializable;
@@ -13,23 +12,9 @@ import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
-import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
-=======
-package fr.afcepf.al29.dionychus.controller;
-
-import java.io.Serializable;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
-
-import fr.afcepf.al29.dionychus.business.itf.IBusinessInventaire;
-import fr.afcepf.al29.dionychus.entity.Accessoire;
->>>>>>> e1290bbdf0aea53cd3437da3ac62e934fbec4c53
 import fr.afcepf.al29.dionychus.entity.Vin;
 
 @Controller("inventaireManagedBean")
@@ -84,7 +69,7 @@ public class InventaireManagedBean implements Serializable {
 	private String urlImage;
 	
 	public List<Accessoire> getAccessoires() {
-		return proxyInventaire.getAllAccessoire();
+		return proxyInventaire.getAllAccessoires();
 	}
 
 	public void setAccessoires(List<Accessoire> accessoires) {
@@ -92,7 +77,7 @@ public class InventaireManagedBean implements Serializable {
 	}
 
 	public List<Vin> getVins() {
-		return proxyInventaire.getAllVin();
+		return proxyInventaire.getAllVins();
 	}
 
 	public void setVins(List<Vin> vins) {
