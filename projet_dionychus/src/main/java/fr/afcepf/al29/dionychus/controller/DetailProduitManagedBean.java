@@ -31,7 +31,11 @@ public class DetailProduitManagedBean implements Serializable {
 	Integer idArticle = Integer.parseInt(request.getParameter("id"));
 	String typeArticle = request.getParameter("typeArticle");
 	Article article;
+	Integer quantite;
 
+	public void ajouterPanier(){
+		System.out.println(quantite);
+	}
 
 	public IBusinessInventaire getProxyInventaire() {
 		return proxyBusinessInventaire;
@@ -82,5 +86,14 @@ public class DetailProduitManagedBean implements Serializable {
 	public void setArticle(Article article) {
 		this.article = article;
 	}
+
+	public Integer getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(Integer quantite) {
+		this.quantite = quantite;
+	}
+	
 
 }
