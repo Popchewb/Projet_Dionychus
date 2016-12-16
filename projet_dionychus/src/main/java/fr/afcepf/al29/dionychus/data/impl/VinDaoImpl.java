@@ -51,7 +51,7 @@ public class VinDaoImpl implements VinDaoItf {
 				+ "FROM article a " + "INNER JOIN region r ON a.id_region = r.id_region "
 				+ "INNER JOIN type_vin tv ON a.id_type_vin = tv.id_type_vin "
 				+ "INNER JOIN appelation ap ON a.id_appelation = ap.id_appelation " + "WHERE a.id_article = ?";
-		return jdbcTemplate.queryForObject(SQL, new Object[] { paramIdVin }, new VinMapper());
+		return (Vin) jdbcTemplate.queryForObject(SQL, new Object[] { paramIdVin }, new VinMapper());
 	}
 
 	public Integer getIdByReference(String paramReferenceVin) {

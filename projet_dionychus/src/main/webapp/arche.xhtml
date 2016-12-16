@@ -46,8 +46,7 @@
 								<a href="#" data-toggle="modal" data-target="#login-modal"><i
 									class="fa fa-sign-in"></i> <span
 									class="hidden-xs text-uppercase">Se Connecter</span></a> <a
-									href="customer-register.html"><i class="fa fa-user"></i> <span
-									class="hidden-xs text-uppercase">Panier</span>
+									href="customer-register.html" style="margin-right: 5px"><i class="fa fa-user"></i> <b:navLink outcome="panier.jsf" value="Panier"/>
 								</a>
 							</div>
 						  </div>
@@ -66,30 +65,29 @@
 					
 						</div>
 						<!--/.navbar-header -->
-				
+					 <b:tabLinks>
 						<div class="navbar-collapse collapse">
 
 							<ul class="nav navbar-nav navbar-right">
-								<li class="dropdown use-yamm yamm-fw">
-									<h:link href="catalogue.jsf" class="dropdown-toggle" data-toggle="dropdown" value="Vins"></h:link>
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<a href="acceuil.jsf" class="dropdown-toggle" data-toggle="dropdown">Accessoires du Vin</a>
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<a href="acceuil.jsf" class="dropdown-toggle" data-toggle="dropdown">Bons Plans</a>
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<h:link href="details_produit.jsf" class="dropdown-toggle" data-toggle="dropdown" value="Contact"></h:link>
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<a href="Recherche_Avancee.jsf" class="dropdown-toggle" data-toggle="dropdown">Admin</a>
-								</li>	
-							</ul>
-
-						  
-							</div>
 						
+								<li class="dropdown use-yamm yamm-fw">
+									<b:navLink href="catalogue_vin.jsf" value="Vins" icon-align="right" />
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<b:navLink href="catalogue_accessoire.jsf" value="Accessoires du vin" icon-align="right" />
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<b:navLink href="details_produit.jsf" value="Bons Plans" icon-align="right" />
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<b:navLink href="contact.jsf" value="Contact" icon-align="right" />
+								</li>
+								<li class="dropdown use-yamm yamm-fw">
+									<b:navLink href="Inventaire.jsf" value="Admin" icon-align="right" />
+								</li>	
+							   </ul>
+							</div>
+						</b:tabLinks>
 						<!--/.nav-collapse -->
 
 						<div class="collapse clearfix" id="search">
@@ -114,7 +112,20 @@
 <!-- 				</b:container> -->
 				<!-- /#navbar -->
 
-	
+				 <b:tabLinks style="border-bottom-color: white">
+						<div id="heading-breadcrumbs" style="width: 100%;background-image: url(resources/images/texture-bw.png)">
+							<div class="container" >
+									<div class="col-md-7">
+										<h1><ui:insert name="Titre_Page" /></h1>
+									</div>
+									<div class="col-md-5">
+										<ul class="breadcrumb" style="background-color: transparent; margin-top: 20px">
+										<b:navLink href="arche.jsf" icon-align="right"><ui:insert name="Chemin_Acces_Site" /></b:navLink>
+										</ul>
+									</div>
+							</div>
+						</div>
+				</b:tabLinks>
 <!-- 			    <b:row id="heading-breadcrumbs"> -->
 <!-- 			    	<b:image library="images" name="texture-bw.png" style="width: 100%;height: 8em"> -->
 <!-- 							<div class="container"> -->
