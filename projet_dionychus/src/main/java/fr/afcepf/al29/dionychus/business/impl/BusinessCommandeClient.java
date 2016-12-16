@@ -12,6 +12,7 @@ import fr.afcepf.al29.dionychus.data.itf.AdresseDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.CommandeClientDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.LigneCommandeDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.PromotionDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.StatutCommandeDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.TypeLivraisonDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
@@ -20,6 +21,7 @@ import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Promotion;
+import fr.afcepf.al29.dionychus.entity.StatutCommande;
 import fr.afcepf.al29.dionychus.entity.TypeLivraison;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
 import fr.afcepf.al29.dionychus.entity.Vin;
@@ -36,7 +38,8 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 	TypeLivraisonDaoItf tlDao = (TypeLivraisonDaoItf) context.getBean("typeLivraisonJDBCtemplate");
 	AccessoireDaoItf accDao = (AccessoireDaoItf) context.getBean("accessoireJDBCtemplate");
 	VinDaoItf vinDao = (VinDaoItf) context.getBean("vinJDBCtemplate");
-
+	StatutCommandeDaoItf scDao = (StatutCommandeDaoItf) context.getBean("statutCommandeJDBCtemplate");
+	
 	@Override
 	public List<Adresse> getAdresseByIdActeur(Integer paramIdActeur) {
 		return adDao.getAdresseByIdActeur(paramIdActeur);
@@ -48,7 +51,7 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 	}
 
 	@Override
-	public Commande getCommandeById(Integer paramIdCommandeClient) {
+	public CommandeClient getCommandeById(Integer paramIdCommandeClient) {
 		return ccDao.getCommandeClientById(paramIdCommandeClient);
 	}
 
@@ -131,6 +134,16 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 			}
 		}
 
+	}
+
+	@Override
+	public StatutCommande getStatutCommandeById(Integer paramIdStatutCommande) {
+		return scDao.getById(paramIdStatutCommande);
+	}
+
+	@Override
+	public CommandeClient addPanier(CommandeClient panier) {
+		return ccDao.addPanier(panier);
 	}
 
 }

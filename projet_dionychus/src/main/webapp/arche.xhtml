@@ -16,11 +16,13 @@
 <h:outputStylesheet name="css/font-awesome.css"/>
 <h:outputStylesheet name="css/style.default.css" id="theme-stylesheet"/>
 <h:outputStylesheet name="css/custom.css"/>
-
+<f:event type="preRenderView" listener="#{cookieManagedBean.init}" />
 
 </h:head>
 
 <h:body>
+
+
  <div id="all">
 	<div id="top">
 			<div class="container">

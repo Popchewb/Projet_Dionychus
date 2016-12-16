@@ -7,6 +7,7 @@ import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Promotion;
+import fr.afcepf.al29.dionychus.entity.StatutCommande;
 import fr.afcepf.al29.dionychus.entity.TypeLivraison;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
 
@@ -18,7 +19,7 @@ public interface IBusinessCommandeClient {
 	// Commandes Client
 	List<CommandeClient> getAllCommandeClient();
 
-	Commande getCommandeById(Integer paramIdCommandeClient);
+	CommandeClient getCommandeById(Integer paramIdCommandeClient);
 
 	List<CommandeClient> getCommandesByIdUtilisateur(Integer paramIdUtilisateur);
 	
@@ -29,6 +30,8 @@ public interface IBusinessCommandeClient {
 	void updateCommandeClient(CommandeClient paramCommandeClient);
 
 	void deleteCommandeClient(Integer paramIdCommandeClient);
+	
+	CommandeClient addPanier(CommandeClient panier);
 
 	// Lignes de commande
 	List<LigneCommande> getAllLigneCommandeByIdCommande(Integer paramIdCommande);
@@ -44,4 +47,7 @@ public interface IBusinessCommandeClient {
 
 	// Types livraison
 	List<TypeLivraison> getAll();
+	
+	//Statut Commande
+	StatutCommande getStatutCommandeById(Integer paramIdStatutCommande);
 }

@@ -101,5 +101,22 @@ public class CommandeClientDaoImpl implements CommandeClientDaoItf {
 		return jdbcTemplate.queryForObject(SQL, new Object[]{paramIdCommandeClient}, new CommandeClientMapper());
 	}
 
+	@Override
+	public CommandeClient addPanier(CommandeClient panier) {
+		GeneratedKeyHolder holder = new GeneratedKeyHolder();
+		String SQL = "INSERT INTO `bdd_dionychus`.`commande` (`date_creation`, `id_statut_commande`) VALUES (?,'1')";
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement statement = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+				statement.setDate(1, panier.getDateCreation());
+				return statement;
+			}
+		}, holder);
+		panier.setIdCommande(holder.getKey().intValue());
+		return panier;
+	}
+
 
 }
