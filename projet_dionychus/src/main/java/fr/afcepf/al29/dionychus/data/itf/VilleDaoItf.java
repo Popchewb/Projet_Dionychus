@@ -10,6 +10,6 @@ public interface VilleDaoItf {
 
 	List<Ville> getAllByIdPays(Integer paramIdPays);
 
-	void addVille(Ville paramVille);
+	Ville getVilleById(Integer paramIdVille);
 
 }

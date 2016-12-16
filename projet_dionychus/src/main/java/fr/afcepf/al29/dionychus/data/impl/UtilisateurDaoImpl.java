@@ -40,13 +40,19 @@ public class UtilisateurDaoImpl implements UtilisateurDaoItf {
 	}
 
 	@Override
-	public List<Utilisateur> getAll() {
+	public List<Utilisateur> getAllUtilisateur() {
 		String SQL = "SELECT u.id_acteur, u.date_naissance, u.optin, u.origine, u.login, u.password, u.id_type_acces, u.nom, u.prenom, u.numero_telephone, u.adresse_mail, u.civilite, u.profession, ta.libelle FROM acteur u INNER JOIN type_acces ta WHERE u.id_type_acces = ta.id_type_acces AND u.type_acteur = 'Utilisateur' ORDER BY u.nom";
 		return jdbcTemplate.query(SQL, new UtilisateurMapper());
 	}
 
 	@Override
-	public Utilisateur getById(int paramIdUtilisateur) {
+	public Utilisateur getUserByEmail() {
+		String SQL = "SELECT a.id_acteur, a.nom, a.prenom, a.numero_telephone, a.adresse_mail, a.date_naissance, a.optin, a.origine, a.login, a.password, a.id_type_acces, a.civilite, a.profession, a.type_acteur, ta.libelle FROM acteur a INNER JOIN type_acces ta WHERE ta.id_type_acces = a.id_type_acces AND a.adresse_mail = ?";
+		return jdbcTemplate.queryForObject(SQL, new UtilisateurMapper());
+	}
+
+	@Override
+	public Utilisateur getUtilisateurById(int paramIdUtilisateur) {
 		String SQL = "SELECT u.id_acteur, u.date_naissance, u.optin, u.origine, u.login, u.password, u.id_type_acces, u.nom, u.prenom, u.numero_telephone, u.adresse_mail, u.civilite, u.profession, ta.libelle FROM acteur u INNER JOIN type_acces ta WHERE u.id_type_acces = ta.id_type_acces AND u.id_acteur = ? AND u.type_acteur = 'Utilisateur' ORDER BY u.nom";
 		return jdbcTemplate.queryForObject(SQL, new Object[] { paramIdUtilisateur }, new UtilisateurMapper());
 	}
@@ -54,7 +60,7 @@ public class UtilisateurDaoImpl implements UtilisateurDaoItf {
 	@Override
 	public Utilisateur addUtilisateur(Utilisateur paramUtilisateur) {
 		GeneratedKeyHolder holder = new GeneratedKeyHolder();
-		String SQL = "INSERT INTO `bdd_dionychus`.`acteur`(`date_naissance`,`optin`,`login`,`password`,`id_type_acces`,`nom`,`prenom`,`numero_telephone`,`adresse_mail`,`origine`,`civilite`,`type_acteur`) VALUES (?,?,?,?,?,?,?,?,?,?,?,'Utilisateur')";
+		String SQL = "INSERT INTO `bdd_dionychus`.`acteur`(`date_naissance`,`optin`,`login`,`password`,`id_type_acces`,`nom`,`prenom`,`numero_telephone`,`adresse_mail`,`origine`,`civilite`, `profession`, `type_acteur`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'Utilisateur')";
 		jdbcTemplate.update(new PreparedStatementCreator() {
 
 			@Override
@@ -71,12 +77,12 @@ public class UtilisateurDaoImpl implements UtilisateurDaoItf {
 				statement.setString(9, paramUtilisateur.getAdresseMail());
 				statement.setString(10, paramUtilisateur.getOrigine());
 				statement.setString(11, paramUtilisateur.getCivilite());
+				statement.setString(12, paramUtilisateur.getProfession());
 				return statement;
 			}
 		}, holder);
 		paramUtilisateur.setIdActeur(holder.getKey().intValue());
 		return paramUtilisateur;
-
 	}
 
 	@Override
@@ -87,14 +93,12 @@ public class UtilisateurDaoImpl implements UtilisateurDaoItf {
 				paramUtilisateur.getTypeAcces().getIdTypeAcces(), paramUtilisateur.getNom(),
 				paramUtilisateur.getPrenom(), paramUtilisateur.getNumeroTelephone(), paramUtilisateur.getAdresseMail(),
 				paramUtilisateur.getCivilite(), paramUtilisateur.getProfession(), paramUtilisateur.getIdActeur() });
-
 	}
 
 	@Override
 	public void deleteUtilisateur(Integer paramIdUtilisateur) {
 		String SQL = "DELETE FROM `bdd_dionychus`.`acteur` WHERE id_acteur = ?";
 		jdbcTemplate.update(SQL, new Object[] { paramIdUtilisateur });
-
 	}
 
 }

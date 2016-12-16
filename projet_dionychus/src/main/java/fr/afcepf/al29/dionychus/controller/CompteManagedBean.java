@@ -1,7 +1,7 @@
 package fr.afcepf.al29.dionychus.controller;
 
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +24,8 @@ public class CompteManagedBean {
 
 	private Utilisateur utilisateur = new Utilisateur();
 
+	private Date dateNaissance = new Date();
+
 	private Adresse adresseLivraison = new Adresse();
 
 	private Adresse adresseFacturation = new Adresse();
@@ -32,7 +34,11 @@ public class CompteManagedBean {
 
 	private Ville villeLivraison = new Ville();
 
+	private List<Ville> villesLivraison = new ArrayList<>();
+
 	private Ville villeFacturation = new Ville();
+
+	private List<Ville> villesFacturation = new ArrayList<>();
 
 	private Pays paysLivraison = new Pays();
 
@@ -46,65 +52,32 @@ public class CompteManagedBean {
 
 	public Utilisateur registerUser() {
 
-		// PAYS
-
-		// paysLivraison = new Pays();
-		paysLivraison.setLibelle(paysLivraison.getLibelle());
-
-		// paysFacturation = new Pays();
-		paysFacturation.setLibelle(paysFacturation.getLibelle());
-
-		// VILLE
-
-		// villeLivraison = new Ville();
-		villeLivraison.setLibelle(villeLivraison.getLibelle());
-		villeLivraison.setCodePostal(villeLivraison.getCodePostal());
-		villeLivraison.setPays(paysLivraison);
-
-		createVille(villeLivraison);
-
-		// villeFacturation = new Ville();
-		villeFacturation.setLibelle(villeFacturation.getLibelle());
-		villeFacturation.setCodePostal(villeFacturation.getCodePostal());
-		villeFacturation.setPays(paysFacturation);
-
-		createVille(villeFacturation);
-
-		// ADRESSE
-
-		// adresseLivraison = new Adresse();
+		villeLivraison.setIdVille(villeLivraison.getIdVille());
 		adresseLivraison.setLibelle(adresseLivraison.getLibelle());
 		adresseLivraison.setComplementAdresse(adresseLivraison.getComplementAdresse());
-		adresseLivraison.setAdresseLivraison(adresseLivraison.getAdresseLivraison());
+		adresseLivraison.setAdresseLivraison(adresseLivraison.getAdresseLivraison().booleanValue());
+		adresseLivraison.setAdresseFacturation(false);
 		adresseLivraison.setVille(villeLivraison);
 
-		// adresseFacturation = new Adresse();
+		villeFacturation.setIdVille(villeFacturation.getIdVille());
 		adresseFacturation.setLibelle(adresseFacturation.getLibelle());
 		adresseFacturation.setComplementAdresse(adresseFacturation.getComplementAdresse());
-		adresseFacturation.setAdresseFacturation(adresseFacturation.getAdresseFacturation());
+		adresseFacturation.setAdresseLivraison(false);
+		adresseFacturation.setAdresseFacturation(adresseFacturation.getAdresseFacturation().booleanValue());
 		adresseFacturation.setVille(villeFacturation);
 
-		// adresses = new ArrayList<>();
 		adresses.add(adresseLivraison);
 		adresses.add(adresseFacturation);
 
-		// TYPE ACCES
-
-		// typeAcces = new TypeAcces();
 		typeAcces.setIdTypeAcces(idTypeAccesClientParDefaut);
 
-		// UTILISATEUR
-
-		// utilisateur = new Utilisateur();
 		utilisateur.setNom(utilisateur.getNom());
 		utilisateur.setPrenom(utilisateur.getPrenom());
 		utilisateur.setCivilite(utilisateur.getCivilite());
 		utilisateur.setAdresseMail(utilisateur.getAdresseMail());
 		utilisateur.setNumeroTelephone(utilisateur.getNumeroTelephone());
-		System.out.println(utilisateur.getDateNaissance());
-		Date sqlDate = Date.valueOf((utilisateur.getDateNaissance()).toString());
+		java.sql.Date sqlDate = new java.sql.Date(dateNaissance.getTime());
 		utilisateur.setDateNaissance(sqlDate);
-		System.out.println(sqlDate);
 		utilisateur.setProfession(utilisateur.getProfession());
 		utilisateur.setOptin(utilisateur.getOptin());
 		utilisateur.setOrigine(utilisateur.getOrigine());
@@ -115,25 +88,17 @@ public class CompteManagedBean {
 
 		proxy.addUtilisateur(utilisateur);
 
-		createAdresse(adresseLivraison, utilisateur.getIdActeur());
-		createAdresse(adresseFacturation, utilisateur.getIdActeur());
+		proxy.addAdresse(adresseLivraison, utilisateur.getIdActeur());
+		proxy.addAdresse(adresseFacturation, utilisateur.getIdActeur());
 
-		System.out.println(utilisateur.getNom());
-
-		System.out.println(utilisateur.getPrenom());
+		utilisateur = new Utilisateur();
 
 		return null;
 	}
 
-	public void createVille(Ville paramVille) {
-		proxy.addVille(paramVille);
-	}
-
-	public void createAdresse(Adresse paramAdresse, Integer paramIdActeur) {
-		proxy.addAdresse(paramAdresse, paramIdActeur);
-	}
-
 	public Utilisateur connectUser() {
+
+		proxy.getUserByEmail();
 
 		return null;
 	}
@@ -232,6 +197,30 @@ public class CompteManagedBean {
 
 	public void setIdTypeAccesClientParDefaut(Integer idTypeAccesClientParDefaut) {
 		this.idTypeAccesClientParDefaut = idTypeAccesClientParDefaut;
+	}
+
+	public List<Ville> getVillesLivraison() {
+		return proxy.getAllVille();
+	}
+
+	public void setVillesLivraison(List<Ville> villesLivraison) {
+		this.villesLivraison = villesLivraison;
+	}
+
+	public List<Ville> getVillesFacturation() {
+		return proxy.getAllVille();
+	}
+
+	public void setVillesFacturation(List<Ville> villesFacturation) {
+		this.villesFacturation = villesFacturation;
+	}
+
+	public Date getDateNaissance() {
+		return dateNaissance;
+	}
+
+	public void setDateNaissance(Date dateNaissance) {
+		this.dateNaissance = dateNaissance;
 	}
 
 }

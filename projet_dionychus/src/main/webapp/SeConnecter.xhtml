@@ -62,16 +62,16 @@
 										<div class="h:form-group">
 											<h:outputLabel for="idCivilite">Civilité</h:outputLabel>
 											<h:selectOneRadio value="#{compteManagedBean.utilisateur.civilite}" id="idCivilite">
-												<f:selectItem itemValue="0" itemLabel="M" />
-												<f:selectItem itemValue="1" itemLabel="Mme" />
-												<f:selectItem itemValue="2" itemLabel="Mlle" />
+												<f:selectItem itemValue="Monsieur" itemLabel="M" />
+												<f:selectItem itemValue="Madame" itemLabel="Mme" />
+												<f:selectItem itemValue="Mademoiselle" itemLabel="Mlle" />
 											</h:selectOneRadio>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="h:form-group">
 											<h:outputLabel for="idDateDeNaissance">Date de naissance</h:outputLabel>
-											<h:inputText class="form-control" id="idDateDeNaissance" value="#{compteManagedBean.utilisateur.dateNaissance}" >
+											<h:inputText class="form-control" id="idDateDeNaissance" value="#{compteManagedBean.dateNaissance}" >
 												<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
 											</h:inputText>
 										</div>
@@ -120,13 +120,19 @@
 									<div class="col-sm-6">
 										<div class="h:form-group">
 											<h:outputLabel for="idVilleLivraison">Ville</h:outputLabel>
-											<h:inputText type="text" class="form-control" id="idVilleLivraison" value="#{compteManagedBean.villeLivraison.libelle}" />
+											<h:selectOneMenu value="#{compteManagedBean.villeLivraison.idVille}" class="form-control" id="idVilleLivraison">
+												<f:selectItem itemValue="" itemLabel="(Choisir)" />
+												<f:selectItems value="#{compteManagedBean.villesLivraison}" var="v" itemValue="#{v.idVille}" itemLabel="#{v.libelle}"  />																				
+											</h:selectOneMenu>
 										</div>
 									</div>
 									<div class="col-sm-3">
 										<div class="h:form-group">
 											<h:outputLabel for="idCodePostalLivraison">CP</h:outputLabel>
-											<h:inputText type="text" class="form-control" id="idCodePostalLivraison" value="#{compteManagedBean.villeLivraison.codePostal}" />
+											<h:selectOneMenu value="#{compteManagedBean.villeLivraison.codePostal}" class="form-control" id="idCodePostalLivraison">
+												<f:selectItem itemValue="" itemLabel="(Choisir)" />
+												<f:selectItems value="#{compteManagedBean.villesLivraison}" var="cpl" itemValue="#{cpl.idVille}" itemLabel="#{cpl.codePostal}"  />																				
+											</h:selectOneMenu>
 										</div>
 									</div>
 									<div class="col-sm-3">
@@ -162,13 +168,19 @@
 									<div class="col-sm-6">
 										<div class="h:form-group">
 											<h:outputLabel for="idVilleFacturation">Ville</h:outputLabel>
-											<h:inputText type="text" class="form-control" id="idVilleFacturation" value="#{compteManagedBean.villeFacturation.libelle}" />
+											<h:selectOneMenu value="#{compteManagedBean.villeFacturation.idVille}" class="form-control" id="idVilleFacturation">
+												<f:selectItem itemValue="" itemLabel="(Choisir)" />
+												<f:selectItems value="#{compteManagedBean.villesFacturation}" var="v" itemValue="#{v.idVille}" itemLabel="#{v.libelle}"  />																				
+											</h:selectOneMenu>
 										</div>
 									</div>
 									<div class="col-sm-3">
 										<div class="h:form-group">
 											<h:outputLabel for="idCodePostalFacturation">CP</h:outputLabel>
-											<h:inputText type="text" class="form-control" id="idCodePostalFacturation" value="#{compteManagedBean.villeFacturation.codePostal}" />
+											<h:selectOneMenu value="#{compteManagedBean.villeFacturation.codePostal}" class="form-control" id="idCodePostalFacturation">
+												<f:selectItem itemValue="" itemLabel="(Choisir)" />
+												<f:selectItems value="#{compteManagedBean.villesFacturation}" var="cpf" itemValue="#{cpf.idVille}" itemLabel="#{cpf.codePostal}"  />																				
+											</h:selectOneMenu>
 										</div>
 									</div>
 									<div class="col-sm-3">

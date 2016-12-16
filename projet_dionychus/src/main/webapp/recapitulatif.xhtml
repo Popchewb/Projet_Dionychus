@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Recapitulatif</title>
+	<h:outputStylesheet name="css/bootstrap.css" />
+
+</h:head>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
+
+	<ui:define name="Titre_Page">
+			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Récapitulatif</h2>
+		</ui:define>
+
+		<ui:define name="Chemin_Acces_Site">
+			<b:navLink outcome="acceuil.jsp" value="Accueil"/>
+			<li><b:navLink outcome="livraison.jsp" value="Livraison"/></li>
+			
+		</ui:define>
+	
+	<ui:define name="Contenu_Page">
+	<div class="container">
+    			<div class="row">
+       				 <div class="col-lg-12">
+						 <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center"><strong>Facture</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Nom</strong></td>
+                                    <td class="text-center"><strong>Prix</strong></td>
+                                    <td class="text-center"><strong>Quantité</strong></td>
+                                    <td class="text-right"><strong>Total</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Libelle vin</td>
+                                    <td class="text-center">$900</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-right">$900</td>
+                                </tr>
+                                <tr>
+                                    <td>libelle vin</td>
+                                    <td class="text-center">$30.00</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-right">$30.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="highrow" style="border-bottom: 1px solid #FFFFFF !important"></td>
+                                    <td class="highrow" style="border-bottom: 1px solid #FFFFFF !important"></td>
+                                    <td class="highrow text-center"><strong>Sous-Total</strong></td>
+                                    <td class="highrow text-right">$930.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="emptyrow" style="border-bottom: 1px solid #FFFFFF !important"></td>
+                                    <td class="emptyrow" style="border-bottom: 1px solid #FFFFFF !important"></td>
+                                    <td class="emptyrow text-center"><strong>Transport</strong></td>
+                                    <td class="emptyrow text-right">$20</td>
+                                </tr>
+                                <tr>
+                                    <td class="emptyrow"><i></i></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>Total</strong></td>
+                                    <td class="emptyrow text-right">$950.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+    			<div class="row">
+       				 <div class="col-lg-1 col-lg-offset-5"/>
+       				 	<h:form style="padding: 10px;margin-top: -19px"	>
+       					 <b:commandButton value="Confirmer" type="submit" action="confirmation_commande.jsf" look="info"/>
+       				 	</h:form>
+       				 </div>
+				</div>
+         </ui:define>          
+		</ui:composition>
+	</html>
+	
