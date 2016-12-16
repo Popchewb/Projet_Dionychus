@@ -57,6 +57,16 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	public List<Vin> getAllVin() {
 		return proxyDaoVin.getAll();
 	}
+	
+	@Override
+	public List<Vin> getAllVinAromeCepage(){
+		List<Vin> vins = proxyDaoVin.getAll();
+		for (Vin vin : vins) {
+			vin.setAromes(proxyDaoArome.getAromeByIdVin(vin.getIdArticle()));
+			vin.setCepages(proxyDaoCepage.getCepageByIdVin(vin.getIdArticle()));
+		}
+		return vins;
+	}
 
 	@Override
 	public List<Arome> getAllArome() {

@@ -1,10 +1,17 @@
 package fr.afcepf.al29.dionychus.data.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+
+import com.mysql.jdbc.Statement;
 
 import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Arome;
@@ -61,15 +68,30 @@ public class VinDaoImpl implements VinDaoItf {
 
 	@Override
 	public void addVin(Vin paramVin, Integer paramIdFournisseur) {
+		GeneratedKeyHolder holder = new GeneratedKeyHolder();
 		String SQLaddVin = "INSERT INTO `bdd_dionychus`.`article` (`reference`, `libelle`, `description`, `prix`, `annee`, `quantite`, `seuil_alerte`, `url_image`, `id_type_vin`, `id_appelation`, `id_region`, `type_article`, `id_acteur`) VALUES (?,?,?,?,?,?,?,?,?,?,?,'Vin',?)";
-		jdbcTemplate.update(SQLaddVin,
-				new Object[] { paramVin.getReference(), paramVin.getLibelle(), paramVin.getDescription(),
-						paramVin.getPrix(), paramVin.getAnnee(), paramVin.getQuantite(), paramVin.getSeuilAlerte(),
-						paramVin.getUrlImage(), paramVin.getTypeVin().getIdTypeVin(),
-						paramVin.getAppelation().getIdAppelation(), paramVin.getRegion().getIdRegion(), paramIdFournisseur });
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement statement = con.prepareStatement(SQLaddVin, Statement.RETURN_GENERATED_KEYS);
+				statement.setString(1, paramVin.getReference());
+				statement.setString(2, paramVin.getLibelle());
+				statement.setString(3, paramVin.getDescription());
+				statement.setDouble(4, paramVin.getPrix());
+				statement.setInt(5, paramVin.getAnnee());
+				statement.setInt(6, paramVin.getQuantite());
+				statement.setInt(7, paramVin.getSeuilAlerte());
+				statement.setString(8, paramVin.getUrlImage());
+				statement.setInt(9, paramVin.getTypeVin().getIdTypeVin());
+				statement.setInt(10, paramVin.getAppelation().getIdAppelation());
+				statement.setInt(11, paramVin.getRegion().getIdRegion());
+				statement.setInt(12, paramIdFournisseur);
+				return statement;
+			}
+		});
 		String SQLaddAromes = "INSERT INTO `bdd_dionychus`.`vin_arome` (`id_article`, `id_arome`) VALUES (?,?)";
 		String SQLaddCepages = "INSERT INTO `bdd_dionychus`.`vin_cepage` (`id_article`, `id_cepage`) VALUES (?,?)";
-		Integer idVin = getIdByReference(paramVin.getReference());
+		Integer idVin = holder.getKey().intValue();
 		for (Arome arome : paramVin.getAromes()) {
 			jdbcTemplate.update(SQLaddAromes, new Object[] { idVin, arome.getIdArome() });
 		}
