@@ -110,7 +110,7 @@ public class VinManagedBean implements Serializable {
 			String[] chaineAromes = arome.split(",");
 			for (Vin vin : vins) {
 				System.out.println("vin " + vin);
-				List<Arome> aromesDuVin = proxyInventaire.
+				//List<Arome> aromesDuVin = proxyInventaire.
 				for (String str : chaineAromes) {
 					System.out.println("str " + str);
 					System.out.println(vin.getCepages());
