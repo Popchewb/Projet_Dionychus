@@ -24,7 +24,7 @@ public interface IBusinessCommandeClient {
 	
 	void validerCommandeClient(CommandeClient paramCommandeClient, Utilisateur paramUtilisateur);
 
-	void addCommandeClient(CommandeClient paramCommandeClient);
+	CommandeClient addCommandeClient(CommandeClient paramCommandeClient);
 
 	void updateCommandeClient(CommandeClient paramCommandeClient);
 
