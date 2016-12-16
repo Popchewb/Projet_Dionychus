@@ -19,14 +19,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
 
-	<!-- 	<ui:define name="Titre_Page"> -->
-	<!-- 		<h2>Inventaire</h2> -->
-	<!-- 	</ui:define> -->
+	<ui:define name="Titre_Page">
+			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Catalogue des Accessoires</h2>
+		</ui:define>
 
-	<!-- 	<ui:define name="Chemin_Acces_Site"> -->
-	<!-- 		<li><a href="index.html">Accueil</a></li> -->
-	<!-- 		<li>Admin</li> -->
-	<!-- 	</ui:define> -->
+		<ui:define name="Chemin_Acces_Site">
+			<b:navLink outcome="acceuil.jsp" value="Accueil"/>
+			<li>Accessoires</li>
+			
+		</ui:define>
 
 	<ui:define name="Contenu_Page">
 
@@ -81,8 +82,7 @@
 								<h:outputLabel value="Cépages" style="width: 295px" />
 								<b:selectMultiMenu value="#{vinManagedBean.cepage}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.cepages}" var="cep"
-										itemValue="#{cep.idCepage}" itemLabel="#{cep.libelle}" />
+									<f:selectItems value="#{vinManagedBean.cepageMap}"/>
 								</b:selectMultiMenu>
 							</b:row>
 
@@ -91,8 +91,7 @@
 								<h:outputLabel value="Arômes" />
 								<b:selectMultiMenu value="#{vinManagedBean.arome}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.aromes}" var="aro"
-										itemValue="#{aro.idArome}" itemLabel="#{aro.libelle}" />
+									<f:selectItems value="#{vinManagedBean.aromeMap}"/>
 								</b:selectMultiMenu>
 							</b:row>
 

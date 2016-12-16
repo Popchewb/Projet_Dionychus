@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Catalogue</title>
+	<h:outputStylesheet name="css/bootstrap.css" />
+
+</h:head>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
+
+	<ui:define name="Titre_Page">
+			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Panier</h2>
+		</ui:define>
+
+		<ui:define name="Chemin_Acces_Site">
+			<b:navLink outcome="acceuil.jsp" value="Accueil"/>
+			<li>Panier</li>
+			
+		</ui:define>
+	
+	<ui:define name="Contenu_Page">
+			 <div id="content">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-muted lead">Vous avez 3 articles dans votre panier</p>
+                    </div>
+
+
+                    <div class="col-md-9 clearfix" id="basket">
+
+                        <div class="box">
+
+                            <form method="post" action="shop-checkout1.html">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Produit</th>
+                                                <th>Quantité</th>
+                                                <th>Prix unitaire</th>
+                                                <th colspan="2">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        <img src="img/Article_Vin_1_Taille.jpg" alt="White Blouse Armani" />
+                                                    </a>
+                                                </td>
+                                                <td><a href="#">Chateau de Broglie</a>
+                                                </td>
+                                                <td>
+                                                    <input type="number" value="2" class="form-control" />
+                                                </td>
+                                                <td>75€</td>
+                                                <td>150€</td>
+                                                <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        <img src="img/Article_Vin_1_Taille.jpg" alt="Black Blouse Armani" />
+                                                    </a>
+                                                </td>
+                                                <td><a href="#">Château Margaux</a>
+                                                </td>
+                                                <td>
+                                                    <input type="number" value="1" class="form-control" />
+                                                </td>
+                                                <td>62€</td>
+                                                <td>124€</td>
+                                                <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="5">Total</th>
+                                                <th colspan="2">274€</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+
+                                </div>
+                                <!-- /.table-responsive -->
+
+                                <div class="box-footer">
+                                    <div class="pull-left">
+                                        <a href="shop-category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Retourner au magasin</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn btn-default"><i class="fa fa-refresh"></i> Mettre à jour panier</button>
+                                        <button type="submit" class="btn btn-template-main">Valider panier <i class="fa fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <!-- /.box -->
+
+
+                    </div>
+                    <!-- /.col-md-9 -->
+
+                    <div class="col-md-3">
+                        <div class="box" id="order-summary">
+                            <div class="box-header">
+                                <h3>Résumé de la commande</h3>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Sous total</td>
+                                            <th>274€</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Frais de livraison</td>
+                                            <th>10€</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Taxes</td>
+                                            <th>0€</th>
+                                        </tr>
+                                        <tr class="total">
+                                            <td>Total</td>
+                                            <th>284€</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                </div>
+
+            </div>
+            <!-- /.container -->
+        </div>
+
+			</ui:define>
+		
+		</ui:composition>
+	</html>
+	

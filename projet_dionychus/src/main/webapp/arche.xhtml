@@ -46,8 +46,7 @@
 								<a href="#" data-toggle="modal" data-target="#login-modal"><i
 									class="fa fa-sign-in"></i> <span
 									class="hidden-xs text-uppercase">Se Connecter</span></a> <a
-									href="customer-register.html"><i class="fa fa-user"></i> <span
-									class="hidden-xs text-uppercase">Panier</span>
+									href="customer-register.html" style="margin-right: 5px"><i class="fa fa-user"></i> <b:navLink outcome="panier.jsf" value="Panier"/>
 								</a>
 							</div>
 						  </div>
@@ -60,7 +59,7 @@
 					<div class="container">
 						<div class="navbar-header">
 
-							<a class="navbar-brand home" href="details_produit.jsf"> 
+							<a class="navbar-brand home" href="acceuil.jsf"> 
 								<h:graphicImage library="images" name="logoDeQualite.png" style="margin-top: -20px"/>
 								</a>
 					
@@ -81,7 +80,7 @@
 									<b:navLink href="details_produit.jsf" value="Bons Plans" icon-align="right" />
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
-									<b:navLink href="Admin_Detail_Produit.jsf" value="Contact" icon-align="right" />
+									<b:navLink href="contact.jsf" value="Contact" icon-align="right" />
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
 									<b:navLink href="Inventaire.jsf" value="Admin" icon-align="right" />
@@ -113,14 +112,14 @@
 <!-- 				</b:container> -->
 				<!-- /#navbar -->
 
-				 <b:tabLinks>
-						<div id="heading-breadcrumbs" style="width: 100%">
-							<div class="container" style="background-image: url(resources/images/texture-bw.png)">
+				 <b:tabLinks style="border-bottom-color: white">
+						<div id="heading-breadcrumbs" style="width: 100%;background-image: url(resources/images/texture-bw.png)">
+							<div class="container" >
 									<div class="col-md-7">
-										<b:navLink href="details_produit.jsf" icon-align="right" ><ui:insert name="Titre_Page" /></b:navLink>
+										<h1><ui:insert name="Titre_Page" /></h1>
 									</div>
 									<div class="col-md-5">
-										<ul class="breadcrumb" style="background-color: transparent">
+										<ul class="breadcrumb" style="background-color: transparent; margin-top: 20px">
 										<b:navLink href="arche.jsf" icon-align="right"><ui:insert name="Chemin_Acces_Site" /></b:navLink>
 										</ul>
 									</div>

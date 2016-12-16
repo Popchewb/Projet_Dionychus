@@ -2,8 +2,9 @@ package fr.afcepf.al29.dionychus.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -39,19 +40,25 @@ public class VinManagedBean implements Serializable {
 
 	private String arome;
 
-	private List<Cepage> cepages;
-
 	private String cepage;
 
+	private Integer region;
+	
 	private List<Region> regions;
 
-	private Integer region;
-
+	private Map<String, String> cepageMap = new HashMap<String, String>();
+	
+	private Map<String, String> aromeMap = new HashMap<String, String>();
+	
 	public String rechercher() {
+		System.out.println(cepage);
+//		System.out.println("region " + region);
+//		System.out.println("arome " + arome + " cepage " + cepage);
 		List<Vin> vins = proxyInventaire.getAllVin();
 		List<Vin> selectVin = new ArrayList<>();
 
 		if(typeVin != 0) {
+			System.out.println("plop1");
 			for (Vin vin : vins) {
 				if(vin.getTypeVin().getIdTypeVin() != typeVin) {
 					selectVin.add(vin);
@@ -62,6 +69,7 @@ public class VinManagedBean implements Serializable {
 		}
 
 		if(!millesime.equals("")){
+			System.out.println("plop2");
 			for (Vin vin : vins) {
 				if(vin.getAnnee() != Integer.parseInt(millesime)){
 					selectVin.add(vin);
@@ -94,20 +102,29 @@ public class VinManagedBean implements Serializable {
 		
 		System.out.println("debut methode");
 		System.out.println("arome " + arome);
+		System.out.println("cepage " + cepage);
+		System.out.println(vins.size());
 
 		if(!arome.equals("")){
 			boolean estPresent = false;
 			String[] chaineAromes = arome.split(",");
 			for (Vin vin : vins) {
 				System.out.println("vin " + vin);
+				//List<Arome> aromesDuVin = proxyInventaire.
 				for (String str : chaineAromes) {
 					System.out.println("str " + str);
-					for (Arome aro : vin.getAromes()) {
-						System.out.println("arome " + aro.getLibelle());
-						if(aro.getLibelle().equals(str)){
-							System.out.println("est Present");
-							estPresent = true;
+					System.out.println(vin.getCepages());
+					System.out.println(vin.getAromes());
+					try{
+						for (Arome aro : vin.getAromes()) {
+							System.out.println("arome " + aro.getLibelle());
+							if(aro.getLibelle().equals(str)){
+								System.out.println("est Present");
+								estPresent = true;
+							}
 						}
+					} catch (Exception e){
+						
 					}
 					if(!estPresent){
 						System.out.println("ajout vin");
@@ -144,19 +161,15 @@ public class VinManagedBean implements Serializable {
 	}
 
 	public List<Arome> getAromes() {
-		return proxyInventaire.getAllArome();
+		List<Arome> test = proxyInventaire.getAllArome();
+		for (Arome arome : test) {
+			System.out.println(arome.getIdArome() + " " + arome.getLibelle());
+		}	
+		return test;
 	}
 
 	public void setAromes(List<Arome> aromes) {
 		this.aromes = aromes;
-	}
-
-	public List<Cepage> getCepages() {
-		return proxyInventaire.getAllCepage();
-	}
-
-	public void setCepages(List<Cepage> cepages) {
-		this.cepages = cepages;
 	}
 
 	public Integer getTypeVin() {
@@ -165,14 +178,6 @@ public class VinManagedBean implements Serializable {
 
 	public void setTypeVin(Integer typeVin) {
 		this.typeVin = typeVin;
-	}
-
-	public List<Region> getRegions() {
-		return proxyInventaire.getAllRegion();
-	}
-
-	public void setRegions(List<Region> regions) {
-		this.regions = regions;
 	}
 
 	public String getArome() {
@@ -214,5 +219,41 @@ public class VinManagedBean implements Serializable {
 	public void setMillesime(String millesime) {
 		this.millesime = millesime;
 	}
+
+	public Map<String, String> getCepageMap() {
+		List<Cepage> testCepage = proxyInventaire.getAllCepage();
+		
+		for (Cepage cepage : testCepage) {
+			cepageMap.put(cepage.getLibelle(), cepage.getIdCepage().toString());
+		}
+		return cepageMap;
+	}
+
+	public void setCepageMap(Map<String, String> cepageMap) {
+		this.cepageMap = cepageMap;
+	}
+
+	public Map<String, String> getAromeMap() {
+		List<Arome> testArome = proxyInventaire.getAllArome();
+		
+		for (Arome arome : testArome) {
+			aromeMap.put(arome.getLibelle(), arome.getIdArome().toString());
+		}
+		return aromeMap;
+	}
+
+	public void setAromeMap(Map<String, String> aromeMap) {
+		this.aromeMap = aromeMap;
+	}
+
+	public List<Region> getRegions() {
+		return proxyInventaire.getAllRegion();
+	}
+
+	public void setRegions(List<Region> regions) {
+		this.regions = regions;
+	}
+	
+	
 
 }
