@@ -18,6 +18,7 @@ import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
+import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.Commentaire;
 import fr.afcepf.al29.dionychus.entity.Promotion;
@@ -114,8 +115,7 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 
 	@Override
 	public Accessoire getAccessoireById(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyDaoAccessoire.getById(paramIdAccessoire);
 	}
 
 	@Override
@@ -195,7 +195,7 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	}
 
 	@Override
-	public Vin getVinById(Integer paramIdVin) {
+	public Article getVinById(Integer paramIdVin) {
 		Vin vin = proxyDaoVin.getById(paramIdVin);
 		vin.setAromes(proxyDaoArome.getAromeByIdVin(paramIdVin));
 		vin.setCepages(proxyDaoCepage.getCepageByIdVin(paramIdVin));
