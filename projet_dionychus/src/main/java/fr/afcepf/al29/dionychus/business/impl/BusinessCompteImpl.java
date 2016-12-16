@@ -7,6 +7,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCompte;
+import fr.afcepf.al29.dionychus.data.impl.PaysDaoImpl;
+import fr.afcepf.al29.dionychus.data.impl.UtilisateurDaoImpl;
+import fr.afcepf.al29.dionychus.data.impl.VilleDaoImpl;
 import fr.afcepf.al29.dionychus.data.itf.AdresseDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.CommentaireDaoItf;
 import fr.afcepf.al29.dionychus.entity.Adresse;
@@ -23,6 +26,9 @@ public class BusinessCompteImpl implements IBusinessCompte {
 
 	private AdresseDaoItf proxyAdresseDao = (AdresseDaoItf) context.getBean("adresseJDBCtemplate");
 	private CommentaireDaoItf proxyCommentaireDao = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
+	private PaysDaoImpl proxyPaysDao = (PaysDaoImpl) context.getBean("paysJDBCtemplate");
+	private VilleDaoImpl proxyVilleDao = (VilleDaoImpl) context.getBean("villeJDBCtemplate");
+	private UtilisateurDaoImpl proxyUtilisateurDao = (UtilisateurDaoImpl) context.getBean("utilisateurJDBCtemplate");
 
 	@Override
 	public List<Adresse> getAllAdresse() {
@@ -61,8 +67,8 @@ public class BusinessCompteImpl implements IBusinessCompte {
 
 	@Override
 	public List<Pays> getAllPays() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("je passe dans le BU Impl");
+		return proxyPaysDao.getAllPays();
 	}
 
 	@Override
@@ -103,8 +109,7 @@ public class BusinessCompteImpl implements IBusinessCompte {
 
 	@Override
 	public void addUtilisateur(Utilisateur paramUtilisateur) {
-		// TODO Auto-generated method stub
-
+		proxyUtilisateurDao.addUtilisateur(paramUtilisateur);
 	}
 
 	@Override
@@ -117,6 +122,11 @@ public class BusinessCompteImpl implements IBusinessCompte {
 	public void deleteUtilisateur(Integer paramIdUtilisateur) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void addVille(Ville paramVille) {
+		proxyVilleDao.addVille(paramVille);
 	}
 
 }
