@@ -1,16 +1,21 @@
 package fr.afcepf.al29.dionychus.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
+import javax.servlet.http.Cookie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
-import fr.afcepf.al29.dionychus.entity.Acteur;
-import fr.afcepf.al29.dionychus.entity.Commande;
+import fr.afcepf.al29.dionychus.entity.CommandeClient;
+import fr.afcepf.al29.dionychus.entity.Utilisateur;
 
 @Controller("cookieManagedBean")
 @Scope("request")
@@ -19,9 +24,9 @@ public class CookieManagedBean {
 	@Autowired
 	private IBusinessCommandeClient proxyCommandeClient;
 	
-	private Acteur acteur;
+	private Utilisateur user = new Utilisateur();
 	
-	public void init() {
+	public void init() throws UnsupportedEncodingException {
 		
 		boolean start = false;
 		
@@ -30,21 +35,26 @@ public class CookieManagedBean {
 		}
 		start = true;
 		Map<String, Object> cookies = FacesContext.getCurrentInstance().getExternalContext().getRequestCookieMap();
-		String id = (String)cookies.get("idPanier");
-		Commande panier;
+		Cookie cookie = (Cookie) cookies.get("idPanier");
+		String id = cookie.getValue();
+		Map<String, Object> cookiesResponse = new HashMap<>();
+		cookiesResponse.put("maxAge", 31536000);
+		cookiesResponse.put("path", "/");
+		FacesContext.getCurrentInstance().getExternalContext().addResponseCookie("idPanier", URLEncoder.encode("1", "UTF-8"), cookiesResponse);
+		CommandeClient panier;
 		
 		if(id == null) {
-			panier = new Commande();
-			//panier = proxyCommandeClient.
+			panier = new CommandeClient();
+			Calendar c = Calendar.getInstance();
+			java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
+			panier.setDateCreation(date);
+			panier = proxyCommandeClient.addPanier(panier);
 		} else {
 			panier = proxyCommandeClient.getCommandeById(Integer.parseInt(id));
 		}
-		
 		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-		session.put("user", acteur);
+		session.put("user", user);
 		session.put("panier", panier);
-		
-//		<f:event type="preRenderView" listener="#{surveyWebBean.init}" />
 		
 	}
 }

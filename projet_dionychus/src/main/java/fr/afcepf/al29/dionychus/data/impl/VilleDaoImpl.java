@@ -11,11 +11,9 @@ import fr.afcepf.al29.dionychus.entity.Ville;
 import fr.afcepf.al29.dionychus.mapper.VilleMapper;
 
 public class VilleDaoImpl implements VilleDaoItf {
-	
+
 	JdbcTemplate jdbcTemplate;
 	DataSource dataSource;
-	
-	
 
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
@@ -43,13 +41,13 @@ public class VilleDaoImpl implements VilleDaoItf {
 	@Override
 	public List<Ville> getAllByIdPays(Integer paramIdPays) {
 		String SQL = "SELECT v.id_ville, v.libelle, v.code_postal, v.id_pays, p.libelle FROM ville v INNER JOIN pays p WHERE v.id_pays = p.id_pays AND v.id_pays = ?";
-		return jdbcTemplate.query(SQL, new Object[]{paramIdPays}, new VilleMapper());
+		return jdbcTemplate.query(SQL, new Object[] { paramIdPays }, new VilleMapper());
 	}
 
 	@Override
-	public void addVille(Ville paramVille) {
-		String SQL = "INSERT INTO `bdd_dionychus`.`ville`(`code_postal`, `libelle`, `id_pays`) VALUES (?, ?, ?)";
-		jdbcTemplate.update(SQL, new Object[]{paramVille.getCodePostal(), paramVille.getLibelle(), paramVille.getPays().getIdPays()});
+	public Ville getVilleById(Integer paramIdVille) {
+		String SQL = "SELECT v.id_ville, v.libelle, v.code_postal, v.id_pays, p.libelle FROM ville v INNER JOIN pays p WHERE v.id_pays = p.id_pays AND v.id_ville = ?";
+		return jdbcTemplate.queryForObject(SQL, new Object[] { paramIdVille }, new VilleMapper());
 	}
 
 }

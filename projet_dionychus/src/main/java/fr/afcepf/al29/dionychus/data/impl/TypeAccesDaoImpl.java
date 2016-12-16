@@ -11,36 +11,26 @@ import fr.afcepf.al29.dionychus.entity.TypeAcces;
 import fr.afcepf.al29.dionychus.mapper.TypeAccesMapper;
 
 public class TypeAccesDaoImpl implements TypeAccesDaoItf {
-	
+
 	JdbcTemplate jdbcTemplate;
 	DataSource dataSource;
-	
-	
 
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
 
-
-
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
-
 
 	public DataSource getDataSource() {
 		return dataSource;
 	}
 
-
-
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
-
 
 	@Override
 	public List<TypeAcces> getAll() {

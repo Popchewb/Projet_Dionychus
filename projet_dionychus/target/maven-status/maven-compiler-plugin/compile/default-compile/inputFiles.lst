@@ -1,6 +1,8 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 C:\Users\Stagiaire\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\PromotionDaoImpl.java
 C:\Users\Stagiaire\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\PromotionDaoItf.java
 C:\Users\Stagiaire\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\FournisseurDaoItf.java
@@ -234,12 +236,15 @@ C:\Users\ecala\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\di
 <<<<<<< HEAD
 =======
 =======
+>>>>>>> 8fbc2d68210773ac38dbeb6658b69a5fa1401f23
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\package-info.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\CommandeClientDaoImpl.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\StatutCommandeDaoItf.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Commentaire.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\package-info.java
+C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\controller\CompteManagedBean.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\business\itf\IBusinessInventaire.java
+C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\controller\CookieManagedBean.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Acteur.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\LigneCommandeDaoImpl.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Commande.java
@@ -282,6 +287,7 @@ C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Civilite.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\business\impl\BusinessCompteImpl.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\VilleDaoImpl.java
+C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\controller\PanierManagedBean.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\mapper\UtilisateurMapper.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Cepage.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Accessoire.java
@@ -309,6 +315,7 @@ C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\AdresseDaoItf.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\RegionDaoItf.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\mapper\package-info.java
+C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\controller\TestAdminManagedBean.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\mapper\AppelationMapper.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Vin.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\AromeDaoItf.java
@@ -349,6 +356,9 @@ C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\mapper\LivraisonMapper.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\mapper\StatutCommandeMapper.java
 C:\Users\Nicolas\git\Projet_Dionychus2\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Appelation.java
+<<<<<<< HEAD
+=======
 >>>>>>> 34e7d30aca40ccfcc631c6ccc659eedf12b5efbc
 >>>>>>> 142e74daf1681f155f6256c7f5669b5ea8c70852
 >>>>>>> aaa811ecb4b96f41f0c5aa9eaa5752da4e8bd3d9
+>>>>>>> 8fbc2d68210773ac38dbeb6658b69a5fa1401f23

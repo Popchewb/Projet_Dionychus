@@ -59,6 +59,7 @@ fr\afcepf\al29\dionychus\data\impl\PaysDaoImpl.class
 fr\afcepf\al29\dionychus\controller\HomeController.class
 fr\afcepf\al29\dionychus\entity\TypeAcces.class
 fr\afcepf\al29\dionychus\entity\Ville.class
+fr\afcepf\al29\dionychus\controller\CookieManagedBean.class
 fr\afcepf\al29\dionychus\data\itf\AccessoireDaoItf.class
 fr\afcepf\al29\dionychus\data\itf\VinDaoItf.class
 fr\afcepf\al29\dionychus\entity\Livraison.class
@@ -98,6 +99,7 @@ fr\afcepf\al29\dionychus\data\itf\TypeAccessoireDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\VinDaoImpl$1.class
 fr\afcepf\al29\dionychus\data\itf\CommandeStockDaoItf.class
 fr\afcepf\al29\dionychus\mapper\TypeLivraisonMapper.class
+fr\afcepf\al29\dionychus\controller\TestAdminManagedBean.class
 fr\afcepf\al29\dionychus\controller\CompteManagedBean.class
 fr\afcepf\al29\dionychus\entity\Accessoire.class
 fr\afcepf\al29\dionychus\mapper\RegionMapper.class
