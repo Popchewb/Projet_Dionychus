@@ -27,6 +27,8 @@ public interface IBusinessCompte {
 	// Commentaires
 	List<Commentaire> getAllCommentaireByUtilisateur(Integer paramIdUtilisateur);
 
+	
+	
 	// START HERE ANTOINE
 
 	// Pays
@@ -38,6 +40,10 @@ public interface IBusinessCompte {
 	List<Ville> getAllVille();
 
 	List<Ville> getAllVilleByIdPays(Integer paramIdPays);
+	
+	void addVille (Ville paramVille);
+	
+	
 
 	// Types Acces
 	List<TypeAcces> getAllTypeAcces();

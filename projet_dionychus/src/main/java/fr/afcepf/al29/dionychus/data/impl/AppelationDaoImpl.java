@@ -8,9 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.afcepf.al29.dionychus.data.itf.AppelationDaoItf;
 import fr.afcepf.al29.dionychus.entity.Appelation;
-import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.mapper.AppelationMapper;
-import fr.afcepf.al29.dionychus.mapper.RegionMapper;
 
 public class AppelationDaoImpl implements AppelationDaoItf {
 	private JdbcTemplate jdbcTemplate;

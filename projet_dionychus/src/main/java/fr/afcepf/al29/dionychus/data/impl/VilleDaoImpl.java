@@ -46,4 +46,10 @@ public class VilleDaoImpl implements VilleDaoItf {
 		return jdbcTemplate.query(SQL, new Object[]{paramIdPays}, new VilleMapper());
 	}
 
+	@Override
+	public void addVille(Ville paramVille) {
+		String SQL = "INSERT INTO `bdd_dionychus`.`ville`(`code_postal`, `libelle`, `id_pays`) VALUES (?, ?, ?)";
+		jdbcTemplate.update(SQL, new Object[]{paramVille.getCodePostal(), paramVille.getLibelle(), paramVille.getPays().getIdPays()});
+	}
+
 }

@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 fr\afcepf\al29\dionychus\entity\Pays.class
 fr\afcepf\al29\dionychus\config\MvcConfiguration.class
 fr\afcepf\al29\dionychus\data\itf\CommentaireDaoItf.class
@@ -96,6 +98,7 @@ fr\afcepf\al29\dionychus\data\itf\TypeAccessoireDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\VinDaoImpl$1.class
 fr\afcepf\al29\dionychus\data\itf\CommandeStockDaoItf.class
 fr\afcepf\al29\dionychus\mapper\TypeLivraisonMapper.class
+fr\afcepf\al29\dionychus\controller\CompteManagedBean.class
 fr\afcepf\al29\dionychus\entity\Accessoire.class
 fr\afcepf\al29\dionychus\mapper\RegionMapper.class
 fr\afcepf\al29\dionychus\data\itf\TypeAccesDaoItf.class
@@ -112,3 +115,4 @@ fr\afcepf\al29\dionychus\entity\Appelation.class
 fr\afcepf\al29\dionychus\mapper\LigneCommandeMapper.class
 fr\afcepf\al29\dionychus\business\impl\BusinessCommandeClient.class
 fr\afcepf\al29\dionychus\data\impl\VilleDaoImpl.class
+>>>>>>> 34e7d30aca40ccfcc631c6ccc659eedf12b5efbc

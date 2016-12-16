@@ -7,9 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.afcepf.al29.dionychus.data.itf.TypeVinDaoItf;
-import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
-import fr.afcepf.al29.dionychus.mapper.RegionMapper;
 import fr.afcepf.al29.dionychus.mapper.TypeVinMapper;
 
 public class TypeVinDaoImpl implements TypeVinDaoItf{
