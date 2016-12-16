@@ -7,6 +7,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCompte;
+import fr.afcepf.al29.dionychus.data.impl.PaysDaoImpl;
+import fr.afcepf.al29.dionychus.data.impl.TypeAccesDaoImpl;
+import fr.afcepf.al29.dionychus.data.impl.UtilisateurDaoImpl;
+import fr.afcepf.al29.dionychus.data.impl.VilleDaoImpl;
 import fr.afcepf.al29.dionychus.data.itf.AdresseDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.CommentaireDaoItf;
 import fr.afcepf.al29.dionychus.entity.Adresse;
@@ -23,6 +27,10 @@ public class BusinessCompteImpl implements IBusinessCompte {
 
 	private AdresseDaoItf proxyAdresseDao = (AdresseDaoItf) context.getBean("adresseJDBCtemplate");
 	private CommentaireDaoItf proxyCommentaireDao = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
+	private PaysDaoImpl proxyPaysDao = (PaysDaoImpl) context.getBean("paysJDBCtemplate");
+	private VilleDaoImpl proxyVilleDao = (VilleDaoImpl) context.getBean("villeJDBCtemplate");
+	private UtilisateurDaoImpl proxyUtilisateurDao = (UtilisateurDaoImpl) context.getBean("utilisateurJDBCtemplate");
+	private TypeAccesDaoImpl proxyTypeAccesDao = (TypeAccesDaoImpl) context.getBean("typeAccesJDBCtemplate");
 
 	@Override
 	public List<Adresse> getAllAdresse() {
@@ -61,62 +69,62 @@ public class BusinessCompteImpl implements IBusinessCompte {
 
 	@Override
 	public List<Pays> getAllPays() {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyPaysDao.getAllPays();
 	}
 
 	@Override
 	public Pays getPaysByIdVille(Integer paramIdVille) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyPaysDao.getPaysByIdVille(paramIdVille);
 	}
 
 	@Override
 	public List<Ville> getAllVille() {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyVilleDao.getAll();
 	}
 
 	@Override
 	public List<Ville> getAllVilleByIdPays(Integer paramIdPays) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyVilleDao.getAllByIdPays(paramIdPays);
 	}
 
 	@Override
 	public List<TypeAcces> getAllTypeAcces() {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyTypeAccesDao.getAll();
 	}
 
 	@Override
-	public List<Utilisateur> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Utilisateur> getAllUtilisateur() {
+		return proxyUtilisateurDao.getAllUtilisateur();
 	}
 
 	@Override
-	public Utilisateur getById(int paramIdUtilisateur) {
-		// TODO Auto-generated method stub
-		return null;
+	public Utilisateur getUserByEmail() {
+		return proxyUtilisateurDao.getUserByEmail();
+	}
+
+	@Override
+	public Utilisateur getUtilisateurById(int paramIdUtilisateur) {
+		return proxyUtilisateurDao.getUtilisateurById(paramIdUtilisateur);
 	}
 
 	@Override
 	public void addUtilisateur(Utilisateur paramUtilisateur) {
-		// TODO Auto-generated method stub
-
+		proxyUtilisateurDao.addUtilisateur(paramUtilisateur);
 	}
 
 	@Override
 	public void updateUtilisateur(Utilisateur paramUtilisateur) {
-		// TODO Auto-generated method stub
-
+		proxyUtilisateurDao.updateUtilisateur(paramUtilisateur);
 	}
 
 	@Override
 	public void deleteUtilisateur(Integer paramIdUtilisateur) {
-		// TODO Auto-generated method stub
+		proxyUtilisateurDao.deleteUtilisateur(paramIdUtilisateur);
+	}
 
+	@Override
+	public Ville getVilleById(Integer paramIdVille) {
+		return proxyVilleDao.getVilleById(paramIdVille);
 	}
 
 }

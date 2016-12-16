@@ -88,4 +88,6 @@ public interface IBusinessInventaire {
 
 	List<Vin> getBestSellerVin();
 
+	List<Vin> getAllVinAromeCepage();
+
 }

@@ -11,10 +11,9 @@ import fr.afcepf.al29.dionychus.entity.Pays;
 import fr.afcepf.al29.dionychus.mapper.PaysMapper;
 
 public class PaysDaoImpl implements PaysDaoItf {
-	
+
 	JdbcTemplate jdbcTemplate;
 	DataSource dataSource;
-	
 
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
@@ -34,16 +33,15 @@ public class PaysDaoImpl implements PaysDaoItf {
 	}
 
 	@Override
-	public List<Pays> getAll() {
+	public List<Pays> getAllPays() {
 		String SQL = "SELECT id_pays, libelle FROM pays ORDER BY libelle";
-		List<Pays> pays = jdbcTemplate.query(SQL, new PaysMapper());
-		return pays;
+		return jdbcTemplate.query(SQL, new PaysMapper());
 	}
 
 	@Override
 	public Pays getPaysByIdVille(Integer paramIdVille) {
 		String SQL = "SELECT p.id_pays, p.libelle FROM pays p INNER JOIN ville v WHERE p.id_ville = v.id_ville AND v.id_ville = ?";
-		Pays pays = jdbcTemplate.queryForObject(SQL, new Object[] {paramIdVille}, new PaysMapper());
+		Pays pays = jdbcTemplate.queryForObject(SQL, new Object[] { paramIdVille }, new PaysMapper());
 		return pays;
 	}
 
