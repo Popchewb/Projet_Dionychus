@@ -58,8 +58,8 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 	}
 
 	@Override
-	public void addCommandeClient(CommandeClient paramCommandeClient) {
-		ccDao.addCommandeClient(paramCommandeClient);
+	public CommandeClient addCommandeClient(CommandeClient paramCommandeClient) {
+		return ccDao.addCommandeClient(paramCommandeClient);
 	}
 
 	@Override

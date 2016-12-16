@@ -98,6 +98,7 @@ fr\afcepf\al29\dionychus\data\itf\TypeAccessoireDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\VinDaoImpl$1.class
 fr\afcepf\al29\dionychus\data\itf\CommandeStockDaoItf.class
 fr\afcepf\al29\dionychus\mapper\TypeLivraisonMapper.class
+fr\afcepf\al29\dionychus\controller\CompteManagedBean.class
 fr\afcepf\al29\dionychus\entity\Accessoire.class
 fr\afcepf\al29\dionychus\mapper\RegionMapper.class
 fr\afcepf\al29\dionychus\data\itf\TypeAccesDaoItf.class

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" 
+
+	template="/arche.xhtml">
+
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>Se Connecter</title>
+	</h:head>
+
+
+	<!-- 	<ui:define name="Titre_Page"> -->
+	<!-- 		<h2>Inventaire</h2> -->
+	<!-- 	</ui:define> -->
+
+	<!-- 	<ui:define name="Chemin_Acces_Site"> -->
+	<!-- 		<li><a href="index.html">Accueil</a></li> -->
+	<!-- 		<li>Admin</li> -->
+	<!-- 	</ui:define> -->
+
+
+	<ui:define name="Contenu_Page">
+		<div id="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h2 class="text-uppercase">Nouveau compte</h2>
+						<hr />
+						<h:form action="customer-orders.html" method="post">
+							
+							<h:form>
+							
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idNom">Nom</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idNom" value="#{compteManagedBean.utilisateur.nom}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idPrenom">Prénom</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idPrenom" value="#{compteManagedBean.utilisateur.prenom}" />
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idCivilite">Civilité</h:outputLabel>
+											<h:selectOneRadio value="#{compteManagedBean.utilisateur.civilite}" id="idCivilite">
+												<f:selectItem itemValue="0" itemLabel="M" />
+												<f:selectItem itemValue="1" itemLabel="Mme" />
+												<f:selectItem itemValue="2" itemLabel="Mlle" />
+											</h:selectOneRadio>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idDateDeNaissance">Date de naissance</h:outputLabel>
+											<h:inputText class="form-control" id="idDateDeNaissance" value="#{compteManagedBean.utilisateur.dateNaissance}" >
+												<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+											</h:inputText>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idEmail">@mail</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idEmail" value="#{compteManagedBean.utilisateur.adresseMail}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idTelephone">Téléphone</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idTelephone" value="#{compteManagedBean.utilisateur.numeroTelephone}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idLogin">Login</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idLogin" value="#{compteManagedBean.utilisateur.login}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idMotDePasse">Mot de passe</h:outputLabel>
+											<h:inputSecret type="password" class="form-control" id="idMotDePasse" value="#{compteManagedBean.utilisateur.password}" />
+										</div>
+									</div>
+								</div>
+								
+								<hr />
+								<h3>Adresse de livraison</h3>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idRueLivraison">Rue</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idRueLivraison" value="#{compteManagedBean.adresseLivraison.libelle}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idComplementLivraison">Complément</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idComplementLivraison" value="#{compteManagedBean.adresseLivraison.complementAdresse}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idVilleLivraison">Ville</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idVilleLivraison" value="#{compteManagedBean.villeLivraison.libelle}" />
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="h:form-group">
+											<h:outputLabel for="idCodePostalLivraison">CP</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idCodePostalLivraison" value="#{compteManagedBean.villeLivraison.codePostal}" />
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="h:form-group">
+											<h:outputLabel for="idPaysLivraison">Pays</h:outputLabel>
+											<h:selectOneMenu value="#{compteManagedBean.paysLivraison.libelle}" class="form-control" id="idPaysLivraison">
+												<f:selectItem itemValue="" itemLabel="(Choisir)" />
+												<f:selectItems value="#{compteManagedBean.listePays}" var="p" itemValue="#{p.idPays}" itemLabel="#{p.libelle}"  />																				
+											</h:selectOneMenu>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="h:form-group">
+										<h:selectBooleanCheckbox value="#{compteManagedBean.adresseLivraison.adresseLivraison}" />	Ceci est mon adresse de livraison princiaple
+									</div>
+								</div>
+								
+								<h3>Adresse de Facturation</h3>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idRueFacturation">Rue</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idRueFacturation" value="#{compteManagedBean.adresseFacturation.libelle}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idComplementFacturation">Complément</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idComplementFacturation" value="#{compteManagedBean.adresseFacturation.complementAdresse}" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idVilleFacturation">Ville</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idVilleFacturation" value="#{compteManagedBean.villeFacturation.libelle}" />
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="h:form-group">
+											<h:outputLabel for="idCodePostalFacturation">CP</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idCodePostalFacturation" value="#{compteManagedBean.villeFacturation.codePostal}" />
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="h:form-group">
+											<h:outputLabel for="idPaysFacturation">Pays</h:outputLabel>
+											<h:selectOneMenu value="#{compteManagedBean.paysFacturation.libelle}" class="form-control" id="idPaysFacturation">
+												<f:selectItem itemValue="" itemLabel="(Choisir)" />
+												<f:selectItems value="#{compteManagedBean.listePays}" var="p" itemValue="#{p.idPays}" itemLabel="#{p.libelle}"  />																				
+											</h:selectOneMenu>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="h:form-group">
+										<h:selectBooleanCheckbox value="#{compteManagedBean.adresseFacturation.adresseFacturation}" />	Mon adresse de facturation est identique à mon adresse de livraison
+									</div>
+								</div>
+								
+								<hr/>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="h:form-group">
+											<h:outputLabel for="idProfession">Profession</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idProfession" value="#{compteManagedBean.utilisateur.profession}" />
+										</div>
+									</div>
+									<div class="col-sm-6 col">
+										<div class="h:form-group">
+											<h:outputLabel for="idOrigine">Comment nous avez-vous connus ?</h:outputLabel>
+											<h:inputText type="text" class="form-control" id="idOrigine" value="#{compteManagedBean.utilisateur.origine}" />
+										</div>
+									</div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="h:form-group">
+										<h:selectBooleanCheckbox value="#{compteManagedBean.utilisateur.optin}" />	En créant votre compte, vous acceptez l'intégralité de nos <h:link>Conditions Générales de Vente</h:link>, notre politique de gestion de vos informations personnelles et notre politique de cookies et de publicité sur Internet.
+									</div>
+								</div>
+
+								<hr/>
+								<div class="row">
+									<div class="col-sm-12 text-center">
+										<h:commandButton type="submit" value="ENREGISTRER" class="btn btn-template-main" action="#{compteManagedBean.registerUser}" />
+									</div>
+								</div>
+								
+							</h:form>
+						</h:form>
+					</div>
+					<div class="col-sm-6">
+						<h2 class="text-uppercase">Se connecter</h2>
+						<hr />
+						<h:form action="customer-orders.html" method="post">
+							<div class="h:form-group">
+								<h:outputLabel for="idEmail">@mail</h:outputLabel>
+								<h:inputText type="text" class="form-control" id="idEmail" value="#{compteManagedBean.utilisateur.adresseMail}" />
+							</div>
+							<div class="h:form-group">
+								<h:outputLabel for="idMotDePasse">Mot de passe</h:outputLabel>
+								<h:inputSecret type="password" class="form-control" id="idMotDePasse" value="#{compteManagedBean.utilisateur.password}" />
+							</div>
+							<hr/>
+							<div class="col-sm-12 text-center">
+								<h:commandButton type="submit" value="CONNEXION" class="btn btn-template-main" action="#{compteManagedBean.connectUser}" />
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+	
+</ui:composition>
+
+</html>
