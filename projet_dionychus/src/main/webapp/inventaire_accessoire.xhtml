@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Inventaire</title>
+	<h:outputStylesheet name="css/bootstrap.css" />
+
+</h:head>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
+
+	<ui:define name="Titre_Page">
+			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Inventaire</h2>
+		</ui:define>
+
+		<ui:define name="Chemin_Acces_Site">
+			<b:navLink outcome="acceuil.jsp" value="Accueil"/>
+			<li>Inventaire</li>
+			
+		</ui:define>
+	
+	<ui:define name="Contenu_Page">
+	<div id="content">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-3">
+
+							<div class="panel-heading">
+								<h3 class="panel-title" style="font-weight: bold !important">Catégories</h3>
+							</div>
+
+							<div class="panel-body">
+								<ul class="nav nav-pills nav-stacked category-menu">
+									<li class="active">
+									<a href="inventaire_vin.jsf">Vins<span class="badge pull-right"></span>
+									</a></li>
+									<li class="active">
+									<a href="inventaire_accessoire.jsf">Accessoires<span class="badge pull-right"></span>
+									</a></li>
+								</ul>
+							</div>
+				</div>
+				<div class="col-sm-9">
+					<h:form>
+
+						<b:dataTable value="#{inventaireManagedBean.accessoires}"
+							var="accessoire" fixedHeader="true" scroll-size="400px"
+							scroll-x="false">
+							<h:column value="#{accessoire.reference}" />
+							<h:column value="#{accessoire.urlImage}" />
+							<h:column value="#{accessoire.libelle}" />
+							<h:column value="#{accessoire.prix}" />
+							<h:column value="#{accessoire.quantite}" />
+							<h:column value="#{accessoire.seuilAlerte}" />
+						</b:dataTable>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+	</ui:composition>
+</html>
