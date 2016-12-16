@@ -72,6 +72,7 @@
 							<b:row>
 								<h:outputLabel value="Région" />
 								<b:selectOneMenu value="#{vinManagedBean.region}">
+									<f:selectItem itemValue="" itemLabel="(Sélectionner)"></f:selectItem>
 									<f:selectItems value="#{vinManagedBean.regions}" var="c"
 										itemValue="#{c.idRegion}" itemLabel="#{c.libelle}" />
 								</b:selectOneMenu>
@@ -107,7 +108,7 @@
 					<div class="col-sm-9">
 						<div class="row products">
 
-							<ui:repeat var="produit" value="#{catalogueVinManagedBean.vins}">
+							<ui:repeat var="produit" value="#{vinManagedBean.vins}">
 								<div class="col-md-3 col-sm-6">
 									<div class="product">
 										<div class="image">
