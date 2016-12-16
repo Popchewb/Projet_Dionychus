@@ -75,7 +75,15 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 
 	@Override
 	public List<LigneCommande> getAllLigneCommandeByIdCommande(Integer paramIdCommande) {
-		return lcDao.getAllByIdCommande(paramIdCommande);
+		List<LigneCommande> lignesCommande = lcDao.getAllByIdCommande(paramIdCommande);
+		for (LigneCommande ligneCommande : lignesCommande) {
+			if (ligneCommande.getArticle().getTypeArticle().equals("Vin")) {
+				ligneCommande.setArticle(vinDao.getById(ligneCommande.getArticle().getIdArticle()));
+			} else if (ligneCommande.getArticle().getTypeArticle().equals("Accessoire")) {
+				ligneCommande.setArticle(accDao.getById(ligneCommande.getArticle().getIdArticle()));
+			}
+		}
+		return lignesCommande;
 	}
 
 	@Override
@@ -121,7 +129,7 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 				article.setQuantite(ligneCommande.getArticle().getQuantite() - ligneCommande.getQuantite());
 				vinDao.updateVin(article);
 			}
-		}	
+		}
 
 	}
 

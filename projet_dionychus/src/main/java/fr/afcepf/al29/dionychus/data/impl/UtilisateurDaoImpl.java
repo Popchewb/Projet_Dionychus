@@ -1,10 +1,17 @@
 package fr.afcepf.al29.dionychus.data.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+
+import com.mysql.jdbc.Statement;
 
 import fr.afcepf.al29.dionychus.data.itf.UtilisateurDaoItf;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
@@ -45,13 +52,30 @@ public class UtilisateurDaoImpl implements UtilisateurDaoItf {
 	}
 
 	@Override
-	public void addUtilisateur(Utilisateur paramUtilisateur) {
+	public Utilisateur addUtilisateur(Utilisateur paramUtilisateur) {
+		GeneratedKeyHolder holder = new GeneratedKeyHolder();
 		String SQL = "INSERT INTO `bdd_dionychus`.`acteur`(`date_naissance`,`optin`,`login`,`password`,`id_type_acces`,`nom`,`prenom`,`numero_telephone`,`adresse_mail`,`origine`,`civilite`,`type_acteur`) VALUES (?,?,?,?,?,?,?,?,?,?,?,'Utilisateur')";
-		jdbcTemplate.update(SQL, new Object[] { paramUtilisateur.getDateNaissance(), paramUtilisateur.getOptin(),
-				paramUtilisateur.getLogin(), paramUtilisateur.getPassword(),
-				paramUtilisateur.getTypeAcces().getIdTypeAcces(), paramUtilisateur.getNom(),
-				paramUtilisateur.getPrenom(), paramUtilisateur.getNumeroTelephone(), paramUtilisateur.getAdresseMail(),
-				paramUtilisateur.getOrigine(), paramUtilisateur.getCivilite() });
+		jdbcTemplate.update(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement statement = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+				statement.setDate(1, paramUtilisateur.getDateNaissance());
+				statement.setBoolean(2, paramUtilisateur.getOptin());
+				statement.setString(3, paramUtilisateur.getLogin());
+				statement.setString(4, paramUtilisateur.getPassword());
+				statement.setInt(5, paramUtilisateur.getTypeAcces().getIdTypeAcces());
+				statement.setString(6, paramUtilisateur.getNom());
+				statement.setString(7, paramUtilisateur.getPrenom());
+				statement.setString(8, paramUtilisateur.getNumeroTelephone());
+				statement.setString(9, paramUtilisateur.getAdresseMail());
+				statement.setString(10, paramUtilisateur.getOrigine());
+				statement.setString(11, paramUtilisateur.getCivilite());
+				return statement;
+			}
+		}, holder);
+		paramUtilisateur.setIdActeur(holder.getKey().intValue());
+		return paramUtilisateur;
 
 	}
 
@@ -62,7 +86,7 @@ public class UtilisateurDaoImpl implements UtilisateurDaoItf {
 				paramUtilisateur.getOrigine(), paramUtilisateur.getLogin(), paramUtilisateur.getPassword(),
 				paramUtilisateur.getTypeAcces().getIdTypeAcces(), paramUtilisateur.getNom(),
 				paramUtilisateur.getPrenom(), paramUtilisateur.getNumeroTelephone(), paramUtilisateur.getAdresseMail(),
-				paramUtilisateur.getCivilite(),paramUtilisateur.getProfession(), paramUtilisateur.getIdActeur() });
+				paramUtilisateur.getCivilite(), paramUtilisateur.getProfession(), paramUtilisateur.getIdActeur() });
 
 	}
 
