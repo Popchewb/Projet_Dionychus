@@ -5,6 +5,7 @@ import java.util.List;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
+import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.Commentaire;
 import fr.afcepf.al29.dionychus.entity.Promotion;
@@ -30,14 +31,17 @@ public interface IBusinessInventaire {
 
 	// Appelations
 	List<Appelation> getAllAppelation();
+
 	Appelation getAppellationById(Integer paramIdAppelation);
 
 	// Aromes
 	List<Arome> getAllArome();
+
 	Arome getAromeById(int paramIdArome);
 
 	// Cepage
 	List<Cepage> getAllCepage();
+
 	Cepage getCepageById(int paramIdCepage);
 
 	// Commentaires
@@ -60,6 +64,7 @@ public interface IBusinessInventaire {
 
 	// Region
 	List<Region> getAllRegion();
+
 	Region getRegionById(Integer region);
 
 	// Type Accessoire
@@ -67,19 +72,22 @@ public interface IBusinessInventaire {
 
 	// Type Vin
 	List<TypeVin> getAllTypeVin();
+
 	TypeVin getTypeVinById(Integer paramIdTypeVin);
 
 	// Vin
 	List<Vin> getAllVin();
 
-	Vin getVinById(Integer paramIdVin);
+	Article getVinById(Integer paramIdVin);
 
-	void addVin(Vin paramVin);
+	void addVin(Vin paramVin, Integer paramIdFournisseur);
 
 	void updateVin(Vin paramVin);
 
 	void deleteVin(Integer paramIdVin);
 
 	List<Vin> getBestSellerVin();
+
+	List<Vin> getAllVinAromeCepage();
 
 }

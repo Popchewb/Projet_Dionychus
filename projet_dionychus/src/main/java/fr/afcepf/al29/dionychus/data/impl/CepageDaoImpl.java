@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.afcepf.al29.dionychus.data.itf.CepageDaoItf;
 import fr.afcepf.al29.dionychus.entity.Cepage;
-import fr.afcepf.al29.dionychus.mapper.AromeMapper;
 import fr.afcepf.al29.dionychus.mapper.CepageMapper;
 
 public class CepageDaoImpl implements CepageDaoItf{

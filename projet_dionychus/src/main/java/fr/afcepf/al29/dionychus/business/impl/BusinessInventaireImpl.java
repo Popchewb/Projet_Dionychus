@@ -11,12 +11,14 @@ import fr.afcepf.al29.dionychus.data.itf.AccessoireDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.AppelationDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.AromeDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.CepageDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.CommentaireDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.RegionDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.TypeVinDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Appelation;
 import fr.afcepf.al29.dionychus.entity.Arome;
+import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.Commentaire;
 import fr.afcepf.al29.dionychus.entity.Promotion;
@@ -44,6 +46,8 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	
 	private TypeVinDaoItf proxyDaoTypeVin = (TypeVinDaoItf) context.getBean("typeVinJDBCtemplate");
 	
+	private CommentaireDaoItf proxyDaoCommentaire = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
+	
 	@Override
 	public List<Accessoire> getAllAccessoire() {
 		return proxyDaoAccessoire.getAll();
@@ -52,6 +56,16 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	@Override
 	public List<Vin> getAllVin() {
 		return proxyDaoVin.getAll();
+	}
+	
+	@Override
+	public List<Vin> getAllVinAromeCepage(){
+		List<Vin> vins = proxyDaoVin.getAll();
+		for (Vin vin : vins) {
+			vin.setAromes(proxyDaoArome.getAromeByIdVin(vin.getIdArticle()));
+			vin.setCepages(proxyDaoCepage.getCepageByIdVin(vin.getIdArticle()));
+		}
+		return vins;
 	}
 
 	@Override
@@ -105,14 +119,13 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	}
 
 	@Override
-	public void addVin(Vin paramVin) {
-		proxyDaoVin.addVin(paramVin);
+	public void addVin(Vin paramVin, Integer paramIdFournisseur) {
+		proxyDaoVin.addVin(paramVin, paramIdFournisseur);
 	}
 
 	@Override
 	public Accessoire getAccessoireById(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyDaoAccessoire.getById(paramIdAccessoire);
 	}
 
 	@Override
@@ -141,14 +154,12 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 
 	@Override
 	public List<Commentaire> getAllByVin(Integer paramIdVin) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyDaoCommentaire.getAllByVin(paramIdVin);
 	}
 
 	@Override
 	public List<Commentaire> getAllByAccessoire(Integer paramIdAccessoire) {
-		// TODO Auto-generated method stub
-		return null;
+		return proxyDaoCommentaire.getAllByAccessoire(paramIdAccessoire);
 	}
 
 	@Override
@@ -194,9 +205,11 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	}
 
 	@Override
-	public Vin getVinById(Integer paramIdVin) {
-		// TODO Auto-generated method stub
-		return null;
+	public Article getVinById(Integer paramIdVin) {
+		Vin vin = proxyDaoVin.getById(paramIdVin);
+		vin.setAromes(proxyDaoArome.getAromeByIdVin(paramIdVin));
+		vin.setCepages(proxyDaoCepage.getCepageByIdVin(paramIdVin));
+		return vin;
 	}
 
 	@Override

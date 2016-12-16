@@ -1,10 +1,17 @@
 package fr.afcepf.al29.dionychus.data.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+
+import com.mysql.jdbc.Statement;
 
 import fr.afcepf.al29.dionychus.data.itf.RegionDaoItf;
 import fr.afcepf.al29.dionychus.entity.Region;
@@ -53,6 +60,23 @@ public class RegionDaoImpl implements RegionDaoItf {
 	public void addRegion(Region region) {
 		String SQL = "INSERT INTO region (libelle) VALUES (?)";
 		jdbcTemplate.update(SQL, region.getLibelle());
+	}
+	
+	@Override
+	public Region addRegionWithKey(Region region) {
+		GeneratedKeyHolder holder = new GeneratedKeyHolder();
+		String SQL = "INSERT INTO region (libelle) VALUES (?)";
+		jdbcTemplate.update(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement statetement = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+				statetement.setString(1, region.getLibelle());
+				return statetement;
+			}
+		}, holder);
+		region.setIdRegion(holder.getKey().intValue());
+		return region;
 	}
 
 }

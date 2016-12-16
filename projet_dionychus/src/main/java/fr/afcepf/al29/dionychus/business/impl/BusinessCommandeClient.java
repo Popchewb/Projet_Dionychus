@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
 import fr.afcepf.al29.dionychus.data.itf.AccessoireDaoItf;
@@ -23,6 +24,7 @@ import fr.afcepf.al29.dionychus.entity.TypeLivraison;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
 import fr.afcepf.al29.dionychus.entity.Vin;
 
+@Component
 public class BusinessCommandeClient implements IBusinessCommandeClient {
 
 	ApplicationContext context = new ClassPathXmlApplicationContext("classpath:Beans.xml");
@@ -73,7 +75,15 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 
 	@Override
 	public List<LigneCommande> getAllLigneCommandeByIdCommande(Integer paramIdCommande) {
-		return lcDao.getAllByIdCommande(paramIdCommande);
+		List<LigneCommande> lignesCommande = lcDao.getAllByIdCommande(paramIdCommande);
+		for (LigneCommande ligneCommande : lignesCommande) {
+			if (ligneCommande.getArticle().getTypeArticle().equals("Vin")) {
+				ligneCommande.setArticle(vinDao.getById(ligneCommande.getArticle().getIdArticle()));
+			} else if (ligneCommande.getArticle().getTypeArticle().equals("Accessoire")) {
+				ligneCommande.setArticle(accDao.getById(ligneCommande.getArticle().getIdArticle()));
+			}
+		}
+		return lignesCommande;
 	}
 
 	@Override
@@ -119,7 +129,7 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 				article.setQuantite(ligneCommande.getArticle().getQuantite() - ligneCommande.getQuantite());
 				vinDao.updateVin(article);
 			}
-		}	
+		}
 
 	}
 

@@ -9,7 +9,7 @@ public interface CommandeClientDaoItf {
 	List<CommandeClient> getCommandesByIdUtilisateur(Integer paramIdUtilisateur);
 	List<CommandeClient> getCommandesByIdStatutCommande(Integer paramIdStatutCommande);
 	CommandeClient getCommandeClientById(Integer paramIdCommandeClient);
-	void addCommandeClient(CommandeClient paramCommandeClient);
+	CommandeClient addCommandeClient(CommandeClient paramCommandeClient);
 	void updateCommandeClient(CommandeClient paramCommandeClient);
 	void deleteCommandeClient(Integer paramIdCommandeClient);
 }

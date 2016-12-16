@@ -9,7 +9,7 @@ public interface VinDaoItf {
 
 	Vin getById(Integer paramIdVin);
 
-	void addVin(Vin paramVin);
+	void addVin(Vin paramVin , Integer paramIdFournisseur);
 
 	void updateVin(Vin paramVin);
 
