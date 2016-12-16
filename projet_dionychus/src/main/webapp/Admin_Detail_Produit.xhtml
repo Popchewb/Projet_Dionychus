@@ -52,7 +52,6 @@
 							<b:column span="2">
 								<h:outputLabel value="Type" />
 							</b:column>
-
 							<b:selectOneMenu span="3"
 								value="#{inventaireManagedBean.typeVin}">
 								<f:selectItems value="#{inventaireManagedBean.typeVins}"
@@ -79,20 +78,17 @@
 							</b:column>
 							<b:selectMultiMenu span="3"
 								value="#{inventaireManagedBean.cepage}">
-								<f:selectItems value="#{inventaireManagedBean.cepages}"
-									var="cep" itemValue="#{cep.idCepage}"
-									itemLabel="#{cep.libelle}" />
+								<f:selectItems value="#{inventaireManagedBean.cepageMap}"/>
 							</b:selectMultiMenu>
-
 						</b:row>
+
 						<b:row>
 							<b:column span="2">
 								<h:outputLabel value="Année" />
 							</b:column>
 							<b:inputText value="#{inventaireManagedBean.annee}" span="3" />
-							<b:column span="1" />
-
 						</b:row>
+						
 						<b:row>
 							<b:column span="2">
 								<h:outputLabel value="Vigneron" />
@@ -104,18 +100,17 @@
 							</b:column>
 							<b:selectMultiMenu span="3"
 								value="#{inventaireManagedBean.arome}">
-								<f:selectItems value="#{inventaireManagedBean.aromes}" var="ar"
-									itemValue="#{ar.idArome}" itemLabel="#{ar.libelle}" />
+								<f:selectItems value="#{inventaireManagedBean.aromeMap}"/>
 							</b:selectMultiMenu>
 						</b:row>
+						
 						<b:row>
 							<b:column span="2">
 								<h:outputLabel value="Prix" />
 							</b:column>
 							<b:inputText value="#{inventaireManagedBean.prix}" span="3" />
-
-
 						</b:row>
+						
 						<b:row>
 							<b:column span="2">
 								<h:outputLabel value="Stock" />
@@ -142,7 +137,9 @@
 
 						<b:row>
 							<b:column span="2" offset="2">
-								<b:commandButton value="Enregistrer" look="primary" style="width:100%" action="#{inventaireManagedBean.ajouterArticle()}"/>
+								<b:commandButton value="Enregistrer" look="primary"
+									style="width:100%"
+									action="#{inventaireManagedBean.ajouterArticle()}" />
 							</b:column>
 						</b:row>
 

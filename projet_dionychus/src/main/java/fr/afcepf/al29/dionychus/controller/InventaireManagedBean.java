@@ -2,7 +2,9 @@ package fr.afcepf.al29.dionychus.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -17,6 +19,10 @@ import fr.afcepf.al29.dionychus.entity.Region;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
 import fr.afcepf.al29.dionychus.entity.Vin;
 
+/**
+ * @author Nicolas
+ *
+ */
 @Controller("inventaireManagedBean")
 @Scope("request")
 public class InventaireManagedBean implements Serializable {
@@ -67,6 +73,10 @@ public class InventaireManagedBean implements Serializable {
 	private String description;
 	
 	private String urlImage;
+	
+	private Map<String, String> cepageMap = new HashMap<String, String>();
+	
+	private Map<String, String> aromeMap = new HashMap<String, String>();
 	
 	public List<Accessoire> getAccessoires() {
 		return proxyInventaire.getAllAccessoire();
@@ -271,6 +281,32 @@ public class InventaireManagedBean implements Serializable {
 		proxyInventaire.addVin(vin, 11);
 		
 		return null;
+	}
+
+	public Map<String, String> getCepageMap() {
+		List<Cepage> testCepage = proxyInventaire.getAllCepage();
+		
+		for (Cepage cepage : testCepage) {
+			cepageMap.put(cepage.getLibelle(), cepage.getIdCepage().toString());
+		}
+		return cepageMap;
+	}
+
+	public void setCepageMap(Map<String, String> cepageMap) {
+		this.cepageMap = cepageMap;
+	}
+
+	public Map<String, String> getAromeMap() {
+		List<Arome> testArome = proxyInventaire.getAllArome();
+		
+		for (Arome arome : testArome) {
+			aromeMap.put(arome.getLibelle(), arome.getIdArome().toString());
+		}
+		return aromeMap;
+	}
+
+	public void setAromeMap(Map<String, String> aromeMap) {
+		this.aromeMap = aromeMap;
 	}
 	
 }

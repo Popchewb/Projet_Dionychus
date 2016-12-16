@@ -70,6 +70,7 @@
 								<b:row>
 									<h:outputLabel value="Région" />
 									<b:selectOneMenu value="#{vinManagedBean.region}">
+										<f:selectItem itemLabel=" (Sélectionner)" itemValue=""/>
 										<f:selectItems value="#{vinManagedBean.regions}" var="c"
 											itemValue="#{c.idRegion}" itemLabel="#{c.libelle}"/>
 									</b:selectOneMenu>
@@ -79,8 +80,7 @@
 		
 									<h:outputLabel value="Cépages" style="width: 295px" />
 									<b:selectMultiMenu value="#{vinManagedBean.cepage}" style="width: 295px">
-										<f:selectItems value="#{vinManagedBean.cepages}" var="cep"
-											itemValue="#{cep.idCepage}" itemLabel="#{cep.libelle}" />
+										<f:selectItems value="#{vinManagedBean.cepageMap}"/>
 									</b:selectMultiMenu>
 								</b:row>
 		
@@ -88,8 +88,7 @@
 		
 									<h:outputLabel value="Arômes" />
 									<b:selectMultiMenu value="#{vinManagedBean.arome}" style="width: 295px">
-										<f:selectItems value="#{vinManagedBean.aromes}" var="aro"
-											itemValue="#{aro.idArome}" itemLabel="#{aro.libelle}" />
+										<f:selectItems value="#{vinManagedBean.aromeMap}"/>
 									</b:selectMultiMenu>
 								</b:row>
 		
