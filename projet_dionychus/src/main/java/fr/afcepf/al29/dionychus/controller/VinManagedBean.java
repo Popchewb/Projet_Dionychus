@@ -43,102 +43,109 @@ public class VinManagedBean implements Serializable {
 	private String cepage;
 
 	private Integer region;
-	
+
 	private List<Region> regions;
 
 	private Map<String, String> cepageMap = new HashMap<String, String>();
-	
+
 	private Map<String, String> aromeMap = new HashMap<String, String>();
 	
+	private List<Vin> vins;
+	
+	private List<Vin> vinsRecherche;
+	
 	public String rechercher() {
-		System.out.println(cepage);
-//		System.out.println("region " + region);
-//		System.out.println("arome " + arome + " cepage " + cepage);
-		List<Vin> vins = proxyInventaire.getAllVin();
+		vinsRecherche = proxyInventaire.getAllVinAromeCepage();
 		List<Vin> selectVin = new ArrayList<>();
 
 		if(typeVin != 0) {
-			System.out.println("plop1");
-			for (Vin vin : vins) {
+			for (Vin vin : vinsRecherche) {
 				if(vin.getTypeVin().getIdTypeVin() != typeVin) {
 					selectVin.add(vin);
 				}
 			}
-			vins.removeAll(selectVin);
+			vinsRecherche.removeAll(selectVin);
 			selectVin.clear();
 		}
-
+		
 		if(!millesime.equals("")){
-			System.out.println("plop2");
-			for (Vin vin : vins) {
+			for (Vin vin : vinsRecherche) {
 				if(vin.getAnnee() != Integer.parseInt(millesime)){
 					selectVin.add(vin);
 				}
 			}
-			vins.removeAll(selectVin);
+			vinsRecherche.removeAll(selectVin);
 			selectVin.clear();
 		}
 
-//		if(prix != 0) {
-//			for (Vin vin : vins) {
-//				if(vin.getPrix() < prix) {
-//					System.out.println("boucle if prix " + vin.getPrix() + " " + prix);
-//					selectVin.add(vin);
-//				}
-//			}
-//			vins.removeAll(selectVin);
-//			selectVin.clear();
-//		}
-
+		if(prix != 0) {
+			for (Vin vin : vinsRecherche) {
+				if(vin.getPrix() < prix) {
+					selectVin.add(vin);
+				}
+			}
+			vinsRecherche.removeAll(selectVin);
+			selectVin.clear();
+		}
+		
 		if(region != 0) {
-			for (Vin vin : vins) {
+			for (Vin vin : vinsRecherche) {
 				if(vin.getRegion().getIdRegion() != region) {
 					selectVin.add(vin);
 				}
 			}
-			vins.removeAll(selectVin);
+			vinsRecherche.removeAll(selectVin);
 			selectVin.clear();
 		}
 		
-		System.out.println("debut methode");
-		System.out.println("arome " + arome);
-		System.out.println("cepage " + cepage);
-		System.out.println(vins.size());
-
-		if(!arome.equals("")){
+		if(arome != null){
 			boolean estPresent = false;
 			String[] chaineAromes = arome.split(",");
-			for (Vin vin : vins) {
-				System.out.println("vin " + vin);
-				//List<Arome> aromesDuVin = proxyInventaire.
+			for (Vin vin : vinsRecherche) {
 				for (String str : chaineAromes) {
-					System.out.println("str " + str);
-					System.out.println(vin.getCepages());
-					System.out.println(vin.getAromes());
-					try{
-						for (Arome aro : vin.getAromes()) {
-							System.out.println("arome " + aro.getLibelle());
-							if(aro.getLibelle().equals(str)){
-								System.out.println("est Present");
-								estPresent = true;
-							}
+					for (Arome aro : vin.getAromes()) {
+						if(aro.getLibelle().equals(proxyInventaire.getAromeById(Integer.parseInt(str)).getLibelle())){
+							estPresent = true;
 						}
-					} catch (Exception e){
-						
-					}
-					if(!estPresent){
-						System.out.println("ajout vin");
-						selectVin.add(vin);
 					}
 				}
+				if(!estPresent){
+					selectVin.add(vin);	
+				}
+				estPresent = false;
 			}
-			System.out.println("taille " + vins.size() + " " + selectVin.size());
-			vins.removeAll(selectVin);
+			vinsRecherche.removeAll(selectVin);
 			selectVin.clear();
 		}
 		
-		for (Vin vin : vins) {
+		if(cepage != null){
+			boolean estPresent = false;
+			String[] chaineCepages = cepage.split(",");
+			for (Vin vin : vinsRecherche) {
+				for (String str : chaineCepages) {
+					for (Cepage cep : vin.getCepages()) {
+						if(cep.getLibelle().equals(proxyInventaire.getCepageById(Integer.parseInt(str)).getLibelle())){
+							estPresent = true;
+						}
+					}
+				}
+				if(!estPresent){
+					selectVin.add(vin);	
+				}
+				estPresent = false;
+			}
+			vinsRecherche.removeAll(selectVin);
+			selectVin.clear();
+		}
+
+		for (Vin vin : vinsRecherche) {
 			System.out.println(vin);	
+		}
+		
+		if (vins == null){
+			System.out.println("null dans rechercher");
+		} else {
+			System.out.println("pas null dans rechercher");
 		}
 
 		return null;
@@ -222,7 +229,7 @@ public class VinManagedBean implements Serializable {
 
 	public Map<String, String> getCepageMap() {
 		List<Cepage> testCepage = proxyInventaire.getAllCepage();
-		
+
 		for (Cepage cepage : testCepage) {
 			cepageMap.put(cepage.getLibelle(), cepage.getIdCepage().toString());
 		}
@@ -235,7 +242,7 @@ public class VinManagedBean implements Serializable {
 
 	public Map<String, String> getAromeMap() {
 		List<Arome> testArome = proxyInventaire.getAllArome();
-		
+
 		for (Arome arome : testArome) {
 			aromeMap.put(arome.getLibelle(), arome.getIdArome().toString());
 		}
@@ -252,6 +259,29 @@ public class VinManagedBean implements Serializable {
 
 	public void setRegions(List<Region> regions) {
 		this.regions = regions;
+	}
+
+	public List<Vin> getVins() {
+		if(vinsRecherche == null){
+			System.out.println("null");
+			return proxyInventaire.getAllVin();
+		} else {
+			System.out.println("pas null");
+			return vinsRecherche;
+		}
+		
+	}
+
+	public void setVins(List<Vin> vins) {
+		this.vinsRecherche = vins;
+	}
+
+	public List<Vin> getVinsRecherche() {
+		return vinsRecherche;
+	}
+
+	public void setVinsRecherche(List<Vin> vinsRecherche) {
+		this.vinsRecherche = vinsRecherche;
 	}
 	
 	
