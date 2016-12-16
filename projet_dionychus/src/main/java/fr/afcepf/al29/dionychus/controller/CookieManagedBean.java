@@ -12,7 +12,7 @@ import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
 import fr.afcepf.al29.dionychus.entity.Acteur;
 import fr.afcepf.al29.dionychus.entity.Commande;
 
-@Controller("testAdminManagedBean")
+@Controller("cookieManagedBean")
 @Scope("request")
 public class CookieManagedBean {
 
