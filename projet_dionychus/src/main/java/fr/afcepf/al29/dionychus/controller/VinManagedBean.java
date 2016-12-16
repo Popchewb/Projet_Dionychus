@@ -253,5 +253,7 @@ public class VinManagedBean implements Serializable {
 	public void setRegions(List<Region> regions) {
 		this.regions = regions;
 	}
+	
+	
 
 }
