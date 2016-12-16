@@ -34,7 +34,6 @@ public class PaysDaoImpl implements PaysDaoItf {
 
 	@Override
 	public List<Pays> getAllPays() {
-		System.out.println("je passe dans le DAO Impl");
 		String SQL = "SELECT id_pays, libelle FROM pays ORDER BY libelle";
 		return jdbcTemplate.query(SQL, new PaysMapper());
 	}
