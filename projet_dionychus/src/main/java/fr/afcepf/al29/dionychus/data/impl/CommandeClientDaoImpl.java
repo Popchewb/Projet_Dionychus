@@ -87,6 +87,12 @@ public class CommandeClientDaoImpl implements CommandeClientDaoItf {
 				paramCommandeClient.getNumeroReference(), paramCommandeClient.getStatutCommande().getIdStatutCommande(),
 				paramCommandeClient.getUtilisateur().getIdActeur(), paramCommandeClient.getIdCommande() });
 	}
+	
+	@Override
+	public void updatePanierValider(CommandeClient paramCommandeClient) {
+		String SQL = "UPDATE `bdd_dionychus`.`commande` SET `id_statut_commande`=?, `id_acteur`=? WHERE `id_commande`=?";
+		jdbcTemplate.update(SQL, new Object[]{ paramCommandeClient.getStatutCommande().getIdStatutCommande(), paramCommandeClient.getUtilisateur().getIdActeur(), paramCommandeClient.getIdCommande() });
+	}
 
 	@Override
 	public void deleteCommandeClient(Integer paramIdCommandeClient) {

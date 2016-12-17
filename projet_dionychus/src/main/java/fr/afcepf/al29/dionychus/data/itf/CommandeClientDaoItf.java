@@ -13,4 +13,5 @@ public interface CommandeClientDaoItf {
 	void updateCommandeClient(CommandeClient paramCommandeClient);
 	void deleteCommandeClient(Integer paramIdCommandeClient);
 	CommandeClient addPanier(CommandeClient panier);
+	void updatePanierValider(CommandeClient paramCommandeClient);
 }

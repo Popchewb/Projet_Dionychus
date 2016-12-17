@@ -8,7 +8,7 @@ public interface UtilisateurDaoItf {
 
 	List<Utilisateur> getAllUtilisateur();
 
-	Utilisateur getUserByEmail();
+	Utilisateur getUserByEmail(String email);
 
 	Utilisateur getUtilisateurById(int paramIdUtilisateur);
 

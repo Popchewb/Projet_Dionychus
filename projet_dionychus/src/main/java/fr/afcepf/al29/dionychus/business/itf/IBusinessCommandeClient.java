@@ -31,6 +31,8 @@ public interface IBusinessCommandeClient {
 
 	void deleteCommandeClient(Integer paramIdCommandeClient);
 	
+	void updatePanierValider(CommandeClient paramCommandeClient);
+	
 	CommandeClient addPanier(CommandeClient panier);
 
 	// Lignes de commande

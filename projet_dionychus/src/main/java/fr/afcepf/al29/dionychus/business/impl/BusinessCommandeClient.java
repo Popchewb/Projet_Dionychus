@@ -146,4 +146,10 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 		return ccDao.addPanier(panier);
 	}
 
+	@Override
+	public void updatePanierValider(CommandeClient paramCommandeClient) {
+		ccDao.updatePanierValider(paramCommandeClient);
+		
+	}
+
 }
