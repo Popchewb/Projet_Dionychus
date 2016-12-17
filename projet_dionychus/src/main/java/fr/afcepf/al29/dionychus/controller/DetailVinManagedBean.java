@@ -2,7 +2,6 @@ package fr.afcepf.al29.dionychus.controller;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
@@ -36,14 +35,13 @@ public class DetailVinManagedBean implements Serializable {
 	Integer idArticle = Integer.parseInt(request.getParameter("id"));
 	Article article;
 	Integer quantite;
-	//Integer idCommande = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("panier")).getIdCommande();
-	Integer idCommande = 1;
+	Integer idCommande = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("panier")).getIdCommande();
+	
 
 	@PostConstruct
 	public void init() {
 		article = proxyBusinessInventaire.getVinById(idArticle);
 		article.setCommentaires(proxyBusinessInventaire.getAllByVin(idArticle));
-		System.out.println(article.getIdArticle() + article.getTypeArticle());
 	}
 
 	public String ajouterPanier() {
@@ -61,7 +59,7 @@ public class DetailVinManagedBean implements Serializable {
 			proxyCommandeClient.updateLigneCommande(ligneDejaCree);
 		} else {
 		LigneCommande lc = new LigneCommande(null, quantite, article);
-		proxyCommandeClient.addLigneCommande(lc, 1);
+		proxyCommandeClient.addLigneCommande(lc, idCommande);
 		}
 		String url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
 		return url;

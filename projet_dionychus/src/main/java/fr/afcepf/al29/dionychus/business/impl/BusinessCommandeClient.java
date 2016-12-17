@@ -17,7 +17,6 @@ import fr.afcepf.al29.dionychus.data.itf.TypeLivraisonDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Adresse;
-import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Promotion;
@@ -116,11 +115,6 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 
 	@Override
 	public void validerCommandeClient(CommandeClient paramCommandeClient, Utilisateur paramUtilisateur) {
-		// récuperer tous les articles de la commande
-		// passer le statut de la commande de panier (1) à en cours de
-		// préparation (2)
-		// décrémenter le stock de tous les articles de la commande de la
-		// quantite commandée (dans ligneCommande)
 		List<LigneCommande> lignesCommande = lcDao.getAllByIdCommande(paramCommandeClient.getIdCommande());
 		for (LigneCommande ligneCommande : lignesCommande) {
 			if (ligneCommande.getArticle().getTypeArticle().equals("Accessoire")) {

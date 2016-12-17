@@ -23,38 +23,45 @@ public class CookieManagedBean {
 
 	@Autowired
 	private IBusinessCommandeClient proxyCommandeClient;
-	
+
 	private Utilisateur user = new Utilisateur();
-	
+	boolean start = false;
+	String idPanier = null;
+	CommandeClient panier;
+
 	public void init() throws UnsupportedEncodingException {
-		
-		boolean start = false;
-		
-		if(start){
+		if (FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("panier") != null) {
+			idPanier = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+					.get("panier")).getIdCommande().toString();
+		}
+
+		if (start) {
 			return;
 		}
 		start = true;
 		Map<String, Object> cookies = FacesContext.getCurrentInstance().getExternalContext().getRequestCookieMap();
 		Cookie cookie = (Cookie) cookies.get("idPanier");
-		String id = cookie.getValue();
-		Map<String, Object> cookiesResponse = new HashMap<>();
-		cookiesResponse.put("maxAge", 31536000);
-		cookiesResponse.put("path", "/");
-		FacesContext.getCurrentInstance().getExternalContext().addResponseCookie("idPanier", URLEncoder.encode("1", "UTF-8"), cookiesResponse);
-		CommandeClient panier;
-		
-		if(id == null) {
+		if (cookie != null) {
+			idPanier = cookie.getValue();
+			Map<String, Object> cookiesResponse = new HashMap<>();
+			cookiesResponse.put("maxAge", 31536000);
+			cookiesResponse.put("path", "/");
+			FacesContext.getCurrentInstance().getExternalContext().addResponseCookie("idPanier",
+					URLEncoder.encode(idPanier, "UTF-8"), cookiesResponse);
+		}
+		if (idPanier == null) {
 			panier = new CommandeClient();
 			Calendar c = Calendar.getInstance();
 			java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
 			panier.setDateCreation(date);
 			panier = proxyCommandeClient.addPanier(panier);
+			idPanier = panier.getIdCommande().toString();
 		} else {
-			panier = proxyCommandeClient.getCommandeById(Integer.parseInt(id));
+			panier = proxyCommandeClient.getCommandeById(Integer.parseInt(idPanier));
 		}
 		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		session.put("user", user);
 		session.put("panier", panier);
-		
+
 	}
 }

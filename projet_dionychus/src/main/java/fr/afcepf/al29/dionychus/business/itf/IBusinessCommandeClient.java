@@ -3,7 +3,6 @@ package fr.afcepf.al29.dionychus.business.itf;
 import java.util.List;
 
 import fr.afcepf.al29.dionychus.entity.Adresse;
-import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Promotion;

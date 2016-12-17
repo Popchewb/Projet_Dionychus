@@ -34,13 +34,13 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 
 	@Override
 	public List<Accessoire> getAll() {
-		String SQL = "SELECT a.id_article, a.id_type_accessoire, a.reference, a.libelle, a.description, a.prix, a.quantite, a.seuil_alerte, a.url_image, tac.libelle FROM article a INNER JOIN type_accessoire tac WHERE a.id_type_accessoire = tac.id_type_accessoire AND a.type_article = 'Accessoire' ORDER BY a.libelle";
+		String SQL = "SELECT a.id_article, a.id_type_accessoire, a.reference, a.libelle, a.description, a.prix, a.quantite, a.seuil_alerte, a.url_image,a.type_article, tac.libelle FROM article a INNER JOIN type_accessoire tac WHERE a.id_type_accessoire = tac.id_type_accessoire AND a.type_article = 'Accessoire' ORDER BY a.libelle";
 		return jdbcTemplate.query(SQL, new AccessoireMapper());
 	}
 
 	@Override
 	public Accessoire getById(Integer paramIdAccessoire) {
-		String SQL = "SELECT a.id_article, a.id_type_accessoire, a.reference, a.libelle, a.description, a.prix, a.quantite, a.seuil_alerte, a.url_image, tac.libelle FROM article a INNER JOIN type_accessoire tac WHERE a.id_type_accessoire = tac.id_type_accessoire AND a.id_article = ? AND a.type_article = 'Accessoire'";
+		String SQL = "SELECT a.id_article, a.id_type_accessoire, a.reference, a.libelle, a.description, a.prix, a.quantite, a.seuil_alerte, a.url_image,a.type_article, tac.libelle FROM article a INNER JOIN type_accessoire tac WHERE a.id_type_accessoire = tac.id_type_accessoire AND a.id_article = ? AND a.type_article = 'Accessoire'";
 		return jdbcTemplate.queryForObject(SQL, new Object[] { paramIdAccessoire }, new AccessoireMapper());
 	}
 
