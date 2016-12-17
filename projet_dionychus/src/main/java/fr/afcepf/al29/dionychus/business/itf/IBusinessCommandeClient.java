@@ -31,6 +31,8 @@ public interface IBusinessCommandeClient {
 	void deleteCommandeClient(Integer paramIdCommandeClient);
 	
 	CommandeClient addPanier(CommandeClient panier);
+	
+	void updateTypeLivraison(CommandeClient paramCommandeClient, Integer paramIdTypeLivraison);
 
 	// Lignes de commande
 	List<LigneCommande> getAllLigneCommandeByIdCommande(Integer paramIdCommande);
@@ -46,7 +48,10 @@ public interface IBusinessCommandeClient {
 
 	// Types livraison
 	List<TypeLivraison> getAll();
+	TypeLivraison getTypeLivraisonById(Integer paramIdTypeLivraison);
 	
 	//Statut Commande
 	StatutCommande getStatutCommandeById(Integer paramIdStatutCommande);
+
+	Double getTarifLivraisonByIdCommande(Integer idCommande);
 }

@@ -51,10 +51,6 @@ public class PanierManagedBean implements Serializable {
 		return url;
 	}
 
-	public String retourAccueil() {
-		return "http://localhost:8080/Projet_Dionychus/accueil.jsf";
-	}
-
 	public String updatePanier() {
 
 		for (LigneCommande ligneCommande : lignesCommande) {
@@ -62,8 +58,7 @@ public class PanierManagedBean implements Serializable {
 			proxyBusinessCommandeClient.updateLigneCommande(ligneCommande);
 		}
 		init();
-		String url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
-		return url;
+		return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
 	}
 
 	public Integer getIdPanier() {

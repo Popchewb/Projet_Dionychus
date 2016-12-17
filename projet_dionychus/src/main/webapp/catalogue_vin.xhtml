@@ -20,14 +20,16 @@
 	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
 
 	<ui:define name="Titre_Page">
-			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Catalogue des Vins</h2>
-		</ui:define>
+		<h2
+			style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 20px">Catalogue
+			des Vins</h2>
+	</ui:define>
 
-		<ui:define name="Chemin_Acces_Site">
-			<b:navLink outcome="acceuil.jsp" value="Accueil"/>
-			<li>Vins</li>
-			
-		</ui:define>
+	<ui:define name="Chemin_Acces_Site">
+		<b:navLink outcome="acceuil.jsp" value="Accueil" />
+		<li>Vins</li>
+
+	</ui:define>
 
 	<ui:define name="Contenu_Page">
 
@@ -83,7 +85,7 @@
 								<h:outputLabel value="Cépages" style="width: 295px" />
 								<b:selectMultiMenu value="#{vinManagedBean.cepage}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.cepageMap}"/>
+									<f:selectItems value="#{vinManagedBean.cepageMap}" />
 								</b:selectMultiMenu>
 							</b:row>
 
@@ -92,7 +94,7 @@
 								<h:outputLabel value="Arômes" />
 								<b:selectMultiMenu value="#{vinManagedBean.arome}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.aromeMap}"/>
+									<f:selectItems value="#{vinManagedBean.aromeMap}" />
 								</b:selectMultiMenu>
 							</b:row>
 
@@ -112,12 +114,11 @@
 								<div class="col-md-3 col-sm-6">
 									<div class="product">
 										<div class="image">
-										<h:link outcome="details_vin.jsf">
-										<f:param name="id" value="#{produit.idArticle}"/>
-											 <h:graphicImage
-													library="images" name="#{produit.urlImage}"
+											<h:link outcome="details_vin.jsf">
+												<f:param name="id" value="#{produit.idArticle}" />
+												<h:graphicImage library="images" name="#{produit.urlImage}"
 													style="width:90px;height:160px" class="img-responsive" />
-										
+
 											</h:link>
 										</div>
 										<!-- /.image -->

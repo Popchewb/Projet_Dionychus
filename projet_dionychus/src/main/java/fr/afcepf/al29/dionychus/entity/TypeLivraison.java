@@ -5,16 +5,19 @@ public class TypeLivraison {
 	private String libelle;
 	private String description;
 	private String urlImage;
+	private Double tarification;
 	public TypeLivraison() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TypeLivraison(Integer idTypeLivraison, String libelle, String description, String urlImage) {
+	public TypeLivraison(Integer idTypeLivraison, String libelle, String description, String urlImage,
+			Double tarification) {
 		super();
 		this.idTypeLivraison = idTypeLivraison;
 		this.libelle = libelle;
 		this.description = description;
 		this.urlImage = urlImage;
+		this.tarification = tarification;
 	}
 	public Integer getIdTypeLivraison() {
 		return idTypeLivraison;
@@ -40,10 +43,16 @@ public class TypeLivraison {
 	public void setUrlImage(String urlImage) {
 		this.urlImage = urlImage;
 	}
+	public Double getTarification() {
+		return tarification;
+	}
+	public void setTarification(Double tarification) {
+		this.tarification = tarification;
+	}
 	@Override
 	public String toString() {
 		return "TypeLivraison [idTypeLivraison=" + idTypeLivraison + ", libelle=" + libelle + ", description="
-				+ description + ", urlImage=" + urlImage + "]";
+				+ description + ", urlImage=" + urlImage + ", tarification=" + tarification + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -52,6 +61,7 @@ public class TypeLivraison {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((idTypeLivraison == null) ? 0 : idTypeLivraison.hashCode());
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
+		result = prime * result + ((tarification == null) ? 0 : tarification.hashCode());
 		result = prime * result + ((urlImage == null) ? 0 : urlImage.hashCode());
 		return result;
 	}
@@ -79,6 +89,11 @@ public class TypeLivraison {
 				return false;
 		} else if (!libelle.equals(other.libelle))
 			return false;
+		if (tarification == null) {
+			if (other.tarification != null)
+				return false;
+		} else if (!tarification.equals(other.tarification))
+			return false;
 		if (urlImage == null) {
 			if (other.urlImage != null)
 				return false;
@@ -86,6 +101,7 @@ public class TypeLivraison {
 			return false;
 		return true;
 	}
+	
 	
 	
 	

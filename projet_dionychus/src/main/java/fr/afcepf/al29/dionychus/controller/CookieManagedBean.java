@@ -1,7 +1,10 @@
 package fr.afcepf.al29.dionychus.controller;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.net.URLEncoder;
+import java.security.SecureRandom;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +22,9 @@ import fr.afcepf.al29.dionychus.entity.Utilisateur;
 
 @Controller("cookieManagedBean")
 @Scope("request")
-public class CookieManagedBean {
+public class CookieManagedBean implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private IBusinessCommandeClient proxyCommandeClient;
@@ -54,6 +59,7 @@ public class CookieManagedBean {
 			Calendar c = Calendar.getInstance();
 			java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
 			panier.setDateCreation(date);
+			panier.setNumeroReference(newReference());
 			panier = proxyCommandeClient.addPanier(panier);
 			idPanier = panier.getIdCommande().toString();
 		} else {
@@ -63,5 +69,10 @@ public class CookieManagedBean {
 		session.put("user", user);
 		session.put("panier", panier);
 
+	}
+	private static SecureRandom random = new SecureRandom();
+
+	public static String newReference() {
+		return new BigInteger(48, random).toString(36).toUpperCase();
 	}
 }

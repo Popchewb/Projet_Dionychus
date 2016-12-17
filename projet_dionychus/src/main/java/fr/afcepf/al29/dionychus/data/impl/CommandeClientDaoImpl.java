@@ -104,18 +104,31 @@ public class CommandeClientDaoImpl implements CommandeClientDaoItf {
 	@Override
 	public CommandeClient addPanier(CommandeClient panier) {
 		GeneratedKeyHolder holder = new GeneratedKeyHolder();
-		String SQL = "INSERT INTO `bdd_dionychus`.`commande` (`date_creation`, `id_statut_commande`) VALUES (?,'1')";
+		String SQL = "INSERT INTO `bdd_dionychus`.`commande` (`date_creation`, `id_statut_commande`,`numero_reference`) VALUES (?,'1',?)";
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement statement = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 				statement.setDate(1, panier.getDateCreation());
+				statement.setString(2, panier.getNumeroReference());
 				return statement;
 			}
 		}, holder);
 		panier.setIdCommande(holder.getKey().intValue());
 		return panier;
+	}
+	
+	@Override
+	public void updateTypeLivraison(CommandeClient paramCommandeClient, Integer paramIdTypeLivraison){
+		String SQL = "UPDATE `bdd_dionychus`.`commande` SET `id_type_livraison`=? WHERE `id_commande`=?";
+		jdbcTemplate.update(SQL, new Object[]{paramIdTypeLivraison, paramCommandeClient.getIdCommande()});
+	}
+
+	@Override
+	public Double getTarifLivraisonByIdCommande(Integer idCommande) {
+		String SQL = "SELECT tl.tarification FROM type_livraison tl INNER JOIN commande c ON tl.id_type_livraison = c.id_type_livraison WHERE c.id_commande = ?";
+		return jdbcTemplate.queryForObject(SQL,new Object[]{idCommande} ,Double.class);
 	}
 
 

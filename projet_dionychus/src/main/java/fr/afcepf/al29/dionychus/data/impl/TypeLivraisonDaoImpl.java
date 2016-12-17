@@ -34,9 +34,15 @@ public class TypeLivraisonDaoImpl implements TypeLivraisonDaoItf{
 
 	@Override
 	public List<TypeLivraison> getAll() {
-		String SQL = "SELECT id_type_livraison, libelle FROM type_livraison ORDER BY libelle";
+		String SQL = "SELECT id_type_livraison, libelle, description, url_image, tarification FROM type_livraison ORDER BY id_type_livraison";
 		List<TypeLivraison> typesLivraison = jdbcTemplate.query(SQL, new TypeLivraisonMapper());
 		return typesLivraison;
+	}
+
+	@Override
+	public TypeLivraison getById(Integer paramIdTypeLivraison) {
+		String SQL = "SELECT id_type_livraison, libelle, description, url_image, tarification FROM type_livraison WHERE id_type_livraison = ?";
+		return jdbcTemplate.queryForObject(SQL, new Object[]{paramIdTypeLivraison}, new TypeLivraisonMapper());
 	}
 	
 }

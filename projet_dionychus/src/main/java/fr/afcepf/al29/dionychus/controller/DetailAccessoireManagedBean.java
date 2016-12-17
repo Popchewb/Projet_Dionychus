@@ -31,10 +31,10 @@ public class DetailAccessoireManagedBean implements Serializable {
 	HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
 			.getRequest();
 
-	Integer idArticle = Integer.parseInt(request.getParameter("id"));
-	Article article;
-	Integer quantite;
-	Integer idCommande = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("panier")).getIdCommande();
+	private Integer idArticle = Integer.parseInt(request.getParameter("id"));
+	private Article article;
+	private Integer quantite = 1;
+	private Integer idCommande = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("panier")).getIdCommande();
 	
 	
 	@PostConstruct
@@ -61,6 +61,7 @@ public class DetailAccessoireManagedBean implements Serializable {
 		proxyCommandeClient.addLigneCommande(lc, idCommande);
 		}
 		String url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
+		quantite = 1;
 		return url;
 	}
 

@@ -140,4 +140,19 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 		return ccDao.addPanier(panier);
 	}
 
+	@Override
+	public TypeLivraison getTypeLivraisonById(Integer paramIdTypeLivraison) {
+		return tlDao.getById(paramIdTypeLivraison);
+	}
+
+	@Override
+	public void updateTypeLivraison(CommandeClient paramCommandeClient, Integer paramIdTypeLivraison) {
+		ccDao.updateTypeLivraison(paramCommandeClient, paramIdTypeLivraison);		
+	}
+
+	@Override
+	public Double getTarifLivraisonByIdCommande(Integer idCommande) {
+		return ccDao.getTarifLivraisonByIdCommande(idCommande);
+	}
+
 }
