@@ -6,6 +6,7 @@ fr\afcepf\al29\dionychus\business\itf\IBusinessCompte.class
 fr\afcepf\al29\dionychus\mapper\UtilisateurMapper.class
 fr\afcepf\al29\dionychus\entity\Acteur.class
 fr\afcepf\al29\dionychus\data\itf\RegionDaoItf.class
+fr\afcepf\al29\dionychus\data\impl\CommandeClientDaoImpl$2.class
 fr\afcepf\al29\dionychus\mapper\CommandeClientMapper.class
 fr\afcepf\al29\dionychus\data\impl\AccessoireDaoImpl.class
 fr\afcepf\al29\dionychus\data\itf\VilleDaoItf.class
