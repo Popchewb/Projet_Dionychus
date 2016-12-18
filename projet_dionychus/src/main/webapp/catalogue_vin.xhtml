@@ -108,17 +108,18 @@
 					</div>
 
 					<div class="col-sm-9">
-						<div class="row products">
+						<div class="row products" style="margin-bottom: -20px">
 
 							<ui:repeat var="produit" value="#{vinManagedBean.vins}">
 								<div class="col-md-3 col-sm-6">
 									<div class="product">
 										<div class="image">
-											<h:link outcome="details_vin.jsf">
-												<f:param name="id" value="#{produit.idArticle}" />
-												<h:graphicImage library="images" name="#{produit.urlImage}"
-													style="width:90px;height:160px" class="img-responsive" />
-
+										<h:link outcome="details_vin.jsf">
+										<f:param name="id" value="#{produit.idArticle}"/>
+											 <h:graphicImage
+													library="images" name="#{produit.urlImage}"
+													style="width:90px;height:180px; margin-left: 50px !important" class="img-responsive" />
+	
 											</h:link>
 										</div>
 										<!-- /.image -->
@@ -142,6 +143,22 @@
 
 							</ui:repeat>
 						</div>
+						 <div class="pages" style="margin-top: 30px">
+	                        <ul class="pagination"  style="margin-top: -50px !important">
+	                            <li class="active"><a href="#">1</a>
+	                            </li>
+	                            <li><a href="#">2</a>
+	                            </li>
+	                            <li><a href="#">3</a>
+	                            </li>
+	                            <li><a href="#">4</a>
+	                            </li>
+	                            <li><a href="#">5</a>
+	                            </li>
+	                            <li><a href="#">..</a>
+	                            </li>
+	                        </ul>
+                    </div>
 					</div>
 				</div>
 			</div>
