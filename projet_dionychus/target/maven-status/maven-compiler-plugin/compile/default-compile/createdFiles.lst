@@ -24,6 +24,7 @@ fr\afcepf\al29\dionychus\mapper\CommentaireMapper.class
 fr\afcepf\al29\dionychus\test\MainApp.class
 fr\afcepf\al29\dionychus\entity\CommandeClient.class
 fr\afcepf\al29\dionychus\mapper\AromeMapper.class
+fr\afcepf\al29\dionychus\controller\ConfirmationCommandeManagedBean.class
 fr\afcepf\al29\dionychus\data\impl\UtilisateurDaoImpl$1.class
 fr\afcepf\al29\dionychus\data\impl\TypeVinDaoImpl.class
 fr\afcepf\al29\dionychus\mapper\AdresseMapper.class
@@ -49,11 +50,13 @@ fr\afcepf\al29\dionychus\controller\CatalogueVinManagedBean.class
 fr\afcepf\al29\dionychus\data\impl\LivraisonDaoImpl.class
 fr\afcepf\al29\dionychus\data\itf\CommandeClientDaoItf.class
 fr\afcepf\al29\dionychus\mapper\LivraisonMapper.class
+fr\afcepf\al29\dionychus\controller\LivraisonManagedBean.class
 fr\afcepf\al29\dionychus\mapper\VilleMapper.class
 fr\afcepf\al29\dionychus\controller\DetailVinManagedBean.class
 fr\afcepf\al29\dionychus\data\itf\PromotionDaoItf.class
 fr\afcepf\al29\dionychus\data\itf\LigneCommandeDaoItf.class
 fr\afcepf\al29\dionychus\controller\TestMB.class
+fr\afcepf\al29\dionychus\controller\RecapitulatifManagedBean.class
 fr\afcepf\al29\dionychus\data\impl\PromotionDaoImpl.class
 fr\afcepf\al29\dionychus\entity\Utilisateur.class
 fr\afcepf\al29\dionychus\data\impl\PaysDaoImpl.class

@@ -237,15 +237,15 @@
 						<h:form action="customer-orders.html" method="post">
 							<div class="h:form-group">
 								<h:outputLabel for="idEmail">@mail</h:outputLabel>
-								<h:inputText type="text" class="form-control" id="idEmail" value="#{compteManagedBean.utilisateur.adresseMail}" />
+								<h:inputText type="text" class="form-control" id="idEmail" value="#{cookieManagedBean.email}" />
 							</div>
 							<div class="h:form-group">
 								<h:outputLabel for="idMotDePasse">Mot de passe</h:outputLabel>
-								<h:inputSecret type="password" class="form-control" id="idMotDePasse" value="#{compteManagedBean.utilisateur.password}" />
+								<h:inputSecret type="password" class="form-control" id="idMotDePasse" value="#{cookieManagedBean.password}" />
 							</div>
 							<hr/>
 							<div class="col-sm-12 text-center">
-								<h:commandButton type="submit" value="CONNEXION" class="btn btn-template-main" action="#{compteManagedBean.connectUser}" />
+								<h:commandButton type="submit" value="CONNEXION" class="btn btn-template-main" action="#{cookieManagedBean.connecter}" />
 							</div>
 						</h:form>
 					</div>

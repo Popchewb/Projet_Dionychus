@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.afcepf.al29.dionychus.business.impl.BusinessCommandeClient;
+import fr.afcepf.al29.dionychus.business.impl.BusinessCompteImpl;
 import fr.afcepf.al29.dionychus.business.impl.BusinessInventaireImpl;
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
 import fr.afcepf.al29.dionychus.data.impl.RegionDaoImpl;
@@ -75,19 +76,22 @@ public class TestAppEric {
 //		}
 //		System.out.println(total + "€");
 		
-		CommandeClient panier = new CommandeClient();
-		Calendar c = Calendar.getInstance();
-		java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
-		Promotion prom = new Promotion();
-		
-		BusinessCommandeClient proxy = new BusinessCommandeClient();
+//		CommandeClient panier = new CommandeClient();
+//		Calendar c = Calendar.getInstance();
+//		java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
+//		Promotion prom = new Promotion();
+//		
+//		BusinessCommandeClient proxy = new BusinessCommandeClient();
 //		StatutCommande stat = proxy.getStatutCommandeById(1);
 		
-		panier.setDateCreation(date);
+//		panier.setDateCreation(date);
 //		panier.setStatutCommande(stat);
 //		panier.setPromotion(prom);
-		panier = proxy.addPanier(panier);
-		System.out.println(panier);
+//		panier = proxy.addPanier(panier);
+//		System.out.println(panier);
+		
+//		BusinessCompteImpl proxy = new BusinessCompteImpl();
+//		System.out.println(proxy.getUserByEmail("cbravo@gmail.fr"));
 		
 	}
 }

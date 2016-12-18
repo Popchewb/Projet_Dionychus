@@ -98,7 +98,7 @@ public class CompteManagedBean {
 
 	public Utilisateur connectUser() {
 
-		proxy.getUserByEmail();
+//		proxy.getUserByEmail();
 
 		return null;
 	}
