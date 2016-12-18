@@ -58,4 +58,6 @@ public interface IBusinessCommandeClient {
 	Double getTarifLivraisonByIdCommande(Integer idCommande);
 
 	void updatePanierRefUtilisateur(CommandeClient panierUtilisateur);
+
+	CommandeClient addPanierPostCommande(CommandeClient panier);
 }

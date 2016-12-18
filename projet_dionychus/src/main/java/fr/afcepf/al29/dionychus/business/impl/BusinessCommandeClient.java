@@ -165,4 +165,9 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 		ccDao.updatePanierRefUtilisateur(panierUtilisateur);
 	}
 
+	@Override
+	public CommandeClient addPanierPostCommande(CommandeClient panier) {
+		return ccDao.addPanierPostCommande(panier);
+	}
+
 }
