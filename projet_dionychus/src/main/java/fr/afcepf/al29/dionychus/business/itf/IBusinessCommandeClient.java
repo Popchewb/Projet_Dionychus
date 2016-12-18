@@ -3,7 +3,6 @@ package fr.afcepf.al29.dionychus.business.itf;
 import java.util.List;
 
 import fr.afcepf.al29.dionychus.entity.Adresse;
-import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Promotion;
@@ -31,9 +30,9 @@ public interface IBusinessCommandeClient {
 
 	void deleteCommandeClient(Integer paramIdCommandeClient);
 	
-	void updatePanierValider(CommandeClient paramCommandeClient);
-	
 	CommandeClient addPanier(CommandeClient panier);
+	
+	void updateTypeLivraison(CommandeClient paramCommandeClient, Integer paramIdTypeLivraison);
 
 	// Lignes de commande
 	List<LigneCommande> getAllLigneCommandeByIdCommande(Integer paramIdCommande);
@@ -49,7 +48,10 @@ public interface IBusinessCommandeClient {
 
 	// Types livraison
 	List<TypeLivraison> getAll();
+	TypeLivraison getTypeLivraisonById(Integer paramIdTypeLivraison);
 	
 	//Statut Commande
 	StatutCommande getStatutCommandeById(Integer paramIdStatutCommande);
+
+	Double getTarifLivraisonByIdCommande(Integer idCommande);
 }
