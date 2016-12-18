@@ -41,7 +41,7 @@ public class DetailAccessoireManagedBean implements Serializable {
 	public void init() {
 		article = proxyBusinessInventaire.getAccessoireById(idArticle);
 		article.setCommentaires(proxyBusinessInventaire.getAllByAccessoire(idArticle));
-		articlesAssocies = proxyBusinessInventaire.getArticlesAssocies(idCommande);
+		articlesAssocies = proxyBusinessInventaire.getArticlesAssocies(idArticle);
 	}
 	
 	public String ajouterPanier() {

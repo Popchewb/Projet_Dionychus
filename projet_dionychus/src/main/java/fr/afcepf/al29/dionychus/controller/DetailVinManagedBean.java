@@ -42,7 +42,7 @@ public class DetailVinManagedBean implements Serializable {
 	public void init() {
 		article = proxyBusinessInventaire.getVinById(idArticle);
 		article.setCommentaires(proxyBusinessInventaire.getAllByVin(idArticle));
-		articlesAssocies = proxyBusinessInventaire.getArticlesAssocies(idCommande);
+		articlesAssocies = proxyBusinessInventaire.getArticlesAssocies(idArticle);
 	}
 
 	public String ajouterPanier() {
