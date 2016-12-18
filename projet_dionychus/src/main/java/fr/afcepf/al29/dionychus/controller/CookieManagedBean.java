@@ -30,12 +30,12 @@ public class CookieManagedBean implements Serializable{
 
 	@Autowired
 	private IBusinessCommandeClient proxyCommandeClient;
-	
+
 	@Autowired
 	private IBusinessCompte proxyCompte;
 
 	private Utilisateur user = new Utilisateur();
-	
+
 	private String bienvenue;
 
 	private String connection_deco;
@@ -44,35 +44,31 @@ public class CookieManagedBean implements Serializable{
 
 	private String password;
 
-	private String deco;
-	
 	private String validationPanier;
 
+	private String onglet_Admin;
+
 	public void init() throws UnsupportedEncodingException {
-		
+
 		String id = null;
 		CommandeClient panier;
 
 		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		CommandeClient panierSession = (CommandeClient)session.get("panier");
-		
+
 		if(panierSession == null){
-			System.out.println("panier session null");
 			Map<String, Object> cookies = FacesContext.getCurrentInstance().getExternalContext().getRequestCookieMap();
 			Cookie cookie = (Cookie) cookies.get("idPanier");
 			if(cookie != null){
-				System.out.println("cookie non null");
 				id = cookie.getValue();
 				panier = proxyCommandeClient.getCommandeById(Integer.parseInt(id));
 			} else {
-				System.out.println("cooki null");
 				panier = new CommandeClient();
 				Calendar c = Calendar.getInstance();
 				java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
 				panier.setDateCreation(date);
 				panier.setNumeroReference(newReference());
 				panier = proxyCommandeClient.addPanier(panier);
-				System.out.println("panier" + panier);
 				Map<String, Object> cookiesResponse = new HashMap<>();
 				cookiesResponse.put("maxAge", 31536000);
 				cookiesResponse.put("path", "/");
@@ -82,26 +78,23 @@ public class CookieManagedBean implements Serializable{
 		}
 
 	}
-	
+
 	private static SecureRandom random = new SecureRandom();
 
 	public static String newReference() {
 		return new BigInteger(48, random).toString(36).toUpperCase();
 	}
-	
+
 	public String getBienvenue() {
 		String id = null;
 		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		Utilisateur user = (Utilisateur)session.get("user");
 		if(user!=null){
-//			System.out.println("user non null");
 			id = user.getPrenom();
 		}
 		if(id == null){
-//			System.out.println("id null");
 			return "SE CONNECTER";
 		} else {
-//			System.out.println("id non null");
 			String accueil = "Bienvenue " + id;
 			return accueil;
 		}
@@ -115,10 +108,8 @@ public class CookieManagedBean implements Serializable{
 		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		Utilisateur user = (Utilisateur)session.get("user");
 		if(user == null){
-//			System.out.println("seconnecter");
 			return "SeConnecter.jsf";
 		} else {
-//			System.out.println("se déconnecter");
 			return "accueil.jsf";
 		}
 	}
@@ -128,7 +119,6 @@ public class CookieManagedBean implements Serializable{
 	}
 
 	public String validationPanier() throws UnsupportedEncodingException{
-		System.out.println("panier validation");
 		CommandeClient panier = new CommandeClient();
 		Calendar c = Calendar.getInstance();
 		java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
@@ -136,20 +126,11 @@ public class CookieManagedBean implements Serializable{
 		panier.setNumeroReference(newReference());
 		panier = proxyCommandeClient.addPanier(panier);
 		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-		System.out.println("récupération données");
 		CommandeClient panierValide = (CommandeClient)session.get("panier");
-		System.out.println("panierValide" + panierValide);
-//		Utilisateur userConnecte = (Utilisateur)session.get("user");
-//		System.out.println("user" + userConnecte + userConnecte.getIdActeur());
 		StatutCommande statutPreparation = proxyCommandeClient.getStatutCommandeById(2);
-		System.out.println("get statut commande" + statutPreparation);
-//		panierValide.setUtilisateur(userConnecte);
-		System.out.println("set user");
 		panierValide.setStatutCommande(statutPreparation);
-		System.out.println("set statut");
-		System.out.println("panier valide " + panierValide.getStatutCommande().getIdStatutCommande() + panierValide.getUtilisateur().getIdActeur());
 		proxyCommandeClient.updatePanierValider(panierValide);
-		
+
 		session.put("panier", panier);
 
 		Map<String, Object> cookiesResponse = new HashMap<>();
@@ -162,11 +143,8 @@ public class CookieManagedBean implements Serializable{
 	public String connecter(){
 		Utilisateur user_connecte = null;
 		try {
-//			System.out.println("email " + email);
 			user_connecte = proxyCompte.getUserByEmail(email);
-//			System.out.println("user récupéré");
 		} catch (Exception e){
-//			System.out.println("pas de user avec cet mail");
 		}
 		if(user_connecte != null){
 			if(user_connecte.getPassword().equals(password)){
@@ -175,12 +153,8 @@ public class CookieManagedBean implements Serializable{
 				session.put("user", user_connecte);
 				panierUtilisateur.setUtilisateur(user_connecte);
 				proxyCommandeClient.updatePanierRefUtilisateur(panierUtilisateur);
-//				System.out.println("user en session");
-			} else {
-//				System.out.println("mauvais mot de passe message erreur");
+				return "accueil.jsf";
 			}
-		} else {
-//			System.out.println("mauvais login");
 		}
 		return null;
 	}
@@ -201,24 +175,7 @@ public class CookieManagedBean implements Serializable{
 		this.password = password;
 	}
 
-	public String deco() {
-		System.out.println("déco");
-		//		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return deco;
-	}
-	
-	public String getDeco() {
-		System.out.println("déco");
-		//		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return deco;
-	}
-
-	public void setDeco(String deco) {
-		this.deco = deco;
-	}
-
 	public String getValidationPanier() throws UnsupportedEncodingException {
-		System.out.println("panier validation");
 		CommandeClient panier = new CommandeClient();
 		Calendar c = Calendar.getInstance();
 		java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
@@ -228,20 +185,11 @@ public class CookieManagedBean implements Serializable{
 		panier.setDateCreation(date);
 		panier.setNumeroReference(newReference());
 		panier = proxyCommandeClient.addPanierPostCommande(panier);
-		System.out.println("récupération données");
 		CommandeClient panierValide = (CommandeClient)session.get("panier");
-		System.out.println("panierValide" + panierValide);
-//		Utilisateur userConnecte = (Utilisateur)session.get("user");
-//		System.out.println("user" + userConnecte + userConnecte.getIdActeur());
 		StatutCommande statutPreparation = proxyCommandeClient.getStatutCommandeById(2);
-		System.out.println("get statut commande" + statutPreparation);
-//		panierValide.setUtilisateur(userConnecte);
-		System.out.println("set user");
 		panierValide.setStatutCommande(statutPreparation);
-		System.out.println("set statut");
-		System.out.println("panier valide " + panierValide.getStatutCommande().getIdStatutCommande() + panierValide.getUtilisateur().getIdActeur());
 		proxyCommandeClient.updatePanierValider(panierValide);
-		
+
 		session.put("panier", panier);
 
 		Map<String, Object> cookiesResponse = new HashMap<>();
@@ -254,8 +202,38 @@ public class CookieManagedBean implements Serializable{
 	public void setValidationPanier(String validationPanier) {
 		this.validationPanier = validationPanier;
 	}
+
+	public String getOnglet_Admin() {
+		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		Utilisateur userConnecte = (Utilisateur)session.get("user");
+		if(userConnecte != null){
+			if(userConnecte.getTypeAcces().getLibelle().equals("Administrateur")){
+				return "1";
+			} else {
+				return "2";
+			}
+		} else {
+			return "2";
+		}
+	}
+
+	public void setOnglet_Admin(String onglet_Admin) {
+		this.onglet_Admin = onglet_Admin;
+	}
 	
+	public String verifConnecte() {
+		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		Utilisateur userConnecte = (Utilisateur)session.get("user");
+		if(userConnecte != null){
+			return "livraison.jsf";
+		} else{
+			return "SeConnecter.jsf";
+		}
+	}
 	
-	
-	
+	public String deconnection() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "accueil.jsf";
+	}
+
 }

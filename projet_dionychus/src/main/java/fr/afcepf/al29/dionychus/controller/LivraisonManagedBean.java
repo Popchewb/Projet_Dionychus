@@ -20,7 +20,6 @@ import fr.afcepf.al29.dionychus.entity.Utilisateur;
 @Scope("request")
 public class LivraisonManagedBean implements Serializable {
 	
-	
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
@@ -42,7 +41,7 @@ public class LivraisonManagedBean implements Serializable {
 	@PostConstruct
 	public void init(){
 	typesLivraison = proxyBusinessCommandeClient.getAll();
-	adressesLivraison = proxyBusinessCommandeClient.getAdresseByIdActeur(idClient);
+//	adressesLivraison = proxyBusinessCommandeClient.getAdresseByIdActeur(idClient);
 	}
 
 	public Integer getIdCommande() {
@@ -79,7 +78,7 @@ public class LivraisonManagedBean implements Serializable {
 	}
 
 	public List<Adresse> getAdressesLivraison() {
-		return adressesLivraison;
+		return proxyBusinessCommandeClient.getAdresseByIdActeur(idClient);
 	}
 
 	public void setAdressesLivraison(List<Adresse> adressesLivraison) {

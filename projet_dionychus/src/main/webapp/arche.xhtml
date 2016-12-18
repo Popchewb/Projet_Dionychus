@@ -50,7 +50,7 @@
 						</div>
 						<div class="login">
 							<h:form>
-								<h:commandLink>
+								<h:commandLink action="#{cookieManagedBean.deconnection}">
 									<i class="fa fa-sign-in"></i>
 								</h:commandLink>
 								<h:outputLink value="#{cookieManagedBean.connection_deco}">
@@ -93,8 +93,11 @@
 									<b:navLink href="contact.jsf" value="Contact" icon-align="right" />
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
-									<b:navLink href="inventaire_vin.jsf" value="Admin" icon-align="right" />
-								</li>	
+									<h:panelGroup styleClass="dropdown use-yamm yamm-fw" rendered="#{cookieManagedBean.onglet_Admin eq '1'}">
+										<b:navLink href="inventaire_vin.jsf" value="Admin"
+										icon-align="right" />
+									</h:panelGroup>
+								</li>
 							   </ul>
 							</div>
 						</b:tabLinks>

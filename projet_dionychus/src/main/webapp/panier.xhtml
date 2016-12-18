@@ -112,7 +112,7 @@
 											action="#{panierManagedBean.updatePanier}">Rafraîchir Panier<f:param
 												name="id" value="#{panierManagedBean.idPanier}" />
 										</b:commandButton>
-										<b:commandButton value="Valider Panier &gt;" action="livraison.jsp"></b:commandButton>
+										<b:commandButton value="Valider Panier &gt;" action="#{cookieManagedBean.verifConnecte}"></b:commandButton>
 									</div>
 
 								</div>
