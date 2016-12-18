@@ -16,15 +16,16 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
 
-		<ui:define name="Titre_Page">
-			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Accueil</h2>
-		</ui:define>
+	<ui:define name="Titre_Page">
+		<h2
+			style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 20px">Accueil</h2>
+	</ui:define>
 
-		<ui:define name="Chemin_Acces_Site">
-			<b:navLink outcome="accueil.jsp" value="Accueil"/>
-			<li>Admin</li>
-			
-		</ui:define>
+	<ui:define name="Chemin_Acces_Site">
+		<b:navLink outcome="accueil.jsp" value="Accueil" />
+		<li>Admin</li>
+
+	</ui:define>
 
 	<ui:define name="Contenu_Page">
 
@@ -79,7 +80,7 @@
 								<h:outputLabel value="Cépages" style="width: 295px" />
 								<b:selectMultiMenu value="#{vinManagedBean.cepage}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.cepageMap}"/>
+									<f:selectItems value="#{vinManagedBean.cepageMap}" />
 								</b:selectMultiMenu>
 							</b:row>
 
@@ -88,7 +89,7 @@
 								<h:outputLabel value="Arômes" />
 								<b:selectMultiMenu value="#{vinManagedBean.arome}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.aromeMap}"/>
+									<f:selectItems value="#{vinManagedBean.aromeMap}" />
 								</b:selectMultiMenu>
 							</b:row>
 
@@ -103,168 +104,96 @@
 
 					<div class="col-sm-9">
 						<b:carousel class="home-carousel" style="width:650px text-center"
-							interval="7000" >
+							interval="7000">
 							<b:carouselItem>
-								<img src="resources/images/chateauxMargaux.png" style="width: 650px; height: 780px; margin-right: -40px" />
+								<img src="resources/images/chateauxMargaux.png"
+									style="width: 650px; height: 780px; margin-right: -40px" />
 								<b:carouselCaption style="color=red">
 									<h3 style="color: red">Promotion sur le chateau Margaux</h3>
-<!-- 									<p> -->
-<!-- 										The band reads <a style="color: #fff" href="#">"Non plus -->
-<!-- 											ultra"</a>, being Spains' motto in 1492, when Columbus made his -->
-<!-- 										discoveries. -->
-<!-- 									</p> -->
 								</b:carouselCaption>
 							</b:carouselItem>
 							<b:carouselItem caption="Venez vite vous servir">
-								<img src="resources/images/beaujolaisNouveau.png" alt="Valladolid"
-									style="width: 650px; height: 780px"  />
+								<img src="resources/images/beaujolaisNouveau.png"
+									alt="Valladolid" style="width: 650px; height: 780px" />
 							</b:carouselItem>
 							<b:carouselItem caption="Offre du mois">
-								<img src="resources/images/beaujolaisNouveau1.png" alt="Valladolid"
-									style="width: 650px; height: 780px" />
+								<img src="resources/images/beaujolaisNouveau1.png"
+									alt="Valladolid" style="width: 650px; height: 780px" />
 							</b:carouselItem>
 						</b:carousel>
 
 						<div class="row">
 							<div class="box text-uppercase" style="margin-top: 10px;">
-								<h3 style="font-weight: bold !important">Top ventes des vins</h3>
+								<h3 style="font-weight: bold !important">Top ventes des
+									vins</h3>
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
-									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
+							<ui:repeat var="vin" value="#{accueilManagedBean.top4Vins}">
+								<div class="col-sm-3">
+									<div class="product">
+										<div class="image">
+											<h:link outcome="details_vin.jsf">
+												<f:param name="id" value="#{vin.idArticle}" />
+												<h:graphicImage library="images" name="#{vin.urlImage}"
+													class="img-responsive" />
 
-									</div>
-								</div>
-								<!-- /.product -->
-							</div>
+											</h:link>
+										</div>
+										<div class="text">
+											<h3>
+												<h:outputText value="#{vin.libelle}" />
+											</h3>
+											<p class="price">
+												<h:outputText value="#{vin.prix}">
+													<f:convertNumber minFractionDigits="2"
+														maxFractionDigits="2" type="currency" currencySymbol="€" />
+												</h:outputText>
+											</p>
 
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
+										</div>
 									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
-									</div>
+									<!-- /.product -->
 								</div>
-								<!-- /.product -->
-							</div>
+							</ui:repeat>
+						</div>
 
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
-									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
-									</div>
-								</div>
-								<!-- /.product -->
-							</div>
-
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
-									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
-									</div>
-								</div>
-								<!-- /.product -->
+						<div class="row">
+							<div class="box text-uppercase">
+								<h3 style="font-weight: bold !important">Top ventes
+									d'accessoires</h3>
 							</div>
 
 						</div>
 
 						<div class="row">
-
-
-							<div class="box text-uppercase" >
-								<h3 style="font-weight: bold !important">Top ventes d'accessoires</h3>
-							</div>
-
-						</div>
-
-						<div class="row">
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
+							<ui:repeat var="accessoire"
+								value="#{accueilManagedBean.top4Accessoires}">
+								<div class="col-sm-3">
+									<div class="product">
+										<div class="image">
+											<h:link outcome="details_accessoire.jsf">
+												<f:param name="id" value="#{accessoire.idArticle}" />
+												<h:graphicImage library="images"
+													name="#{accessoire.urlImage}" class="img-responsive" />
+											</h:link>
+										</div>
+										<div class="text">
+											<h3>
+												<h:outputText value="#{accessoire.libelle}" />
+											</h3>
+											<p class="price">
+												<h:outputText value="#{accessoire.prix}">
+													<f:convertNumber minFractionDigits="2"
+														maxFractionDigits="2" type="currency" currencySymbol="€" />
+												</h:outputText>
+											</p>
+										</div>
 									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
-
-									</div>
+									<!-- /.product -->
 								</div>
-								<!-- /.product -->
-							</div>
-
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
-									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
-									</div>
-								</div>
-								<!-- /.product -->
-							</div>
-
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
-									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
-									</div>
-								</div>
-								<!-- /.product -->
-							</div>
-
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="Article_Vin_1_Taille.jpg" class="img-responsive" />
-										</a>
-									</div>
-									<div class="text">
-										<h3>Fur coat</h3>
-										<p class="price">$143</p>
-									</div>
-								</div>
-								<!-- /.product -->
-							</div>
+							</ui:repeat>
 						</div>
 
 					</div>

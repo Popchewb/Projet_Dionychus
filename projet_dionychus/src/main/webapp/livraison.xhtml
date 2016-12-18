@@ -32,12 +32,38 @@
 
 	<ui:define name="Contenu_Page">
 		<div class="container">
+						<div class="row">
+							<div class="box text-uppercase" >
+								<h4 style="font-weight: bold !important">Ma livraison</h4>
+							</div>
+							<div class="col-lg-5">
+							<h5>Adresse(s) de livraison</h5>
+							<ui:repeat var="adresse" value="#{livraisonManagedBean.adressesLivraison}">
+								<div>Voie : <h:outputText value="#{adresse.libelle}"></h:outputText></div>
+								<div>Complement d'adresse : <h:outputText value="#{adresse.complementAdresse}"></h:outputText></div>
+								<div>Ville : <h:outputText value="#{adresse.ville.libelle}"></h:outputText></div>
+								<div>Code postal : <h:outputText value="#{adresse.ville.codePostal}"></h:outputText></div>
+								<div>Pays : <h:outputText value="#{adresse.ville.pays.libelle}"></h:outputText></div>
+							</ui:repeat>
+							</div>
+							<div class="col-lg-2">
+							<h:graphicImage library="images" value="" />
+							</div>
+							<div class="col-lg-5">
+							<h5>Relais Colis</h5>
+							<h:graphicImage library="images" name="relaiscolis.png" />
+							<h:graphicImage library="images" name="relaymondial.png" />
+							</div>
+						</div>
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-12" style="margin-left: -15px">
 					<section class='major-services gray-boxes' id='major-services'>
 						<div class="container">
 							<div class="row">
-								<h1 class="heading">Choisir le mode de livraison</h1>
+							<div class="box text-uppercase" >
+								<h4 style="font-weight: bold !important">Choisir le mode de livraison</h4>
+							</div>
+								<h1 class="heading"></h1>
 								<div class="headul"></div>
 								<p class="subheading">Avec Dionychus, la garantie d'une
 									livraison de qualité, rapide et sure, en toutes circonstances.</p>

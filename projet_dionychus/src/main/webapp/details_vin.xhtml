@@ -151,26 +151,32 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-sm-3">
-									<div class="product">
-										<div class="image">
-											<a href="#"> <h:graphicImage library="images"
-													name="tire_bouchon.jpg" class="img-responsive" />
-											</a>
-										</div>
-										<div class="text" style="margin-top: 10px">
-											<div>
-												<h:outputText style="font-size: 18px; line-height: normal;"
-													value="Tire Bouchon" />
+								<ui:repeat var="article"
+									value="#{detailVinManagedBean.articlesAssocies}">
+									<div class="col-sm-3">
+										<div class="product">
+											<div class="image">
+												<a href="#"> <h:graphicImage library="images"
+														name="#{article.urlImage}" class="img-responsive" />
+												</a>
 											</div>
-											<div style="margin-top: 30px">
-												<h:outputText style="font-size: 18px; line-height: normal;"
-													value="20.00 €" />
+											<div class="text" style="margin-top: 10px">
+												<div>
+													<h:outputText style="font-size: 18px; line-height: normal;"
+														value="#{article.libelle}" />
+												</div>
+												<div style="margin-top: 30px">
+													<h:outputText style="font-size: 18px; line-height: normal;"
+														value="#{article.prix}">
+														<f:convertNumber minFractionDigits="2"
+															maxFractionDigits="2" type="currency" currencySymbol="€" />
+													</h:outputText>
+												</div>
 											</div>
 										</div>
+										<!-- /.product -->
 									</div>
-									<!-- /.product -->
-								</div>
+								</ui:repeat>
 							</div>
 							<div class="row">
 								<div class="box text-uppercase">

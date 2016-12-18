@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fr\afcepf\al29\dionychus\entity\Pays.class
 fr\afcepf\al29\dionychus\config\MvcConfiguration.class
 fr\afcepf\al29\dionychus\data\itf\CommentaireDaoItf.class
@@ -121,3 +122,5 @@ fr\afcepf\al29\dionychus\entity\Appelation.class
 fr\afcepf\al29\dionychus\mapper\LigneCommandeMapper.class
 fr\afcepf\al29\dionychus\business\impl\BusinessCommandeClient.class
 fr\afcepf\al29\dionychus\data\impl\VilleDaoImpl.class
+=======
+>>>>>>> 51609b80d92d3d7af56b7a5546b4b348c0e745f6

@@ -30,12 +30,25 @@
 		</ui:define>
 	
 	<ui:define name="Contenu_Page">
-	
-				<h1>Votre commande a bien ete validee.</h1>
-				<p>Numero de reference de votre commande : <h:outputText value="#{confirmationManagedBean.commandeClient.numeroReference}"/></p>
+		<div class="container">
+			<div class="row">
+			<div class="col-lg-12" >
+							<div class="box text-uppercase">
+								<h3 style="font-weight: bold !important">Votre commande à bien été validée	</h3>
+							</div>
+				<p>Numero de suivi de votre commande : <h:outputText value="#{confirmationManagedBean.commandeClient.numeroReference}"/></p>
+				<p>Un email de confirmation vous a été envoyé.</p>
 				<p>L'equipe YAOI vous remercie de votre confiance.</p>
-	
-	
+				</div>
+				<div class="col-md-12 col-md-offset-6">
+				<h:form style="padding: 10px;margin-top: -19px">
+					<b:commandButton value="Acceuil" 
+						action="accueil.jsf" look="info" />
+				</h:form>
+				</div>
+			
+			</div>
+			</div>
          </ui:define>          
 		</ui:composition>
 	</html>
