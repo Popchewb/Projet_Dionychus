@@ -2,7 +2,7 @@ package fr.afcepf.al29.dionychus.entity;
 
 import java.util.List;
 
-public abstract class Article {
+public class Article {
 	private Integer idArticle;
 	private String reference;
 	private String libelle;

@@ -35,12 +35,13 @@ public class DetailAccessoireManagedBean implements Serializable {
 	private Article article;
 	private Integer quantite = 1;
 	private Integer idCommande = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("panier")).getIdCommande();
-	
+	private List<Article> articlesAssocies;
 	
 	@PostConstruct
 	public void init() {
 		article = proxyBusinessInventaire.getAccessoireById(idArticle);
 		article.setCommentaires(proxyBusinessInventaire.getAllByAccessoire(idArticle));
+		articlesAssocies = proxyBusinessInventaire.getArticlesAssocies(idArticle);
 	}
 	
 	public String ajouterPanier() {
@@ -82,6 +83,22 @@ public class DetailAccessoireManagedBean implements Serializable {
 	}
 	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
+	}
+
+	public Integer getIdCommande() {
+		return idCommande;
+	}
+
+	public void setIdCommande(Integer idCommande) {
+		this.idCommande = idCommande;
+	}
+
+	public List<Article> getArticlesAssocies() {
+		return articlesAssocies;
+	}
+
+	public void setArticlesAssocies(List<Article> articlesAssocies) {
+		this.articlesAssocies = articlesAssocies;
 	}
 	
 	

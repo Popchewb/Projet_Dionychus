@@ -27,7 +27,7 @@ public interface IBusinessInventaire {
 
 	void deleteAccessoire(Integer paramIdAccessoire);
 
-	List<Accessoire> getBestSellerAccessoire();
+	List<Article> getBestSellerAccessoire();
 
 	// Appelations
 	List<Appelation> getAllAppelation();
@@ -86,8 +86,10 @@ public interface IBusinessInventaire {
 
 	void deleteVin(Integer paramIdVin);
 
-	List<Vin> getBestSellerVin();
+	List<Article> getBestSellerVin();
 
 	List<Vin> getAllVinAromeCepage();
+
+	List<Article> getArticlesAssocies(Integer idCommande);
 
 }

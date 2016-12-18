@@ -147,9 +147,8 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	}
 
 	@Override
-	public List<Accessoire> getBestSellerAccessoire() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Article> getBestSellerAccessoire() {
+		return proxyDaoAccessoire.getBestSellerAccessoire();
 	}
 
 	@Override
@@ -225,9 +224,13 @@ public class BusinessInventaireImpl implements IBusinessInventaire {
 	}
 
 	@Override
-	public List<Vin> getBestSellerVin() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Article> getBestSellerVin() {
+		return proxyDaoVin.getBestSellerVin();
+	}
+
+	@Override
+	public List<Article> getArticlesAssocies(Integer idCommande) {
+		return proxyDaoVin.getArticlesAssocies(idCommande);
 	}
 
 }
