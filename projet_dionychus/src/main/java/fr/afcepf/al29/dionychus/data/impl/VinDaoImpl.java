@@ -135,7 +135,7 @@ public class VinDaoImpl implements VinDaoItf {
 
 	@Override
 	public List<Article> getBestSellerVin() {
-		String SQL = "SELECT a.id_article, a.url_image, a.prix, a.libelle, a.type_article FROM bdd_dionychus.article a INNER JOIN bdd_dionychus.ligne_commande lc ON a.id_article = lc.id_article WHERE a.type_article = 'Vin' GROUP BY a.id_article ORDER BY sum(lc.quantite) DESC LIMIT 4;";
+		String SQL = "SELECT a.id_article, a.url_image, a.prix, a.libelle, a.type_article FROM bdd_dionychus.article a INNER JOIN bdd_dionychus.ligne_commande lc ON a.id_article = lc.id_article INNER JOIN bdd_dionychus.commande c ON c.id_commande = lc.id_commande WHERE a.type_article = 'Vin' AND c.id_statut_commande <> 1 GROUP BY a.id_article ORDER BY sum(lc.quantite) DESC LIMIT 4;";
 		return jdbcTemplate.query(SQL, new ArticleMapper());
 	}
 
