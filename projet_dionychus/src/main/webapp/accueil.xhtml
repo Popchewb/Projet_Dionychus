@@ -39,7 +39,7 @@
 						<h:form>
 
 							<b:row>
-								<h:outputLabel value="Type de Vin" />
+								<h:outputLabel value="Type de Vin" class="panel-title" style="border-bottom: solid 5px #5bc0de;padding-bottom: 7px; margin-bottom: 5px" />
 								<b:radiobutton value="#{vinManagedBean.typeVin}">
 									<f:selectItems value="#{vinManagedBean.typeVins}" var="type"
 										itemValue="#{type.idTypeVin}" itemLabel="#{type.libelle}" />
@@ -47,28 +47,28 @@
 							</b:row>
 
 							<b:row>
-								<h:outputLabel value="Vigneron" />
+								<h:outputLabel value="Vigneron" class="panel-title" style="border-bottom: solid 5px #5bc0de;padding-bottom: 7px; margin-bottom: 15px;margin-top: 15px" />
 								<b:inputText value="#{vinManagedBean.vigneron}" span="12"
 									style="margin-left: -20px; width: 295px" />
 
 							</b:row>
 
 							<b:row>
-								<h:outputLabel value="Millésime" />
+								<h:outputLabel value="Millésime" class="panel-title" style="border-bottom: solid 5px #5bc0de;padding-bottom: 7px; margin-bottom: 15px;margin-top: 15px" />
 								<b:inputText value="#{vinManagedBean.millesime}" span="12"
-									style="margin-left: -20px; width: 295px" />
+									style="margin-left: -20px; width: 295px"/>
 
 							</b:row>
 
 							<b:row>
-								<h:outputLabel value="Prix" />
+								<h:outputLabel value="Prix" class="panel-title" style="border-bottom: solid 5px #5bc0de;padding-bottom: 7px; margin-bottom: 15px; margin-top: 15px"/>
 								<b:slider2 min="0" max="500" span="12"
 									value="#{vinManagedBean.prix}" />
 
 							</b:row>
 
-							<b:row>
-								<h:outputLabel value="Région" />
+							<b:row style="width: 165px">
+								<h:outputLabel value="Région" class="panel-title" style="border-bottom: solid 5px #5bc0de;padding-bottom: 7px; margin-bottom: 15px; margin-top: 15px"/>
 								<b:selectOneMenu value="#{vinManagedBean.region}">
 									<f:selectItems value="#{vinManagedBean.regions}" var="c"
 										itemValue="#{c.idRegion}" itemLabel="#{c.libelle}" />
@@ -77,8 +77,8 @@
 
 							<b:row>
 
-								<h:outputLabel value="Cépages" style="width: 295px" />
-								<b:selectMultiMenu value="#{vinManagedBean.cepage}"
+								<h:outputLabel value="Cépages" class="panel-title" style="border-bottom: solid 5px #5bc0de;padding-bottom: 7px; margin-bottom: 15px; margin-top: 15px"/>
+								<b:selectMultiMenu value="#{vinManagedBean.cepage}" field-size="md"
 									style="width: 295px">
 									<f:selectItems value="#{vinManagedBean.cepageMap}" />
 								</b:selectMultiMenu>
@@ -86,14 +86,14 @@
 
 							<b:row style="width: 295px">
 
-								<h:outputLabel value="Arômes" />
+								<h:outputLabel value="Arômes" class="panel-title" style="border-bottom: solid 5px #5bc0de;padding-bottom: 7px; margin-bottom: 15px; margin-top: 15px" />
 								<b:selectMultiMenu value="#{vinManagedBean.arome}"
 									style="width: 295px">
 									<f:selectItems value="#{vinManagedBean.aromeMap}" />
 								</b:selectMultiMenu>
 							</b:row>
 
-							<b:row style="padding: 10px; text-align: center">
+							<b:row style="padding: 10px; text-align: center; margin-top: 20px">
 								<b:commandButton value="Rechercher" type="submit"
 									action="#{vinManagedBean.rechercher}" look="info" />
 							</b:row>
@@ -176,7 +176,7 @@
 											<h:link outcome="details_accessoire.jsf">
 												<f:param name="id" value="#{accessoire.idArticle}" />
 												<h:graphicImage library="images"
-													name="#{accessoire.urlImage}" class="img-responsive" />
+													name="#{accessoire.urlImage}" class="img-responsive" style="margin-left: 50px !important" />
 											</h:link>
 										</div>
 										<div class="text">
