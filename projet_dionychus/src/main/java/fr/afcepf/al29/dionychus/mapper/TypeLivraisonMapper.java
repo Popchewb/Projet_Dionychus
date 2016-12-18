@@ -14,6 +14,9 @@ public class TypeLivraisonMapper implements RowMapper<TypeLivraison> {
 		TypeLivraison typeLivraison = new TypeLivraison();
 		typeLivraison.setIdTypeLivraison(rs.getInt("id_type_livraison"));
 		typeLivraison.setLibelle(rs.getString("libelle"));
+		typeLivraison.setDescription(rs.getString("description"));
+		typeLivraison.setUrlImage(rs.getString("url_image"));
+		typeLivraison.setTarification(rs.getDouble("tarification"));
 		return typeLivraison;
 	}
 	

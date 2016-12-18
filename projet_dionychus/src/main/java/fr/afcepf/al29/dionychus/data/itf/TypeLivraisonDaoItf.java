@@ -6,4 +6,5 @@ import fr.afcepf.al29.dionychus.entity.TypeLivraison;
 
 public interface TypeLivraisonDaoItf {
 	List<TypeLivraison> getAll();
+	TypeLivraison getById(Integer paramIdTypeLivraison);
 }

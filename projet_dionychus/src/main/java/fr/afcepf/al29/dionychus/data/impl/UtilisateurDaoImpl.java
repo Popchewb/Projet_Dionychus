@@ -46,9 +46,9 @@ public class UtilisateurDaoImpl implements UtilisateurDaoItf {
 	}
 
 	@Override
-	public Utilisateur getUserByEmail() {
-		String SQL = "SELECT a.id_acteur, a.nom, a.prenom, a.numero_telephone, a.adresse_mail, a.date_naissance, a.optin, a.origine, a.login, a.password, a.id_type_acces, a.civilite, a.profession, a.type_acteur, ta.libelle FROM acteur a INNER JOIN type_acces ta WHERE ta.id_type_acces = a.id_type_acces AND a.adresse_mail = ?";
-		return jdbcTemplate.queryForObject(SQL, new UtilisateurMapper());
+	public Utilisateur getUserByEmail(String email) {
+		String SQL = "SELECT u.id_acteur, u.nom, u.prenom, u.numero_telephone, u.adresse_mail, u.date_naissance, u.optin, u.origine, u.login, u.password, u.id_type_acces, u.civilite, u.profession, u.type_acteur, ta.libelle FROM acteur u INNER JOIN type_acces ta WHERE ta.id_type_acces = u.id_type_acces AND u.adresse_mail = ?";
+		return jdbcTemplate.queryForObject(SQL, new Object[] { email }, new UtilisateurMapper());
 	}
 
 	@Override

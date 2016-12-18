@@ -7,193 +7,163 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-<meta charset="utf-8"/>
+	<meta charset="utf-8" />
 
-<title>Dionychus</title>
+	<title>Dionychus</title>
 
-<h:outputStylesheet name="css/bootstrap.css"/>
-<h:outputStylesheet name="css/bootstrap-select2.min.css"/>
-<h:outputStylesheet name="css/font-awesome.css"/>
-<h:outputStylesheet name="css/style.default.css" id="theme-stylesheet"/>
-<h:outputStylesheet name="css/custom.css"/>
+	<h:outputStylesheet name="css/bootstrap.css" />
+	<h:outputStylesheet name="css/bootstrap-select2.min.css" />
+	<h:outputStylesheet name="css/font-awesome.css" />
+	<h:outputStylesheet name="css/style.default.css" id="theme-stylesheet" />
+	<h:outputStylesheet name="css/custom.css" />
 
+	<f:event type="preRenderView" listener="#{cookieManagedBean.init}" />
 
 </h:head>
 
 <h:body>
- <div id="all">
-	<div id="top">
+	<div id="all">
+		<div id="top">
 			<div class="container">
-					<div class="row">
-						<div class="col-xs-5 contact">
-							<div class="search" id="searchBox">
-								<h:form>
-									<b:panelGrid col-spans="6,6" size="xs" style="margin-bottom: -10px">
-									    <b:inputText placeholder="Recherche" value="#{barcodeBean.emptyText}"/>
-									    <b:button iconAwesome="thumbs-up" value="Rechercher" onclick="return false;" look="info" style="padding-left: 5px" />
-									</b:panelGrid>
-								</h:form>
-							</div>
-						</div>
-						<div class="col-xs-7" style="margin-top: 7px">
- 							 <div class="social">
-                                <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                           	 </div>
-							<div class="login">
-								<a href="#" data-toggle="modal" data-target="#login-modal"><i
-									class="fa fa-sign-in"></i> <span
-									class="hidden-xs text-uppercase">Se Connecter</span></a> <a
-									href="customer-register.html" style="margin-right: 5px"><i class="fa fa-user"></i> <b:navLink outcome="panier.jsf" value="Panier"/>
-								</a>
-							</div>
-						  </div>
-					 	</div>
-					</div>
-				</div>
-<!-- 				<b:container id="navigation" styleClass="fixNavigation">  -->
-					<div class="navbar navbar-default yamm" id="navbar">
-
-					<div class="container">
-						<div class="navbar-header">
-
-							<a class="navbar-brand home" href="acceuil.jsf"> 
-								<h:graphicImage library="images" name="logoDeQualite.png" style="margin-top: -20px"/>
-								</a>
-					
-						</div>
-						<!--/.navbar-header -->
-<<<<<<< HEAD
-				
-=======
-					 <b:tabLinks>
->>>>>>> 142e74daf1681f155f6256c7f5669b5ea8c70852
-						<div class="navbar-collapse collapse">
-
-							<ul class="nav navbar-nav navbar-right">
-						
-								<li class="dropdown use-yamm yamm-fw">
-<<<<<<< HEAD
-									<h:link href="catalogue.jsf" class="dropdown-toggle" data-toggle="dropdown" value="Vins"></h:link>
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<a href="acceuil.jsf" class="dropdown-toggle" data-toggle="dropdown">Accessoires du Vin</a>
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<a href="acceuil.jsf" class="dropdown-toggle" data-toggle="dropdown">Bons Plans</a>
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<h:link href="details_produit.jsf" class="dropdown-toggle" data-toggle="dropdown" value="Contact"></h:link>
-=======
-									<b:navLink href="catalogue_vin.jsf" value="Vins" icon-align="right" />
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<b:navLink href="catalogue_accessoire.jsf" value="Accessoires du vin" icon-align="right" />
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<b:navLink href="details_produit.jsf" value="Bons Plans" icon-align="right" />
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<b:navLink href="contact.jsf" value="Contact" icon-align="right" />
->>>>>>> 142e74daf1681f155f6256c7f5669b5ea8c70852
-								</li>
-								<li class="dropdown use-yamm yamm-fw">
-									<b:navLink href="Inventaire.jsf" value="Admin" icon-align="right" />
-								</li>	
-<<<<<<< HEAD
-							</ul>
-
-						  
-							</div>
-						
-=======
-							   </ul>
-							</div>
-						</b:tabLinks>
->>>>>>> 142e74daf1681f155f6256c7f5669b5ea8c70852
-						<!--/.nav-collapse -->
-
-						<div class="collapse clearfix" id="search">
-							<h:form class="navbar-form" role="search">
-								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Search"/><span
-										class="input-group-btn">
-										<button type="submit" class="btn btn-template-main">
-											<i class="fa fa-search"></i>
-										</button>
-									</span>
-								</div>
+				<div class="row">
+					<div class="col-xs-5 contact">
+						<div class="search" id="searchBox">
+							<h:form>
+								<b:panelGrid col-spans="6,6" size="xs"
+									style="margin-bottom: -10px">
+									<b:inputText placeholder="Recherche"
+										value="#{barcodeBean.emptyText}" />
+									<b:button iconAwesome="thumbs-up" value="Rechercher"
+										onclick="return false;" look="info" style="padding-left: 5px" />
+								</b:panelGrid>
 							</h:form>
-
 						</div>
-						<!--/.nav-collapse -->
-
 					</div>
+					<div class="col-xs-7" style="margin-top: 7px">
+						<div class="social">
+							<a href="#" class="external facebook" data-animate-hover="pulse"><i
+								class="fa fa-facebook"></i></a> <a href="#" class="external gplus"
+								data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+							<a href="#" class="external twitter" data-animate-hover="pulse"><i
+								class="fa fa-twitter"></i></a> <a href="#" class="email"
+								data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+						</div>
+						<div class="login">
+							<h:form>
+								<h:commandLink>
+									<i class="fa fa-sign-in"></i>
+								</h:commandLink>
+								<h:outputLink value="#{cookieManagedBean.connection_deco}">
+									<h:outputLabel value="#{cookieManagedBean.bienvenue}" />
+								</h:outputLink>
+								<a href="customer-register.html" style="margin-right: 5px"><i
+									class="fa fa-user"></i> <b:navLink outcome="panier.jsf"
+										value="Panier" /> </a>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar navbar-default yamm" id="navbar">
 
+			<div class="container">
+				<div class="navbar-header">
+
+					<a class="navbar-brand home" href="acceuil.jsf"> <h:graphicImage
+							library="images" name="logoDeQualite.png"
+							style="margin-top: -20px" />
+					</a>
 
 				</div>
-<!-- 				</b:container> -->
-				<!-- /#navbar -->
+				<!--/.navbar-header -->
+				<b:tabLinks>
+					<div class="navbar-collapse collapse">
 
-<<<<<<< HEAD
-	
-=======
-				 <b:tabLinks style="border-bottom-color: white">
-						<div id="heading-breadcrumbs" style="width: 100%;background-image: url(resources/images/texture-bw.png)">
-							<div class="container" >
-									<div class="col-md-7">
-										<h1><ui:insert name="Titre_Page" /></h1>
-									</div>
-									<div class="col-md-5">
-										<ul class="breadcrumb" style="background-color: transparent; margin-top: 20px">
-										<b:navLink href="arche.jsf" icon-align="right"><ui:insert name="Chemin_Acces_Site" /></b:navLink>
-										</ul>
-									</div>
-							</div>
-						</div>
+						<ul class="nav navbar-nav navbar-right">
+
+							<li class="dropdown use-yamm yamm-fw"><b:navLink
+									href="catalogue_vin.jsf" value="Vins" icon-align="right" /></li>
+							<li class="dropdown use-yamm yamm-fw"><b:navLink
+									href="catalogue_accessoire.jsf" value="Accessoires du vin"
+									icon-align="right" /></li>
+							<li class="dropdown use-yamm yamm-fw"><b:navLink
+									href="details_produit.jsf" value="Bons Plans"
+									icon-align="right" /></li>
+							<li class="dropdown use-yamm yamm-fw"><b:navLink
+									href="contact.jsf" value="Contact" icon-align="right" /></li>
+							<li class="dropdown use-yamm yamm-fw"><b:navLink
+									href="inventaire_vin.jsf" value="Admin" icon-align="right" />
+							</li>
+						</ul>
+					</div>
 				</b:tabLinks>
->>>>>>> 142e74daf1681f155f6256c7f5669b5ea8c70852
-<!-- 			    <b:row id="heading-breadcrumbs"> -->
-<!-- 			    	<b:image library="images" name="texture-bw.png" style="width: 100%;height: 8em"> -->
-<!-- 							<div class="container"> -->
-<!-- 									<div class="col-md-7"> -->
-<!-- 										<ui:insert name="Titre_Page"></ui:insert> -->
-<!-- 									</div> -->
-<!-- 									<div class="col-md-5"> -->
-<!-- 										<ul class="breadcrumb"> -->
-<!-- 											<ui:insert name="Chemin_Acces_Site"></ui:insert> -->
-<!-- 										</ul> -->
-<!-- 									</div> -->
-<!-- 							</div> -->
-<!-- 						</b:image> -->
-<!-- 				</b:row> -->
-		
-    <div id="content">
+				<!--/.nav-collapse -->
+
+				<div class="collapse clearfix" id="search">
+					<h:form class="navbar-form" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" /><span
+								class="input-group-btn">
+								<button type="submit" class="btn btn-template-main">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
+					</h:form>
+
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+		<!-- /#navbar -->
+
+		<b:tabLinks style="border-bottom-color: white">
+			<div id="heading-breadcrumbs"
+				style="width: 100%; background-image: url(resources/images/texture-bw.png)">
+				<div class="container">
+					<div class="col-md-7">
+						<h1>
+							<ui:insert name="Titre_Page" />
+						</h1>
+					</div>
+					<div class="col-md-5">
+						<ul class="breadcrumb"
+							style="background-color: transparent; margin-top: 20px">
+							<b:navLink href="arche.jsf" icon-align="right">
+								<ui:insert name="Chemin_Acces_Site" />
+							</b:navLink>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</b:tabLinks>
+
+		<div id="content">
 			<ui:insert name="Contenu_Page"></ui:insert>
-	</div>
- 
-	<footer id="footer">
+		</div>
+
+		<footer id="footer">
 			<div class="container">
 				<div class="col-md-4 col-sm-6 text-center">
-					
+
 					<h4>Informations légales</h4>
 					<ul>
-						<li><a href="http://i6.cdscdn.com/imagesok/cgv/ml.pdf">Mentions légales</a></li>
+						<li><a href="http://i6.cdscdn.com/imagesok/cgv/ml.pdf">Mentions
+								légales</a></li>
 						<li><a href="#">Conditions Générales de Vente</a></li>
 						<li><a href="#">Dionychus et l'environnement</a></li>
 						<li><a href="#">Protection de la vie privée et cookies</a></li>
 					</ul>
-					
-					<hr/>
-					
+
+					<hr />
+
 					<h4>Rejoindre notre newsletter</h4>
 
 					<h:form>
 						<div class="input-group">
 
-							<input type="text" class="form-control"/> <span
+							<input type="text" class="form-control" /> <span
 								class="input-group-btn">
 
 								<button class="btn btn-default" type="button">
@@ -206,24 +176,23 @@
 						<!-- /input-group -->
 					</h:form>
 
-					<hr class="hidden-md hidden-lg hidden-sm"/>
+					<hr class="hidden-md hidden-lg hidden-sm" />
 
 				</div>
-				<!-- /.col-md-3 -->
 				<div class="col-md-4 col-sm-6 text-center">
 
 					<h4>Contact</h4>
 
 					<p>
-						<strong>Adresse: </strong> <br/>23/25 Avenue <br/>du Docteur Lannelongue <br/>92120 <br/>Paris <br/> <strong>France</strong>
+						<strong>Adresse: </strong> <br />23/25 Avenue <br />du Docteur
+						Lannelongue <br />92120 <br />Paris <br /> <strong>France</strong>
 					</p>
 
-					<a href="contact.html" class="btn btn-small btn-template-main">Contactez-nous</a>
+					<a href="contact.jsf" class="btn btn-small btn-template-main">Contactez-nous</a>
 
-					<hr class="hidden-md hidden-lg hidden-sm"/>
+					<hr class="hidden-md hidden-lg hidden-sm" />
 
 				</div>
-				<!-- /.col-md-3 -->
 				<div class="col-md-4 col-sm-6 text-center">
 
 					<h4>Partenaires</h4>
@@ -231,36 +200,44 @@
 					<div class="blog-entries">
 						<div class="item same-height-row clearfix">
 							<div class="image same-height-always">
-								<a href="http://www.blog-vin.fr/"> <h:graphicImage library="images" name="blogvin.jpg" class="img-responsive"/>
+								<a href="http://www.blog-vin.fr/"> <h:graphicImage
+										library="images" name="blogvin.jpg" class="img-responsive" />
 								</a>
 							</div>
 							<div class="name same-height-always">
 								<h5>
-									<a href="http://www.blog-vin.fr/">Décalé, Esthète et épicurien</a>
+									<a href="http://www.blog-vin.fr/">Décalé, Esthète et
+										épicurien</a>
 								</h5>
 							</div>
 						</div>
-						 
+
 						<div class="item same-height-row clearfix">
 							<div class="image same-height-always">
-								<a href="http://www.verywinetrip.fr/"> <h:graphicImage library="images" name="veryWineTrip.jpg" class="img-responsive"/>
+								<a href="http://www.verywinetrip.fr/"> <h:graphicImage
+										library="images" name="veryWineTrip.jpg"
+										class="img-responsive" />
 								</a>
 							</div>
 							<div class="name same-height-always">
 								<h5>
-									<a href="http://www.verywinetrip.fr/">Carnet de voyage d'une amoureuse du vin</a>
+									<a href="http://www.verywinetrip.fr/">Carnet de voyage
+										d'une amoureuse du vin</a>
 								</h5>
 							</div>
 						</div>
-							 
+
 						<div class="item same-height-row clearfix">
 							<div class="image same-height-always">
-								<a href="http://www.sommelier-vins.com/"> <h:graphicImage library="images" name="emmanuelDelmas.jpg" class="img-responsive"/>
+								<a href="http://www.sommelier-vins.com/"> <h:graphicImage
+										library="images" name="emmanuelDelmas.jpg"
+										class="img-responsive" />
 								</a>
 							</div>
 							<div class="name same-height-always">
 								<h5>
-									<a href="http://www.sommelier-vins.com/">Emmanuel Delmas, sommelier</a>
+									<a href="http://www.sommelier-vins.com/">Emmanuel Delmas,
+										sommelier</a>
 								</h5>
 							</div>
 						</div>
@@ -269,36 +246,24 @@
 				</div>
 				<!-- /.col-md-3 -->
 
-				
+
 			</div>
 			<!-- /.container -->
 		</footer>
-		
+
 		<div id="copyright">
-            <div class="container">
-                <div class="col-md-12">
-                    <p class="pull-left">2016. Groupe Yaoi</p>
-                    <p class="pull-right">Template by <a href="">Pikachu catcheur</a> 
-                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
-                    </p>
+			<div class="container">
+				<div class="col-md-12">
+					<p class="pull-left">2016. Groupe Yaoi</p>
+					<p class="pull-right">
+						Template by <a href="">Pikachu catcheur</a>
+						<!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+					</p>
 
-                </div>
-            </div>
-        </div>
-</div> 
-
-<!-- 		<h:outputScript name="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" /> -->
-<!-- 		<script type="text/javascript">
-// 			 $(function(){
-// 			   $(window).scroll(function () {
-// 			      if ($(this).scrollTop() > 150) { 
-// 			          $('#navigation').addClass("fixNavigation");
-// 			      } else {
-// 			      $('#navigation').removeClass("fixNavigation");
-// 			      }
-// 			   });
-// 			 });
- 		 </script> -->
+				</div>
+			</div>
+		</div>
+	</div>
 
 </h:body>
 </html>

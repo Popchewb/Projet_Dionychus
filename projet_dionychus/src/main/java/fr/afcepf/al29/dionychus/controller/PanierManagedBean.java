@@ -5,11 +5,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.instrument.classloading.tomcat.TomcatLoadTimeWeaver;
 import org.springframework.stereotype.Controller;
 
 import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
@@ -25,10 +23,8 @@ public class PanierManagedBean implements Serializable {
 	@Autowired
 	private IBusinessCommandeClient proxyBusinessCommandeClient;
 
-	private HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-			.getRequest();
-	private Integer idPanier = Integer.parseInt(request.getParameter("id"));
-	private CommandeClient commandeClient;
+	private Integer idPanier = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+			.get("panier")).getIdCommande();
 	private List<LigneCommande> lignesCommande;
 	private Double totalCommande;
 	private Integer quantiteArticle;
@@ -54,20 +50,15 @@ public class PanierManagedBean implements Serializable {
 		String url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
 		return url;
 	}
-	
-	public String retourAccueil(){
-		return "http://localhost:8080/Projet_Dionychus/accueil.jsf";
-	}
-	
-	public String updatePanier(){
-		
+
+	public String updatePanier() {
+
 		for (LigneCommande ligneCommande : lignesCommande) {
 			System.out.println(ligneCommande.getQuantite());
 			proxyBusinessCommandeClient.updateLigneCommande(ligneCommande);
 		}
 		init();
-		String url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
-		return url;
+		return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
 	}
 
 	public Integer getIdPanier() {
@@ -76,14 +67,6 @@ public class PanierManagedBean implements Serializable {
 
 	public void setIdPanier(Integer idPanier) {
 		this.idPanier = idPanier;
-	}
-
-	public CommandeClient getCommandeClient() {
-		return (CommandeClient) proxyBusinessCommandeClient.getCommandeById(idPanier);
-	}
-
-	public void setCommandeClient(CommandeClient commandeClient) {
-		this.commandeClient = commandeClient;
 	}
 
 	public List<LigneCommande> getLignesCommande() {

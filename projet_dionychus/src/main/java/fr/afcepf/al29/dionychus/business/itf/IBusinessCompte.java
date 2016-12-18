@@ -45,7 +45,7 @@ public interface IBusinessCompte {
 	// UTILISATEUR
 	List<Utilisateur> getAllUtilisateur();
 
-	Utilisateur getUserByEmail();
+	Utilisateur getUserByEmail(String email);
 
 	Utilisateur getUtilisateurById(int paramIdUtilisateur);
 

@@ -12,4 +12,9 @@ public interface CommandeClientDaoItf {
 	CommandeClient addCommandeClient(CommandeClient paramCommandeClient);
 	void updateCommandeClient(CommandeClient paramCommandeClient);
 	void deleteCommandeClient(Integer paramIdCommandeClient);
+	CommandeClient addPanier(CommandeClient panier);
+	void updateTypeLivraison(CommandeClient paramCommandeClient, Integer paramIdTypeLivraison);
+	Double getTarifLivraisonByIdCommande(Integer idCommande);
+	void updatePanierValider(CommandeClient paramCommandeClient);
+	void updatePanierRefUtilisateur(CommandeClient panierUtilisateur);
 }

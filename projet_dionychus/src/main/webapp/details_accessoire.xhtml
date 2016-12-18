@@ -20,14 +20,17 @@
 	xmlns:h="http://java.sun.com/jsf/html" template="/arche.xhtml">
 
 	<ui:define name="Titre_Page">
-			<h2 style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em;margin-bottom: 20px">Fiche Accessoire</h2>
-		</ui:define>
+		<h2
+			style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 20px">Fiche
+			Accessoire</h2>
+	</ui:define>
 
-		<ui:define name="Chemin_Acces_Site">
-			<b:navLink outcome="acceuil.jsp" value="Accueil"/>
-			<li><b:navLink outcome="catalogue_accessoire.jsp" value="Accessoires"/></li>
-			
-		</ui:define>
+	<ui:define name="Chemin_Acces_Site">
+		<b:navLink outcome="acceuil.jsp" value="Accueil" />
+		<li><b:navLink outcome="catalogue_accessoire.jsp"
+				value="Accessoires" /></li>
+
+	</ui:define>
 
 	<ui:define name="Contenu_Page">
 
@@ -79,7 +82,7 @@
 								<h:outputLabel value="Cépages" style="width: 295px" />
 								<b:selectMultiMenu value="#{vinManagedBean.cepage}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.cepageMap}"/>
+									<f:selectItems value="#{vinManagedBean.cepageMap}" />
 								</b:selectMultiMenu>
 							</b:row>
 
@@ -88,7 +91,7 @@
 								<h:outputLabel value="Arômes" />
 								<b:selectMultiMenu value="#{vinManagedBean.arome}"
 									style="width: 295px">
-									<f:selectItems value="#{vinManagedBean.aromeMap}"/>
+									<f:selectItems value="#{vinManagedBean.aromeMap}" />
 								</b:selectMultiMenu>
 							</b:row>
 
@@ -116,7 +119,9 @@
 								<p class="text-center" style="margin-top: 10px">
 									<h:form>
 										<b:commandButton value="Ajouter au panier" look="info"
-											action="#{detailAccessoireManagedBean.ajouterPanier}"></b:commandButton>
+											action="#{detailAccessoireManagedBean.ajouterPanier}">
+											<f:param name="id" value="#{detailAccessoireManagedBean.idArticle}" />
+										</b:commandButton>
 										<h:inputText value="#{detailAccessoireManagedBean.quantite}"
 											style="width:30px"></h:inputText>
 									</h:form>
@@ -192,7 +197,8 @@
 									|
 									<h:outputText value="#{commentaire.note}">
 										<f:convertNumber pattern="#0" />
-									</h:outputText>/5
+									</h:outputText>
+									/5
 								</h4>
 								<blockquote>
 									<p>

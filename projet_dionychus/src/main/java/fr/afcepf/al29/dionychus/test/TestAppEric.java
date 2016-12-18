@@ -1,13 +1,16 @@
 package fr.afcepf.al29.dionychus.test;
 
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.afcepf.al29.dionychus.business.impl.BusinessCommandeClient;
+import fr.afcepf.al29.dionychus.business.impl.BusinessCompteImpl;
 import fr.afcepf.al29.dionychus.business.impl.BusinessInventaireImpl;
+import fr.afcepf.al29.dionychus.business.itf.IBusinessCommandeClient;
 import fr.afcepf.al29.dionychus.data.impl.RegionDaoImpl;
 import fr.afcepf.al29.dionychus.data.itf.CommandeClientDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.LigneCommandeDaoItf;
@@ -27,7 +30,7 @@ import fr.afcepf.al29.dionychus.entity.Vin;
 public class TestAppEric {
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		
 //		BusinessInventaireImpl buInventaire = new BusinessInventaireImpl();
 //		Article vin = buInventaire.getVinById(1);
@@ -55,8 +58,8 @@ public class TestAppEric {
 //		Region region = new Region(null, "testRegion");
 //		region = regionDao.addRegionWithKey(region);
 //		System.out.println(region);
-		CommandeClientDaoItf ccDao = (CommandeClientDaoItf) context.getBean("commandeClientJDBCtemplate");
-		LigneCommandeDaoItf lcDao = (LigneCommandeDaoItf) context.getBean("ligneCommandeJDBCtemplate");
+//		CommandeClientDaoItf ccDao = (CommandeClientDaoItf) context.getBean("commandeClientJDBCtemplate");
+//		LigneCommandeDaoItf lcDao = (LigneCommandeDaoItf) context.getBean("ligneCommandeJDBCtemplate");
 //		Promotion promo = new Promotion(1, null, null, null, null, null);
 //		Utilisateur user = new Utilisateur(5, null, null, null, null, null, null, null, null, null, null, null, null, null);
 //		StatutCommande sc = new StatutCommande(1, null);
@@ -64,15 +67,31 @@ public class TestAppEric {
 //		cc.setStatutCommande(sc);
 //		cc = ccDao.addCommandeClient(cc);
 //		System.out.println(cc.getIdCommande());
-		CommandeClient cc = ccDao.getCommandeClientById(1);
-		BusinessCommandeClient ccBu = new BusinessCommandeClient();
-		List<LigneCommande> lc = ccBu.getAllLigneCommandeByIdCommande(1);
-		Double total = 0.0;
-		for (LigneCommande ligneCommande : lc) {
-			total += ligneCommande.getArticle().getPrix() * ligneCommande.getQuantite();
-		}
-		System.out.println(total + "€");
+//		CommandeClient cc = ccDao.getCommandeClientById(1);
+//		BusinessCommandeClient ccBu = new BusinessCommandeClient();
+//		List<LigneCommande> lc = ccBu.getAllLigneCommandeByIdCommande(1);
+//		Double total = 0.0;
+//		for (LigneCommande ligneCommande : lc) {
+//			total += ligneCommande.getArticle().getPrix() * ligneCommande.getQuantite();
+//		}
+//		System.out.println(total + "€");
 		
+//		CommandeClient panier = new CommandeClient();
+//		Calendar c = Calendar.getInstance();
+//		java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
+//		Promotion prom = new Promotion();
+//		
+//		BusinessCommandeClient proxy = new BusinessCommandeClient();
+//		StatutCommande stat = proxy.getStatutCommandeById(1);
+		
+//		panier.setDateCreation(date);
+//		panier.setStatutCommande(stat);
+//		panier.setPromotion(prom);
+//		panier = proxy.addPanier(panier);
+//		System.out.println(panier);
+		
+//		BusinessCompteImpl proxy = new BusinessCompteImpl();
+//		System.out.println(proxy.getUserByEmail("cbravo@gmail.fr"));
 		
 	}
 }

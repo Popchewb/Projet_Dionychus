@@ -98,8 +98,8 @@ public class BusinessCompteImpl implements IBusinessCompte {
 	}
 
 	@Override
-	public Utilisateur getUserByEmail() {
-		return proxyUtilisateurDao.getUserByEmail();
+	public Utilisateur getUserByEmail(String email) {
+		return proxyUtilisateurDao.getUserByEmail(email);
 	}
 
 	@Override

@@ -12,14 +12,15 @@ import fr.afcepf.al29.dionychus.data.itf.AdresseDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.CommandeClientDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.LigneCommandeDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.PromotionDaoItf;
+import fr.afcepf.al29.dionychus.data.itf.StatutCommandeDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.TypeLivraisonDaoItf;
 import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.Adresse;
-import fr.afcepf.al29.dionychus.entity.Commande;
 import fr.afcepf.al29.dionychus.entity.CommandeClient;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Promotion;
+import fr.afcepf.al29.dionychus.entity.StatutCommande;
 import fr.afcepf.al29.dionychus.entity.TypeLivraison;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
 import fr.afcepf.al29.dionychus.entity.Vin;
@@ -36,7 +37,8 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 	TypeLivraisonDaoItf tlDao = (TypeLivraisonDaoItf) context.getBean("typeLivraisonJDBCtemplate");
 	AccessoireDaoItf accDao = (AccessoireDaoItf) context.getBean("accessoireJDBCtemplate");
 	VinDaoItf vinDao = (VinDaoItf) context.getBean("vinJDBCtemplate");
-
+	StatutCommandeDaoItf scDao = (StatutCommandeDaoItf) context.getBean("statutCommandeJDBCtemplate");
+	
 	@Override
 	public List<Adresse> getAdresseByIdActeur(Integer paramIdActeur) {
 		return adDao.getAdresseByIdActeur(paramIdActeur);
@@ -48,7 +50,7 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 	}
 
 	@Override
-	public Commande getCommandeById(Integer paramIdCommandeClient) {
+	public CommandeClient getCommandeById(Integer paramIdCommandeClient) {
 		return ccDao.getCommandeClientById(paramIdCommandeClient);
 	}
 
@@ -113,11 +115,6 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 
 	@Override
 	public void validerCommandeClient(CommandeClient paramCommandeClient, Utilisateur paramUtilisateur) {
-		// récuperer tous les articles de la commande
-		// passer le statut de la commande de panier (1) à en cours de
-		// préparation (2)
-		// décrémenter le stock de tous les articles de la commande de la
-		// quantite commandée (dans ligneCommande)
 		List<LigneCommande> lignesCommande = lcDao.getAllByIdCommande(paramCommandeClient.getIdCommande());
 		for (LigneCommande ligneCommande : lignesCommande) {
 			if (ligneCommande.getArticle().getTypeArticle().equals("Accessoire")) {
@@ -131,6 +128,41 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 			}
 		}
 
+	}
+
+	@Override
+	public StatutCommande getStatutCommandeById(Integer paramIdStatutCommande) {
+		return scDao.getById(paramIdStatutCommande);
+	}
+
+	@Override
+	public CommandeClient addPanier(CommandeClient panier) {
+		return ccDao.addPanier(panier);
+	}
+
+	@Override
+	public TypeLivraison getTypeLivraisonById(Integer paramIdTypeLivraison) {
+		return tlDao.getById(paramIdTypeLivraison);
+	}
+
+	@Override
+	public void updateTypeLivraison(CommandeClient paramCommandeClient, Integer paramIdTypeLivraison) {
+		ccDao.updateTypeLivraison(paramCommandeClient, paramIdTypeLivraison);		
+	}
+
+	@Override
+	public Double getTarifLivraisonByIdCommande(Integer idCommande) {
+		return ccDao.getTarifLivraisonByIdCommande(idCommande);
+	}
+
+	@Override
+	public void updatePanierValider(CommandeClient paramCommandeClient) {
+		ccDao.updatePanierValider(paramCommandeClient);	
+	}
+
+	@Override
+	public void updatePanierRefUtilisateur(CommandeClient panierUtilisateur) {
+		ccDao.updatePanierRefUtilisateur(panierUtilisateur);
 	}
 
 }

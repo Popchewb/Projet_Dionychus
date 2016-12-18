@@ -25,7 +25,8 @@ public class AccessoireMapper implements RowMapper<Accessoire> {
 		accessoire.setPrix(rs.getDouble("a.prix"));
 		accessoire.setQuantite(rs.getInt("a.quantite"));
 		accessoire.setSeuilAlerte(rs.getInt("a.seuil_alerte"));
-		accessoire.setUrlImage(rs.getString("a.url_image"));		
+		accessoire.setUrlImage(rs.getString("a.url_image"));	
+		accessoire.setTypeArticle(rs.getString("a.type_article"));
 		return accessoire;
 	}
 
