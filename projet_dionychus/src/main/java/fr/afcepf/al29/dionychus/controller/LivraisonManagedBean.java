@@ -31,6 +31,8 @@ public class LivraisonManagedBean implements Serializable {
 	private Integer idTypeLivraison;
 	private List<Adresse> adressesLivraison;
 	private Integer idClient = ((Utilisateur)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user")).getIdActeur();
+	// Pour faire un test de rendu, commenter la ligne au dessus et décommenter celle en dessous.
+	// private Integer idClient = 2;
 	public String majCommande(Integer paramIdTypeLivraison){
 		CommandeClient commandeClient = proxyBusinessCommandeClient.getCommandeById(idCommande);
 		proxyBusinessCommandeClient.updateTypeLivraison(commandeClient, paramIdTypeLivraison);
