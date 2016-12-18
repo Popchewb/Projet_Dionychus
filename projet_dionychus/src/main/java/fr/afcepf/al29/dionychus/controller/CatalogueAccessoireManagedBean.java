@@ -1,5 +1,6 @@
 package fr.afcepf.al29.dionychus.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,9 @@ import fr.afcepf.al29.dionychus.entity.Accessoire;
 
 @Controller("catalogueAccessoireManagedBean")
 @Scope("request")
-public class CatalogueAccessoireManagedBean {
+public class CatalogueAccessoireManagedBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	@Autowired
 	private IBusinessInventaire proxyBusinessInventaire;
 	List<Accessoire> accessoires;
