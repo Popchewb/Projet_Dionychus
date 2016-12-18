@@ -3,6 +3,7 @@ package fr.afcepf.al29.dionychus.data.itf;
 import java.util.List;
 
 import fr.afcepf.al29.dionychus.entity.Accessoire;
+import fr.afcepf.al29.dionychus.entity.Article;
 
 public interface AccessoireDaoItf {
 	List<Accessoire> getAll();
@@ -10,5 +11,5 @@ public interface AccessoireDaoItf {
 	void addAccessoire (Accessoire paramAccessoire, Integer paramIdFournisseur);
 	void updateAccessoire (Accessoire paramAccessoire);
 	void deleteAccessoire (Integer paramIdAccessoire);
-	List<Accessoire> getBestSellerAccessoire();
+	List<Article> getBestSellerAccessoire();
 }

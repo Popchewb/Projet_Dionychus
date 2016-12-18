@@ -8,7 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.afcepf.al29.dionychus.data.itf.AccessoireDaoItf;
 import fr.afcepf.al29.dionychus.entity.Accessoire;
+import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.mapper.AccessoireMapper;
+import fr.afcepf.al29.dionychus.mapper.ArticleMapper;
 
 public class AccessoireDaoImpl implements AccessoireDaoItf {
 
@@ -72,9 +74,9 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 	}
 
 	@Override
-	public List<Accessoire> getBestSellerAccessoire() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Article> getBestSellerAccessoire() {
+		String SQL = "SELECT a.id_article, a.url_image, a.prix, a.libelle, a.type_article FROM bdd_dionychus.article a INNER JOIN bdd_dionychus.ligne_commande lc ON a.id_article = lc.id_article WHERE a.type_article = 'Accessoire' GROUP BY a.id_article ORDER BY sum(lc.quantite) DESC LIMIT 4;";
+		return jdbcTemplate.query(SQL, new ArticleMapper());
 	}
 
 }

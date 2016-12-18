@@ -113,14 +113,16 @@
 								<br />
 								<div style="text-align: center; margin-top: 10px">
 									<h:outputText style="font-size: 28px; line-height: normal;"
-										value="#{detailAccessoireManagedBean.article.prix} €" />
+										value="#{detailAccessoireManagedBean.article.prix}" ><f:convertNumber minFractionDigits="2"
+														maxFractionDigits="2" type="currency" currencySymbol="€" />F </h:outputText>
 								</div>
 								<br />
 								<p class="text-center" style="margin-top: 10px">
 									<h:form>
 										<b:commandButton value="Ajouter au panier" look="info"
 											action="#{detailAccessoireManagedBean.ajouterPanier}">
-											<f:param name="id" value="#{detailAccessoireManagedBean.idArticle}" />
+											<f:param name="id"
+												value="#{detailAccessoireManagedBean.idArticle}" />
 										</b:commandButton>
 										<h:inputText value="#{detailAccessoireManagedBean.quantite}"
 											style="width:30px"></h:inputText>
@@ -157,26 +159,32 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-3">
-								<div class="product">
-									<div class="image">
-										<a href="#"> <h:graphicImage library="images"
-												name="tire_bouchon.jpg" class="img-responsive" />
-										</a>
-									</div>
-									<div class="text" style="margin-top: 10px">
-										<div>
-											<h:outputText style="font-size: 18px; line-height: normal;"
-												value="Tire Bouchon" />
+							<ui:repeat var="article"
+								value="#{detailAccessoireManagedBean.articlesAssocies}">
+								<div class="col-sm-3">
+									<div class="product">
+										<div class="image">
+											<a href="#"> <h:graphicImage library="images"
+													name="#{article.urlImage}" class="img-responsive" />
+											</a>
 										</div>
-										<div style="margin-top: 30px">
-											<h:outputText style="font-size: 18px; line-height: normal;"
-												value="20.00 €" />
+										<div class="text" style="margin-top: 10px">
+											<div>
+												<h:outputText style="font-size: 18px; line-height: normal;"
+													value="#{article.libelle}" />
+											</div>
+											<div style="margin-top: 30px">
+												<h:outputText style="font-size: 18px; line-height: normal;"
+													value="#{article.prix}">
+													<f:convertNumber minFractionDigits="2"
+														maxFractionDigits="2" type="currency" currencySymbol="€" />
+												</h:outputText>
+											</div>
 										</div>
 									</div>
+									<!-- /.product -->
 								</div>
-								<!-- /.product -->
-							</div>
+							</ui:repeat>
 						</div>
 						<div class="row">
 							<div class="box text-uppercase">

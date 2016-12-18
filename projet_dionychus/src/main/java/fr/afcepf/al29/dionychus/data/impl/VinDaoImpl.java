@@ -15,8 +15,10 @@ import com.mysql.jdbc.Statement;
 
 import fr.afcepf.al29.dionychus.data.itf.VinDaoItf;
 import fr.afcepf.al29.dionychus.entity.Arome;
+import fr.afcepf.al29.dionychus.entity.Article;
 import fr.afcepf.al29.dionychus.entity.Cepage;
 import fr.afcepf.al29.dionychus.entity.Vin;
+import fr.afcepf.al29.dionychus.mapper.ArticleMapper;
 import fr.afcepf.al29.dionychus.mapper.VinMapper;
 
 public class VinDaoImpl implements VinDaoItf {
@@ -132,9 +134,28 @@ public class VinDaoImpl implements VinDaoItf {
 	}
 
 	@Override
-	public List<Vin> getBestSellerVin() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Article> getBestSellerVin() {
+		String SQL = "SELECT a.id_article, a.url_image, a.prix, a.libelle, a.type_article FROM bdd_dionychus.article a INNER JOIN bdd_dionychus.ligne_commande lc ON a.id_article = lc.id_article WHERE a.type_article = 'Vin' GROUP BY a.id_article ORDER BY sum(lc.quantite) DESC LIMIT 4;";
+		return jdbcTemplate.query(SQL, new ArticleMapper());
+	}
+
+	@Override
+	public List<Article> getArticlesAssocies(Integer idCommande) {
+		String SQL = "SELECT a.id_article, a.libelle, a.url_image, a.prix, a.type_article "
+				+ "FROM bdd_dionychus.article a "
+				+ "INNER JOIN "
+				+ "(SELECT lc.id_article "
+				+ "FROM bdd_dionychus.ligne_commande lc "
+				+ "INNER JOIN "
+				+ "(SELECT c.id_commande "
+				+ "FROM bdd_dionychus.commande c "
+				+ "INNER JOIN bdd_dionychus.ligne_commande lc ON c.id_commande = lc.id_commande "
+				+ "WHERE lc.id_article = ?) commandes ON lc.id_commande = commandes.id_commande "
+				+ "WHERE lc.id_article <> ? "
+				+ "GROUP BY lc.id_article "
+				+ "ORDER BY COUNT(lc.id_article) DESC "
+				+ "LIMIT 4) ids ON a.id_article = ids.id_article";
+		return jdbcTemplate.query(SQL, new Object[]{idCommande, idCommande}, new ArticleMapper());
 	}
 
 }
