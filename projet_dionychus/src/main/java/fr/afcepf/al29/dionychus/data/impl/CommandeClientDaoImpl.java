@@ -131,5 +131,17 @@ public class CommandeClientDaoImpl implements CommandeClientDaoItf {
 		return jdbcTemplate.queryForObject(SQL,new Object[]{idCommande} ,Double.class);
 	}
 
+	@Override
+	public void updatePanierValider(CommandeClient paramCommandeClient) {
+		String SQL = "UPDATE `bdd_dionychus`.`commande` SET `id_statut_commande`=? WHERE `id_commande`=?";
+		jdbcTemplate.update(SQL, new Object[]{ paramCommandeClient.getStatutCommande().getIdStatutCommande(), paramCommandeClient.getIdCommande() });
+	}
+
+	@Override
+	public void updatePanierRefUtilisateur(CommandeClient panierUtilisateur) {
+		String SQL = "UPDATE `bdd_dionychus`.`commande` SET `id_acteur`=? WHERE `id_commande`=?";
+		jdbcTemplate.update(SQL, new Object[]{ panierUtilisateur.getUtilisateur().getIdActeur(), panierUtilisateur.getIdCommande() });		
+	}
+
 
 }

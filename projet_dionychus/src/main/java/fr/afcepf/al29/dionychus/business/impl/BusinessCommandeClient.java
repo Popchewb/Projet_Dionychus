@@ -155,4 +155,14 @@ public class BusinessCommandeClient implements IBusinessCommandeClient {
 		return ccDao.getTarifLivraisonByIdCommande(idCommande);
 	}
 
+	@Override
+	public void updatePanierValider(CommandeClient paramCommandeClient) {
+		ccDao.updatePanierValider(paramCommandeClient);	
+	}
+
+	@Override
+	public void updatePanierRefUtilisateur(CommandeClient panierUtilisateur) {
+		ccDao.updatePanierRefUtilisateur(panierUtilisateur);
+	}
+
 }

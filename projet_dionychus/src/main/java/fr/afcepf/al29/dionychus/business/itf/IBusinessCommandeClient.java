@@ -33,6 +33,8 @@ public interface IBusinessCommandeClient {
 	CommandeClient addPanier(CommandeClient panier);
 	
 	void updateTypeLivraison(CommandeClient paramCommandeClient, Integer paramIdTypeLivraison);
+	
+	void updatePanierValider(CommandeClient paramCommandeClient);
 
 	// Lignes de commande
 	List<LigneCommande> getAllLigneCommandeByIdCommande(Integer paramIdCommande);
@@ -54,4 +56,6 @@ public interface IBusinessCommandeClient {
 	StatutCommande getStatutCommandeById(Integer paramIdStatutCommande);
 
 	Double getTarifLivraisonByIdCommande(Integer idCommande);
+
+	void updatePanierRefUtilisateur(CommandeClient panierUtilisateur);
 }
