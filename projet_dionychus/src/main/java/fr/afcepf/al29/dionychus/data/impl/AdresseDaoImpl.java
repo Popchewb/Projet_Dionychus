@@ -48,7 +48,7 @@ public class AdresseDaoImpl implements AdresseDaoItf {
 
 	@Override
 	public List<Adresse> getAdresseByIdActeur(Integer paramIdActeur) {
-		String SQL = "SELECT a.id_adresse, a.libelle, a.complement, a.adresse_facturation, a.adresse_livraison, v.id_ville, v.libelle, v.code_postal, p.id_pays, p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays WHERE a.id_acteur = ? ORDER BY a.libelle";
+		String SQL = "SELECT a.id_adresse, a.libelle, a.complement, a.adresse_facturation, a.adresse_livraison, v.id_ville, v.libelle, v.code_postal, p.id_pays, p.libelle FROM adresse a INNER JOIN ville v INNER JOIN pays p WHERE a.id_ville = v.id_ville AND v.id_pays = p.id_pays AND a.id_acteur = ? AND a.adresse_livraison = true ORDER BY a.libelle";
 		return jdbcTemplate.query(SQL, new Object[] { paramIdActeur }, new AdresseMapper());
 	}
 
