@@ -85,6 +85,7 @@ fr\afcepf\al29\dionychus\mapper\TypeAccessoireMapper.class
 fr\afcepf\al29\dionychus\mapper\CepageMapper.class
 fr\afcepf\al29\dionychus\data\impl\TypeAccessoireDaoImpl.class
 fr\afcepf\al29\dionychus\business\itf\IBusinessCommandeStock.class
+fr\afcepf\al29\dionychus\data\impl\CommandeClientDaoImpl$3.class
 fr\afcepf\al29\dionychus\entity\Vin.class
 fr\afcepf\al29\dionychus\data\itf\PaysDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\CommandeStockDaoImpl.class
@@ -103,7 +104,6 @@ fr\afcepf\al29\dionychus\data\itf\TypeAccessoireDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\VinDaoImpl$1.class
 fr\afcepf\al29\dionychus\data\itf\CommandeStockDaoItf.class
 fr\afcepf\al29\dionychus\mapper\TypeLivraisonMapper.class
-fr\afcepf\al29\dionychus\controller\TestAdminManagedBean.class
 fr\afcepf\al29\dionychus\controller\CompteManagedBean.class
 fr\afcepf\al29\dionychus\entity\Accessoire.class
 fr\afcepf\al29\dionychus\mapper\RegionMapper.class
