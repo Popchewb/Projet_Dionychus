@@ -17,4 +17,5 @@ public interface CommandeClientDaoItf {
 	Double getTarifLivraisonByIdCommande(Integer idCommande);
 	void updatePanierValider(CommandeClient paramCommandeClient);
 	void updatePanierRefUtilisateur(CommandeClient panierUtilisateur);
+	CommandeClient addPanierPostCommande(CommandeClient panier);
 }

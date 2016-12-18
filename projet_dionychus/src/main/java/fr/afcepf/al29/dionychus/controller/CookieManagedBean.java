@@ -45,6 +45,8 @@ public class CookieManagedBean implements Serializable{
 	private String password;
 
 	private String deco;
+	
+	private String validationPanier;
 
 	public void init() throws UnsupportedEncodingException {
 		
@@ -214,4 +216,46 @@ public class CookieManagedBean implements Serializable{
 	public void setDeco(String deco) {
 		this.deco = deco;
 	}
+
+	public String getValidationPanier() throws UnsupportedEncodingException {
+		System.out.println("panier validation");
+		CommandeClient panier = new CommandeClient();
+		Calendar c = Calendar.getInstance();
+		java.sql.Date date = new java.sql.Date(c.getTimeInMillis());
+		Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		Utilisateur userConnecte = (Utilisateur)session.get("user");
+		panier.setUtilisateur(userConnecte);
+		panier.setDateCreation(date);
+		panier.setNumeroReference(newReference());
+		panier = proxyCommandeClient.addPanierPostCommande(panier);
+		System.out.println("récupération données");
+		CommandeClient panierValide = (CommandeClient)session.get("panier");
+		System.out.println("panierValide" + panierValide);
+//		Utilisateur userConnecte = (Utilisateur)session.get("user");
+//		System.out.println("user" + userConnecte + userConnecte.getIdActeur());
+		StatutCommande statutPreparation = proxyCommandeClient.getStatutCommandeById(2);
+		System.out.println("get statut commande" + statutPreparation);
+//		panierValide.setUtilisateur(userConnecte);
+		System.out.println("set user");
+		panierValide.setStatutCommande(statutPreparation);
+		System.out.println("set statut");
+		System.out.println("panier valide " + panierValide.getStatutCommande().getIdStatutCommande() + panierValide.getUtilisateur().getIdActeur());
+		proxyCommandeClient.updatePanierValider(panierValide);
+		
+		session.put("panier", panier);
+
+		Map<String, Object> cookiesResponse = new HashMap<>();
+		cookiesResponse.put("maxAge", 31536000);
+		cookiesResponse.put("path", "/");
+		FacesContext.getCurrentInstance().getExternalContext().addResponseCookie("idPanier", URLEncoder.encode(panier.getIdCommande().toString(), "UTF-8"), cookiesResponse);
+		return "confirmation_commande.jsf";
+	}
+
+	public void setValidationPanier(String validationPanier) {
+		this.validationPanier = validationPanier;
+	}
+	
+	
+	
+	
 }
