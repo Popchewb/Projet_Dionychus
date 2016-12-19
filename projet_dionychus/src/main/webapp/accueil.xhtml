@@ -22,7 +22,7 @@
 	</ui:define>
 
 	<ui:define name="Chemin_Acces_Site">
-		<b:navLink outcome="accueil.jsp" value="Accueil" />
+		<b:navLink outcome="accueil.jsf" value="Accueil" />
 		<li>Accueil</li>
 
 	</ui:define>
@@ -170,13 +170,13 @@
 						<div class="row">
 							<ui:repeat var="accessoire"
 								value="#{accueilManagedBean.top4Accessoires}">
-								<div class="col-sm-3">
+								<div class="col-sm-3" style="margin-left: -50px !important">
 									<div class="product">
 										<div class="image">
 											<h:link outcome="details_accessoire.jsf">
 												<f:param name="id" value="#{accessoire.idArticle}" />
 												<h:graphicImage library="images"
-													name="#{accessoire.urlImage}" class="img-responsive" style="margin-left: 50px !important" />
+													name="#{accessoire.urlImage}" />
 											</h:link>
 										</div>
 										<div class="text">
