@@ -98,7 +98,33 @@ public class CompteManagedBean {
 
 	public Utilisateur connectUser() {
 
-//		proxy.getUserByEmail();
+		//		proxy.getUserByEmail();
+
+		return null;
+	}
+
+
+	public String demo(){
+
+		utilisateur.setNom("Rakotomalala");
+		utilisateur.setPrenom("Patrick");
+		utilisateur.setCivilite("Monsieur");
+		utilisateur.setAdresseMail("patrick.rakotomalala@afcepf.fr");
+		utilisateur.setNumeroTelephone("0147200001");
+		utilisateur.setLogin("iAmTheBoss");
+		utilisateur.setPassword("iAmTheBoss");
+		utilisateur.setProfession("Directeur de l'AFCEPF");
+		utilisateur.setOptin(true);
+		utilisateur.setOrigine("bouche a oreille");
+		utilisateur.setTypeAcces(typeAcces);
+
+		villeLivraison.setIdVille(1);
+		adresseLivraison.setLibelle("23-25 Avenue du Dr Lannelongue");
+		adresseLivraison.setComplementAdresse("");
+		adresseLivraison.setAdresseLivraison(true);
+		adresseLivraison.setAdresseFacturation(false);
+		adresseLivraison.setVille(villeLivraison);
+
 
 		return null;
 	}
