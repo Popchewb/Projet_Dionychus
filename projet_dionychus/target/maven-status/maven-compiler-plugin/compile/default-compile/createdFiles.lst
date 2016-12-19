@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 fr\afcepf\al29\dionychus\entity\Pays.class
 fr\afcepf\al29\dionychus\config\MvcConfiguration.class
 fr\afcepf\al29\dionychus\data\itf\CommentaireDaoItf.class
@@ -27,6 +26,7 @@ fr\afcepf\al29\dionychus\entity\CommandeClient.class
 fr\afcepf\al29\dionychus\mapper\AromeMapper.class
 fr\afcepf\al29\dionychus\controller\ConfirmationCommandeManagedBean.class
 fr\afcepf\al29\dionychus\data\impl\UtilisateurDaoImpl$1.class
+fr\afcepf\al29\dionychus\mapper\ArticleMapper.class
 fr\afcepf\al29\dionychus\data\impl\TypeVinDaoImpl.class
 fr\afcepf\al29\dionychus\mapper\AdresseMapper.class
 fr\afcepf\al29\dionychus\data\impl\AppelationDaoImpl.class
@@ -39,6 +39,7 @@ fr\afcepf\al29\dionychus\data\impl\AdresseDaoImpl.class
 fr\afcepf\al29\dionychus\data\itf\UtilisateurDaoItf.class
 fr\afcepf\al29\dionychus\mapper\CommandeStockMapper.class
 fr\afcepf\al29\dionychus\controller\CatalogueAccessoireManagedBean.class
+fr\afcepf\al29\dionychus\controller\AccueilManagedBean.class
 fr\afcepf\al29\dionychus\data\itf\TypeVinDaoItf.class
 fr\afcepf\al29\dionychus\data\impl\VinDaoImpl.class
 fr\afcepf\al29\dionychus\controller\InventaireManagedBean.class
@@ -122,5 +123,3 @@ fr\afcepf\al29\dionychus\entity\Appelation.class
 fr\afcepf\al29\dionychus\mapper\LigneCommandeMapper.class
 fr\afcepf\al29\dionychus\business\impl\BusinessCommandeClient.class
 fr\afcepf\al29\dionychus\data\impl\VilleDaoImpl.class
-=======
->>>>>>> 51609b80d92d3d7af56b7a5546b4b348c0e745f6

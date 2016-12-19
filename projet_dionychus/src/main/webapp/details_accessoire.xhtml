@@ -163,9 +163,20 @@
 								<div class="col-sm-3">
 									<div class="product">
 										<div class="image">
-											<a href="#"> <h:graphicImage library="images"
-													name="#{article.urlImage}" class="img-responsive" />
-											</a>
+											<h:link 
+													outcome="details_vin.jsf?faces-redirect=true"
+													rendered="#{article.typeArticle.equals('Vin')}">
+													<f:param name="id" value="#{article.idArticle}" />
+													<h:graphicImage library="images" name="#{article.urlImage}"
+														class="img-responsive" />
+												</h:link>
+												<h:link
+													rendered="#{article.typeArticle.equals('Accessoire')}"
+													outcome="details_accessoire.jsf?faces-redirect=true">
+													<f:param name="id" value="#{article.idArticle}" />
+													<h:graphicImage library="images" name="#{article.urlImage}"
+														class="img-responsive" />
+												</h:link>
 										</div>
 										<div class="text" style="margin-top: 10px">
 											<div>
