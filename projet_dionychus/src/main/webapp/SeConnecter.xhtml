@@ -20,17 +20,16 @@
 		<title>Se Connecter</title>
 	</h:head>
 
+	<ui:define name="Titre_Page">
+		<h2
+			style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 20px">Compte utilisateur</h2>
+	</ui:define>
 
-	<!-- 	<ui:define name="Titre_Page"> -->
-	<!-- 		<h2>Inventaire</h2> -->
-	<!-- 	</ui:define> -->
+	<ui:define name="Chemin_Acces_Site">
+		<b:navLink outcome="acceuil.jsp" value="Accueil" />
+		<li>Compte</li>
 
-	<!-- 	<ui:define name="Chemin_Acces_Site"> -->
-	<!-- 		<li><a href="index.html">Accueil</a></li> -->
-	<!-- 		<li>Admin</li> -->
-	<!-- 	</ui:define> -->
-
-
+	</ui:define>
 	<ui:define name="Contenu_Page">
 		<div id="content">
 			<div class="container">
@@ -223,7 +222,7 @@
 
 								<hr/>
 								<div class="row">
-									<div class="col-sm-12 text-center">
+									<div class="col-sm-12 text-center" style="margin-top: -15px;padding: 20px !important">
 										<h:commandButton type="submit" value="ENREGISTRER" class="btn btn-template-main" action="#{compteManagedBean.registerUser}" />
 									</div>
 								</div>
