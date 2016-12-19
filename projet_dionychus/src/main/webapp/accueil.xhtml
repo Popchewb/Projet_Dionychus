@@ -21,12 +21,6 @@
 			style="color: #333333; text-transform: uppercase; font-size: 30px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 20px">Accueil</h2>
 	</ui:define>
 
-	<ui:define name="Chemin_Acces_Site">
-		<b:navLink outcome="accueil.jsf" value="Accueil" />
-		<li>Accueil</li>
-
-	</ui:define>
-
 	<ui:define name="Contenu_Page">
 
 		<div id="content">
@@ -108,17 +102,20 @@
 							<b:carouselItem>
 								<img src="resources/images/chateauxMargaux.png"
 									style="width: 650px; height: 780px; margin-right: -40px" />
-								<b:carouselCaption style="color=red">
+								<b:carouselCaption>
 									<h3 style="color: red">Promotion sur le chateau Margaux</h3>
 								</b:carouselCaption>
 							</b:carouselItem>
-							<b:carouselItem caption="Venez vite vous servir">
+							<b:carouselItem>
 								<img src="resources/images/beaujolaisNouveau.png"
-									alt="Valladolid" style="width: 650px; height: 780px" />
+									style="width: 650px; height: 780px" />
+								<b:carouselCaption>
+									<h3 style="color: #5bc0de">Venez vite vous servir</h3>
+								</b:carouselCaption>
 							</b:carouselItem>
-							<b:carouselItem caption="Offre du mois">
-								<img src="resources/images/beaujolaisNouveau1.png"
-									alt="Valladolid" style="width: 650px; height: 780px" />
+							<b:carouselItem>
+								<img src="resources/images/la_boit_a_vin.png"
+									style="width: 650px; height: 780px" />
 							</b:carouselItem>
 						</b:carousel>
 

@@ -50,7 +50,7 @@
 						</div>
 						<div class="login">
 							<h:form>
-								<h:commandLink>
+								<h:commandLink action="#{cookieManagedBean.deconnection}">
 									<i class="fa fa-sign-in"></i>
 								</h:commandLink>
 								<h:outputLink value="#{cookieManagedBean.connection_deco}">
@@ -65,48 +65,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="navbar navbar-default yamm" id="navbar">
+		<div class="navbar navbar-default yamm" id="navbar"  style="background-color: white !important">
 
 			<div class="container">
 				<div class="navbar-header">
-<<<<<<< HEAD
-					<a class="navbar-brand home" href="accueil.jsf"> <h:graphicImage
-							library="images" name="logoDeQualite.png"
-							style="margin-top: -20px" />
-					</a>
-
-				</div>
-				<!--/.navbar-header -->
-				<b:tabLinks>
-					<div class="navbar-collapse collapse">
-
-						<ul class="nav navbar-nav navbar-right">
-
-							<li class="dropdown use-yamm yamm-fw"><b:navLink
-									href="catalogue_vin.jsf" value="Vins" icon-align="right" /></li>
-							<li class="dropdown use-yamm yamm-fw"><b:navLink
-									href="catalogue_accessoire.jsf" value="Accessoires du vin"
-									icon-align="right" /></li>
-							<li class="dropdown use-yamm yamm-fw"><b:navLink
-									href="details_produit.jsf" value="Bons Plans"
-									icon-align="right" /></li>
-							<li class="dropdown use-yamm yamm-fw"><b:navLink
-									href="contact.jsf" value="Contact" icon-align="right" /></li>
-							
-							
-								<li class="dropdown use-yamm yamm-fw">
-									<h:panelGroup rendered="#{cookieManagedBean.onglet_Admin eq '1'}">
-										<b:navLink href="inventaire_vin.jsf" value="Admin"
-										icon-align="right" />
-									</h:panelGroup>
-								</li>
-							
-						</ul>
-					</div>
-				</b:tabLinks>
-				<!--/.nav-collapse -->
-
-=======
 							<a class="navbar-brand home" href="accueil.jsf"> 
 								<h:graphicImage library="images" name="logoDeQualite.png" style="margin-top: -20px"/>
 								</a>
@@ -131,8 +93,11 @@
 									<b:navLink href="contact.jsf" value="Contact" icon-align="right" />
 								</li>
 								<li class="dropdown use-yamm yamm-fw">
-									<b:navLink href="inventaire_vin.jsf" value="Admin" icon-align="right" />
-								</li>	
+									<h:panelGroup styleClass="dropdown use-yamm yamm-fw" rendered="#{cookieManagedBean.onglet_Admin eq '1'}">
+										<b:navLink href="inventaire_vin.jsf" value="Admin"
+										icon-align="right" />
+									</h:panelGroup>
+								</li>
 							   </ul>
 							</div>
 						</b:tabLinks>
@@ -149,7 +114,6 @@
 									</span>
 								</div>
 							</h:form>
->>>>>>> 51609b80d92d3d7af56b7a5546b4b348c0e745f6
 				<div class="collapse clearfix" id="search">
 					<h:form class="navbar-form" role="search">
 						<div class="input-group">
@@ -161,174 +125,159 @@
 							</span>
 						</div>
 					</h:form>
-					<div class="collapse clearfix" id="search">
-						<h:form class="navbar-form" role="search">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search" /><span
-									class="input-group-btn">
-									<button type="submit" class="btn btn-template-main">
-										<i class="fa fa-search"></i>
-									</button>
-								</span>
-							</div>
-						</h:form>
 
-					</div>
-					<!--/.nav-collapse -->
 				</div>
+				<!--/.nav-collapse -->
 			</div>
-			<!-- /#navbar -->
+		</div>
+		<!-- /#navbar -->
 
-			<b:tabLinks style="border-bottom-color: white">
-				<div id="heading-breadcrumbs"
-					style="width: 100%; background-image: url(resources/images/texture-bw.png)">
-					<div class="container">
-						<div class="col-md-7">
-							<h1>
-								<ui:insert name="Titre_Page" />
-							</h1>
-						</div>
-						<div class="col-md-5">
-							<ul class="breadcrumb"
-								style="background-color: transparent; margin-top: 20px">
-								<b:navLink href="arche.jsf" icon-align="right">
-									<ui:insert name="Chemin_Acces_Site" />
-								</b:navLink>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</b:tabLinks>
-
-			<div id="content">
-				<ui:insert name="Contenu_Page"></ui:insert>
-			</div>
-
-			<footer id="footer">
+		<b:tabLinks style="border-bottom-color: white">
+			<div id="heading-breadcrumbs"
+				style="width: 100%; background-image: url(resources/images/texture-bw.png)">
 				<div class="container">
-					<div class="col-md-4 col-sm-6 text-center">
-
-						<h4>Informations légales</h4>
-						<ul>
-							<li><a href="http://i6.cdscdn.com/imagesok/cgv/ml.pdf">Mentions
-									légales</a></li>
-							<li><a href="#">Conditions Générales de Vente</a></li>
-							<li><a href="#">Dionychus et l'environnement</a></li>
-							<li><a href="#">Protection de la vie privée et cookies</a></li>
+					<div class="col-md-7">
+						<h1>
+							<ui:insert name="Titre_Page" />
+						</h1>
+					</div>
+					<div class="col-md-5">
+						<ul class="breadcrumb"
+							style="background-color: transparent; margin-top: 20px">
+							<b:navLink href="arche.jsf" icon-align="right">
+								<ui:insert name="Chemin_Acces_Site" />
+							</b:navLink>
 						</ul>
-
-						<hr />
-
-						<h4>Rejoindre notre newsletter</h4>
-
-						<h:form>
-							<div class="input-group">
-
-								<input type="text" class="form-control" /> <span
-									class="input-group-btn">
-
-									<button class="btn btn-default" type="button">
-										<i class="fa fa-send"></i>
-									</button>
-
-								</span>
-
-							</div>
-							<!-- /input-group -->
-						</h:form>
-
-						<hr class="hidden-md hidden-lg hidden-sm" />
-
 					</div>
-					<div class="col-md-4 col-sm-6 text-center">
+				</div>
+			</div>
+		</b:tabLinks>
 
-						<h4>Contact</h4>
+		<div id="content"  style="background-color: white !important">
+			<ui:insert name="Contenu_Page"></ui:insert>
+		</div>
 
-						<p>
-							<strong>Adresse: </strong> <br />23/25 Avenue <br />du Docteur
-							Lannelongue <br />92120 <br />Paris <br /> <strong>France</strong>
-						</p>
+		<footer id="footer">
+			<div class="container">
+				<div class="col-md-4 col-sm-6 text-center">
 
-						<a href="contact.jsf" class="btn btn-small btn-template-main">Contactez-nous</a>
+					<h4>Informations légales</h4>
+					<ul>
+						<li><a href="http://i6.cdscdn.com/imagesok/cgv/ml.pdf">Mentions
+								légales</a></li>
+						<li><a href="#">Conditions Générales de Vente</a></li>
+						<li><a href="#">Dionychus et l'environnement</a></li>
+						<li><a href="#">Protection de la vie privée et cookies</a></li>
+					</ul>
 
-						<hr class="hidden-md hidden-lg hidden-sm" />
+					<hr />
 
-					</div>
-					<div class="col-md-4 col-sm-6 text-center">
+					<h4>Rejoindre notre newsletter</h4>
 
-						<h4>Partenaires</h4>
+					<h:form>
+						<div class="input-group">
 
-						<div class="blog-entries">
-							<div class="item same-height-row clearfix">
-								<div class="image same-height-always">
-									<a href="http://www.blog-vin.fr/"> <h:graphicImage
-											library="images" name="blogvin.jpg" class="img-responsive" />
-									</a>
-								</div>
-								<div class="name same-height-always">
-									<h5>
-										<a href="http://www.blog-vin.fr/">Décalé, Esthète et
-											épicurien</a>
-									</h5>
-								</div>
+							<input type="text" class="form-control" /> <span
+								class="input-group-btn">
+
+								<button class="btn btn-default" type="button">
+									<i class="fa fa-send"></i>
+								</button>
+
+							</span>
+
+						</div>
+						<!-- /input-group -->
+					</h:form>
+
+					<hr class="hidden-md hidden-lg hidden-sm" />
+
+				</div>
+				<div class="col-md-4 col-sm-6 text-center">
+
+					<h4>Contact</h4>
+
+					<p>
+						<strong>Adresse: </strong> <br />23/25 Avenue <br />du Docteur
+						Lannelongue <br />92120 <br />Paris <br /> <strong>France</strong>
+					</p>
+
+					<a href="contact.jsf" class="btn btn-small btn-template-main">Contactez-nous</a>
+
+					<hr class="hidden-md hidden-lg hidden-sm" />
+
+				</div>
+				<div class="col-md-4 col-sm-6 text-center">
+
+					<h4>Partenaires</h4>
+
+					<div class="blog-entries">
+						<div class="item same-height-row clearfix">
+							<div class="image same-height-always">
+								<a href="http://www.blog-vin.fr/"> <h:graphicImage
+										library="images" name="blogvin.jpg" class="img-responsive" />
+								</a>
 							</div>
-
-							<div class="item same-height-row clearfix">
-								<div class="image same-height-always">
-									<a href="http://www.verywinetrip.fr/"> <h:graphicImage
-											library="images" name="veryWineTrip.jpg"
-											class="img-responsive" />
-									</a>
-								</div>
-								<div class="name same-height-always">
-									<h5>
-										<a href="http://www.verywinetrip.fr/">Carnet de voyage
-											d'une amoureuse du vin</a>
-									</h5>
-								</div>
-							</div>
-
-							<div class="item same-height-row clearfix">
-								<div class="image same-height-always">
-									<a href="http://www.sommelier-vins.com/"> <h:graphicImage
-											library="images" name="emmanuelDelmas.jpg"
-											class="img-responsive" />
-									</a>
-								</div>
-								<div class="name same-height-always">
-									<h5>
-										<a href="http://www.sommelier-vins.com/">Emmanuel Delmas,
-											sommelier</a>
-									</h5>
-								</div>
+							<div class="name same-height-always">
+								<h5>
+									<a href="http://www.blog-vin.fr/">Décalé, Esthète et
+										épicurien</a>
+								</h5>
 							</div>
 						</div>
 
-					</div>
-					<!-- /.col-md-3 -->
+						<div class="item same-height-row clearfix">
+							<div class="image same-height-always">
+								<a href="http://www.verywinetrip.fr/"> <h:graphicImage
+										library="images" name="veryWineTrip.jpg"
+										class="img-responsive" />
+								</a>
+							</div>
+							<div class="name same-height-always">
+								<h5>
+									<a href="http://www.verywinetrip.fr/">Carnet de voyage
+										d'une amoureuse du vin</a>
+								</h5>
+							</div>
+						</div>
 
+						<div class="item same-height-row clearfix">
+							<div class="image same-height-always">
+								<a href="http://www.sommelier-vins.com/"> <h:graphicImage
+										library="images" name="emmanuelDelmas.jpg"
+										class="img-responsive" />
+								</a>
+							</div>
+							<div class="name same-height-always">
+								<h5>
+									<a href="http://www.sommelier-vins.com/">Emmanuel Delmas,
+										sommelier</a>
+								</h5>
+							</div>
+						</div>
+					</div>
 
 				</div>
-				<!-- /.container -->
-			</footer>
+				<!-- /.col-md-3 -->
 
-			<div id="copyright">
-				<div class="container">
-					<div class="col-md-12">
-						<p class="pull-left">2016. Groupe Yaoi</p>
-						<p class="pull-right">
-							Template by <a href="">Pikachu catcheur</a>
-							<!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
-						</p>
 
-					</div>
+			</div>
+			<!-- /.container -->
+		</footer>
+
+		<div id="copyright">
+			<div class="container">
+				<div class="col-md-12">
+					<p class="pull-left">2016. Groupe Yaoi</p>
+					<p class="pull-right">
+						Template by <a href="">Pikachu catcheur</a>
+						<!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+					</p>
+
 				</div>
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-=======
 </div>
->>>>>>> 51609b80d92d3d7af56b7a5546b4b348c0e745f6
 </h:body>
 </html>

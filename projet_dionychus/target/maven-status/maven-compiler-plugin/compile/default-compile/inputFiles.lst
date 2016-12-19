@@ -10,6 +10,7 @@ C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al2
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\VinDaoImpl.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\AccessoireDaoImpl.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\PaysDaoImpl.java
+C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\controller\AccueilManagedBean.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\LivraisonDaoImpl.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\impl\TypeAccessoireDaoImpl.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\RegionDaoItf.java
@@ -104,6 +105,7 @@ C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al2
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\Livraison.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\VinDaoItf.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\TypeLivraisonDaoItf.java
+C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\mapper\ArticleMapper.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\entity\TypeAcces.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\business\impl\BusinessInventaireImpl.java
 C:\Users\ecala\git\Projet_Dionychus\projet_dionychus\src\main\java\fr\afcepf\al29\dionychus\data\itf\UtilisateurDaoItf.java

@@ -30,12 +30,12 @@ public class DetailVinManagedBean implements Serializable {
 
 	private HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
 			.getRequest();
-	
 
 	private Integer idArticle = Integer.parseInt(request.getParameter("id"));
 	private Article article;
 	private Integer quantite = 1;
-	private Integer idCommande = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("panier")).getIdCommande();
+	private Integer idCommande = ((CommandeClient) FacesContext.getCurrentInstance().getExternalContext()
+			.getSessionMap().get("panier")).getIdCommande();
 	private List<Article> articlesAssocies;
 
 	@PostConstruct
@@ -50,17 +50,17 @@ public class DetailVinManagedBean implements Serializable {
 		List<LigneCommande> lignesCommande = proxyCommandeClient.getAllLigneCommandeByIdCommande(idCommande);
 		LigneCommande ligneDejaCree = null;
 		for (LigneCommande ligneCommande : lignesCommande) {
-			if(ligneCommande.getArticle().getIdArticle() == idArticle){
+			if (ligneCommande.getArticle().getIdArticle() == idArticle) {
 				estDeja = true;
 				ligneDejaCree = ligneCommande;
 			}
 		}
-		if(estDeja){
-			ligneDejaCree.setQuantite(ligneDejaCree.getQuantite()+quantite);
+		if (estDeja) {
+			ligneDejaCree.setQuantite(ligneDejaCree.getQuantite() + quantite);
 			proxyCommandeClient.updateLigneCommande(ligneDejaCree);
 		} else {
-		LigneCommande lc = new LigneCommande(null, quantite, article);
-		proxyCommandeClient.addLigneCommande(lc, idCommande);
+			LigneCommande lc = new LigneCommande(null, quantite, article);
+			proxyCommandeClient.addLigneCommande(lc, idCommande);
 		}
 		String url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/panier.jsf";
 		quantite = 1;
