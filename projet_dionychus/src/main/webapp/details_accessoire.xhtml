@@ -26,8 +26,8 @@
 	</ui:define>
 
 	<ui:define name="Chemin_Acces_Site">
-		<b:navLink outcome="acceuil.jsp" value="Accueil" />
-		<li><b:navLink outcome="catalogue_accessoire.jsp"
+		<b:navLink outcome="accueil.jsf" value="Accueil" />
+		<li><b:navLink outcome="catalogue_accessoire.jsf"
 				value="Accessoires" /></li>
 
 	</ui:define>
@@ -108,11 +108,11 @@
 								<div id="mainImage" style="margin-top: 60px">
 									<h:graphicImage library="images"
 										name="#{detailAccessoireManagedBean.article.urlImage}"
-										class="img-responsive" style="height:320px;width:180px;margin-left: 79px;margin-bottom: -70px; margin-top: -70px" />
+										class="img-responsive" style="height:320px;width:180px;margin-left: 79px;margin-bottom: -30px; margin-top: -70px" />
 								</div>
 								<br />
-								<div style="text-align: center; margin-top: 10px">
-									<h:outputText style="font-size: 28px; line-height: normal;"
+								<div style="text-align: center; margin-top: 0px">
+									<h:outputText style="font-size: 28px; line-height: normal;margin-bottom: 30px"
 										value="#{detailAccessoireManagedBean.article.prix}" ><f:convertNumber minFractionDigits="2"
 														maxFractionDigits="2" type="currency" currencySymbol="€" />F </h:outputText>
 								</div>
@@ -163,9 +163,20 @@
 								<div class="col-sm-3">
 									<div class="product">
 										<div class="image">
-											<a href="#"> <h:graphicImage library="images"
-													name="#{article.urlImage}" class="img-responsive" />
-											</a>
+											<h:link 
+													outcome="details_vin.jsf?faces-redirect=true"
+													rendered="#{article.typeArticle.equals('Vin')}">
+													<f:param name="id" value="#{article.idArticle}" />
+													<h:graphicImage library="images" name="#{article.urlImage}"
+														class="img-responsive" />
+												</h:link>
+												<h:link
+													rendered="#{article.typeArticle.equals('Accessoire')}"
+													outcome="details_accessoire.jsf?faces-redirect=true">
+													<f:param name="id" value="#{article.idArticle}" />
+													<h:graphicImage library="images" name="#{article.urlImage}"
+														class="img-responsive" />
+												</h:link>
 										</div>
 										<div class="text" style="margin-top: 10px">
 											<div>
