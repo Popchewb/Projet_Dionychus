@@ -47,6 +47,8 @@ public class CookieManagedBean implements Serializable{
 	private String validationPanier;
 
 	private String onglet_Admin;
+	
+	private String referrer;
 
 	public void init() throws UnsupportedEncodingException {
 
@@ -152,8 +154,14 @@ public class CookieManagedBean implements Serializable{
 				CommandeClient panierUtilisateur = (CommandeClient)session.get("panier");
 				session.put("user", user_connecte);
 				panierUtilisateur.setUtilisateur(user_connecte);
-				proxyCommandeClient.updatePanierRefUtilisateur(panierUtilisateur);
-				return "accueil.jsf";
+				proxyCommandeClient.updatePanierRefUtilisateur(panierUtilisateur);		
+				referrer = FacesContext.getCurrentInstance().getExternalContext().getRequestHeaderMap().get("referer");
+				if(referrer.equals("http://localhost:8080/Projet_Dionychus/panier.jsf")){
+					return "livraison.jsf";
+				} else {
+					return "accueil.jsf";
+				}
+				
 			}
 		}
 		return null;
