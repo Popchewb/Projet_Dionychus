@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: ecala
 Build-Jdk: 1.8.0_111
+=======
+Built-By: Nicolas
+Build-Jdk: 1.8.0_112
+>>>>>>> 1f57c3be1e0038c0db7971ca8510094bf621b849
 Created-By: Maven Integration for Eclipse
 
