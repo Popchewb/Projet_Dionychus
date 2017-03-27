@@ -53,7 +53,7 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 				new Object[] { paramAccessoire.getReference(), paramAccessoire.getLibelle(),
 						paramAccessoire.getDescription(), paramAccessoire.getPrix(), paramAccessoire.getQuantite(),
 						paramAccessoire.getSeuilAlerte(), paramAccessoire.getUrlImage(),
-						paramAccessoire.getTypeAccessoire().getId_type_accessoire(),paramIdFournisseur });
+						paramAccessoire.getTypeAccessoire().getIdTypeAccessoire(),paramIdFournisseur });
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class AccessoireDaoImpl implements AccessoireDaoItf {
 				new Object[] { paramAccessoire.getReference(), paramAccessoire.getLibelle(),
 						paramAccessoire.getDescription(), paramAccessoire.getPrix(), paramAccessoire.getQuantite(),
 						paramAccessoire.getSeuilAlerte(), paramAccessoire.getUrlImage(),
-						paramAccessoire.getTypeAccessoire().getId_type_accessoire(), paramAccessoire.getIdArticle() });
+						paramAccessoire.getTypeAccessoire().getIdTypeAccessoire(), paramAccessoire.getIdArticle() });
 	}
 
 	@Override

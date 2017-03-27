@@ -12,7 +12,7 @@ public class TypeAccessoireMapper implements RowMapper<TypeAccessoire> {
 	@Override
 	public TypeAccessoire mapRow(ResultSet rs, int intRow) throws SQLException {
 		TypeAccessoire typeAccessoire = new TypeAccessoire();
-		typeAccessoire.setId_type_accessoire(rs.getInt("id_type_accessoire"));
+		typeAccessoire.setIdTypeAccessoire(rs.getInt("id_type_accessoire"));
 		typeAccessoire.setLibelle(rs.getString("libelle"));
 		return typeAccessoire;
 	}

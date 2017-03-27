@@ -16,7 +16,7 @@ public class AccessoireMapper implements RowMapper<Accessoire> {
 		Accessoire accessoire = new Accessoire();
 		accessoire.setIdArticle(rs.getInt("a.id_article"));
 		TypeAccessoire typeAccessoire = new TypeAccessoire();
-		typeAccessoire.setId_type_accessoire(rs.getInt("a.id_type_accessoire"));
+		typeAccessoire.setIdTypeAccessoire(rs.getInt("a.id_type_accessoire"));
 		typeAccessoire.setLibelle(rs.getString("tac.libelle"));
 		accessoire.setTypeAccessoire(typeAccessoire);
 		accessoire.setReference(rs.getString("a.reference"));
