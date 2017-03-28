@@ -7,14 +7,20 @@ import org.springframework.jdbc.core.RowMapper;
 
 import fr.afcepf.al29.dionychus.entity.Region;
 
-public class RegionMapper implements RowMapper<Region>{
+/**
+ * Classe pour mapper un result set de région vers une entité {@link Region}.
+ *
+ * @author ecala
+ *
+ */
+public class RegionMapper implements RowMapper<Region> {
 
-	@Override
-	public Region mapRow(ResultSet rs, int intRow) throws SQLException {
-		Region region = new Region();
-		region.setIdRegion(rs.getInt("id_region"));
-		region.setLibelle(rs.getString("libelle"));
-		return region;
-	}
-	
+    @Override
+    public Region mapRow(ResultSet rs, int intRow) throws SQLException {
+        Region region = new Region();
+        region.setIdRegion(rs.getInt("id_region"));
+        region.setLibelle(rs.getString("libelle"));
+        return region;
+    }
+
 }

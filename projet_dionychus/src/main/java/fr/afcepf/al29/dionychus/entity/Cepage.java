@@ -1,61 +1,68 @@
 package fr.afcepf.al29.dionychus.entity;
 
+/**
+ * Entité pour les cépages des {@link Vin} vendus par Dyonichus.
+ *
+ * @author ecala
+ *
+ */
 public class Cepage {
-	private Integer idCepage;
-	private String libelle;
-	public Cepage() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Cepage(Integer idCepage, String libelle) {
-		super();
-		this.idCepage = idCepage;
-		this.libelle = libelle;
-	}
-	public Integer getIdCepage() {
-		return idCepage;
-	}
-	public void setIdCepage(Integer idCepage) {
-		this.idCepage = idCepage;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((idCepage == null) ? 0 : idCepage.hashCode());
-		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cepage other = (Cepage) obj;
-		if (idCepage == null) {
-			if (other.idCepage != null)
-				return false;
-		} else if (!idCepage.equals(other.idCepage))
-			return false;
-		if (libelle == null) {
-			if (other.libelle != null)
-				return false;
-		} else if (!libelle.equals(other.libelle))
-			return false;
-		return true;
-	}
-	@Override
-	public String toString() {
-		return "Cepage [idCepage=" + idCepage + ", libelle=" + libelle + "]";
-	}
-	
+    /**
+     * l'id du cépage.
+     */
+    private Integer idCepage;
+    /**
+     * le libellé du cépage.
+     */
+    private String libelle;
+
+    /**
+     * Constructeur par défaut.
+     */
+    public Cepage() {
+        super();
+    }
+    /**
+     * Constructeur surchargé.
+     * @param paramIdCepage id to set.
+     * @param paramLibelle libellé to set.
+     */
+    public Cepage(Integer paramIdCepage, String paramLibelle) {
+        super();
+        idCepage = paramIdCepage;
+        libelle = paramLibelle;
+    }
+    /**
+     *
+     * @return l'id du cépage.
+     */
+    public Integer getIdCepage() {
+        return idCepage;
+    }
+    /**
+     *
+     * @param paramIdCepage id to set.
+     */
+    public void setIdCepage(Integer paramIdCepage) {
+        idCepage = paramIdCepage;
+    }
+    /**
+     *
+     * @return libellé du cépage.
+     */
+    public String getLibelle() {
+        return libelle;
+    }
+    /**
+     * @param paramLibelle libellé to set.
+     */
+    public void setLibelle(String paramLibelle) {
+        libelle = paramLibelle;
+    }
+
+    @Override
+    public String toString() {
+        return "Cepage [idCepage=" + idCepage + ", libelle=" + libelle + "]";
+    }
+
 }

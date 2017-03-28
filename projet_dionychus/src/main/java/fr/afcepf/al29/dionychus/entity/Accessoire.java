@@ -2,68 +2,93 @@ package fr.afcepf.al29.dionychus.entity;
 
 import java.util.List;
 
-public class Accessoire extends Article{
-	private TypeAccessoire typeAccessoire;
+/**
+ * Entité pour les accessoires de qualité vendus par Dyonichus.
+ *
+ * @author ecala
+ */
+public class Accessoire extends Article {
+    /**
+     * Type d'accessoire de l'{@link Accessoire}.
+     */
+    private TypeAccessoire typeAccessoire;
 
-	public Accessoire() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * Constructeur par défaut de l'accessoire.
+     */
+    public Accessoire() {
+        super();
+    }
 
-	public Accessoire(Integer idArticle, String reference, String libelle, String description, Double prix,
-			Integer quantite, Integer seuilAlerte, String urlImage, String typeArticle,
-			List<Commentaire> commentaires) {
-		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage, typeArticle, commentaires);
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * Constructeur surchargé de l'accessoire.
+     *
+     * @param paramTypeAccessoire
+     *            le type de l'accessoire.
+     */
+    public Accessoire(TypeAccessoire paramTypeAccessoire) {
+        super();
+        typeAccessoire = paramTypeAccessoire;
+    }
 
-	public Accessoire(Integer idArticle, String reference, String libelle, String description, Double prix,
-			Integer quantite, Integer seuilAlerte, String urlImage, String typeArticle, List<Commentaire> commentaires,
-			TypeAccessoire typeAccessoire) {
-		super(idArticle, reference, libelle, description, prix, quantite, seuilAlerte, urlImage, typeArticle,
-				commentaires);
-		this.typeAccessoire = typeAccessoire;
-	}
+    /**
+     * Constructeur surchargé de l'accessoire.
+     *
+     * @param paramIdArticle
+     *            id de l'accessoire
+     * @param paramReference
+     *            référence de l'accessoire
+     * @param paramLibelle
+     *            libellé de l'accessoire
+     * @param paramDescription
+     *            description de l'accessoire
+     * @param paramPrix
+     *            prix de l'accessoire
+     * @param paramQuantite
+     *            stock restant de l'accessoire
+     * @param paramSeuilAlerte
+     *            seuil à partir duquel l'application averti du stock restant de
+     *            l'accessoire
+     * @param paramUrlImage
+     *            url de l'image de l'accessoire qui apparait dans l'IHM
+     * @param paramTypeArticle
+     *            type d'article de l'accessoire
+     * @param paramCommentaires
+     *            les commentaires des clients sur l'accessoire
+     * @param paramTypeAccessoire
+     *            le type accessoire de l'accessoire.
+     */
+    public Accessoire(Integer paramIdArticle, String paramReference, String paramLibelle, String paramDescription,
+            Double paramPrix, Integer paramQuantite, Integer paramSeuilAlerte, String paramUrlImage,
+            String paramTypeArticle, List<Commentaire> paramCommentaires, TypeAccessoire paramTypeAccessoire) {
+        super(paramIdArticle, paramReference, paramLibelle, paramDescription, paramPrix, paramQuantite,
+                paramSeuilAlerte, paramUrlImage, paramTypeArticle, paramCommentaires);
+        typeAccessoire = paramTypeAccessoire;
+    }
 
-	public TypeAccessoire getTypeAccessoire() {
-		return typeAccessoire;
-	}
+    /**
+     *
+     * @return le type de l'accessoire.
+     */
+    public TypeAccessoire getTypeAccessoire() {
+        return typeAccessoire;
+    }
 
-	public void setTypeAccessoire(TypeAccessoire typeAccessoire) {
-		this.typeAccessoire = typeAccessoire;
-	}
+    /**
+     *
+     * @param paramTypeAccessoire
+     *            le type de l'accessoire to set.
+     */
+    public void setTypeAccessoire(TypeAccessoire paramTypeAccessoire) {
+        typeAccessoire = paramTypeAccessoire;
+    }
 
-	@Override
-	public String toString() {
-		return "Accessoire [typeAccessoire=" + typeAccessoire + "]";
-	}
+    /**
+     * @return le texte du type d'accessoire.
+     */
+    @Override
+    public String toString() {
+        return "Accessoire [typeAccessoire=" + typeAccessoire + "]";
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((typeAccessoire == null) ? 0 : typeAccessoire.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Accessoire other = (Accessoire) obj;
-		if (typeAccessoire == null) {
-			if (other.typeAccessoire != null)
-				return false;
-		} else if (!typeAccessoire.equals(other.typeAccessoire))
-			return false;
-		return true;
-	}
-
-	
-	
-	
 }

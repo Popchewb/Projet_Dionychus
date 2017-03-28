@@ -10,52 +10,69 @@ import fr.afcepf.al29.dionychus.data.itf.TypeVinDaoItf;
 import fr.afcepf.al29.dionychus.entity.TypeVin;
 import fr.afcepf.al29.dionychus.mapper.TypeVinMapper;
 
-public class TypeVinDaoImpl implements TypeVinDaoItf{
-	
-	JdbcTemplate jdbcTemplate;
-	DataSource dataSource;
-	
-	
-	
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
+/**
+ * Classe pour l'accès aux données des {@link TypeVin}.
+ *
+ * @author ecala
+ *
+ */
+public class TypeVinDaoImpl implements TypeVinDaoItf {
+    /**
+     * le template jdbc.
+     */
+    private JdbcTemplate jdbcTemplate;
+    /**
+     * la datasource.
+     */
+    private DataSource dataSource;
 
+    /**
+     *
+     * @return le template jdbc.
+     */
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
 
+    /**
+     *
+     * @param paramJdbcTemplate
+     *            le template jdbc to set.
+     */
+    public void setJdbcTemplate(JdbcTemplate paramJdbcTemplate) {
+        jdbcTemplate = paramJdbcTemplate;
+    }
 
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+    /**
+     *
+     * @return la datasource.
+     */
+    public DataSource getDataSource() {
+        return dataSource;
+    }
 
+    /**
+     *
+     * @param paramDataSource
+     *            la datasource to set.
+     */
+    public void setDataSource(DataSource paramDataSource) {
+        dataSource = paramDataSource;
+        jdbcTemplate = new JdbcTemplate(paramDataSource);
+    }
 
+    @Override
+    public List<TypeVin> getAll() {
+        String sql = "SELECT id_type_vin, libelle FROM type_vin ORDER BY libelle";
+        List<TypeVin> typesVin = jdbcTemplate.query(sql, new TypeVinMapper());
+        return typesVin;
+    }
 
-	public DataSource getDataSource() {
-		return dataSource;
-	}
-
-
-
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
-	}
-
-
-
-	@Override
-	public List<TypeVin> getAll() {
-		String SQL = "SELECT id_type_vin, libelle FROM type_vin ORDER BY libelle";
-		List<TypeVin> typesVin = jdbcTemplate.query(SQL, new TypeVinMapper());
-		return typesVin;
-	}
-
-
-
-	@Override
-	public TypeVin getTypeVinById(Integer typeVinId) {
-		String SQL = "SELECT id_type_vin, libelle FROM type_vin WHERE id_type_vin = ?";
-		TypeVin typeVin = jdbcTemplate.queryForObject(SQL, new Object[] { typeVinId }, new TypeVinMapper());
-		return typeVin;
-	}
+    @Override
+    public TypeVin getTypeVinById(Integer typeVinId) {
+        String sql = "SELECT id_type_vin, libelle FROM type_vin WHERE id_type_vin = ?";
+        TypeVin typeVin = jdbcTemplate.queryForObject(sql, new Object[] {typeVinId }, new TypeVinMapper());
+        return typeVin;
+    }
 
 }

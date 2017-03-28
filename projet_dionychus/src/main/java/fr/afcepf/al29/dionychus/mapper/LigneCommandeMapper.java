@@ -9,28 +9,35 @@ import fr.afcepf.al29.dionychus.entity.Accessoire;
 import fr.afcepf.al29.dionychus.entity.LigneCommande;
 import fr.afcepf.al29.dionychus.entity.Vin;
 
+/**
+ * Classe pour mapper un result set de ligne de commande vers une entité
+ * {@link LigneCommande}.
+ *
+ * @author ecala
+ *
+ */
 public class LigneCommandeMapper implements RowMapper<LigneCommande> {
 
-	@Override
-	public LigneCommande mapRow(ResultSet rs, int intRow) throws SQLException {
-		LigneCommande ligneCommande = new LigneCommande();
-		ligneCommande.setIdLigneCommande(rs.getInt("lc.id_ligne_commande"));
-		ligneCommande.setQuantite(rs.getInt("lc.quantite"));
-		String typeArticle = rs.getString("a.type_article");
-		if (typeArticle.equals("Vin")) {
-			Vin article = new Vin();
-			article.setIdArticle(rs.getInt("lc.id_article"));
-			article.setTypeArticle(typeArticle);
-			ligneCommande.setArticle(article);
-		}
-		if (typeArticle.equals("Accessoire")) {
-			Accessoire article = new Accessoire();
-			article.setIdArticle(rs.getInt("lc.id_article"));
-			article.setTypeArticle(rs.getString("a.type_article"));
-			ligneCommande.setArticle(article);
-		}
+    @Override
+    public LigneCommande mapRow(ResultSet rs, int intRow) throws SQLException {
+        LigneCommande ligneCommande = new LigneCommande();
+        ligneCommande.setIdLigneCommande(rs.getInt("lc.id_ligne_commande"));
+        ligneCommande.setQuantite(rs.getInt("lc.quantite"));
+        String typeArticle = rs.getString("a.type_article");
+        if (typeArticle.equals("Vin")) {
+            Vin article = new Vin();
+            article.setIdArticle(rs.getInt("lc.id_article"));
+            article.setTypeArticle(typeArticle);
+            ligneCommande.setArticle(article);
+        }
+        if (typeArticle.equals("Accessoire")) {
+            Accessoire article = new Accessoire();
+            article.setIdArticle(rs.getInt("lc.id_article"));
+            article.setTypeArticle(rs.getString("a.type_article"));
+            ligneCommande.setArticle(article);
+        }
 
-		return ligneCommande;
-	}
+        return ligneCommande;
+    }
 
 }

@@ -1,62 +1,82 @@
 package fr.afcepf.al29.dionychus.entity;
 
+/**
+ * Entité pour les délicieux arômes des {@link Vin} de Dyonichus.
+ *
+ * @author ecala
+ *
+ */
 public class Arome {
-	private Integer idArome;
-	private String libelle;
-	public Arome(Integer idArome, String libelle) {
-		super();
-		this.idArome = idArome;
-		this.libelle = libelle;
-	}
-	public Arome() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Integer getIdArome() {
-		return idArome;
-	}
-	public void setIdArome(Integer idArome) {
-		this.idArome = idArome;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((idArome == null) ? 0 : idArome.hashCode());
-		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Arome other = (Arome) obj;
-		if (idArome == null) {
-			if (other.idArome != null)
-				return false;
-		} else if (!idArome.equals(other.idArome))
-			return false;
-		if (libelle == null) {
-			if (other.libelle != null)
-				return false;
-		} else if (!libelle.equals(other.libelle))
-			return false;
-		return true;
-	}
-	@Override
-	public String toString() {
-		return "Arome [idArome=" + idArome + ", libelle=" + libelle + "]";
-	}
-	
-	
+    /**
+     * id de l'arôme.
+     */
+    private Integer idArome;
+    /**
+     * libelle de l'arôme.
+     */
+    private String libelle;
+
+    /**
+     * Constructeur par défaut de l'arôme.
+     */
+    public Arome() {
+        super();
+    }
+
+    /**
+     * Constructeur surchargé de l'arôme.
+     *
+     * @param paramIdArome
+     *            l'id de l'arôme.
+     * @param paramLibelle
+     *            libelle de l'arôme.
+     */
+    public Arome(Integer paramIdArome, String paramLibelle) {
+        super();
+        idArome = paramIdArome;
+        libelle = paramLibelle;
+    }
+
+    /**
+     *
+     * @return id de l'arome.
+     */
+    public Integer getIdArome() {
+        return idArome;
+    }
+
+    /**
+     *
+     * @param paramIdArome
+     *            id to set.
+     */
+    public void setIdArome(Integer paramIdArome) {
+        idArome = paramIdArome;
+    }
+
+    /**
+     *
+     * @return le libellé de l'arôme.
+     */
+    public String getLibelle() {
+        return libelle;
+    }
+
+    /**
+     *
+     * @param paramLibelle
+     *            le libellé de l'arôme to set.
+     */
+    public void setLibelle(String paramLibelle) {
+        libelle = paramLibelle;
+    }
+    /**
+     *
+     * @return le texte des paramètres de l'arôme.
+     */
+    @Override
+    public String toString() {
+        return "Arome [idArome=" + idArome + ", libelle=" + libelle + "]";
+    }
+
 }

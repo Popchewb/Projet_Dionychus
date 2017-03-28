@@ -20,111 +20,136 @@ import fr.afcepf.al29.dionychus.entity.TypeAcces;
 import fr.afcepf.al29.dionychus.entity.Utilisateur;
 import fr.afcepf.al29.dionychus.entity.Ville;
 
+/**
+ * Classe pour les services de gestion des {@link Utilisateur}.
+ *
+ * @author ecala
+ *
+ */
 @Service
 public class BusinessCompteImpl implements IBusinessCompte {
+    /**
+     * Le contexte de l'application.
+     */
+    private ApplicationContext context = new ClassPathXmlApplicationContext("classpath:Beans.xml");
+    /**
+     * Objet pour accéder aux données des {@link Adresse}.
+     */
+    private AdresseDaoItf proxyAdresseDao = (AdresseDaoItf) context.getBean("adresseJDBCtemplate");
+    /**
+     * Objet pour accéder aux données des {@link Commentaire}.
+     */
+    private CommentaireDaoItf proxyCommentaireDao = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
+    /**
+     * Objet pour accéder aux données des {@link Pays}.
+     */
+    private PaysDaoImpl proxyPaysDao = (PaysDaoImpl) context.getBean("paysJDBCtemplate");
+    /**
+     * Objet pour accéder aux données des {@link Ville}.
+     */
+    private VilleDaoImpl proxyVilleDao = (VilleDaoImpl) context.getBean("villeJDBCtemplate");
+    /**
+     * Objet pour accéder aux données des {@link Utilisateur}.
+     */
+    private UtilisateurDaoImpl proxyUtilisateurDao = (UtilisateurDaoImpl) context.getBean("utilisateurJDBCtemplate");
+    /**
+     * Objet pour accéder aux données des {@link TypeAcces}.
+     */
+    private TypeAccesDaoImpl proxyTypeAccesDao = (TypeAccesDaoImpl) context.getBean("typeAccesJDBCtemplate");
 
-	private ApplicationContext context = new ClassPathXmlApplicationContext("classpath:Beans.xml");
+    @Override
+    public List<Adresse> getAllAdresse() {
+        return proxyAdresseDao.getAll();
+    }
 
-	private AdresseDaoItf proxyAdresseDao = (AdresseDaoItf) context.getBean("adresseJDBCtemplate");
-	private CommentaireDaoItf proxyCommentaireDao = (CommentaireDaoItf) context.getBean("commentaireJDBCtemplate");
-	private PaysDaoImpl proxyPaysDao = (PaysDaoImpl) context.getBean("paysJDBCtemplate");
-	private VilleDaoImpl proxyVilleDao = (VilleDaoImpl) context.getBean("villeJDBCtemplate");
-	private UtilisateurDaoImpl proxyUtilisateurDao = (UtilisateurDaoImpl) context.getBean("utilisateurJDBCtemplate");
-	private TypeAccesDaoImpl proxyTypeAccesDao = (TypeAccesDaoImpl) context.getBean("typeAccesJDBCtemplate");
+    @Override
+    public Adresse getAdresseById(Integer paramIdAdresse) {
+        return proxyAdresseDao.getAdresseById(paramIdAdresse);
+    }
 
-	@Override
-	public List<Adresse> getAllAdresse() {
-		return proxyAdresseDao.getAll();
-	}
+    @Override
+    public List<Adresse> getAdresseByIdActeur(Integer paramIdActeur) {
+        return proxyAdresseDao.getAdresseByIdActeur(paramIdActeur);
+    }
 
-	@Override
-	public Adresse getAdresseById(Integer paramIdAdresse) {
-		return proxyAdresseDao.getAdresseById(paramIdAdresse);
-	}
+    @Override
+    public void addAdresse(Adresse paramAdresse, Integer paramIdActeur) {
+        proxyAdresseDao.addAdresse(paramAdresse, paramIdActeur);
+    }
 
-	@Override
-	public List<Adresse> getAdresseByIdActeur(Integer paramIdActeur) {
-		return proxyAdresseDao.getAdresseByIdActeur(paramIdActeur);
-	}
+    @Override
+    public void updateAdresse(Adresse paramAdresse) {
+        proxyAdresseDao.updateAdresse(paramAdresse);
+    }
 
-	@Override
-	public void addAdresse(Adresse paramAdresse, Integer paramIdActeur) {
-		proxyAdresseDao.addAdresse(paramAdresse, paramIdActeur);
-	}
+    @Override
+    public void deleteAdresse(Integer paramIdAdresse) {
+        proxyAdresseDao.deleteAdresse(paramIdAdresse);
+    }
 
-	@Override
-	public void updateAdresse(Adresse paramAdresse) {
-		proxyAdresseDao.updateAdresse(paramAdresse);
-	}
+    @Override
+    public List<Commentaire> getAllCommentaireByUtilisateur(Integer paramIdUtilisateur) {
+        return proxyCommentaireDao.getAllCommentaireByUtilisateur(paramIdUtilisateur);
+    }
 
-	@Override
-	public void deleteAdresse(Integer paramIdAdresse) {
-		proxyAdresseDao.deleteAdresse(paramIdAdresse);
-	}
+    @Override
+    public List<Pays> getAllPays() {
+        return proxyPaysDao.getAllPays();
+    }
 
-	@Override
-	public List<Commentaire> getAllCommentaireByUtilisateur(Integer paramIdUtilisateur) {
-		return proxyCommentaireDao.getAllCommentaireByUtilisateur(paramIdUtilisateur);
-	}
+    @Override
+    public Pays getPaysByIdVille(Integer paramIdVille) {
+        return proxyPaysDao.getPaysByIdVille(paramIdVille);
+    }
 
-	@Override
-	public List<Pays> getAllPays() {
-		return proxyPaysDao.getAllPays();
-	}
+    @Override
+    public List<Ville> getAllVille() {
+        return proxyVilleDao.getAll();
+    }
 
-	@Override
-	public Pays getPaysByIdVille(Integer paramIdVille) {
-		return proxyPaysDao.getPaysByIdVille(paramIdVille);
-	}
+    @Override
+    public List<Ville> getAllVilleByIdPays(Integer paramIdPays) {
+        return proxyVilleDao.getAllByIdPays(paramIdPays);
+    }
 
-	@Override
-	public List<Ville> getAllVille() {
-		return proxyVilleDao.getAll();
-	}
+    @Override
+    public List<TypeAcces> getAllTypeAcces() {
+        return proxyTypeAccesDao.getAll();
+    }
 
-	@Override
-	public List<Ville> getAllVilleByIdPays(Integer paramIdPays) {
-		return proxyVilleDao.getAllByIdPays(paramIdPays);
-	}
+    @Override
+    public List<Utilisateur> getAllUtilisateur() {
+        return proxyUtilisateurDao.getAllUtilisateur();
+    }
 
-	@Override
-	public List<TypeAcces> getAllTypeAcces() {
-		return proxyTypeAccesDao.getAll();
-	}
+    @Override
+    public Utilisateur getUserByEmail(String email) {
+        return proxyUtilisateurDao.getUserByEmail(email);
+    }
 
-	@Override
-	public List<Utilisateur> getAllUtilisateur() {
-		return proxyUtilisateurDao.getAllUtilisateur();
-	}
+    @Override
+    public Utilisateur getUtilisateurById(int paramIdUtilisateur) {
+        return proxyUtilisateurDao.getUtilisateurById(paramIdUtilisateur);
+    }
 
-	@Override
-	public Utilisateur getUserByEmail(String email) {
-		return proxyUtilisateurDao.getUserByEmail(email);
-	}
+    @Override
+    public void addUtilisateur(Utilisateur paramUtilisateur) {
+        proxyUtilisateurDao.addUtilisateur(paramUtilisateur);
+    }
 
-	@Override
-	public Utilisateur getUtilisateurById(int paramIdUtilisateur) {
-		return proxyUtilisateurDao.getUtilisateurById(paramIdUtilisateur);
-	}
+    @Override
+    public void updateUtilisateur(Utilisateur paramUtilisateur) {
+        proxyUtilisateurDao.updateUtilisateur(paramUtilisateur);
+    }
 
-	@Override
-	public void addUtilisateur(Utilisateur paramUtilisateur) {
-		proxyUtilisateurDao.addUtilisateur(paramUtilisateur);
-	}
+    @Override
+    public void deleteUtilisateur(Integer paramIdUtilisateur) {
+        proxyUtilisateurDao.deleteUtilisateur(paramIdUtilisateur);
+    }
 
-	@Override
-	public void updateUtilisateur(Utilisateur paramUtilisateur) {
-		proxyUtilisateurDao.updateUtilisateur(paramUtilisateur);
-	}
-
-	@Override
-	public void deleteUtilisateur(Integer paramIdUtilisateur) {
-		proxyUtilisateurDao.deleteUtilisateur(paramIdUtilisateur);
-	}
-
-	@Override
-	public Ville getVilleById(Integer paramIdVille) {
-		return proxyVilleDao.getVilleById(paramIdVille);
-	}
+    @Override
+    public Ville getVilleById(Integer paramIdVille) {
+        return proxyVilleDao.getVilleById(paramIdVille);
+    }
 
 }

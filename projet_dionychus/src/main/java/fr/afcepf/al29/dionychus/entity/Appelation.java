@@ -1,64 +1,82 @@
 package fr.afcepf.al29.dionychus.entity;
 
+/**
+ * Entités pour les appellations des {@link Vin} de Dyonichus.
+ *
+ * @author ecala
+ *
+ */
 public class Appelation {
-	private Integer idAppelation;
-	private String libelle;
-	public Appelation() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Appelation(Integer idAppelation, String libelle) {
-		super();
-		this.idAppelation = idAppelation;
-		this.libelle = libelle;
-	}
-	public Integer getIdAppelation() {
-		return idAppelation;
-	}
-	public void setIdAppelation(Integer idAppelation) {
-		this.idAppelation = idAppelation;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((idAppelation == null) ? 0 : idAppelation.hashCode());
-		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Appelation other = (Appelation) obj;
-		if (idAppelation == null) {
-			if (other.idAppelation != null)
-				return false;
-		} else if (!idAppelation.equals(other.idAppelation))
-			return false;
-		if (libelle == null) {
-			if (other.libelle != null)
-				return false;
-		} else if (!libelle.equals(other.libelle))
-			return false;
-		return true;
-	}
-	@Override
-	public String toString() {
-		return "Appelation [idAppelation=" + idAppelation + ", libelle=" + libelle + "]";
-	}
-	
-	
-	
-	
+    /**
+     * id de l'appellation.
+     */
+    private Integer idAppelation;
+    /**
+     * libelle de l'appellation.
+     */
+    private String libelle;
+
+    /**
+     * Constructeur par défaut de l'appellation.
+     */
+    public Appelation() {
+        super();
+    }
+
+    /**
+     * Constructeur surchargé de l'appellation.
+     *
+     * @param paramIdAppelation
+     *            id to set.
+     * @param paramLibelle
+     *            libelle to set.
+     */
+    public Appelation(Integer paramIdAppelation, String paramLibelle) {
+        super();
+        idAppelation = paramIdAppelation;
+        libelle = paramLibelle;
+    }
+
+    /**
+     *
+     * @return l'id de l'appellation.
+     */
+    public Integer getIdAppelation() {
+        return idAppelation;
+    }
+
+    /**
+     *
+     * @param paramIdAppelation
+     *            id to set.
+     */
+    public void setIdAppelation(Integer paramIdAppelation) {
+        idAppelation = paramIdAppelation;
+    }
+
+    /**
+     *
+     * @return le libellé de l'appellation.
+     */
+    public String getLibelle() {
+        return libelle;
+    }
+
+    /**
+     *
+     * @param paramLibelle
+     *            libellé to set.
+     */
+    public void setLibelle(String paramLibelle) {
+        libelle = paramLibelle;
+    }
+
+    /**
+     * @return les paramètres de l'appellation en texte.
+     */
+    @Override
+    public String toString() {
+        return "Appelation [idAppelation=" + idAppelation + ", libelle=" + libelle + "]";
+    }
+
 }

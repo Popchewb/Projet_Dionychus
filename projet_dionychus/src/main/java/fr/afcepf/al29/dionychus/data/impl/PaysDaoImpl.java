@@ -9,40 +9,67 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import fr.afcepf.al29.dionychus.data.itf.PaysDaoItf;
 import fr.afcepf.al29.dionychus.entity.Pays;
 import fr.afcepf.al29.dionychus.mapper.PaysMapper;
-
+/**
+ * Classe pour l'accès aux données des {@link Pays}.
+ * @author ecala
+ *
+ */
 public class PaysDaoImpl implements PaysDaoItf {
+    /**
+     * le template jdbc.
+     */
+    private JdbcTemplate jdbcTemplate;
+    /**
+     * la datasource.
+     */
+    private DataSource dataSource;
 
-	JdbcTemplate jdbcTemplate;
-	DataSource dataSource;
+    /**
+     *
+     * @return le template jdbc.
+     */
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
 
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
+    /**
+     *
+     * @param paramJdbcTemplate
+     *            le template jdbc to set.
+     */
+    public void setJdbcTemplate(JdbcTemplate paramJdbcTemplate) {
+        jdbcTemplate = paramJdbcTemplate;
+    }
 
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+    /**
+     *
+     * @return la datasource.
+     */
+    public DataSource getDataSource() {
+        return dataSource;
+    }
 
-	public DataSource getDataSource() {
-		return dataSource;
-	}
+    /**
+     *
+     * @param paramDataSource
+     *            la datasource to set.
+     */
+    public void setDataSource(DataSource paramDataSource) {
+        dataSource = paramDataSource;
+        jdbcTemplate = new JdbcTemplate(paramDataSource);
+    }
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+    @Override
+    public List<Pays> getAllPays() {
+        String sql = "SELECT id_pays, libelle FROM pays ORDER BY libelle";
+        return jdbcTemplate.query(sql, new PaysMapper());
+    }
 
-	@Override
-	public List<Pays> getAllPays() {
-		String SQL = "SELECT id_pays, libelle FROM pays ORDER BY libelle";
-		return jdbcTemplate.query(SQL, new PaysMapper());
-	}
-
-	@Override
-	public Pays getPaysByIdVille(Integer paramIdVille) {
-		String SQL = "SELECT p.id_pays, p.libelle FROM pays p INNER JOIN ville v WHERE p.id_ville = v.id_ville AND v.id_ville = ?";
-		Pays pays = jdbcTemplate.queryForObject(SQL, new Object[] { paramIdVille }, new PaysMapper());
-		return pays;
-	}
+    @Override
+    public Pays getPaysByIdVille(Integer paramIdVille) {
+        String sql = "SELECT p.id_pays, p.libelle FROM pays p INNER JOIN ville v WHERE p.id_ville = v.id_ville AND v.id_ville = ?";
+        Pays pays = jdbcTemplate.queryForObject(sql, new Object[] {paramIdVille }, new PaysMapper());
+        return pays;
+    }
 
 }

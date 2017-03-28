@@ -7,14 +7,20 @@ import org.springframework.jdbc.core.RowMapper;
 
 import fr.afcepf.al29.dionychus.entity.Pays;
 
-public class PaysMapper implements RowMapper<Pays>{
+/**
+ * Classe pour mapper un result set de pays vers une entité {@link Pays}.
+ *
+ * @author ecala
+ *
+ */
+public class PaysMapper implements RowMapper<Pays> {
 
-	@Override
-	public Pays mapRow(ResultSet rs, int intRow) throws SQLException {
-		Pays pays = new Pays();
-		pays.setIdPays(rs.getInt("id_pays"));
-		pays.setLibelle(rs.getString("libelle"));
-		return pays;
-	}
+    @Override
+    public Pays mapRow(ResultSet rs, int intRow) throws SQLException {
+        Pays pays = new Pays();
+        pays.setIdPays(rs.getInt("id_pays"));
+        pays.setLibelle(rs.getString("libelle"));
+        return pays;
+    }
 
 }

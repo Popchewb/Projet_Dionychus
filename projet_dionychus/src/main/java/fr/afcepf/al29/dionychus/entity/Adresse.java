@@ -1,115 +1,181 @@
 package fr.afcepf.al29.dionychus.entity;
 
+/**
+ * Entité pour les adresses des {@link Acteur}.
+ *
+ * @author ecala
+ *
+ */
 public class Adresse {
-	private Integer idAdresse;
-	private String libelle;
-	private String complementAdresse;
-	private Ville ville;
-	private Boolean adresseFacturation;
-	private Boolean adresseLivraison;
-	public Adresse() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Boolean getAdresseFacturation() {
-		return adresseFacturation;
-	}
+    /**
+     * l'id de l'adresse.
+     */
+    private Integer idAdresse;
+    /**
+     * le libellé de l'adresse.
+     */
+    private String libelle;
+    /**
+     * le complément de l'adresse.
+     */
+    private String complementAdresse;
+    /**
+     * la ville de l'adresse.
+     */
+    private Ville ville;
+    /**
+     * true si l'adresse est une adresse de facturation.
+     */
+    private Boolean adresseFacturation;
+    /**
+     * true si l'adresse est une adresse de livraison.
+     */
+    private Boolean adresseLivraison;
 
-	public void setAdresseFacturation(Boolean adresseFacturation) {
-		this.adresseFacturation = adresseFacturation;
-	}
+    /**
+     * Constructeur par défaut.
+     */
+    public Adresse() {
+        super();
+    }
 
-	public Boolean getAdresseLivraison() {
-		return adresseLivraison;
-	}
+    /**
+     * Constructeur surchargé de l'adresse.
+     *
+     * @param paramIdAdresse
+     *            id to set.
+     * @param paramLibelle
+     *            libelle to set.
+     * @param paramComplementAdresse
+     *            complément adresse to set.
+     * @param paramVille
+     *            ville to set.
+     * @param paramAdresseFacturation
+     *            isAdresseDeFacturation to set.
+     * @param paramAdresseLivraison
+     *            isAdresseDeLivraison to set.
+     */
+    public Adresse(Integer paramIdAdresse, String paramLibelle, String paramComplementAdresse, Ville paramVille,
+            Boolean paramAdresseFacturation, Boolean paramAdresseLivraison) {
+        super();
+        idAdresse = paramIdAdresse;
+        libelle = paramLibelle;
+        complementAdresse = paramComplementAdresse;
+        ville = paramVille;
+        adresseFacturation = paramAdresseFacturation;
+        adresseLivraison = paramAdresseLivraison;
+    }
 
-	public void setAdresseLivraison(Boolean adresseLivraison) {
-		this.adresseLivraison = adresseLivraison;
-	}
+    /**
+     *
+     * @return l'id de l'adresse.
+     */
+    public Integer getIdAdresse() {
+        return idAdresse;
+    }
 
-	
-	public Adresse(Integer idAdresse, String libelle, String complementAdresse, Ville ville, Boolean adresseFacturation,
-			Boolean adresseLivraison) {
-		super();
-		this.idAdresse = idAdresse;
-		this.libelle = libelle;
-		this.complementAdresse = complementAdresse;
-		this.ville = ville;
-		this.adresseFacturation = adresseFacturation;
-		this.adresseLivraison = adresseLivraison;
-	}
+    /**
+     *
+     * @param paramIdAdresse
+     *            id adresse to set.
+     */
+    public void setIdAdresse(Integer paramIdAdresse) {
+        idAdresse = paramIdAdresse;
+    }
 
-	public Integer getIdAdresse() {
-		return idAdresse;
-	}
-	public void setIdAdresse(Integer idAdresse) {
-		this.idAdresse = idAdresse;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	public String getComplementAdresse() {
-		return complementAdresse;
-	}
-	public void setComplementAdresse(String complementAdresse) {
-		this.complementAdresse = complementAdresse;
-	}
-	public Ville getVille() {
-		return ville;
-	}
-	public void setVille(Ville ville) {
-		this.ville = ville;
-	}
-	@Override
-	public String toString() {
-		return "Adresse [idAdresse=" + idAdresse + ", libelle=" + libelle + ", complementAdresse=" + complementAdresse
-				+ ", ville=" + ville + "]";
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((complementAdresse == null) ? 0 : complementAdresse.hashCode());
-		result = prime * result + ((idAdresse == null) ? 0 : idAdresse.hashCode());
-		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
-		result = prime * result + ((ville == null) ? 0 : ville.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Adresse other = (Adresse) obj;
-		if (complementAdresse == null) {
-			if (other.complementAdresse != null)
-				return false;
-		} else if (!complementAdresse.equals(other.complementAdresse))
-			return false;
-		if (idAdresse == null) {
-			if (other.idAdresse != null)
-				return false;
-		} else if (!idAdresse.equals(other.idAdresse))
-			return false;
-		if (libelle == null) {
-			if (other.libelle != null)
-				return false;
-		} else if (!libelle.equals(other.libelle))
-			return false;
-		if (ville == null) {
-			if (other.ville != null)
-				return false;
-		} else if (!ville.equals(other.ville))
-			return false;
-		return true;
-	}
-	
-	
+    /**
+     *
+     * @return le libelle de l'adresse.
+     */
+    public String getLibelle() {
+        return libelle;
+    }
+
+    /**
+     *
+     * @param paramLibelle
+     *            libelle to set.
+     */
+    public void setLibelle(String paramLibelle) {
+        libelle = paramLibelle;
+    }
+
+    /**
+     *
+     * @return le complément d'adresse.
+     */
+    public String getComplementAdresse() {
+        return complementAdresse;
+    }
+
+    /**
+     *
+     * @param paramComplementAdresse
+     *            complément d'adresse to set.
+     */
+    public void setComplementAdresse(String paramComplementAdresse) {
+        complementAdresse = paramComplementAdresse;
+    }
+
+    /**
+     *
+     * @return la ville de l'adresse.
+     */
+    public Ville getVille() {
+        return ville;
+    }
+
+    /**
+     *
+     * @param paramVille
+     *            la ville to set.
+     */
+    public void setVille(Ville paramVille) {
+        ville = paramVille;
+    }
+
+    /**
+     *
+     * @return true si c'est une adresse de facturation.
+     */
+    public Boolean getAdresseFacturation() {
+        return adresseFacturation;
+    }
+
+    /**
+     *
+     * @param paramAdresseFacturation
+     *            isAdresseDeFacturation to set.
+     */
+    public void setAdresseFacturation(Boolean paramAdresseFacturation) {
+        adresseFacturation = paramAdresseFacturation;
+    }
+
+    /**
+     *
+     * @return si c'est une adresse de livraison.
+     */
+    public Boolean getAdresseLivraison() {
+        return adresseLivraison;
+    }
+
+    /**
+     *
+     * @param paramAdresseLivraison
+     *            isAdresseDeLivraison to set.
+     */
+    public void setAdresseLivraison(Boolean paramAdresseLivraison) {
+        adresseLivraison = paramAdresseLivraison;
+    }
+
+    /**
+     * @return les paramètres de l'adresse en texte.
+     */
+    @Override
+    public String toString() {
+        return "Adresse [idAdresse=" + idAdresse + ", libelle=" + libelle + ", complementAdresse=" + complementAdresse
+                + ", ville=" + ville + ", adresseFacturation=" + adresseFacturation + ", adresseLivraison="
+                + adresseLivraison + "]";
+    }
+
 }

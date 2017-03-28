@@ -8,19 +8,25 @@ import org.springframework.jdbc.core.RowMapper;
 import fr.afcepf.al29.dionychus.entity.Pays;
 import fr.afcepf.al29.dionychus.entity.Ville;
 
-public class VilleMapper implements RowMapper<Ville>{
+/**
+ * Classe pour mapper un result set de ville vers une entité {@link Ville}.
+ *
+ * @author ecala
+ *
+ */
+public class VilleMapper implements RowMapper<Ville> {
 
-	@Override
-	public Ville mapRow(ResultSet rs, int intRow) throws SQLException {
-		Ville ville = new Ville();
-		ville.setIdVille(rs.getInt("v.id_ville"));
-		ville.setLibelle(rs.getString("v.libelle"));
-		ville.setCodePostal(rs.getString("v.code_postal"));
-		Pays pays = new Pays();
-		pays.setIdPays(rs.getInt("v.id_pays"));
-		pays.setLibelle(rs.getString("p.libelle"));
-		ville.setPays(pays);
-		return ville;
-	}
+    @Override
+    public Ville mapRow(ResultSet rs, int intRow) throws SQLException {
+        Ville ville = new Ville();
+        ville.setIdVille(rs.getInt("v.id_ville"));
+        ville.setLibelle(rs.getString("v.libelle"));
+        ville.setCodePostal(rs.getString("v.code_postal"));
+        Pays pays = new Pays();
+        pays.setIdPays(rs.getInt("v.id_pays"));
+        pays.setLibelle(rs.getString("p.libelle"));
+        ville.setPays(pays);
+        return ville;
+    }
 
 }

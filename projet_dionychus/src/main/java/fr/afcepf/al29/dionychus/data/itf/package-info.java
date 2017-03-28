@@ -1,7 +1,5 @@
 /**
- * 
- */
-/**
+ * Package pour les interfaces des méthodes d'accès aux données.
  * @author ecala
  *
  */

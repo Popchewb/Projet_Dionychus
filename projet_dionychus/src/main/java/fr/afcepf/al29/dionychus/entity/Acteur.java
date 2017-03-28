@@ -2,135 +2,198 @@ package fr.afcepf.al29.dionychus.entity;
 
 import java.util.List;
 
+/**
+ * Entité pour les acteurs présent dans l'application Dyonichus à savoir les
+ * clients, les utilisateurs et les fournisseurs.
+ *
+ * @author ecala
+ *
+ */
+
 public abstract class Acteur {
-	private Integer idActeur;
-	private String nom;
-	private String prenom;
-	private String numeroTelephone;
-	private String adresseMail;
-	private String civilite;
-	private List<Adresse> adresses;
-	public Acteur() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Acteur(Integer idActeur, String nom, String prenom, String numeroTelephone, String adresseMail,
-			String civilite, List<Adresse> adresses) {
-		super();
-		this.idActeur = idActeur;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.numeroTelephone = numeroTelephone;
-		this.adresseMail = adresseMail;
-		this.civilite = civilite;
-		this.adresses = adresses;
-	}
-	public Integer getIdActeur() {
-		return idActeur;
-	}
-	public void setIdActeur(Integer idActeur) {
-		this.idActeur = idActeur;
-	}
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-	public String getNumeroTelephone() {
-		return numeroTelephone;
-	}
-	public void setNumeroTelephone(String numeroTelephone) {
-		this.numeroTelephone = numeroTelephone;
-	}
-	public String getAdresseMail() {
-		return adresseMail;
-	}
-	public void setAdresseMail(String adresseMail) {
-		this.adresseMail = adresseMail;
-	}
-	public String getCivilite() {
-		return civilite;
-	}
-	public void setCivilite(String civilite) {
-		this.civilite = civilite;
-	}
-	public List<Adresse> getAdresses() {
-		return adresses;
-	}
-	public void setAdresses(List<Adresse> adresses) {
-		this.adresses = adresses;
-	}
-	@Override
-	public String toString() {
-		return "Acteur [idActeur=" + idActeur + ", nom=" + nom + ", prenom=" + prenom + ", numeroTelephone="
-				+ numeroTelephone + ", adresseMail=" + adresseMail + ", civilite=" + civilite + ", adresses=" + adresses
-				+ "]";
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((adresseMail == null) ? 0 : adresseMail.hashCode());
-		result = prime * result + ((adresses == null) ? 0 : adresses.hashCode());
-		result = prime * result + ((civilite == null) ? 0 : civilite.hashCode());
-		result = prime * result + ((idActeur == null) ? 0 : idActeur.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		result = prime * result + ((numeroTelephone == null) ? 0 : numeroTelephone.hashCode());
-		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Acteur other = (Acteur) obj;
-		if (adresseMail == null) {
-			if (other.adresseMail != null)
-				return false;
-		} else if (!adresseMail.equals(other.adresseMail))
-			return false;
-		if (adresses == null) {
-			if (other.adresses != null)
-				return false;
-		} else if (!adresses.equals(other.adresses))
-			return false;
-		if (civilite == null) {
-			if (other.civilite != null)
-				return false;
-		} else if (!civilite.equals(other.civilite))
-			return false;
-		if (idActeur == null) {
-			if (other.idActeur != null)
-				return false;
-		} else if (!idActeur.equals(other.idActeur))
-			return false;
-		if (nom == null) {
-			if (other.nom != null)
-				return false;
-		} else if (!nom.equals(other.nom))
-			return false;
-		if (numeroTelephone == null) {
-			if (other.numeroTelephone != null)
-				return false;
-		} else if (!numeroTelephone.equals(other.numeroTelephone))
-			return false;
-		if (prenom == null) {
-			if (other.prenom != null)
-				return false;
-		} else if (!prenom.equals(other.prenom))
-			return false;
-		return true;
-	}
-	
+    /**
+     * l'id de l'acteur.
+     */
+    private Integer idActeur;
+    /**
+     * le nom de l'acteur.
+     */
+    private String nom;
+    /**
+     * le prénom de l'acteur.
+     */
+    private String prenom;
+    /**
+     * le numéro de téléphone de l'acteur.
+     */
+    private String numeroTelephone;
+    /**
+     * l'adresse e-mail de l'acteur.
+     */
+    private String adresseMail;
+    /**
+     * la {@link Civilite} de l'acteur.
+     */
+    private String civilite;
+    /**
+     * les {@link Adresse} de l'utilisateur.
+     */
+    private List<Adresse> adresses;
+
+    /**
+     * Constructeur par défaut de l'acteur.
+     */
+    public Acteur() {
+        super();
+    }
+
+    /**
+     * Constructeur surchargé de l'acteur.
+     *
+     * @param paramIdActeur
+     *            son id
+     * @param paramNom
+     *            son nom
+     * @param paramPrenom
+     *            son prénom
+     * @param paramNumeroTelephone
+     *            son numéro de téléphone
+     * @param paramAdresseMail
+     *            son adresse e-mail
+     * @param paramCivilite
+     *            sa civilité
+     * @param paramAdresses
+     *            la liste de ses adresses
+     */
+    public Acteur(Integer paramIdActeur, String paramNom, String paramPrenom, String paramNumeroTelephone,
+            String paramAdresseMail, String paramCivilite, List<Adresse> paramAdresses) {
+        super();
+        idActeur = paramIdActeur;
+        nom = paramNom;
+        prenom = paramPrenom;
+        numeroTelephone = paramNumeroTelephone;
+        adresseMail = paramAdresseMail;
+        civilite = paramCivilite;
+        adresses = paramAdresses;
+    }
+
+    /**
+     *
+     * @return l'id de l'acteur.
+     */
+    public Integer getIdActeur() {
+        return idActeur;
+    }
+
+    /**
+     *
+     * @param paramIdActeur
+     *            id to set.
+     */
+    public void setIdActeur(Integer paramIdActeur) {
+        idActeur = paramIdActeur;
+    }
+
+    /**
+     *
+     * @return le nom de l'acteur.
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     *
+     * @param paramNom
+     *            nom to set.
+     */
+    public void setNom(String paramNom) {
+        nom = paramNom;
+    }
+
+    /**
+     *
+     * @return le prénom de l'acteur.
+     */
+    public String getPrenom() {
+        return prenom;
+    }
+
+    /**
+     *
+     * @param paramPrenom
+     *            prénom to set.
+     */
+    public void setPrenom(String paramPrenom) {
+        prenom = paramPrenom;
+    }
+
+    /**
+     *
+     * @return le numéro de téléphone de l'acteur.
+     */
+    public String getNumeroTelephone() {
+        return numeroTelephone;
+    }
+
+    /**
+     *
+     * @param paramNumeroTelephone
+     *            numéro de téléphone to set.
+     */
+    public void setNumeroTelephone(String paramNumeroTelephone) {
+        numeroTelephone = paramNumeroTelephone;
+    }
+
+    /**
+     *
+     * @return l'adresse email de l'acteur.
+     */
+    public String getAdresseMail() {
+        return adresseMail;
+    }
+
+    /**
+     *
+     * @param paramAdresseMail
+     *            adresse email to set.
+     */
+    public void setAdresseMail(String paramAdresseMail) {
+        adresseMail = paramAdresseMail;
+    }
+
+    /**
+     *
+     * @return la civilité de l'acteur.
+     */
+    public String getCivilite() {
+        return civilite;
+    }
+
+    /**
+     *
+     * @param paramCivilite
+     *            la civilité to set.
+     */
+    public void setCivilite(String paramCivilite) {
+        civilite = paramCivilite;
+    }
+
+    /**
+     *
+     * @return les adresses de l'acteur.
+     */
+    public List<Adresse> getAdresses() {
+        return adresses;
+    }
+
+    /**
+     *
+     * @param paramAdresses
+     *            les adresses to set.
+     */
+    public void setAdresses(List<Adresse> paramAdresses) {
+        adresses = paramAdresses;
+    }
+
 }
